@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thông tin sách</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+	<div th:replace="~{layout/header :: header}"></div>
+    <div class="container-fluid mb-4">
+        <h1>Thông tin sách</h1>
+        
+        <!-- Decode the "message" parameter 
+        <th:block th:with="messageId=${param.message}">
+            <th:block th:with="message=${#uris.decode(messageId, 'UTF-8')}">
+                <th:block th:with="messageType=${message.toLowerCase().contains('thành công') ? 'alert-success' : 'alert-danger'}">
+                    <div th:if="${message}" th:class="alert ${messageType}" role="alert">
+                        <p th:text="${message}"></p>
+                    </div>
+                </th:block>
+            </th:block>
+        </th:block> -->
+        
+        <!-- Hiển thị thông báo nếu có -->
+        <div th:if="${param.message}" class="alert"
+		     th:classappend="${#strings.containsIgnoreCase(param.message, 'thành công') ? 'alert-success' : 'alert-danger'}">
+		    <span th:text="${param.message}"></span>
+		</div>
+        
+        <div class="card">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img th:src="${book.img}" alt="Book Image" class="card-img">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${book.name}"></h5>
+                        <p class="card-text">Tác giả: <span th:text="${book.author}"></span></p>
+                        <p class="card-text">Nhà xuất bản: <span th:text="${book.publisher}"></span></p>
+                        <p class="card-text">Giá: <span th:text="${book.price}"></span> vnd</p>
+                        <p class="card-text">Số lượng: <span th:text="${book.quantity}"></span></p>
+                        <div class="d-flex flex-grow-1">
+                            <form th:action="@{/addtocart}" method="post">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <input type="number" id="quantity" name="quantity" class="form-control" min="1" th:max="${book.quantity}" value="1">
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="hidden" name="bookId" th:value="${book.id}">
+                                        <button type="submit" class="btn btn-success btn-block">Thêm vào giỏ hàng</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="ml-2">
+                                <a th:href="@{/viewbooks}" class="btn btn-primary">Trở về</a>
+                            </div>
+                        </div>
+                        <p class="card-text">Danh mục: <span th:text="${book.category.name}"></span></p>
+                        <p class="card-text">Mô tả:</p>
+                        <pre class="card-text" th:text="${book.description}"></pre>
+                        <p class="card-text">Chi tiết:</p>
+                        <pre class="card-text" th:text="${book.detail}"></pre>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+<div th:replace="~{layout/footer :: footer}"></div>
+</body>
+</html>

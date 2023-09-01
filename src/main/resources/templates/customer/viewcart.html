@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Giỏ hàng</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+	<div th:replace="~{layout/header :: header}"></div>
+    <div class="container-fluid mb-4">
+        <h1>Giỏ hàng</h1>
+        
+        <!-- Hiển thị thông báo nếu có -->
+		<div th:if="${message}" class="alert"
+		     th:classappend="${message.contains('thành công') ? 'alert-success' : 'alert-danger'}"
+		     th:text="${message}"></div>
+        
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th class="align-middle text-center">Ảnh</th>
+                    <th class="align-middle text-center">Tên sách</th>
+                    <th class="align-middle text-center">Số lượng</th>
+                    <th class="align-middle text-center">Giá (vnd)</th>
+                    <th class="align-middle text-center">Tổng (vnd)</th>
+                    <th class="align-middle text-center">Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="cartItem : ${cartItems}">
+                    <td class="text-center text-center"><img th:src="${cartItem.book.img}" width="100"></td>
+                    <td class="align-middle text-center" th:text="${cartItem.book.name}"></td>
+                    <td class="align-middle text-center">
+                        <div class="input-group justify-content-center">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-outline-secondary" type="button" th:onclick="'decreaseQuantity(' + ${cartItem.id} + ')'">-</button>
+                            </div>
+                            <div class="col-auto">
+                                <input type="text" class="form-control" th:value="${cartItem.quantity}" th:id="'quantity_' + ${cartItem.id}" readonly>
+                            </div>
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" th:onclick="'increaseQuantity(' + ${cartItem.id} + ', ' + ${cartItem.book.quantity} + ')'">+</button>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="align-middle text-center" th:text="${cartItem.book.price}"></td>
+                    <td class="align-middle text-center" th:id="'totalpriceitem_' + ${cartItem.id}" th:text="${cartItem.quantity * cartItem.book.price}"></td>
+                    <td class="align-middle text-center">
+                        <a th:href="@{/removefromcart(itemId=${cartItem.id})}" class="btn btn-danger">Xóa</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="text-right">
+            <h4>Tổng số tiền (vnd)</h4>
+            <h4 id="totalpricecart" th:text="${totalAmount}"></h4>
+            <a th:href="@{/orderinformation(totalAmount=${totalAmount})}" class="btn btn-success">Mua hàng</a>
+        </div>
+        
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script th:inline="javascript">
+        function increaseQuantity(itemId, maxQuantity) {
+            var quantityInput = document.getElementById("quantity_" + itemId);
+            var oldQuantity = parseInt(quantityInput.value);
+            var newQuantity = oldQuantity + 1;
+            
+            if (oldQuantity < maxQuantity) {
+                quantityInput.value = newQuantity;
+                updateCartItem(itemId, newQuantity);
+            } else {
+                alert("Số lượng đã đạt giới hạn.");
+            }
+        }
+        
+        function decreaseQuantity(itemId) {
+		    var quantityInput = document.getElementById("quantity_" + itemId);
+		    var oldQuantity = parseInt(quantityInput.value);
+		    var newQuantity = oldQuantity - 1;
+		
+		    if (oldQuantity > 1) {
+		        quantityInput.value = newQuantity;
+		        updateCartItem(itemId, newQuantity);
+		    }
+		}
+
+		function updateCartItem(itemId, quantity) {
+		    // Gửi yêu cầu AJAX đến máy chủ để cập nhật số lượng sản phẩm trong giỏ hàng
+		    var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/updatecartitem", true);
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // Xử lý phản hồi từ server (nếu cần)
+                    // Tải lại trang sau khi cập nhật giỏ hàng
+                    location.reload(); 
+                } else {
+                    console.error("Update cart item failed");
+                }
+            };
+            xhr.send("itemId=" + itemId + "&quantity=" + quantity);
+		}
+</script>
+<div th:replace="~{layout/footer :: footer}"></div>
+</body>
+</html>
