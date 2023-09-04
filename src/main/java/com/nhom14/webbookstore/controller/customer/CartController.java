@@ -119,6 +119,7 @@ public class CartController {
         // Kiểm tra xem giỏ hàng có hàng không
         if (cartItems.isEmpty()) {
             model.addAttribute("message", "Giỏ hàng trống!");
+            model.addAttribute("totalAmount", null);
             // Chuyển hướng đến trang viewcart
             return "customer/viewcart";
         }
@@ -140,5 +141,25 @@ public class CartController {
             totalAmount += cartItem.getQuantity() * cartItem.getBook().getPrice();
         }
         return totalAmount;
+    }
+    
+    @GetMapping("/removefromcart")
+    public String removeFromCart(@RequestParam("itemId") int itemId,
+    		HttpSession session) {
+    	
+    	Account account = (Account) session.getAttribute("account");
+
+	    // Kiểm tra xem người dùng đã đăng nhập hay chưa
+	    if (account == null) {
+	        // Nếu chưa đăng nhập, chuyển hướng về trang đăng nhập
+	        return "redirect:/customer/loginaccount";
+	    }
+	    
+	    // Xóa CartItem khỏi giỏ hàng
+	    CartItem cartItem = cartItemService.getCartItemById(itemId);
+        cartItemService.deleteCartItem(cartItem);
+        
+        // Chuyển hướng về trang hiển thị giỏ hàng
+        return "redirect:/viewcart";
     }
 }

@@ -23,5 +23,8 @@ public interface CartItemService {
 	// Lấy CartItem theo Id
 	CartItem getCartItemById(int itemId);
 
+	// Xóa một cartItem
+	void deleteCartItem(CartItem cartItem);
+
 
 }

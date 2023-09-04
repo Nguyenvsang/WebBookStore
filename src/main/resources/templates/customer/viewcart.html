@@ -52,11 +52,11 @@
             </tbody>
         </table>
         
-        <div class="text-right">
-            <h4>Tổng số tiền (vnd)</h4>
-            <h4 id="totalpricecart" th:text="${totalAmount}"></h4>
-            <a th:href="@{/orderinformation(totalAmount=${totalAmount})}" class="btn btn-success">Mua hàng</a>
-        </div>
+        <div class="text-right" th:if="${totalAmount != null}">
+		    <h4>Tổng số tiền (vnd)</h4>
+		    <h4 id="totalpricecart" th:text="${totalAmount}"></h4>
+		    <a th:href="@{/shippinginformation(totalAmount=${totalAmount})}" class="btn btn-success">Mua hàng</a>
+		</div>
         
     </div>
 
