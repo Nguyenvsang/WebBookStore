@@ -1,8 +1,12 @@
 package com.nhom14.webbookstore.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.nhom14.webbookstore.entity.Account;
+import com.nhom14.webbookstore.entity.Order;
 import com.nhom14.webbookstore.repository.OrderRepository;
 import com.nhom14.webbookstore.service.OrderService;
 
@@ -15,6 +19,21 @@ public class OrderServiceImpl implements OrderService {
 	public OrderServiceImpl(OrderRepository orderRepository) {
 		super();
 		this.orderRepository = orderRepository;
+	}
+
+	@Override
+	public void addOrder(Order order) {
+		orderRepository.save(order);
+	}
+
+	@Override
+	public Order getLastOrder(Account account) {
+		return orderRepository.findFirstByAccountOrderByIdDesc(account);
+	}
+
+	@Override
+	public List<Order> getOrdersByAccount(Account account) {
+		return orderRepository.findByAccount(account);
 	}
 	
 	

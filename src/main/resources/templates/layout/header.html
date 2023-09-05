@@ -36,25 +36,25 @@
                             class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" th:href="@{/viewbooks}">Sản phẩm</a>
+                    <a class="nav-link" th:href="@{/viewbooks}">Sản phẩm</a>
                 </li>
                 <li class="nav-item" th:if="${session.account != null}">
-                    <a class="nav-link" href="#" th:href="@{/viewcart}">Giỏ hàng</a>
+                    <a class="nav-link" th:href="@{/viewcart}">Giỏ hàng</a>
                 </li>
                 <li class="nav-item" th:if="${session.account != null}">
-                    <a class="nav-link" href="#" th:href="@{/vieworders}">Đơn hàng</a>
+                    <a class="nav-link" th:href="@{/vieworders}">Đơn hàng</a>
                 </li>
                 <li class="nav-item" th:if="${session.account != null}">
                     <a class="nav-link" th:href="@{/viewaccount}">Chào <span th:text="${session.account['firstName']}"></span></a>
                 </li>
                 <li class="nav-item" th:if="${session.account != null}">
-                    <a class="nav-link" href="#" th:href="@{/customer/logoutaccount}">Đăng xuất</a>
+                    <a class="nav-link" th:href="@{/customer/logoutaccount}">Đăng xuất</a>
                 </li>
                 <li class="nav-item" th:unless="${session.account != null}">
                     <a class="nav-link" th:href="@{/customer/loginaccount}">Đăng nhập</a>
                 </li>
                 <li class="nav-item" th:unless="${session.account != null}">
-                    <a class="nav-link" href="#" th:href="@{/customer/registeraccount}">Đăng ký</a>
+                    <a class="nav-link" th:href="@{/customer/registeraccount}">Đăng ký</a>
                 </li>
             </ul>
         </div>

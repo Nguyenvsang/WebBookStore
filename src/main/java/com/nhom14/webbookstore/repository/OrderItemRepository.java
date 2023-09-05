@@ -5,14 +5,11 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.nhom14.webbookstore.entity.Account;
 import com.nhom14.webbookstore.entity.Order;
+import com.nhom14.webbookstore.entity.OrderItem;
 
 @Repository
-public interface OrderRepository extends JpaRepository<Order, Integer> {
+public interface OrderItemRepository extends JpaRepository<OrderItem, Integer> {
 
-	Order findFirstByAccountOrderByIdDesc(Account account);
-
-	List<Order> findByAccount(Account account);
-
+	List<OrderItem> findByOrder(Order order);
 }

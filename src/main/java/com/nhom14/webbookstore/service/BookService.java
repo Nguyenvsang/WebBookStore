@@ -21,4 +21,7 @@ public interface BookService {
 	// Phương thức lấy sách còn kinh doanh theo Id
 	Book getActiveBookById(int id);
 
+	// Phương thức cập nhật một cuốn sách
+	void updateBook(Book book);
+
 }
