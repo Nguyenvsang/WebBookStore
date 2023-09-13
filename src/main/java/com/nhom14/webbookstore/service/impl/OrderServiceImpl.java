@@ -1,6 +1,7 @@
 package com.nhom14.webbookstore.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,6 +35,12 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public List<Order> getOrdersByAccount(Account account) {
 		return orderRepository.findByAccount(account);
+	}
+
+	@Override
+	public Order getOrderById(int orderId) {
+		Optional<Order> order = orderRepository.findById(orderId);
+	    return order.orElse(null);
 	}
 	
 	

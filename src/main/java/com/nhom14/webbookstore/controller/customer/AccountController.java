@@ -1,29 +1,37 @@
 package com.nhom14.webbookstore.controller.customer;
 
+import java.io.IOException;
 import java.sql.Date;
+import java.util.Map;
+import java.util.Random;
 
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import com.nhom14.webbookstore.entity.Account;
 import com.nhom14.webbookstore.service.AccountService;
+import com.nhom14.webbookstore.service.CloudinaryService;
 
 @Controller
 public class AccountController {
 	private AccountService accountService;
+	private CloudinaryService cloudinaryService;
 
 	@Autowired
-	public AccountController(AccountService accountService) {
+	public AccountController(AccountService accountService, CloudinaryService cloudinaryService) {
 		super();
 		this.accountService = accountService;
+		this.cloudinaryService = cloudinaryService;
 	}
 	
 	@GetMapping("/")
@@ -124,5 +132,149 @@ public class AccountController {
 		HttpSession session = request.getSession();
         session.invalidate();
         return "redirect:/";
+	}
+	
+	@GetMapping("/viewaccount")
+	public String viewAccount(Model model, HttpSession session) {
+		Account account = (Account) session.getAttribute("account");
+
+	    // Kiểm tra xem người dùng đã đăng nhập hay chưa
+	    if (account == null) {
+	        // Nếu chưa đăng nhập, chuyển hướng về trang đăng nhập
+	        return "redirect:/customer/loginaccount";
+	    }
+	    
+	    // Lưu thông tin tài khoản vào model
+        model.addAttribute("account", account);
+        // Sinh giá trị ngẫu nhiên
+        Random random = new Random();
+        int randomNumber = random.nextInt();
+        model.addAttribute("randomNumber", randomNumber);
+
+        // Forward đến trang xem thông tin tài khoản
+        return "customer/viewaccount";
+	}
+	
+	@GetMapping("/updateaccount")
+	public String showUpdateAccountForm(Model model, HttpSession session) {
+		Account account = (Account) session.getAttribute("account");
+
+	    // Kiểm tra xem người dùng đã đăng nhập hay chưa
+	    if (account == null) {
+	        // Nếu chưa đăng nhập, chuyển hướng về trang đăng nhập
+	        return "redirect:/customer/loginaccount";
+	    }
+	    
+	    // Lưu thông tin tài khoản vào model
+	    model.addAttribute("account", account);
+
+	    // Forward đến trang xem thông tin tài khoản
+	    return "customer/updateaccount";
+	}
+	
+	@PostMapping("/updateaccount")
+	public String updateAccount(@ModelAttribute("account") Account accountParam,
+	                            @RequestParam("image") MultipartFile image,
+	                            @RequestParam("dob") String dob,
+	                            HttpSession session,
+	                            Model model,
+	                            RedirectAttributes redirectAttributes) {
+
+	    Account sessionAccount = (Account) session.getAttribute("account");
+
+	    // Kiểm tra xem người dùng đã đăng nhập hay chưa
+	    if (sessionAccount == null) {
+	        // Nếu chưa đăng nhập, chuyển hướng về trang đăng nhập
+	        return "redirect:/customer/loginaccount";
+	    }
+
+	    Account updateAccount = sessionAccount;
+	    try {
+	        if (!image.isEmpty()) {
+	        	// Tạo public ID cho hình ảnh trên Cloudinary (sử dụng id người dùng)
+                String publicId = "Booktopia/img_account/account_" + updateAccount.getId();
+
+                // Tải lên hình ảnh lên Cloudinary và lấy URL
+                String imageUrl = cloudinaryService.uploadImage(image, publicId);
+
+                // Cập nhật URL hình ảnh vào tài khoản
+                updateAccount.setImg(imageUrl);
+	        }
+
+	        // Cập nhật thông tin tài khoản
+	        updateAccount.setUsername(accountParam.getUsername());
+	        updateAccount.setFirstName(accountParam.getFirstName());
+	        updateAccount.setLastName(accountParam.getLastName());
+	        updateAccount.setGender(accountParam.getGender());
+	        updateAccount.setDateOfBirth(Date.valueOf(dob));
+	        updateAccount.setAddress(accountParam.getAddress());
+	        updateAccount.setPhoneNumber(accountParam.getPhoneNumber());
+	        updateAccount.setEmail(accountParam.getEmail());
+	        accountService.updateAccount(updateAccount);
+
+	        // Lưu thông tin tài khoản mới vào session
+	        session.setAttribute("account", updateAccount);
+
+	        // Đến trang xem thông tin tài khoản
+	        redirectAttributes.addAttribute("message", "Đã cập nhật thành công!");
+	        return "redirect:/viewaccount";
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	        redirectAttributes.addAttribute("message", "Đã xảy ra lỗi khi cập nhật tài khoản.");
+	        return "redirect:/viewaccount";
+	    }
+	}
+	
+
+	@GetMapping("/changepassword")
+	public String showChangePasswordForm(HttpSession session) {
+		Account account = (Account) session.getAttribute("account");
+
+	    // Kiểm tra xem người dùng đã đăng nhập hay chưa
+	    if (account == null) {
+	        // Nếu chưa đăng nhập, chuyển hướng về trang đăng nhập
+	        return "redirect:/customer/loginaccount";
+	    }
+	    
+	    return "customer/changepassword";
+	}
+	
+	@PostMapping("/changepassword")
+	public String changePassword(HttpSession session, @RequestParam("currentPassword") String currentPassword, 
+	                             @RequestParam("newPassword") String newPassword, 
+	                             @RequestParam("confirmPassword") String confirmPassword, 
+	                             Model model,
+	                             RedirectAttributes redirectAttributes) {
+	    Account account = (Account) session.getAttribute("account");
+
+	    // Kiểm tra xem người dùng đã đăng nhập hay chưa
+	    if (account == null) {
+	        // Nếu chưa đăng nhập, chuyển hướng về trang đăng nhập
+	        return "redirect:/customer/loginaccount";
+	    }
+	    
+	    // Kiểm tra mật khẩu hiện tại
+	    if (!BCrypt.checkpw(currentPassword, account.getPassword())) {
+	        // Hiển thị thông báo mật khẩu hiện tại không đúng
+	    	redirectAttributes.addAttribute("message", "Mật khẩu hiện tại không đúng. Vui lòng thử lại.");
+	        return "redirect:/changepassword";
+	    }
+	    
+	    // Kiểm tra mật khẩu mới và mật khẩu nhập lại
+	    if (!newPassword.equals(confirmPassword)) {
+	        // Hiển thị thông báo mật khẩu nhập lại không khớp
+	    	redirectAttributes.addAttribute("message", "Mật khẩu nhập lại không khớp. Vui lòng thử lại.");
+	        return "redirect:/changepassword";
+	    }
+	    
+	    // Băm mật khẩu mới sử dụng bcrypt
+	    String hashedNewPassword = BCrypt.hashpw(newPassword, BCrypt.gensalt());
+	    // Cập nhật mật khẩu mới cho tài khoản
+	    account.setPassword(hashedNewPassword);
+	    // Gọi phương thức updateAccount trong AccountService để cập nhật thông tin tài khoản
+	    accountService.updateAccount(account);
+	    // Hiển thị thông báo thành công
+	    redirectAttributes.addAttribute("message", "Thay đổi mật khẩu thành công.");
+	    return "redirect:/viewaccount";
 	}
 }

@@ -11,4 +11,7 @@ public interface AccountService {
 	
 	// Phương thức để thêm một tài khoản mới
     void addAccount(Account account);
+
+    // Phương thức để cập nhật thông tin của một tài khoản
+	void updateAccount(Account account);
 }

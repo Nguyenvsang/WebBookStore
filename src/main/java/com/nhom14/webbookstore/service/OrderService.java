@@ -16,4 +16,7 @@ public interface OrderService {
 	// Phương thức lấy những đơn hàng theo mã người dùng
 	List<Order> getOrdersByAccount(Account account);
 
+	// Lấy đơn hàng theo Id
+	Order getOrderById(int orderId);
+
 }

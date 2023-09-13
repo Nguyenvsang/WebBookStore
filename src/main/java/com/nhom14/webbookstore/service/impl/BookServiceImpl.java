@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -83,7 +84,8 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public Book getBookById(int id) {
-		return bookRepository.findById(id).get();
+		Optional<Book> book = bookRepository.findById(id);
+	    return book.orElse(null);
 	}
 
 	@Override

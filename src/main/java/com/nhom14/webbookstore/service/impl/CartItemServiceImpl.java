@@ -1,6 +1,7 @@
 package com.nhom14.webbookstore.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,7 +45,8 @@ public class CartItemServiceImpl implements CartItemService {
 
 	@Override
 	public CartItem getCartItemById(int itemId) {
-		return cartItemRepository.findById(itemId).get();
+		Optional<CartItem> cartItem = cartItemRepository.findById(itemId);
+	    return cartItem.orElse(null);
 	}
 	
 	@Override

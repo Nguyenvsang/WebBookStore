@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import com.nhom14.webbookstore.entity.Account;
 import com.nhom14.webbookstore.entity.Book;
 import com.nhom14.webbookstore.entity.Cart;
@@ -80,7 +82,8 @@ public class OrderController {
     		@RequestParam("address") String address, 
     		@RequestParam("phoneNumber") String phoneNumber, 
     		@RequestParam("email") String email,
-    		Model model) {
+    		Model model,
+    		RedirectAttributes redirectAttributes) {
         // Kiểm tra đăng nhập
         Account account = (Account) session.getAttribute("account");
 
@@ -147,13 +150,10 @@ public class OrderController {
             
         }
 
-        // Đặt thuộc tính vào model
-        model.addAttribute("order", lastOrder);
-        List<OrderItem> orderItems = orderItemService.getOrderItemsByOrder(lastOrder);
-        model.addAttribute("orderItems", orderItems);
+        // Chuyển hướng đến trang xác nhận đơn hàng với id của đơn hàng
+        redirectAttributes.addAttribute("orderId", lastOrder.getId());
 
-        // Chuyển hướng đến trang xác nhận đơn hàng
-        return "customer/orderconfirmation";
+        return "redirect:/orderconfirmation";
     }
 	
 	private double calculateTotalAmount(List<CartItem> cartItems) {
@@ -183,5 +183,18 @@ public class OrderController {
 
 	    // Forward đến trang vieworders.html
 	    return "customer/vieworders";
+	}
+	
+	@GetMapping("/orderconfirmation")
+	public String orderConfirmation(@RequestParam("orderId") Integer orderId, Model model) {
+	    // Lấy đơn hàng từ cơ sở dữ liệu dựa trên id
+	    Order order = orderService.getOrderById(orderId);
+
+	    // Đặt đơn hàng vào model để hiển thị trên trang xác nhận đơn hàng
+	    model.addAttribute("order", order);
+	    List<OrderItem> orderItems = orderItemService.getOrderItemsByOrder(order);
+        model.addAttribute("orderItems", orderItems);
+
+	    return "customer/orderconfirmation";
 	}
 }
