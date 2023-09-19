@@ -2,7 +2,6 @@ package com.nhom14.webbookstore.controller.customer;
 
 import java.io.IOException;
 import java.sql.Date;
-import java.util.Map;
 import java.util.Random;
 
 import org.mindrot.jbcrypt.BCrypt;
@@ -32,11 +31,6 @@ public class AccountController {
 		super();
 		this.accountService = accountService;
 		this.cloudinaryService = cloudinaryService;
-	}
-	
-	@GetMapping("/")
-	public String showHome() {
-		return "customer/index";
 	}
 	
 	@GetMapping("/customer/registeraccount")
@@ -192,7 +186,7 @@ public class AccountController {
 	    try {
 	        if (!image.isEmpty()) {
 	        	// Tạo public ID cho hình ảnh trên Cloudinary (sử dụng id người dùng)
-                String publicId = "Booktopia/img_account/account_" + updateAccount.getId();
+                String publicId = "WebBookStore/img_account/account_" + updateAccount.getId();
 
                 // Tải lên hình ảnh lên Cloudinary và lấy URL
                 String imageUrl = cloudinaryService.uploadImage(image, publicId);
@@ -277,4 +271,5 @@ public class AccountController {
 	    redirectAttributes.addAttribute("message", "Thay đổi mật khẩu thành công.");
 	    return "redirect:/viewaccount";
 	}
+	
 }

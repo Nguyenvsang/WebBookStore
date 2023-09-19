@@ -64,7 +64,7 @@ public class BookController {
         List<Category> categories = categoryService.getActiveCategories();
         model.addAttribute("categories", categories);
 
-        return "anyone/viewbooks";
+        return "customer/viewbooks";
     }
 	
 	@GetMapping("/detailbook/{id}")
@@ -79,7 +79,7 @@ public class BookController {
 	    model.addAttribute("book", book);
 	    model.addAttribute("categories", categories);
 
-	    return "anyone/detailbook";
+	    return "customer/detailbook";
 	}
 
 }
