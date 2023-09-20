@@ -28,7 +28,7 @@
             </thead>
             <tbody>
                 <tr th:each="cartItem : ${cartItems}">
-                    <td class="text-center text-center"><img th:src="${cartItem.book.img}" width="100"></td>
+                    <td class="text-center text-center"><img th:src="${cartItem.book.img + '1'}" width="100"></td>
                     <td class="align-middle text-center" th:text="${cartItem.book.name}"></td>
                     <td class="align-middle text-center">
                         <div class="input-group justify-content-center">
