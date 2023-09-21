@@ -24,7 +24,7 @@
     </style>
 </head>
 <body>
-    <div th:replace="~{layout/header :: header}"></div>
+    <div th:replace="~{admin/headeradmin :: header}"></div>
     
     <!-- Hiển thị thông báo nếu có -->
     <div th:if="${param.message}" class="alert"
@@ -56,6 +56,6 @@
         </a>
     </div>
     
-    <div th:replace="~{layout/footer :: footer}"></div>
+    <div th:replace="~{admin/footeradmin :: footer}"></div>
 </body>
 </html>

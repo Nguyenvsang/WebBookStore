@@ -29,7 +29,10 @@
             <tbody>
                 <tr th:each="cartItem : ${cartItems}">
                     <td class="text-center text-center"><img th:src="${cartItem.book.img + '1'}" width="100"></td>
-                    <td class="align-middle text-center" th:text="${cartItem.book.name}"></td>
+                    <td class="align-middle text-center">
+                        <span th:if="${#strings.length(cartItem.book.name) > 70}" th:text="${#strings.substring(cartItem.book.name, 0, 70) + '...'}"></span>
+                        <span th:if="${#strings.length(cartItem.book.name) <= 70}" th:text="${cartItem.book.name}"></span>
+                    </td>
                     <td class="align-middle text-center">
                         <div class="input-group justify-content-center">
                             <div class="input-group-prepend">

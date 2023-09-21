@@ -95,7 +95,8 @@ public class AccountController {
                                @RequestParam("password") String password,
                                HttpSession session,
                                HttpServletRequest request,
-                               Model model) {
+                               Model model,
+                               RedirectAttributes redirectAttributes) {
 		session.invalidate();
         session = request.getSession(true);
         // Kiểm tra đăng nhập bằng phương thức checkLogin
@@ -107,12 +108,12 @@ public class AccountController {
             //model.addAttribute("account", account);
             session.setAttribute("account", account);
             // Nếu đăng nhập thành công, hiển thị thông báo thành công và quay lại trang chủ
-            model.addAttribute("message", "Đăng nhập thành công!");
-            return "customer/index";
+            redirectAttributes.addAttribute("message", "Đăng nhập thành công!");
+            return "redirect:/";
         } else {
             // Nếu đăng nhập thất bại, hiển thị thông báo lỗi và quay lại trang đăng nhập
-            model.addAttribute("message", "Sai tên đăng nhập hoặc mật khẩu");
-            return "customer/loginaccount";
+        	redirectAttributes.addAttribute("message", "Sai tên đăng nhập hoặc mật khẩu");
+            return "redirect:/customer/loginaccount";
         }
     }
 	
