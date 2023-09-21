@@ -44,4 +44,14 @@ public class AccountServiceImpl implements AccountService {
 		accountRepository.save(account);
 	}
 
+	@Override
+	public boolean checkLoginAdmin(String username, String password) {
+		Account admin = accountRepository.findByUsernameAndAccountTypeAndStatus(username, 0, 1); // admin: 0, active: 1
+	    if (admin != null) {
+	        String hashedPassword = admin.getPassword();
+	        return BCrypt.checkpw(password, hashedPassword);
+	    }
+	    return false;
+	}
+
 }

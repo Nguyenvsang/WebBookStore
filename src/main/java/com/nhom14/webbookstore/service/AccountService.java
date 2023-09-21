@@ -14,4 +14,7 @@ public interface AccountService {
 
     // Phương thức để cập nhật thông tin của một tài khoản
 	void updateAccount(Account account);
+
+	// Phương thức để kiểm tra đăng nhập của một tài khoản admin 
+	boolean checkLoginAdmin(String username, String password);
 }
