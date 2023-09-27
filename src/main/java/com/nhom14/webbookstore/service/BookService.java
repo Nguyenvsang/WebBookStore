@@ -24,4 +24,16 @@ public interface BookService {
 	// Phương thức cập nhật một cuốn sách
 	void updateBook(Book book);
 
+	// Phương thức để lấy danh sách tất cả các quyển sách
+	List<Book> getAllBooks();
+
+	// Phương thức để lấy những cuốn sách theo danh mục 
+	List<Book> getBooksByCategory(Integer categoryId);
+
+	// Phương thức để thêm một quyển sách mới
+	void addBook(Book newBook);
+
+	// Lấy quyển sách cuối cùng
+	Book getLastBook();
+
 }

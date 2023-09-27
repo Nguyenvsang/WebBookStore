@@ -93,4 +93,28 @@ public class BookServiceImpl implements BookService {
 		bookRepository.save(book);
 		
 	}
+
+	@Override
+	public List<Book> getAllBooks() {
+		return bookRepository.findAll(); // Nếu không có sách sẽ trả về empty list
+	}
+
+	@Override
+	public List<Book> getBooksByCategory(Integer categoryId) {
+		Category category = categoryRepository.findById(categoryId).orElse(null);
+	    if (category != null) {
+	        return bookRepository.findByCategory(category);
+	    }
+	    return Collections.emptyList();
+	}
+
+	@Override
+	public void addBook(Book newBook) {
+		bookRepository.save(newBook);
+	}
+
+	@Override
+	public Book getLastBook() {
+		return bookRepository.findFirstByOrderByIdDesc();// trả null nếu không tìm thấy
+	}
 }
