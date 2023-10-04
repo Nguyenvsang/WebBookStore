@@ -1,6 +1,11 @@
 package com.nhom14.webbookstore.controller.admin;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -219,5 +224,149 @@ public class AdminBookController {
         
         redirectAttributes.addAttribute("message", "Đã thêm sách thành công!");
         return "redirect:/addbook";
+	}
+	
+	@GetMapping("/managedetailbook")
+	public String manageDetailBook(@RequestParam("bookId") Integer bookId, 
+			Model model,
+			HttpSession session) {
+		Account admin = (Account) session.getAttribute("admin");
+
+	    // Kiểm tra xem người dùng đã đăng nhập hay chưa
+	    if (admin == null) {
+	        // Nếu chưa đăng nhập, chuyển hướng về trang đăng nhập
+	        return "redirect:/loginadmin";
+	    }
+	    
+	    // Truy xuất dữ liệu từ nguồn dữ liệu
+	    Book book = bookService.getBookById(bookId);
+
+	    // Đặt thuộc tính vào model để sử dụng trong view
+	    model.addAttribute("book", book);
+
+	    // Forward đến trang chi tiết sách
+	    return "admin/managedetailbook";
+	}
+	
+	@GetMapping("/updatebook")
+	public String showUpdateBookForm(@RequestParam("bookId") Integer bookId,
+			Model model,
+			HttpSession session) {
+		Account admin = (Account) session.getAttribute("admin");
+
+	    // Kiểm tra xem người dùng đã đăng nhập hay chưa
+	    if (admin == null) {
+	        // Nếu chưa đăng nhập, chuyển hướng về trang đăng nhập
+	        return "redirect:/loginadmin";
+	    }
+	    
+	    //Lấy sách theo Id
+	    Book book = bookService.getBookById(bookId);
+	    
+	    // Đặt thuộc tính vào model để sử dụng trong view
+	    model.addAttribute("book", book);
+	    List<Category> categories = categoryService.getAllCategories();
+        model.addAttribute("categories", categories);
+        
+        return "admin/updatebook";
+	}
+	
+	@PostMapping("/updatebook")
+	public String updateBook(@ModelAttribute("book") Book bookParam,
+            @RequestParam("image1") MultipartFile image1,
+            @RequestParam("image2") MultipartFile image2,
+            @RequestParam("image3") MultipartFile image3,
+            @RequestParam("image4") MultipartFile image4,
+            @RequestParam("categoryId") Integer categoryId,
+            HttpSession session,
+            Model model,
+            RedirectAttributes redirectAttributes) {
+		Account admin = (Account) session.getAttribute("admin");
+
+	    // Kiểm tra xem người dùng đã đăng nhập hay chưa
+	    if (admin == null) {
+	        // Nếu chưa đăng nhập, chuyển hướng về trang đăng nhập
+	        return "redirect:/loginadmin";
+	    }
+	    
+	    // Tạo sách để cập nhật 
+	    Book updateBook = bookService.getBookById(bookParam.getId());
+	    
+	    //Cập nhật thông tin cho cuốn sách
+	    updateBook.setName(bookParam.getName());
+	    updateBook.setAuthor(bookParam.getAuthor());
+	    updateBook.setPrice(bookParam.getPrice());
+	    Category category = categoryService.getCategoryById(categoryId);
+	    updateBook.setCategory(category);
+	    updateBook.setPublisher(bookParam.getPublisher());
+	    updateBook.setDescription(bookParam.getDescription());
+	    updateBook.setStatus(bookParam.getStatus());
+	    updateBook.setDetail(bookParam.getDetail());
+	    updateBook.setQuantity(bookParam.getQuantity());
+	    
+	    try {
+	        // Tạo public ID cho hình ảnh trên Cloudinary (sử dụng id sách)
+	        String publicId = "WebBookStore/img_book/book_" + updateBook.getId();
+	        
+	        // Tạo một danh sách các nhiệm vụ tải lên ảnh
+	        List<Callable<String>> uploadTasks = new ArrayList<>();
+	        
+	        // Kiểm tra và tạo nhiệm vụ tải lên ảnh cho từng ảnh
+	        if (!image1.isEmpty()) {
+	            uploadTasks.add(() -> cloudinaryService.uploadImage(image1, publicId + "/1"));
+	        } else {
+	            uploadTasks.add(() -> cloudinaryService.uploadImageFromUrl(updateBook.getImg() + "1", publicId + "/1"));
+	        }
+	        if (!image2.isEmpty()) {
+	            uploadTasks.add(() -> cloudinaryService.uploadImage(image2, publicId + "/2"));
+	        } else {
+	            uploadTasks.add(() -> cloudinaryService.uploadImageFromUrl(updateBook.getImg() + "2", publicId + "/2"));
+	        }
+	        if (!image3.isEmpty()) {
+	            uploadTasks.add(() -> cloudinaryService.uploadImage(image3, publicId + "/3"));
+	        } else {
+	            uploadTasks.add(() -> cloudinaryService.uploadImageFromUrl(updateBook.getImg() + "3", publicId + "/3"));
+	        }
+	        if (!image4.isEmpty()) {
+	            uploadTasks.add(() -> cloudinaryService.uploadImage(image4, publicId + "/4"));
+	        } else {
+	            uploadTasks.add(() -> cloudinaryService.uploadImageFromUrl(updateBook.getImg() + "4", publicId + "/4"));
+	        }
+	        
+	        // Tạo một ExecutorService để thực hiện các nhiệm vụ tải lên ảnh song song
+	        ExecutorService executorService = Executors.newFixedThreadPool(uploadTasks.size());
+	        
+	        // Thực hiện các nhiệm vụ tải lên ảnh và lấy URL của ảnh đã tải lên
+	        List<Future<String>> uploadResults = executorService.invokeAll(uploadTasks);
+	        String imageUrl = "";
+	        for (Future<String> uploadResult : uploadResults) {
+	            imageUrl = uploadResult.get();
+	            // Lấy đường dẫn URL mà bỏ kí tự sau dấu / cuối cùng
+	            int lastSlashIndex = imageUrl.lastIndexOf("/");
+	            String imageUrlWithoutTrailingContent = imageUrl.substring(0, lastSlashIndex + 1);
+	            
+	            // Cập nhật URL hình ảnh vào tài khoản
+	            updateBook.setImg(imageUrlWithoutTrailingContent);
+	        }
+	        
+	        // Đóng ExecutorService sau khi hoàn thành
+	        executorService.shutdown();
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        redirectAttributes.addAttribute("message", "Đã xảy ra lỗi khi cập nhật sách.");
+	        return "redirect:/updatebook";
+	    }
+	    
+	    // Kiểm tra trường hợp số lượng bằng 0 sẽ đưa về ngừng kinh doanh
+        if (updateBook.getQuantity() == 0) {
+        	updateBook.setStatus(0);
+        }
+        
+        // Cập nhật sách trong cơ sở dữ liệu
+        bookService.updateBook(updateBook);
+        
+        redirectAttributes.addAttribute("message", "Đã cập nhật sách thành công!");
+        redirectAttributes.addAttribute("bookId", updateBook.getId());
+        return "redirect:/updatebook";
 	}
 }

@@ -1,6 +1,10 @@
 package com.nhom14.webbookstore.service.impl;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URI;
+import java.net.URL;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
@@ -28,6 +32,34 @@ public class CloudinaryServiceImpl implements CloudinaryService {
     public String uploadImage(MultipartFile image, String publicId) throws IOException {
         // Đọc dữ liệu từ InputStream và lưu vào một mảng byte
         byte[] imageData = image.getBytes();
+
+        // Tải lên hình ảnh lên Cloudinary
+        @SuppressWarnings("unchecked")
+        Map<String, Object> uploadResult = (Map<String, Object>) cloudinary.uploader().upload(imageData, ObjectUtils.asMap(
+                "public_id", publicId
+        ));
+
+        // Lấy URL của hình ảnh từ kết quả tải lên
+        return (String) uploadResult.get("secure_url");
+    }
+
+    @Override
+    public String uploadImageFromUrl(String imageUrl, String publicId) throws IOException {
+    	// Tạo một đối tượng URI từ đường dẫn hình ảnh trên Cloudinary
+        URI uri = URI.create(imageUrl);
+
+        // Tạo một đối tượng URL từ đối tượng URI
+        URL url = uri.toURL();
+
+        // Tạo một đối tượng HttpURLConnection để kết nối và tải xuống hình ảnh từ URL
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setRequestMethod("GET");
+
+        // Lấy InputStream để đọc dữ liệu hình ảnh
+        InputStream inputStream = connection.getInputStream();
+
+        // Đọc dữ liệu từ InputStream và lưu vào một mảng byte
+        byte[] imageData = inputStream.readAllBytes();
 
         // Tải lên hình ảnh lên Cloudinary
         @SuppressWarnings("unchecked")

@@ -1403,6 +1403,1188 @@ Kích Thước Bao Bì:	16 x 24 cm
 Số trang:	503
 Hình thức:	Bìa Mềm", 100);
 
+-- Phần Văn Sang thêm dữ liệu vào bảng sách (lần 2)
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Dẫn Luận Về Kierkegaard", "Patrick Gardiner", 65000, 1, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694972478/PHOTO_LIST/Chinhtri_phapluat/011/", 
+"NXB Hồng Đức", 
+'"Dẫn Luận Về Kierkegaard"
+Soren Kierkegaard là một trong những triết gia độc đáo nhất của thế kỷ 19, với các tác phẩm về tôn giáo, tâm lý học và văn học. Những di sản sách triết học gây ấn tượng của ông đã là nguồn cảm hứng cho nhiều khuynh hướng tư tưởng của thế kỷ 20, đặc biệt là sự trỗi dậy của chủ nghĩa hiện sinh.
+Dẫn Luận Về Kierkegaard của Patrick Gardiner mang đến cho chúng ta một toàn cảnh về đời sống và suy tư của triết gia người Đan Mạch và ảnh hưởng của ông lên những dòng chảy của tư tưởng hiện đại.
+“Phác họa dễ hiểu cho độc giả nhập môn về suy nghĩ của một thiên tài đã thể hiện sống động cả hai vai trò, nhà tư tưởng và hiện hữu con người."', 
+1, "Tên Nhà Cung Cấp:	Cty Văn Hóa Văn Lang
+Tác giả:	Patrick Gardiner
+Người Dịch:	Thái An
+NXB:	NXB Hồng Đức
+Năm XB:	2017
+Ngôn Ngữ:	Tiếng Việt
+Trọng lượng (gr):	260
+Kích Thước Bao Bì:	20 x 12 cm
+Số trang:	214
+Hình thức:	Bìa Mềm", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Hồ Chí Minh - Về Cán Bộ Và Công Tác Cán Bộ", "Hồ Chí Minh", 80000, 1, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694972478/PHOTO_LIST/Chinhtri_phapluat/012/", 
+"NXB Chính Trị Quốc Gia Sự Thật", 
+'"Hồ Chí Minh - Về Cán Bộ Và Công Tác Cán Bộ"
+Chủ tịch Hồ Chí Minh là lãnh tụ vĩ đại của dân tộc ta, Người trực tiếp sáng lập và lãnh đạo Đảng Cộng sản Việt Nam, tiến hành cuộc đấu tranh giành độc lập và tự do cho dân tộc. Người là hiện thân mẫu mực của người đảng viên đảng cộng sản, kiên định với mục tiêu, lý tưởng chủ nghĩa Mác-Lênin, trọn đời cống hiến cho sự nghiệp đấu tranh vì độc lập dân tộc và chủ nghĩa xã hội. Người là một chiến sĩ cách mạng suốt đời đấu tranh vì độc lập tự do và hạnh phúc của dân tộc, vì tình hữu nghị và đoàn kết quốc tế giữa các quốc gia và dân tộc yêu hòa bình. Người là tấm gương sáng về đạo đức, tác phong công tác để toàn Đảng, toàn dân, toàn quân noi theo. Di sản của Chủ tịch Hồ Chí Minh để tại cho Đảng, cho nhân dân ta vô cùng to lớn.
+Sinh thời, Chủ tịch Hồ Chí Minh luôn dành sự quan tâm đặc biệt đến công tác cán bộ, Người coi đó là nhiệm vụ quan trọng hàng đầu trong công tác xây dựng Đảng, xây dựng chính quyền nhà nước. Hệ thống các quan điểm trong tư tưởng của Người về công tác cán bộ là sự kết hợp tinh tế giữa lý luận chủ nghĩa Mác-Lênin với thực tiễn cách mạng Việt Nam, trở thành cơ sở lý luận và thực tiễn để Đảng lãnh đạo, chỉ đạo và tiến hành công tác cán bộ đáp ứng yêu cầu đặt ra trong từng thời kỳ cách mạng trước đây và công cuộc đổi mới, phát triển đất nước hiện nay.', 
+1, "Tên Nhà Cung Cấp:	NXB Chính Trị Quốc Gia
+Tác giả:	Hồ Chí Minh
+NXB:	Chính Trị Quốc Gia Sự Thật
+Năm XB:	2023
+Trọng lượng (gr):	220
+Kích Thước Bao Bì:	20.5 x 15 x 1 cm
+Số trang:	200
+Hình thức:	Bìa Mềm", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Câu Chuyện Triết Học - The Story Of Philosophy", "Will Durant", 450000, 1, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694972478/PHOTO_LIST/Chinhtri_phapluat/013/", 
+"NXB Thế Giới", 
+'"Câu Chuyện Triết Học - The Story Of Philosophy"
+Khi viết cuốn sách này, Will Durant không tham vọng viết một lịch sử triết học hoàn chỉnh, ông chỉ nỗ lực nhân văn hóa tri thức triết học qua cuộc đời và tư tưởng của các triết gia phương Tây mà theo ông có vị trí quan trọng hơn cả. Từ đó, ông làm sáng tỏ quan điểm rằng triết học nên được hiểu là sự diễn giải mang tính tổng hợp về tất cả mọi kinh nghiệm, thay vì là sự mô tả mang tính phân tích về phương thức và quá trình của chính kinh nghiệm. Bởi việc phân tích thuộc về khoa học còn sự tổng hợp thuộc về triết học, và bởi "khoa học cho ta tri thức, nhưng chỉ triết học mới có thể cho ta trí tuệ".
+Câu chuyện triết học thành công vang dội không chỉ trong vai trò một dẫn luận về tinh thần triết học mà còn ở lời mời gọi đến với bộ môn này. Sau khi cuốn sách được xuất bản, doanh số của các tác phẩm triết học kinh điển đã tăng khoảng 200%. Nhiều nhà xuất bản đã phát hành những phiên bản mới, đặc biệt là những tác phẩm của Plato, Spinoza, Voltaire, Schopenhauer và Nietzsche. Và kể từ thời điểm ra đời đến nay, Câu chuyện triết học đã được tái bản hàng chục lần, chứng minh cho sức sống, tầm ảnh hưởng vượt thời gian của nó.
+Ở Việt Nam, Câu chuyện triết học từng được xuất bản nhiều lần với bản dịch không đầy đủ. Do vậy, đây chính là bản dịch tiếng Việt mới hoàn chỉnh và lần đầu tiên có bản quyền chính thức của tác phẩm nổi tiếng này.
+WILL DURANT tên đầy đủ là William James Durant (1885-1981), sử gia, triết gia, nhà văn nổi tiếng người Mỹ. Từng được trao giải Pulitzer. Ông có ảnh hưởng lớn đến các vấn đề xã hội, chính trị, tư tưởng đương thời cũng như sau này.',
+1, "Tên Nhà Cung Cấp:	Nhã Nam
+Tác giả:	Will Durant
+Người Dịch:	Hoàng Đức Long
+NXB:	Thế Giới
+Năm XB:	2022
+Trọng lượng (gr):	1231
+Kích Thước Bao Bì:	24 x 15.5 x 4 cm
+Số trang:	743
+Hình thức:	Bìa Cứng", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("100 Triết Gia Tiêu Biểu Thế Kỷ XX", "Nhiều Tác Giả", 130000, 1, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694972478/PHOTO_LIST/Chinhtri_phapluat/014/", 
+"NXB Hà Nội", 
+'"100 Triết Gia Tiêu Biểu Thế Kỷ XX"
+100 Triết Gia Tiêu Biểu Thế Kỷ XX Có thể nói triết học là khoa học của các khoa học. Từ cổ chí kim, khoa học hạt nhân này luôn có ảnh hưởng và chi phối đến nhận thức và hoạt động thực tiễn của nhân loại. Lịch sử triết học gắn với lịch sử hình thành và phát triển của xã hội loài người. Từ Adorno đến Zang Binglin (Chương Bính Lân), quyển sách này cung cấp một phân tích phê phán về hành trang, sự nghiệp, và biên độ ảnh hưởng của những khuôn mặt lỗi lạc nhất trong tư tưởng triết học thế kỷ XX. Mỗi mục từ bao gồm: - Những sự kiện tiểu sử - năm sinh, năm mất, giáo dục, các nhiệm chức trải qua. - Trình bày, thẩm định những tư tưởng và những thành tựu của từng triết gia. - Danh sách những tác phẩm chính của họ. - Những nguồn có uy tín nhất viết về họ. Nơi đây có mặt những cao thủ thượng thừa về tư tưởng từ khắp năm châu bốn bể, nhưng chủ yếu nhất và đông đảo nhất, là các đại diện từ những miền đất giàu truyền thống tư duy Châu Âu lục địa, Anh - Mỹ và Châu Á: Trung Hoa, Ấn Độ, Nhật Bản... những người được chọn vào đây vì tầm sâu rộng, tính độc đáo của tư tưởng và ảnh hưởng lớn của họ vào đời sống tinh thần của thế kỷ vừa qua và hiện nay. Một công trình biên soạn uy tín của hơn bốn mươi Giáo sư Triết học từ các Đại học danh tiếng Anh - Mỹ hẳn sẽ là một đóng góp xuất sắc cho buổi đại yến văn hóa tư tưởng,  sẽ đáp ứng được khẩu vị thưởng ngoạn tinh tế và cao nhã của thành phần độc giả ưu tú, chọn lọc.',
+1, "Tên Nhà Cung Cấp:	Cty Văn Hóa Văn Lang
+Tác giả:	Nhiều Tác Giả
+NXB:	NXB Hà Nội
+Năm XB:	09-2010
+Trọng lượng (gr):	930
+Kích Thước Bao Bì:	24 x 16
+Số trang:	478
+Hình thức:	Bìa Cứng", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Lặp Lại", "Soren Kierkegaard", 148000, 1, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694972478/PHOTO_LIST/Chinhtri_phapluat/015/", 
+"NXB Hồng Đức", 
+'"Lặp Lại"
+Tác giả Soren Kierkegaard là triết gia vĩ đại người Đan Mạch. Ông được suy tôn là ông tổ của Chủ nghĩa Hiện sinh. Các tác phẩm tiêu biểu của ông được Phanbook phát hành:
+- Kính sợ và run rẩy (2019)
+- Lặp lại (2021)
+Lặp lại được tác giả Soren Kierkegaard cho xuất bản đồng thời với Kính sợ và run rẩy vào ngày 16 tháng Mười năm 1843, dưới bút danh Constantin Constantius.
+Dễ có cảm giác rằng, đây là một tác phẩm mang tính tự truyện nhằm giải thích lý do Kierkegaard hủy hôn với Regine Olsen - tình yêu lớn trong đời ông; người phụ nữ bình thường trở nên bất tử qua các tác phẩm triết học của ông.
+Lặp lại thuộc trong số tám tác phẩm quan trọng, xuất sắc nhất của Kierkegaard, nhưng cũng là cuốn sách dễ đọc, cuốn hút nhất trong số đó.',
+1, "Tên Nhà Cung Cấp:	Phanbook
+Tác giả:	Soren Kierkegaard
+Người Dịch:	Nguyễn Nguyên Phước
+NXB:	NXB Hồng Đức
+Năm XB:	2021
+Trọng lượng (gr):	220
+Kích Thước Bao Bì:	20.5 x 13 cm
+Số trang:	208
+Hình thức:	Bìa Mềm", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Đạo Đức Cách Mạng - Đạo Đức Hồ Chí Minh - Con Đường Đến Với Chủ Nghĩa Lênin", "Đông Phương", 79000, 1, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694972478/PHOTO_LIST/Chinhtri_phapluat/016/", 
+"NXB Dân Trí", 
+'"Đạo Đức Cách Mạng - Đạo Đức Hồ Chí Minh - Con Đường Đến Với Chủ Nghĩa Lênin"
+Trong hành trình vô cùng gian truân để tìm đường cứu nước, giải phóng dân tộc khỏi ách nô lệ, có một sự kiện đặc biệt quan trọng tác động đến sự hình thành thế giới quan của Nguyễn Ái Quốc - Hồ Chí Minh, đó là sự kiện Người được đọc Sơ thảo lần thứ nhất những luận cương về vấn đề dân tộc và vấn đề thuộc địa của V.I.Lênin. Những tư tưởng của Lênin được thể hiện trong bản Luận cương đã khiến Nguyễn Ái Quốc dứt khoát đi theo Quốc tế thứ III và tiếp thu những nội dung cơ bản của văn kiện quan trọng này làm nền tảng để Người vận dụng sáng tạo vào việc xây dựng con đường cách mạng vô sản ở Việt Nam. Thế nhưng, hành trình để đến được với sự lựa chọn đó của Người không hề đơn giản. Từ người thanh niên yêu nước Nguyễn Tất Thành đến Văn Ba - Nguyễn Ái Quốc - Hồ Chí Minh là quá trình vừa lao động nhọc nhằn để kiếm sống, vừa học hỏi, trải nghiệm đời sống của nhân dân lao động ở rất nhiều nước khác nhau trên khắp thế giới, nghiên cứu - phân tích tình hình chính trị trong và ngoài nước để tìm ra con đường cách mạng đúng đắn, phù hợp và cần thiết nhất cho dân tộc Việt Nam.',
+1, "Tên Nhà Cung Cấp:	CÔNG TY CỔ PHẦN SÁCH TRÍ THỨC VIỆT
+Tác giả:	Đông Phương
+NXB:	NXB Dân Trí
+Năm XB:	2022
+Trọng lượng (gr):	186
+Kích Thước Bao Bì:	19 x 13 x 1 cm
+Số trang:	199
+Hình thức:	Bìa Mềm", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Chủ Nghĩa Hiện Sinh - Dẫn Luận Ngắn", "Thomas Flynn", 75000, 1, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694972478/PHOTO_LIST/Chinhtri_phapluat/017/", 
+"NXB Tổng Hợp TP.HCM", 
+'"Chủ Nghĩa Hiện Sinh - Dẫn Luận Ngắn"
+Người ta thường thừa nhận rằng chủ nghĩa hiện sinh là một học thuyết triết học về cá nhân cụ thể. Đây vừa là vinh quang vừa là nỗi tủi nhục của nó. Trong thời đại truyền thông đại chúng và sự hủy diệt hàng loạt, điểm sáng của chủ nghĩa hiện sinh là nó bảo vệ giá trị nội tại của cái mà Sartre, một đại diện tiêu biểu của nó, gọi là ‘cá nhân hữu cơ tự do’, tức là, tác nhân bằng xương bằng thịt. Do trong xã hội hiện đại con người ta bị đẩy tới chỗ phục tùng một cách không thể cưỡng lại được, nên cái mà ta gọi là ‘tính cá nhân hiện sinh’ là một thành tựu, chứ không phải là tính cá nhân thường trực. Chúng ta sinh ra là những thực thể sinh học nhưng chúng ta phải trở thành các cá nhân hiện sinh bằng cách chấp nhận trách nhiệm cho các hành động của mình. Đây là một sự áp dụng lời khuyên của Nietzsche cho việc ‘trở thành cái bạn là’. Nhiều người không bao giờ thừa nhận trách nhiệm ấy mà lẩn vào sự thoải mái của đám đông vô diện mục để tránh né tính cá nhân hiện sinh của mình. Để minh họa cụ thể cho việc trở thành cái cá nhân, trong chương tiếp theo, tôi lần theo cái Kierkegaard gọi là ‘các lĩnh vực’ của sự hiện hữu hay ‘các giai đoạn trên đường đời’ và kết luận với một số nhận xét về việc Nietzsche sẽ quan niệm dự phóng trở thành cá nhân hiện sinh này như thế nào.
+Trong khi giá trị tối cao của tư tưởng hiện sinh nhìn chung được thừa nhận là sự tự do, thì đức hạnh hàng đầu của nó là tính đích thực. Chương 4 sẽ tập trung bàn luận chủ đề này cũng như bản tính và các hình thức của sự tự dối mình, hay sự ngụy tín, giữ chức năng như là mặt đối lập với nó. Tôi liên kết tính đích thực với tính cá nhân hiện sinh và xem xét khả thể của một thứ đạo đức học về tính đích thực dựa trên trách nhiệm hiện sinh.',
+1, "Nhà Cung Cấp:	NXB Tổng Hợp TPHCM
+Tác giả:	Thomas Flynn
+Người Dịch:	Đinh Hồng Phúc
+NXB:	NXB Tổng Hợp TPHCM
+Năm XB:	2018
+Trọng lượng (gr):	250
+Kích Thước Bao Bì:	13 x 20.5
+Số trang:	248
+Hình thức:	Bìa Mềm", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Chuyện Đông Chuyện Tây - Tập 4 (Tái Bản 2019)", "An Chi", 199000, 1, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694972478/PHOTO_LIST/Chinhtri_phapluat/018/", 
+"NXB Tổng Hợp TP.HCM", 
+'"Chuyện Đông Chuyện Tây"
+An Chi, còn được biết đến với bút danh Huệ Thiên, là một nhà văn nổi tiếng, được biết đến rộng rãi qua mục “Chuyện Đông chuyện Tây” trên tạp chí Kiến thức ngày nay. An Chi không phải là một cụ già như nhiều người tưởng tượng, mà là một người đàn ông đã vượt qua tuổi năm mươi khi bắt đầu viết cho Kiến thức ngày nay vào năm 1990. An Chi đã trải qua nhiều thử thách trong cuộc đời, từ việc chọn miền Bắc sau Hiệp định Genève, bị thải hồi sau sáu năm dạy học ở Thái Bình, cho đến việc làm thợ nguội và thợ tiện ở Nhà máy xe đạp Thống Nhất. Tuy nhiên, những khó khăn này đã không ngăn cản được khát khao học hỏi của anh. An Chi đã dành cả cuộc đời mình để học hỏi và nghiên cứu, và anh chỉ cảm thấy mình sống thực sự sau khi về hưu non và dành cả ngày để đọc sách và viết lách',
+1, "Nhà Cung Cấp:	NXB Tổng Hợp TPHCM
+Tác giả:	An Chi
+NXB:	NXB Tổng Hợp TPHCM
+Năm XB:	2019
+Trọng lượng (gr):	700
+Kích Thước Bao Bì:	15 x 23 x 3.4 cm
+Số trang:	664
+Hình thức:	Bìa Mềm", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Những Triết Gia Vĩ Đại - Socrate - Thích Ca - Khổng Tử - Jésus", "Karl Jaspers", 900000, 1, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694972478/PHOTO_LIST/Chinhtri_phapluat/019/", 
+"NXB Tổng Hợp TP.HCM", 
+'"Những Triết Gia Vĩ Đại - Socrate - Thích Ca - Khổng Tử - Jésus"
+Cuốn sách bạn đang cầm trong tay là bản Việt dịch từ phiên bản tiếng Pháp trong phần đầu Tập I thuộc bộ sách nhiều tập “Những triết gia vĩ đại (Les grands philosophes)” của giáo sư - nhà triết học Đức Karl Jaspers (1883 - 1969). Nội dung đề cập bốn nhân vật cổ đại đáng gọi tiêu biểu nhất trong lịch sử tư tưởng của nhân loại, với SOCRATE, THÍCH CA, KHỔNG TỬ và JÉSUS, mà tầm ảnh hưởng vẫn vang vọng mãi cho đến hôm nay, và có lẽ sẽ tiếp tục lâu dài đến tận mai sau nữa.',
+1, "Nhà Cung Cấp:	NXB Tổng Hợp TPHCM
+Tác giả:	Karl Jaspers
+Người Dịch:	Trần Bửu Tuấn
+NXB:	NXB Tổng Hợp TPHCM
+Năm XB:	2022
+Trọng lượng (gr):	250
+Kích Thước Bao Bì:	20.5 x 14.5 x 1 cm
+Số trang:	216
+Hình thức:	Bìa Mềm", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Pháp Lệnh Khai Thác Và Bảo Vệ Công Trình Thủy Lợi Năm 2001 Và Các Nghị Định Hướng Dẫn Thi Hành", "Nhiều Tác Giả", 23000, 1, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694972478/PHOTO_LIST/Chinhtri_phapluat/020/", 
+"NXB Chính Trị Quốc Gia Sự Thật", 
+'"Pháp Lệnh Khai Thác Và Bảo Vệ Công Trình Thủy Lợi Năm 2001 Và Các Nghị Định Hướng Dẫn Thi Hành"
+Cuốn sách giới thiệu những quy định của pháp luật về khai thác và bảo vệ công trình thủy lợi năm 2001 và các nghị định hướng dẫn thi hành pháp lệnh: khai thác công trình thủy lợi; bảo vệ công trình thủy lợi; quản lí nhà nước về khai thác và bảo vệ công trình thủy lợi; khen thưởng và xử lí vi phạm; xử phạt vi phạm hành  chính trong lĩnh vực khai thác và bảo vệ công trình thủy lợi; nguyên tắc xử phạt; tình tiết tăng nặng, giảm nhẹ; thời hiệu xử phạt vi phạm hành chính; thời hạn được coi là chưa bị xử phạt vi phạm hành chính; vi phạm về sử dụng máy móc, thiết bị công trình thủy lợi, vi phạm về vận hành công trình thủy lợi; sử dụng giấy phép đã quá hạn;...',
+1, "Tên Nhà Cung Cấp:	NXB Chính Trị Quốc Gia
+NXB:	NXB Chính Trị Quốc Gia Sự Thật
+Năm XB:	2013
+Trọng lượng (gr):	150
+Kích Thước Bao Bì:	13 x 19 cm
+Số trang:	144
+Hình thức:	Bìa Mềm", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Các Kỳ Thi Toán VMO - Lời Giải Và Bình Luận", "Trần Nam Dũng", 100000, 2, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695020514/PHOTO_LIST/Giao_trinh/011/", 
+"NXB Thế Giới", 
+'"Các Kỳ Thi Toán VMO - Lời Giải Và Bình Luận"
+Năm 2011, kỳ thi chọn học sinh giỏi quốc gia môn Toán, gọi tắt là VMO, đã đánh dấu bước thay đổi nổi bật trong hình thức thi khi chuyển việc thi 1 ngày với 5-7 bài toán của các năm trước đó thành kỳ thi gồm 2 ngày, ngày 1 gồm 4 bài và ngày 2 gồm 3 bài. Việc trao giải cho thí sinh cũng không còn dựa theo khung điểm mà tính theo tỷ lệ phần trăm số thí sinh tham gia. Nhìn lại quá trình 7 năm, ta có thể thấy rằng đề thi VMO đã vừa phản ánh được xu thế của phong trào Olympic trong nước vừa góp phần thúc đẩy cho phong trào đó phát triển mạnh mẽ để giữ vững được phong độ của đội tuyển Việt Nam tại đấu trường Olympic Toán quốc tế. Thông qua các đề thi VMO, chúng ta cũng hoàn toàn có thể công nhận rằng đại số và hình học là hai phân môn thế mạnh của đội tuyển Việt Nam khi kỹ thuật xử lý các bài toán này ngày một cải thiện và phát triển.',
+1, "Nhà xuất bản: Trần Nam Dũng
+Nhà xuất bản: Nxb Thế giới
+Nhà phát hành: Sputnik
+Mã Sản phẩm: 9786047734306
+Khối lượng: 330.00 gam
+Ngôn ngữ: Tiếng Việt
+Định dạng: Bìa mềm
+Kích thước: 14.5 x 20.5 cm
+Ngày phát hành: 05/2017
+Số trang: 284", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Luyện Tốc Độ Giải Nhanh Trắc Nghiệm Hàm Số - Mũ Và Logarit", "Mẫn Ngọc Quang", 299000, 2, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695020514/PHOTO_LIST/Giao_trinh/012/", 
+"NXB Thanh Hóa", 
+'"Luyện Tốc Độ Giải Nhanh Trắc Nghiệm Hàm Số - Mũ Và Logarit"
+Cuốn sách Luyện Tốc Độ Giải Nhanh Trắc Nghiệm Hàm Số - Mũ và Logarit giúp các em làm quen và luyện tập thật nhiều các dạng toán hàm số hay gặp trong các đề thi. Các bài tập trong cuốn sách này được phân chia theo chuyên đề rõ ràng, có hướng dẫn lý thuyết, có bài tập mẫu và có rất nhiều các bài tập để các em thực hành. Để cải thiện nhanh tốc độ thì các em phải hiểu rõ bản chất, thuộc các dạng toán để từ đó hình thành được lối tư duy và kỹ thuật xử lý tình huống nhanh. Cuốn sách này là cơ hội tốt để các em làm được điều đó. Kho bài tập tự luyện phong phú được tác giả sưu tập từ các đề thi đại học, đề thi thử và một số bài được chọn lọc từ kho bài của thầy Nguyễn Sỹ Tùng và một số thầy cô giáo khác. Trên cơ sở các bài toán tự luận đó, tác giả đã tạo ra những câu hỏi trắc nghiệm phù hợp với đề thi 2017.',
+1, "Tác giả: Mẫn Ngọc Quang
+Nhà xuất bản: Nxb Thanh Hóa
+Nhà phát hành: Khang Việt
+Khối lượng: 836.00 gam
+Ngôn ngữ: Tiếng Việt
+Định dạng: Bìa mềm
+Kích thước: 20 x 30 cm
+Ngày phát hành: 03/2017
+Số trang: 464", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Tổng Tập Trắc Nghiệm Khoa Học Xã Hội", "Nguyễn Thị Dung, 
+Nguyễn Đình Đức, Đinh Thị Sinh, Đoàn Vinh", 150000, 2, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695020514/PHOTO_LIST/Giao_trinh/013/", 
+"NXB Đại Học Quốc Gia Hà Nội", 
+'"Tổng Tập Trắc Nghiệm Khoa Học Xã Hội"
+Đổi mới trong giáo dục, đặc biệt là đổi mới trong thi cử và tuyển sinh là một nhu cầu tất yếu để phù hợp với xu thế phát triển của thời đại. Năm học 2016 - 2017, Bộ giáo dục và đào tạo đã đưa ra thay đổi; chuyển từ hình thức thi tự luận truyền thống sang thi trắc nghiệm khách quan với nhiều bộ môn, trong đó có áp dụng với khối Khoa học xã hội như Lịch sử, Địa lí, Giáo dục công dân.',
+1, "Nhà xuất bản: Nxb Đại học Quốc gia Hà Nội
+Nhà phát hành: Công Nghệ Giáo Dục VN
+Khối lượng: 968.00 gam
+Ngôn ngữ: Tiếng Việt
+Định dạng: Bìa mềm
+Kích thước: 20.5 x 29.5 cm
+Ngày phát hành: 2017
+Số trang: 490", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Hướng Dẫn Ôn Tập Nhanh Kì Thi Trung Học Phổ Thông Quốc Gia Năm Học 2016-2017 - Toán", "Nhiều tác giả", 40000, 2, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695020514/PHOTO_LIST/Giao_trinh/014/", 
+"NXB Tổng hợp TP.HCM", 
+'"Hướng Dẫn Ôn Tập Nhanh Kì Thi Trung Học Phổ Thông Quốc Gia Năm Học 2016-2017 - Toán"
+Nhasachgiaoduc.vn giới thiệu bộ sách “Hướng dẫn ôn tập kỳ thi THPT quốc gia năm học 2016 -2017” để chuẩn bị cho kỳ thi THPT quốc gia năm học 2016-2017. Năm 2016-2017 kỳ thi THPT Quốc gia được tổ chức như sau: môn Ngữ Văn thi tự luận, còn lại các môn khác thi trắc nghiệm. Nội dung bộ sách bám sát yêu cầu chương trình giáo dục phổ thông của Bộ Giáo dục và Đào tạo, giúp các em học sinh nắm vững chuẩn kiến thức, kỹ năng của từng môn học và hỗ trợ cho giáo viên nắm vững nội dung, phương pháp, cấu trúc đề thi. Bộ sách gồm 5 quyển, cả môn thi bắt buộc và tự chọn: Toán, Ngữ văn, Tiếng Anh, Khoa học tự nhiên và Khoa học xã hội.',
+1, "Nhà xuất bản: Nxb Tổng hợp TP.HCM
+Nhà phát hành: Khang Việt
+Khối lượng: 374.00 gam
+Ngôn ngữ: Tiếng Việt
+Định dạng: Bìa mềm
+Kích thước: 19 x 27 cm
+Ngày phát hành: 04/2017", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Hướng Dẫn Ôn Tập Kì Thi THPT Quốc Gia Năm Học 2019 - 2020 Môn Toán", "Đoàn Quỳnh, 
+Doãn Minh Cường, Nguyễn Khắc Minh, Phạm Khắc Ban, Phạm Đức Tài", 50000, 2, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695020514/PHOTO_LIST/Giao_trinh/015/", 
+"NXB Giáo Dục Việt Nam", 
+'"Hướng Dẫn Ôn Tập Kì Thi THPT Quốc Gia Năm Học 2019 - 2020 Môn Toán"
+Bộ Sách Hướng dẫn ôn tập kì thi THPT Quốc gia năm học 2019 - 2020 của nhà xuất bản giáo dục cung cấp kiến thức cơ bản và nâng cao cho học sinh tham gia kỳ thi THPT Quốc gia năm học 2019 - 2020.
+Giá sản phẩm trên Tiki đã bao gồm thuế theo luật hiện hành. Bên cạnh đó, tuỳ vào loại sản phẩm, hình thức và địa chỉ giao hàng mà có thể phát sinh thêm chi phí khác như phí vận chuyển, phụ phí hàng cồng kềnh, thuế nhập khẩu (đối với đơn hàng giao từ nước ngoài có giá trị trên 1 triệu đồng).....',
+1, "Cấp Độ/ Lớp:	Lớp 12
+Cấp Học:	Cấp 3
+Nhà Cung Cấp:	Cty Phương Nam
+Tác giả:	Đoàn Quỳnh, Doãn Minh Cường, Nguyễn Khắc Minh, Phạm Khắc Ban, Phạm Đức Tài
+NXB:	NXB Giáo Dục Việt Nam
+Năm XB:	2019
+Trọng lượng (gr):	200
+Kích Thước Bao Bì:	17 x 24 cm
+Hình thức:	Bìa Mềm", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Công Phá Lý Thuyết Sinh Học - Quyển 2", "Nhiều tác giả", 165000, 2, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695020514/PHOTO_LIST/Giao_trinh/016/", 
+"NXB Đại Học Quốc Gia Hà Nội", 
+'"Công Phá Lý Thuyết Sinh Học - Quyển 2"
+Trong chương trình giáo dục Việt Nam, Sinh học là một trong ba môn thi chính thức của kì thi tuyển sinh quốc gia thuộc khối B và có thể là một trong những môn thi Tốt nghiệp THPT. Để đạt được kết quả cao trong các kì thi, các em phải tích cực học tập, rèn luyện cho mình những kĩ năng làm bài và thường xuyên tự kiểm tra mức độ kiến thức. Nhóm tác giả đã biên soạn cuốn “Công phá lý thuyết Sinh học, Quyển 2” nhằm đáp ứng nhu cầu của giáo viên, phụ huynh và học sinh về tài liệu ôn tập, củng cố và rèn luyện những kĩ năng. Nội dung của cuốn sách bao gồm ba phần: Di truyền học, Tiến hóa và Sinh thái học với những kiến thức từ cơ bản đến nâng cao thuộc chương trình Sinh học 12 được thể hiện qua hàng ngàn câu hỏi trắc nghiệm được phân bố dọc theo suốt 40 chuyên đề. Cẩm nang được biên soạn chi tiết, kĩ lưỡng, bám sát chương trình Sinh học THPT.',
+1, "Nhà xuất bản: Nxb Đại học Quốc gia Hà Nội
+Nhà phát hành: Khang Việt
+Khối lượng: 440.00 gam
+Ngôn ngữ: Tiếng Việt
+Định dạng: Bìa mềm
+Kích thước: 16 x 24 cm
+Ngày phát hành: 12/2016
+Số trang: 400", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Tuyển Tập 100 Bài Văn Hay 6", "Nhiều tác giả", 60000, 2, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695020514/PHOTO_LIST/Giao_trinh/017/", 
+"NXB Tổng hợp TP.HCM", 
+'"Tuyển Tập 100 Bài Văn Hay 6"
+Cuốn sách “100 bài văn hay 6” được biên soạn theo chương trình Ngữ văn 6 (phần Văn học) của Bộ Giáo dục và Đào tạo, chương trình cải cách được áp dụng trên phạm vi toàn quốc từ năm học 2004 – 2005. Nội dung cuốn sách gồm có bốn phần: Truyện cổ dân gian, Truyện trung đại, Thơ văn hiện đại và Một số bài văn sáng tác. Độc giả mà cuốn sách hướng tới là các em học sinh khá và giỏi, hoặc đang nỗ lực phấn đấu vươn lên học khá và giỏi môn Ngữ văn lớp 6. Các bài văn mẫu được cấu trúc liên hoàn theo tác giả - tác phẩm, theo kiểu bài - dạng bài, theo kiến thức – kĩ năng, hoặc theo cụm bài và thể loại văn bản. Cách dùng từ, đặt câu, dựng đoạn và diễn đạt, các thao tác mở bài và kết bài, các kĩ năng phân tích – trích dẫn, giảng – bình, được đặc biệt quan tâm. Cuối cuốn sách có một số bài văn thuyết minh, bài kí trữ tình – những sáng tác của tuổi thơ khá hay, khá đậm đà. Đọc văn mẫu là cần thiết để tham khảo; mở rộng kiến thức văn học; tìm hiểu và học tập các thao tác như mở bài, kết bài, các thao tác phân tích – trích dẫn – liên hệ – so sánh,… Sử dụng văn mẫu phải sáng tạo và độc lập suy nghĩ. Mong rằng cuốn sách này sẽ được các em sử dụng một cách hữu ích nhất.',
+1, "Nhà xuất bản: Nxb Tổng hợp TP.HCM
+Nhà phát hành: Khang Việt
+Khối lượng: 220.00 gam
+Ngôn ngữ: Tiếng Việt
+Định dạng: Bìa mềm
+Kích thước: 16 x 24 cm
+Ngày phát hành: 2016
+Số trang: 168", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Rèn Luyện Kỹ Năng Làm Bài Đọc Hiểu Môn Tiếng Anh", "Cô Mai Phương", 198000, 2, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695020514/PHOTO_LIST/Giao_trinh/018/", 
+"NXB Thanh Niên", 
+'"Rèn Luyện Kỹ Năng Làm Bài Đọc Hiểu Môn Tiếng Anh"
+Mở đầu cuốn sách sẽ là những kiến thức mà bạn cần biết để làm một bài Đọc hiểu, ở đây tác giả - cô Mai Phương sẽ hướng dẫn bạn từng chút để bạn dần dần làm quen, đây là điều đặc biệt quan trọng với những bạn ở trình độ căn bản. Đây là bước đệm nhỏ nhưng lại vô cùng quan trọng giúp bạn bơi trong biển lớn kiến thức của 62 cấu trúc bài đọc hiểu ở phía sau.',
+1, "Tác giả: Cô Mai Phương
+Nhà xuất bản: NXB Thanh Niên
+Nhà phát hành: Khang Việt
+Khối lượng: 660.00 gam
+Ngôn ngữ: Tiếng Anh, Tiếng Việt
+Định dạng: Bìa mềm
+Kích thước: 16 x 24 cm
+Ngày phát hành: 03/2016
+Số trang: 574", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Top 1 THCS Bồi Dưỡng Học Sinh Giỏi Toán Máy Tính Cầm Tay", "Nhóm tác giả Trần Công Diêu", 149000, 2, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695020514/PHOTO_LIST/Giao_trinh/019/", 
+"NXB Thanh Niên", 
+'"Top 1 THCS Bồi Dưỡng Học Sinh Giỏi Toán Máy Tính Cầm Tay"
+Hàng năm, các thành phố và tỉnh thành đều tổ chức kì thi Giải toán trên máy tính cầm tay cho các học sinh giỏi môn Toán và một số môn tự nhiên khác. Để có thể tham dự và đạt kết quả cao nhất thì việc trang bị đầy đủ kiến thức và kĩ năng cần thiết là một điều vô cùng quan trọng. Với mong muốn giúp các em học sinh có thể trang bị thêm cho mình hành trang trong kỳ thi chọn học sinh giỏi giải toán trên máy tính cầm tay, chúng tôi đã cố gắng cho ra đời cuốn sách Top 1 THCS Bồi Dưỡng Học Sinh Giỏi Toán - Máy Tính Cầm Tay. Cuốn sách được trình bày theo 2 chương: 
+Chương 1: Các chủ đề bồi dưỡng máy tính cầm tay, được xây dựng gồm 8 chủ đề, trong mỗi chủ đề, nhóm tác giả đã trình bày theo các phần sau: 
+A. Kiến thức trọng tâm, 
+B. Các dạng bài tập và phương pháp giải, 
+C. Bài tập tự luyện. 
+Chương 2: Một số đề cấp tỉnh, thành phố và cấp quốc gia.',
+1, "Tác giả: Nhóm tác giả Trần Công Diêu
+Nhà xuất bản: NXB Đà Nẵng
+Nhà phát hành: TCDBooks
+Khối lượng: 350.00 gam
+Ngôn ngữ: Tiếng Việt
+Định dạng: Bìa mềm
+Kích thước: 17 x 24 cm
+Ngày phát hành: 11/2021
+Số trang: 220", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Chiến Lược Luyện Thi THPT - Bộ Đề Thi Trắc Nghiệm Môn Tiếng Anh", "Nhiều tác giả", 150000, 2, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695020514/PHOTO_LIST/Giao_trinh/020/", 
+"NXB Đại Học Quốc Gia Hà Nội", 
+'"Chiến Lược Luyện Thi THPT - Bộ Đề Thi Trắc Nghiệm Môn Tiếng Anh"
+Nhóm tác giả đã biên soạn bộ sách Chiến lược luyện thi THPT - Bộ đề thi trắc nghiệm bao gồm 5 cuốn tương ứng với các môn: Toán, Ngữ văn, Tiếng Anh, Khoa học tự nhiên và Khoa học xã hội. Bộ sách được biên soạn, tuyển chọn với nội dung bám sát và bao quát toàn bộ kiến thức trong chương trình thi THPT. Nội dung bộ sách tập trung hướng dẫn học sinh ôn tập những kiến thức, kĩ năng cụ thể khi làm bài thi trắc nghiệm, kèm theo các đề tham khảo theo hướng đánh giá năng lực học sinh. Chúng tôi hy vọng bộ sách sẽ là nguồn tài liệu hữu ích giúp các em học sinh rèn luyện, ôn tập để đạt kết quả cao trong kì thi THPT sắp tới.',
+1, "Tác giả: Nhiều tác giả
+Nhà xuất bản: Nxb Đại học Quốc gia Hà NộiNhà phát hành: Minh Long
+Khối lượng: 616.00 gam
+Ngôn ngữ: Tiếng Việt
+Định dạng: Bìa mềm
+Kích thước: 19 x 26 cm
+Ngày phát hành: 2019
+Số trang: 304", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Làm Việc Tại Nhà & Kinh Tế Số", "Nguyễn Đức Dũng", 400000, 3, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695021882/PHOTO_LIST/Khoahoc_congnghe_kinhte/011/", 
+"NXB Thế Giới", 
+'“Làm Việc Tại Nhà & Kinh Tế Số”
+Đây là một cuốn sách của tác giả Nguyễn Đức Dũng, được xuất bản bởi NXB Thế Giới vào năm 2021. Cuốn sách này nói về những tác động tiêu cực của dịch bệnh Covid-19 đối với nền kinh tế và thị trường lao động. Tác giả cũng đề cập đến việc làm việc tại nhà có thể giúp tiết kiệm chi phí cho cả tổ chức/doanh nghiệp và người lao động.',
+1, "Nhà Cung Cấp:	Nguyễn Đức Dũng
+Tác giả:	Nguyễn Đức Dũng
+NXB:	NXB Thế Giới
+Năm XB:	2021
+Trọng lượng (gr):	528
+Kích Thước Bao Bì:	24 x 17 x 1.6 cm
+Số trang:	247
+Hình thức:	Bìa Mềm", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Giữ Thế Thượng Phong Trên Bàn Đàm Phán (Tái Bản Từ Cuốn 64 Nước Cờ Trên Bàn Thương Lượng)", "Roger Dawson", 129000, 3, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695021882/PHOTO_LIST/Khoahoc_congnghe_kinhte/012/", 
+"NXB Lao Động", 
+'"Giữ Thế Thượng Phong Trên Bàn Đàm Phán (Tái Bản Từ Cuốn 64 Nước Cờ Trên Bàn Thương Lượng)"
+Thương trường như chiến trường. Đối với những nhà kinh doanh, chiến lược gia luôn là những người đứng đầu, những thuyền trưởng tài ba của con thuyền với những thuyền viên là nhân viên trong công ty. Vận mệnh con thuyền ảnh hưởng tới cuộc sống của họ. Công ty có vượt qua được những sóng gió hay không? tất cả nằm dưới bàn tay tài ba của người đứng đầu tổ chức. Một người giỏi chưa chắc mọi tình huống đều có thể xử lý nhanh nhạy, tối ưu và ngược lại nhà quản lý tồi cũng không hẳn mọi ý kiến của họ đều không hữu ích.
+Giữ thế thượng phong trên bàn đàm phán là những kế sách giúp nhà quản trị có thể áp dụng để tiếp tục lãnh đạo công ty một cách tốt nhất. Được đúc kết từ những bài học xương máu của những công ty đã từng gặp phải và áp dụng những chiến lược của riêng mình. Toàn bộ cuốn sách mỗi chương là một chiến lược, mỗi chiến lược được áp dụng trong một trường hợp cụ thể. Giúp các chiến lược gia có thể tham khảo và áp dụng đối với chính trường hợp của mình.
+Giữ thế thượng phong trên bàn đàm phán gồm các chương nói về hai chủ đề  thu hút: ngôn ngữ cơ thể và những ẩn ý trong cuộc đối thoại. Bạn có nhớ lý thuyết về công nghệ cảm ứng? Theo lý thuyết này thì chúng ta càng tiếp xúc với nhau nhiều qua máy móc thì những cuộc tiếp xúc trực tiếp hiếm hoi càng trở nên quan trọng. Càng bị bao vây bởi những bức e-mail và những tin nhắn ngày càng trở nên ngắn gọn, chúng ta càng mong được hiểu nhau nhiều hơn. Cũng có rất nhiều chương bổ sung nói về việc hòa giải và trọng tài. Đó là một thay đổi lớn trong thế giới của chúng ta, một thay đổi rất đáng hoan nghênh. Ngoài ra cuốn sách nói nhiều tới việc làm thế nào để thương lượng hiệu quả. Thương lượng Hiệu quả đi theo một cách tiếp cận khác. Nó chỉ ra cách chiến thắng ở bàn thương lượng nhưng để đối phương có cảm giác là họ vẫn thắng.',
+1, "Tên Nhà Cung Cấp:	Thái Hà
+Tác giả:	Roger Dawson
+NXB:	NXB Lao Động
+Năm XB:	2018
+Trọng lượng (gr):	450
+Kích Thước Bao Bì:	15,5 x 24
+Số trang:	440
+Hình thức:	Bìa Mềm", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("The Leadership Gap", "Lolly Daskal", 139000, 3, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695021882/PHOTO_LIST/Khoahoc_congnghe_kinhte/013/", 
+"NXB Đại học Kinh tế Quốc dân", 
+'"The Leadership Gap"
+Bạn là một con người đầy khuyết điểm. Nhưng bạn vẫn có thể trở thành một nhà lãnh đạo xuất sắc.
+Đây là quan điểm đột phá của Lolly Daskal - một trong những nhà đào tạo lãnh đạo được săn đón nhiều nhất trên thế giới, người được Inc.com tôn vinh trong "Top 50 chuyên gia về quản trị và lãnh đạo hàng đầu", và là "Người phụ nữ truyền cảm hứng nhất trên thế giới" theo Huffington Post.
+Theo Daskal, nhiều khi những tố chất lãnh đạo bạn cho là nổi trội nhất của mình lại là thứ cản trở bạn vươn tới những điều lớn lao; trong khi những gì bạn coi là lỗ hổng, là khuyết điểm lại có thể trở thành nền tảng cho sự vĩ đại - miễn rằng bạn biết cách lấp đầy chúng, biến chúng thành ưu thế của mình.
+Trong cuốn sách "The Leadership Gap", Daskal giải thích tường tận cho độc giả vì sao mỗi nhà lãnh đạo đều tiềm ẩn những tố chất để trở nên vĩ đại. Mô hình lãnh đạo cô cung cấp có thể được áp dụng cho các nhà lãnh đạo ở mọi cấp bậc để cải thiện đáng kể kết quả hoạt động Nó bắt đầu bằng việc xác định hình mẫu người lãnh đạo lý tưởng của bạn và nhìn nhận những khuyết điểm của người đó. Đọc tác phẩm này, bạn sẽ có được cái nhìn hoàn toàn mới mẻ về những điều cần làm, cần suy nghĩ để thực sự trở thành nhà lãnh đạo bạn hằng mong muốn.',
+1, "Tên Nhà Cung Cấp:	1980 Books
+Tác giả:	Lolly Daskal
+Người Dịch:	Kim Phụng
+NXB:	NXB Đại học Kinh tế Quốc dân
+Năm XB:	2018
+Trọng lượng (gr):	380
+Kích Thước Bao Bì:	13 x 20.5
+Số trang:	368
+Hình thức:	Bìa Mềm", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Frugal Innovation - Làm Tốt Hơn Với Nguồn Lực Ít Hơn", "Jaideep Prabhu, Navi Radjou", 220000, 3, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695021882/PHOTO_LIST/Khoahoc_congnghe_kinhte/014/", 
+"NXB Thế Giới", 
+'“Frugal Innovation - Làm Tốt Hơn Với Nguồn Lực Ít Hơn” 
+Đây là một cuốn sách của tác giả Radjou và Prabhu, cung cấp những chỉ dẫn cần thiết để doanh nghiệp tiếp cận phương pháp đổi mới sáng tạo tiết kiệm đúng cách. Tác giả đã vẽ ra một bức tranh sống động về cách thức doanh nghiệp có thể pha trộn các giá trị và chất lượng để mang lại sự cân bằng cá nhân và xã hội mà những người tiêu dùng của thế kỷ 21 mong muốn.
+Cuốn sách này gồm 9 chương, trong đó tác giả cho chúng ta thấy các đặc tính độc đáo của đổi mới sáng tạo tiết kiệm là gì? Và tại sao đổi mới sáng tạo tiết kiệm lại trở thành một vấn đề mang tính cấp thiết hàng đầu với đội ngũ quản lý ngày nay, đồng thời đi vào tìm hiểu chi tiết hơn về câu hỏi “làm thế nào” để đổi mới sáng tạo tiết kiệm. Cuốn sách đã mô tả đầy đủ sự chuyển đổi và một vài khó khăn gặp phải trong quá trình thực hiện đổi mới sáng tạo tiết kiệm, đồng thời liệt kê các giải pháp thiết thực cho các doanh nghiệp mong muốn đổi mới sáng tạo nhiều hơn với chi phí thấp hơn.',
+1, "Tên Nhà Cung Cấp:	Saigon Books
+Tác giả:	Jaideep Prabhu, Navi Radjou
+Người Dịch:	Phạm Quốc Anh
+NXB:	Thế Giới
+Năm XB:	2022
+Ngôn Ngữ:	Tiếng Việt
+Trọng lượng (gr):	350
+Kích Thước Bao Bì:	23.5 x 15.5 x 2 cm
+Số trang:	348
+Hình thức:	Bìa Mềm", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Biến Doanh Nghiệp Thành Đế Chế Của Kỉ Luật Và Thành Công", "James Biết Tuốt, Oopsy", 118000, 3, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695021882/PHOTO_LIST/Khoahoc_congnghe_kinhte/015/", 
+"NXB Thanh Niên", 
+'"Biến Doanh Nghiệp Thành Đế Chế Của Kỉ Luật Và Thành Công"
+“Tư duy được đến đâu, hành động được đến đó.” 
+Nhìn hệ thống nhân sự như một tài sản chiến lược, nhà quản trị sẽ biết cách sinh lời từ đấy. 
+Ai chỉ thấy hoạt động nhân sự là chi phí sẽ đánh mất một tài sản giá trị và làm tăng gánh nặng cho công ty. 
+Hệ thống nhân sự là một loại tài sản vô hình, mà nếu không tận dụng, bạn sẽ phải đánh đổi nhiều thứ cho nó. 
+Bộ phận nhân sự tưởng chừng chỉ bó gọn trong vài hoạt động, hóa ra đóng vai trò vô cùng quan trọng, có thể thay đổi cả hệ thống công ty.
+Đừng lãng phí tiềm lực nhân sự, bởi nó là mỏ vàng cần khai thác. Vấn đề không chỉ là cách nhìn, và đây không phải là một trò chơi tâm trí.
+Bởi vì hệ thống nhân sự thực sự mang lại tiền cho bạn, lần đầu tiên thứ tài sản vô hình này được tính toán bằng những con số cụ thể. Cuốn sách này chỉ cho bạn cách làm một việc mà nhiều người vẫn cho là bất khả: định giá các chiến lược nhân sự.
+Chính thức thừa nhận vai trò của các chiến lược nhân sự sẽ biến công ty bạn thành một hệ thống nhất cân bằng, thay vì là một cỗ máy rời rạc mà các bộ phận chạy riêng rẽ nhau.
+Chính vào lúc này doanh nghiệp sẽ phát huy được sức mạnh lớn nhất.
+Chính vào lúc này, bạn phải BIẾN DOANH NGHIỆP THÀNH ĐẾ CHẾ CỦA KỶ LUẬT VÀ THÀNH CÔNG',
+1, "Tên Nhà Cung Cấp:	ZenBooks
+Tác giả:	James Biết Tuốt, Oopsy
+NXB:	NXB Thanh Niên
+Năm XB:	2019
+Trọng lượng (gr):	300
+Kích Thước Bao Bì:	13.5 x 20 x 1.5 cm
+Số trang:	280
+Hình thức:	Bìa Mềm", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Thời Đại Thứ Tư", "Byron Reese", 228000, 3, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695021882/PHOTO_LIST/Khoahoc_congnghe_kinhte/016/", 
+"NXB Dân Trí", 
+'"Thời Đại Thứ Tư"
+Mở đầu cuốn sách là chuyến hành trình nhìn lại lịch sử loài người cách nay 100.000 năm. Nói như tác giả Byron Reese, xuyên suốt chiều dài của nền văn minh nhân loại, chúng ta chỉ có 3 lần thay đổi lớn lần lượt là khi lửa, nông nghiệp và chữ viết được phát minh. Và với sự xuất hiện của AI, chúng ta đang tiến gần đến lần thay đổi thứ tư. “Cả thế giới sẽ thay đổi. Chúng ta thật sự đang ở giai đoạn bình minh của một thời đại mới”, Byron Reese nhấn mạnh.
+Trong những phần sau của cuốn sách, tác giả tập trung phân tích tường tận về rô-bốt và trí tuệ nhân tạo, đồng thời phác họa những khả năng có thể xảy ra trong tương lai, khi trí tuệ nhân tạo trở nên “thông minh” và “trí tuệ” hơn gấp nhiều lần so với hiện tại.
+THỜI ĐẠI THỨ TƯ thảo luận những tiến bộ vượt bậc trong lĩnh vực rô-bốt và AI như: Trí tuệ nhân tạo sẽ đạt được “trí tuệ” như thế nào? Máy móc có thể có ý thức, óc sáng tạo, trí tưởng tượng, trí thông minh cảm xúc, xã hội và sự độc đáo như con người không? AI có khiến việc làm biến mất không? Có công việc nào không dành cho máy móc không? Công nghệ sẽ khiến mối quan hệ giữa người giàu và người nghèo thay đổi ra sao? Con người sẽ định vị bản thân như thế nào trong một thế giới đầy rẫy những thiết bị mạnh mẽ và có thể thông minh hơn chúng ta?
+Nội dung sách không quá nặng về kiến thức kỹ thuật, mà tập trung làm rõ những vấn đề đạo đức, xã hội, triết học… liên quan đến trí tuệ nhân tạo. Suy cho cùng, lý do của những quan điểm trái chiều xoay quanh AI, nằm ở sự khác biệt trong niềm tin của chúng ta về chính mình. Liệu có gì đó “siêu việt”, thần bí nơi con người mà rô-bốt không thể đạt đến hay không? Khi máy móc dần thay thế chúng ta làm việc và lao động, ta cũng sẽ tự hỏi bản thân nhiều hơn về ý nghĩa của việc làm người. Như lời của Kevin Kelly – Chủ biên tạp chí Wired: “Chúng ta cần AI nói cho chúng ta biết chúng ta là ai”.',
+1, "Tên Nhà Cung Cấp:	FIRST NEWS
+Tác giả:	Byron Reese
+Người Dịch:	Lương Trọng Vũ
+NXB:	Dân Trí
+Năm XB:	2023
+Trọng lượng (gr):	500
+Kích Thước Bao Bì:	20.5 x 15 x 2.4 cm
+Số trang:	480
+Hình thức:	Bìa Mềm", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Chat GPT - Ứng Dụng Trí Tuệ Nhân Tạo Trong Công Việc", "Dr. Gleb Tsipursky", 169000, 3, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695021882/PHOTO_LIST/Khoahoc_congnghe_kinhte/017/", 
+"NXB Dân Trí", 
+'"Chat GPT - Ứng Dụng Trí Tuệ Nhân Tạo Trong Công Việc"
+Sự ra mắt của Chat GPT đã gây nên một cơn sốt toàn cầu, mang đến nhiều kỳ vọng nhưng cũng rất nhiều lo ngại. Công cụ này được mệnh danh l&agrave trí tuệ nhân tạo AI thông minh nhất thế giới và có thể trò chuyện, trả lời đầy đủ bất kỳ các câu hỏi mà bạn đưa ra. Với một “kho kiến thức" vô cùng phong phú, Chat GPT được xem là một mô hình ngôn ngữ tiên tiến nhất hiện nay.
+Vậy làm sao để có thể sử dụng Chạt GPT vào công việc, học tập, cuộc sống của mình một cách hiệu quả. Cuốn sách “CHAT GPT” sẽ hướng dẫn bạn cách khai thác năng lực của trí tuệ nhân tạo để có thêm một trợ thủ đắc lực, từ đó cải thiện tối đa hiệu suất làm việc và mở ra hướng đi để bạn duy trì vị thế đứng đầu trong những lĩnh vực nhiều cạnh tranh. Cuốn sách sẽ giúp bạn tìm hiểu những kiến thức cơ bản nhất xoay quanh Chat GPT và cách ứng dụng nó để lên một nội dung thuyết trình, dàn ý podcast, nội dung trên mạng xã hội, thậm chí lập một kế hoạch tiếp thị.
+Mục tiêu của cuốn sách là trao cho độc giả những kiến thức và công cụ cần thiết để khai thác sức mạnh của trí tuệ nhân tạo. Vì vậy, nếu bạn đã sẵn sàng đưa khả năng sáng tạo nội dung của mình lên một tầm cao mới, hãy tìm hiểu kỹ cuốn sách này và khám phá những khả năng vô tận mà Generative AI có thể mang lại. Với sự trợ giúp của ChatGPT, bạn có thể tạo ra những ý tưởng mới và đột phá, phân tích dữ liệu và tạo ra những nội dung cá nhân hóa đầy thu hút. Tương lai của việc sáng tạo nội dung chính là đây, và bây giờ là lúc ta khai thác sức mạnh của AI để luôn dẫn đầu với tư cách là một nhà lãnh đạo tư tưởng.',
+1, "Tên Nhà Cung Cấp:	1980 Books
+Tác giả:	Dr. Gleb Tsipursky
+Người Dịch:	Hạnh Dung
+NXB:	Dân Trí
+Năm XB:	2023
+Ngôn Ngữ:	Tiếng Việt
+Trọng lượng (gr):	320
+Kích Thước Bao Bì:	19 x 13 x 1.5 cm
+Số trang:	300
+Hình thức:	Bìa Mềm", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("NFT - Cuộc Cách Mạng Công Nghệ Tiếp Nối Blockchain Và Kỷ Nguyên Tiền Điện Tử", "Marc Beckman", 159000, 3, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695021882/PHOTO_LIST/Khoahoc_congnghe_kinhte/018/", 
+"NXB Công Thương", 
+'"NFT - Cuộc Cách Mạng Công Nghệ Tiếp Nối Blockchain Và Kỷ Nguyên Tiền Điện Tử"
+"NFT, tức Non-Fungible Token (token không thể thay thế), là cách tân kỹ thuật số quan trọng nhất kể từ sau sự xuất hiện của blockchain và tiền mã hóa. NFT sở hữu tiềm lực thay đổi hoàn toàn thế giới, về tất cả mọi khía cạnh. Cuốn sách “The Comprehensive Guide: NFTs, Digital Artwork, Blockchain Technology” của tác giả Marc Beckman đi sâu vào nền tảng của công nghệ NFT theo một khung nội dung mạch lạc, đi kèm với những giải thích chi tiết cùng ví dụ sinh động, giúp bất cứ ai cũng có thể hiểu được bản chất của NFT và tiềm năng của công nghệ mới này trong thời gian ngắn nhất.
+Chúng ta sẽ khám phá cách mà NFT có thể tạo ra một loại tài sản hoàn toàn mới cũng như các cơ hội đầu tư chưa từng có. NFT đã và đang được ứng dụng trong giới mỹ thuật, lĩnh vực game, thể thao, âm nhạc… và khiến những nhóm người tưởng như không mấy quan tâm đến các cải tiến về công nghệ cũng sẵn sàng thay đổi để đón nhận làn gió mới. Bên cạnh những con số khổng lồ xoay quanh các thương vụ NFT, chúng ta sẽ còn phải choáng ngợp trước sự hữu ích không thể chối cãi mà NFT đem lại. Nếu như được sử dụng đúng cách, NFT sẽ là chiếc chìa khóa giải quyết vô số vấn đề về bảo mật và giả mạo, làm những rủi ro thường gắn liền với tài sản chỉ còn là câu chuyện quá khứ. Bên cạnh đó, NFT còn hứa hẹn sẽ cải thiện vượt bậc hiệu suất vận hành của chính phủ và các tổ chức, doanh nghiệp, cũng như cắt giảm được những khoản phí đắt đỏ, khi nó giúp các giao dịch có thể diễn ra nhanh chóng và đáng tin cậy, loại bỏ sự tham gia của các bên trung gian.
+Nếu không muốn bị tụt hậu và trở thành kẻ chậm chân trong cuộc chơi này, hãy sớm tìm hiểu và trang bị cho mình những kiến thức cơ bản về làn sóng NFT. Cuốn sách của Marc Beckman chính là trợ thủ đắc lực của bạn."',
+1, "Tên Nhà Cung Cấp:	1980 Books
+Tác giả:	Marc Beckman
+Người Dịch:	Hạnh Dung
+NXB:	NXB Công Thương
+Năm XB:	2022
+Trọng lượng (gr):	350
+Kích Thước Bao Bì:	19 x 13 x 1 cm
+Số trang:	296
+Hình thức:	Bìa Mềm", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Lối Sống Tối Giản Thời Công Nghệ Số", "Cal Newport", 149000, 3, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695021882/PHOTO_LIST/Khoahoc_congnghe_kinhte/019/", 
+"NXB Công Thương", 
+'“Chủ nghĩa tối giản số” của Cal Newport 
+Đây là một triết lý sử dụng công nghệ, trong đó bạn tập trung thời gian trực tuyến của mình vào một số ít các hoạt động được lựa chọn cẩn thận và tối ưu hóa để hỗ trợ mạnh mẽ những thứ bạn đánh giá cao. Cuốn sách này không chỉ là một bộ các nguyên tắc, mà còn là con đường giúp bạn xây dựng một cuộc sống đáng sống trong kỷ nguyên hiện đại với sự hiện diện khắp nơi của các thiết bị đầy mê hoặc.
+Cal Newport, giáo sư khoa học máy tính tại Đại học Georgetown, đã có nhiều bài viết về sự giao thoa giữa công nghệ số và văn hóa. Ông đã nghiên cứu về tác động tiêu cực của hoạt động trực tuyến không kiểm soát đối với sức khỏe tâm lý. Hoạt động trao đổi trực tuyến dường như càng đẩy nhanh người ta vào các trạng thái cực đoan gây ra những sự căng thẳng và kiệt quệ về mặt cảm xúc.
+Bạn có thể mua sách này qua các trang web sách trực tuyến.',
+1, "Tên Nhà Cung Cấp:	Thái Hà
+Tác giả:	Cal Newport
+Người Dịch:	Khánh Trang
+NXB:	NXB Công Thương
+Năm XB:	2020
+Ngôn Ngữ:	Tiếng Việt
+Trọng lượng (gr):	380
+Kích Thước Bao Bì:	20.5 x 13 cm
+Số trang:	376
+Hình thức:	Bìa Mềm", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Khoa Học Khám Phá - Lược Sử Thời Gian (Tái Bản 2022)", "Stephen Hawking", 115000, 3, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695021882/PHOTO_LIST/Khoahoc_congnghe_kinhte/029/", 
+"NXB Trẻ", 
+'"Khoa Học Khám Phá - Lược Sử Thời Gian (Tái Bản 2022)"
+Tò mò là một trong những phẩm chất bẩm sinh vô cùng quan trọng của chúng ta, và những vấn đề như Bản chất của vũ trụ là gì? Vũ trụ từ đâu ra? Chúng ta đến từ đâu và đóng vai trò gì trong vũ trụ? Có giới hạn cho sự nhận thức của con người không?... là những câu hỏi mà biết bao nhiêu thế hệ con người đã đặt ra dưới dạng này hoặc dạng khác từ khi bắt đầu biết nhận thức và suy ngẫm về thế giới này. Tất cả những vấn đề được nên ra trong tác phẩm Lược sử thời gian như Vũ trụ giãn nở, Lỗ đen, Nguồn gốc và số phận của vũ trụ, Mũi tên thời gian… đều là mong muốn của tác giả để phần nào trả lời được những câu hỏi đó, và hướng tới việc giải thích các giai đoạn lịch sử của toàn bộ vũ trụ.
+Bằng ngôn ngữ sáng sủa, lập luận chặt chẽ rất thuyết phục, và sự dí dỏm rất riêng, tác giả Stephen Hawking đặt ra cho mình nhiệm vụ diễn tả những điều phức tạp nhất trong vật lý học một cách dễ hiểu đối với mọi người, không dùng bất kỳ công thức toán học nào, trừ phương trình nổi tiếng của Einstein: E = mc2',
+1, "Tên Nhà Cung Cấp:	NXB Trẻ
+Tác giả:	Stephen Hawking
+NXB:	Trẻ
+Năm XB:	2022
+Trọng lượng (gr):	300
+Kích Thước Bao Bì:	20.5 x 14.5 x 1.2 cm
+Số trang:	284
+Hình thức:	Bìa Mềm", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Đồng Bằng Sông Cửu Long - Nét Sinh Hoạt Xưa, Văn Minh Miệt Vườn", "Sơn Nam", 105000, 4, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695026045/PHOTO_LIST/Sach_truyen_tieuthuyet/011/", 
+"NXB Trẻ", 
+'"Đồng Bằng Sông Cửu Long - Nét Sinh Hoạt Xưa, Văn Minh Miệt Vườn"
+Đây là tập sách của nhà Nam Bộ học Sơn Nam về những sinh hoạt truyền thống của nhân dân Đồng bằng song Cửu Long thông qua những lễ hội và hò vè đối đáp cũng những sinh hoạt của cư dân vùng Miệt Vườn Nam Bộ trong lịch sử hình thành, xây dựng và phát triển vùng đất phía Nam của Tổ quốc, ưu tiên nghiên cứu các đặc tính dân tộc vùng Miệt Vườn có khác nhiều so với cư dân Miệt Thứ - là vùng đất mới bồi lấp khai khẩn với những hạn chế về địa lý. ',
+1, "Tên Nhà Cung Cấp:	NXB Trẻ
+Tác giả:	Sơn Nam
+NXB:	NXB Trẻ
+Năm XB:	2018
+Trọng lượng (gr):	400
+Kích Thước Bao Bì:	14 x 20
+Số trang:	388
+Hình thức:	Bìa Mềm", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Nắng Xuyên Qua Vòm Lá", "Glendy Vanderah", 249000, 4, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695026045/PHOTO_LIST/Sach_truyen_tieuthuyet/012/", 
+"NXB Thanh Niên", 
+'"Nắng Xuyên Qua Vòm Lá"
+Sau Nơi khu rừng chạm tới những vì sao, Glendy Vanderah (tác giả sách bán chạy theo bình chọn của Wall Street Journal) đã tiếp nối những cảm xúc thứ tha và chữa lành ấy bằng một cuốn tiểu thuyết tuyệt diệu về tình yêu, sự mất mát và hành trình khám phá bản thân, The light through the leaves.
+Câu chuyện bắt đầu từ một sai lầm không thể chịu nổi ở bìa rừng.
+Trong cơn bấn loạn ấy, Ellis Abbey đã vô tình rời mắt khỏi cô con gái của mình, Viola – dù chỉ trong vài phút. Nhưng khi cô quay lại, Viola đã biến mất. Vết nứt sẵn trong cuộc hôn nhân của họ đã toác rộng hơn, cùng với đó vụ bắt cóc cũng khiến Ellis biến mất – mà thực ra là cô đã vùi mình trong đau buồn, tội lỗi và nghiện ngập. Với suy nghĩ rằng mình chỉ mang lại sự đen đủi cho gia đình, Ellis đã bỏ lại chồng cùng hai cậu con trai nhỏ, vùi sâu hơn nỗi đau đớn đến tuyệt vọng về các con trong hành trình độc bước vào một vùng núi hoang vu.
+Ở một vùng hẻo lánh của Washington, một cô gái trẻ tên Raven cũng giữ chặt những bí mật trong lòng. Cô không bao giờ hé nửa lời với người ngoài về việc mẹ cô đã tạo ra những phép màu sinh ra từ đất như thế nào hay cha cô, người mà sự hiện diện bí ẩn của ông đôi khi khiến cô sợ hãi. Raven dành hết thời gian của mình để học cách sử dụng những món quà quý hiếm – mà thực ra là tìm cách giấu chúng. Mỗi bài học thu được đều cảnh báo cô về những mối nguy hiểm đang rình rập bên ngoài thiên đường biệt lập của cô. Nhưng bất chấp những lời cảnh báo của mẹ, Raven vẫn khao khát một điều gì đó hơn thế nữa.
+Khi Ellis và Raven đối mặt với những khao khát mạnh mẽ của riêng mình, hành trình của họ đã hội tụ theo những cách đầy bất ngờ và thấm đẫm hy vọng, để rồi cuối cùng họ đã được kéo lại gần nhau bởi sức mạnh của thiên nhiên, tình yêu và gia đình.',
+1, "Tên Nhà Cung Cấp:	1980 Books
+Tác giả:	Glendy Vanderah
+Người Dịch:	Lâm Đức Duy
+NXB:	Thanh Niên
+Năm XB:	2023
+Ngôn Ngữ:	Tiếng Việt
+Trọng lượng (gr):	550
+Kích Thước Bao Bì:	24 x 16 x 2.5 cm
+Số trang:	532
+Hình thức:	Bìa Mềm", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Chia Rẽ - Tại Sao Chúng Ta Đang Sống Trong Thời Đại Của Những Bức Tường", "Tim Marshall", 200000, 4, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695026045/PHOTO_LIST/Sach_truyen_tieuthuyet/013/", 
+"NXB Dân Trí", 
+'"Chia Rẽ - Tại Sao Chúng Ta Đang Sống Trong Thời Đại Của Những Bức Tường"
+Tim Marshall, một ký giả kỳ cựu và tác giả nổi tiếng, đã viết sáu cuốn sách, trong đó có “Những tù nhân của địa lý” và “Chia rẽ”. Trong “Chia rẽ”, Marshall khám phá sự chia rẽ trong xã hội hiện đại, từ những bức tường vật chất cho đến những bức tường vô hình trong tâm trí con người. Ông cho rằng sự chia rẽ không chỉ xuất hiện ở mặt vật chất mà còn ẩn chứa trong tâm trí mỗi người. Marshall cung cấp nhiều ví dụ từ khắp nơi trên thế giới để minh họa cho điều này, từ Trung Quốc, Hoa Kỳ, Vương quốc Anh, châu Âu, Trung Đông cho đến châu Phi. Cuối cùng, dù thế giới hiện nay đang chứng kiến sự gia tăng của chủ nghĩa dân tộc và chính trị bản sắc, Marshall vẫn hy vọng rằng lịch sử sẽ xoay hướng về phía đoàn kết và thống nhất.',
+1, "Tên Nhà Cung Cấp:	Nhã Nam
+Tác giả:	Tim Marshall
+Người Dịch:	Trần Trọng Hải Minh
+NXB:	NXB Dân Trí
+Năm XB:	2021
+Ngôn Ngữ:	Tiếng Việt
+Trọng lượng (gr):	600
+Kích Thước Bao Bì:	20.5 x 14 cm
+Số trang:	396
+Hình thức:	Bìa Cứng", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Ta Mù Tịt!", "Jorge Cham, Daniel Whiteson", 150000, 4, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695026045/PHOTO_LIST/Sach_truyen_tieuthuyet/014/", 
+"NXB Thế Giới", 
+'"Ta Mù Tịt!"
+Ngày 10 tháng Tư năm 2019, Cơ quan Hàng không Vũ trụ Hoa Kỳ (NASA) công bố bức ảnh về lỗ đen nằm ở trung tâm thiên hà Messier 87 (M87) cách Trái đất khoảng 55 triệu năm ánh sáng, đánh dấu một bước tiến trong lịch sử khám phá vũ trụ của con người.
+Nhưng bạn không cần phải đi xa như thế mới có thể tìm hiểu về vũ trụ. Chúng ta còn vô vàn những điều không biết về khoảng không bao la ngoài kia, những câu hỏi lớn mà bạn có thể nghĩ là ta đã có đáp án nhưng thực ra lại chưa: Vũ trụ được tạo thành từ cái gì? Thành phần cơ bản nhất của vật chất là gì? Chúng tương tác với nhau như thế nào? Hay đơn giản hơn, bạn có chắc mình biết rõ các khái niệm về khối lượng, chiều không gian, thời gian... không?
+Bạn sẵn sàng chưa? Bởi vì như Henry Reich, người sáng lập ra MinutePhysics, đã nhận xét về cuốn sách này, “bạn không thường xuyên bắt gặp một cuộc khám phá đầy lạc quan và vui nhộn như vậy về sự ngu ngốc của con người đâu.”
+“Một cuốn sách sống động, bất khả tri về vật lý và những thứ nằm ngoài vật lý... Một tổng hợp giàu tính giải trí và giáo dục dành cho bất cứ ai đang tìm cách trau dồi hay bổ sung kiến thức của bản thân.” - Kirkus Reviews',
+1, "Tên Nhà Cung Cấp:	Nhã Nam
+Tác giả:	Jorge Cham, Daniel Whiteson
+Người Dịch:	Nguyễn Duy Khánh
+NXB:	NXB Thế Giới
+Năm XB:	2019
+Trọng lượng (gr):	400
+Kích Thước Bao Bì:	15.5 x 24 cm
+Số trang:	396
+Hình thức:	Bìa Mềm", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Tổ Chim Sẻ Nâu", "Nguyễn Bảo Trung", 140000, 4, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695026045/PHOTO_LIST/Sach_truyen_tieuthuyet/015/", 
+"NXB Dân Trí", 
+'"Tổ Chim Sẻ Nâu"
+Đối thoại với thiên nhiên để rồi tìm được bình yên trước cuộc sống đổi thay khó lường
+“Đừng cố gắng đợi thấy cầu vồng mà quên tận hưởng cơn mưa”
+“Tất cả đều cần có thời gian. Như vết thương, chúng ta phải chấp nhận và chờ đợi cơ thể tự chữa lành, đôi khi càng nóng vội mong nhanh hết càng làm mình tổn thương sâu hơn.”
+Tiếp nối kho tác phẩm vốn đã phong phú, bác sĩ Nguyễn Bảo Trung tiếp tục ra mắt “Tổ chim sẻ nâu”  trong sự mong chờ, với một cốt truyện hoàn toàn mới mẻ, thú vị khi bác sĩ viết về cuộc trò chuyện giữa anh và chú chim sẻ nâu mỗi ngày đều đến bên cửa sổ.
+Chú chim sẻ nâu khao khát trở thành phượng hoàng, bay lên trời cao với bao mong ước về một bầu trời rộng lớn. Trải qua những cuộc đối thoại, anh vẫn khuyên chim sẻ nâu hãy cứ là sẻ nâu, nhưng vẫn hãy giữ nguyên khao khát hoá phượng hoàng ấy.
+“Đến một ngày chúng ta có sao biểu hiện vậy, không còn tị hiềm so sánh, không còn muốn trở thành ai, cứ là chính mình ... đó là ngày chúng ta thật sự giải thoát.” Nhưng hãy cứ mơ ước điên rồ vì “Không có một đời sống nào toàn vẹn nếu không có một chút điên khùng. Không có tình yêu nào thành thơ ca, nhạc họa, vĩnh hằng nếu không có một chút dại khờ, si mê.”
+Không chỉ câu chuyện về chim sẻ nâu, chính cuộc đối thoại giữa hai chủ thể đã gợi mở cho chúng ta nhiều suy ngẫm về cuộc sống, triết lý cuộc đời. Bác sĩ kể về những phút giây bất lực của mình, về những số phận mỗi bệnh nhân, có lúc bổng lúc trầm, muôn màu muôn vẻ. Đó là câu chuyện của những bệnh nhân bị ung thư, của cô con gái chứng kiến giây phút cuối cùng của ba mình, của cô bác sĩ tài sắc nhưng tình duyên lận đận… Mỗi câu chuyện là một bài học, một góc nhìn về cuộc đời được thể hiện vô cùng nhẹ nhàng, đầy chất thơ qua văn phong của bác sĩ Nguyễn Bảo Trung.
+“Ngày chúng ta tìm ra chính mình, chấp nhận chính mình là ngày chúng ta trở thành vua và sống hạnh phúc trong vương quốc của mình.”',
+1, "Tác giả:	Nguyễn Bảo Trung
+NXB:	Dân Trí
+Năm XB:	2022
+Ngôn Ngữ:	Tiếng Việt
+Trọng lượng (gr):	250
+Kích Thước Bao Bì:	19 x 12 cm
+Số trang:	232
+Hình thức:	Bìa Mềm", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Tâm Lý Học Về Khắc Chế Cơn Giận - Đừng Để Cơn Giận Thay Đổi Con Người Bạn", "Tằng Kiệt", 168000, 4, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695026045/PHOTO_LIST/Sach_truyen_tieuthuyet/016/", 
+"NXB Hồng Đức", 
+'"Tâm Lý Học Về Khắc Chế Cơn Giận - Đừng Để Cơn Giận Thay Đổi Con Người Bạn"
+Nhà lãnh đạo quân sự nổi tiếng Napoleon từng nói: "Một người có thể kiểm soát cảm xúc của mình còn vĩ đại hơn một vị tướng có thể đánh hạ một thành trì." Khi ta tức giận thì sẽ luôn có "lửa vô minh" bừng cháy trong lòng. Khi con người khởi tâm "sân si" tức là đã thua rồi, loại người không thể làm chủ được cảm xúc sẽ vĩnh viễn không thể làm chủ được cuộc đời của họ, dẫn đến đánh mất đi lí trí, ngày càng trầm luân. Cuốn sách Tâm lý học về khắc chế cơn giận - Đừng để cơn giận thay đổi con người bạn chính là chìa khoá giúp bạn quản trị cảm xúc của chính mình.
+Nội dung cuốn sách Tâm lý học về khắc chế cơn giận
+Cuốn sách này bắt đầu bằng việc tiết lộ chân tướng của sự tức giận, cho chúng ta biết ý nghĩa, nguyên nhân và hậu quả của sự tức giận, tiếp theo sẽ phân tích chi tiết 7 loại tức giận thường gặp trong cuộc sống và cách đối phó với chúng. Cuối cùng, hai chương còn lại để thảo luận cho câu hỏi làm thế nào để thay đổi phương thức tư duy méo mó của bản thân, xây dựng lại phương thức quản lý nội tâm, biến cơn tức giận thành vô hình, từ đó để nội tâm đạt được sự ổn định, tự tin và sức mạnh.',
+1, "Tên Nhà Cung Cấp:	MCBooks
+Tác giả:	Tằng Kiệt
+Người Dịch:	Vũ Thu Hoài
+NXB:	Hồng Đức
+Năm XB:	2023
+Trọng lượng (gr):	300
+Kích Thước Bao Bì:	20.5 x 14 x 1.4 cm
+Số trang:	288
+Hình thức:	Bìa Mềm", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Hãy Chăm Sóc Mẹ", "Shin Kyung-Sook", 106000, 4, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695026045/PHOTO_LIST/Sach_truyen_tieuthuyet/017/", 
+"NXB Dân Trí", 
+'"Hãy Chăm Sóc Mẹ"
+Tác phẩm Hãy chăm sóc mẹ của nhà văn Hàn Quốc Kyung-sook Shin mở đầu bằng khung cảnh xáo trộn của một gia đình. Mẹ bị lạc khi chuẩn bị bước lên tàu điện ngầm cùng bố ở ga Seoul. Hai ông bà dự định lên đây thăm cậu con cả. Con gái đầu, Chi-hon, là người đứng ra viết thông báo tìm người lạc thay cho cả gia đình. “Ngoại hình: Tóc ngắn đã muối tiêu, xương gò má cao, khi đi lạc đang mặc áo sơ mi xanh da trời, áo khoác trắng, váy xếp nếp màu be”. Trong tiềm thức của mình, Chi-hon vẫn nghĩ mẹ là người thường“bước đi giữa biển người với phong thái có thể đe dọa cả những tòa nhà lừng lững đang nhìn thẳng xuống từ trên cao”. Trong khi đó, những người qua đường đáp lại thông báo tìm người lạc của cô bằng miêu tả về một “một bà già cứ lững thững bước đi, thỉnh thoảng lại ngồi bệt xuống đường hay đứng thẫn thờ trước cầu thang cuốn”. Liệu đó có phải là người mẹ mà cả gia đình cô đang cất công tìm kiếm?
+Một ngày, một tuần rồi gần một tháng chầm chậm trôi qua. Người chồng và những đứa con hiện đều đã phương trưởng cả không chỉ lo sốt vó mà còn day dứt tâm can vì cảm giác tội lỗi, và rối bời “trong nỗi hoảng loạn như thể tất cả mọi người đều bị tổn thương ở vùng não”. Họ cũng lấy làm băn khoăn tại sao mẹ không biết hỏi đường về nhà cậu con cả cho đến khi phát hiện ra hai sự thật rằng mẹ không biết chữ và mẹ bệnh ung thư vú khiến đầu óc không được minh mẫn như thường.
+Từ đây, những hy vọng tìm lại mẹ càng trở nên mong manh hơn… -
+Nhận định về tác phẩm
+“Cuốn sách của tác giả nổi tiếng nhất Hàn Quốc này có thể làm mọi độc giả phải rơi nước mắt.” - Library Journal
+“Cảm động và ám ảnh.” - Newsday
+“Phần là câu chuyện về sự chuyển dịch của xã hội Hàn Quốc từ nông thôn ra thành thị, phần là khúc ca về sức mạnh của mối ràng buộc gia đình được hình thành từ sự quên mình của người phụ nữ; đây là một tác phẩm vô cùng cảm động.” - Kirkus Reviews
+“Nao lòng… Thấm thía… Người đọc sẽ tìm thấy sự đồng cảm trong câu chuyện về gia đình bán chạy nhất Hàn Quốc từ trước tới nay này.” - Publishers Weekly',
+1, "Tên Nhà Cung Cấp:	Nhã Nam
+Tác giả:	Shin Kyung-Sook
+Người Dịch:	Lê Hiệp Lâm, Lê Nguyễn Lê
+NXB:	Dân Trí
+Năm XB:	2023
+Ngôn Ngữ:	Tiếng Việt
+Trọng lượng (gr):	340
+Kích Thước Bao Bì:	20.5 x 14 x 1 cm
+Số trang:	323
+Hình thức:	Bìa Mềm", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Nếu Thiếu Vắng Tình Thương Của Cha...", "Hồ Thận Chi", 165000, 4, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695026045/PHOTO_LIST/Sach_truyen_tieuthuyet/018/", 
+"NXB Hồng Đức", 
+'"Nếu thiếu vắng tình thương của cha"
+Cuốn sách “Nếu thiếu vắng tình thương của cha” được chia thành 3 phần, tương ứng với 13 chương, mỗi chương đề cập đến các mối quan hệ và lựa chọn hành vi của người cha trong gia đình, đồng thời đưa ra những lời khuyên tương ứng dưới góc độ tâm lý học.
+Phần I: “Nếu không có bố, thế giới này sẽ như thế nào?” gồm 5 chương, tập trung vào sức mạnh tinh thần của người cha và ảnh hưởng của họ đối với cuộc đời con cái.
+Phần II: “Bố đi đâu rồi” gồm 4 chương, nói về sự lo lắng về hình tượng và vai trò của người cha, cũng như sức mạnh vai trò của họ.
+Phần III: “Nhìn thấy người cha” gồm 4 chương cuối, nói về “Người cha tàng hình” trong một gia đình hoàn chỉnh và mối quan hệ giữa người cha vắng mặt, người mẹ lo lắng và đứa con mất kiểm soát.
+Cuốn sách khẳng định rằng mỗi người đàn ông lớn lên từ một cậu bé cần một hình mẫu, và hình mẫu trực tiếp nhất là người bố của họ. Mỗi người phụ nữ lớn lên từ một cô gái, tiêu chuẩn bạn đời lý tưởng của các cô gái đều tham khảo từ bố của họ. Cuốn sách cũng nêu rõ “Chức năng của người cha” theo sổ tay do Bộ Y Tế Hoa Kỳ biên soạn, bao gồm bảy khía cạnh từ phát triển mối quan hệ tích cực với mẹ của trẻ cho đến làm gương cho trẻ.',
+1, "Tên Nhà Cung Cấp:	MCBooks
+Tác giả:	Hồ Thận Chi
+Người Dịch:	An Vân
+NXB:	Hồng Đức
+Năm XB:	2023
+Trọng lượng (gr):	400
+Kích Thước Bao Bì:	20.5 x 14 x 1.6 cm
+Số trang:	364
+Hình thức:	Bìa Mềm", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Và Rồi Núi Vọng (Tái Bản)", "Khaled Hosseini", 148000, 4, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695026045/PHOTO_LIST/Sach_truyen_tieuthuyet/019/", 
+"NXB Hội Nhà Văn", 
+'"Và Rồi Núi Vọng "
+Afghanistan, mùa thu năm 1952.
+Abdullah và Pari sống cùng cha, mẹ kế và em khác mẹ trong ngôi làng nhỏ xác xơ Shadbagh, nơi đói nghèo và mùa đông khắc nghiệt luôn chực chờ cướp đi sinh mệnh lũ trẻ. Abdullah yêu thương em vô ngần, còn với Pari, anh trai chẳng khác gì người cha, chăm lo cho nó từng bữa ăn, giấc ngủ. Mùa thu năm ấy hai anh em theo cha băng qua sa mạc tới thành Kabul náo nhiệt, không mảy may hay biết số phận nào đang chờ đón phía trước: một cuộc chia ly sẽ mãi đè nặng lên Abdullah và để lại nỗi trống trải mơ hồ không thể lấp đầy trong tâm hồn Pari…
+Từ một sự kiện duy nhất đó, câu chuyện mở ra nhiều ngã rẽ phức tạp, qua các thế hệ, vượt đại dương, đưa chúng ta từ Kabul tới Paris, từ San Francisco tới hòn đảo Tinos xinh đẹp của Hy Lạp. Với sự uyên thâm, chiều sâu và lòng trắc ẩn, Khaled Hosseini đã viết nên những áng văn tuyệt đẹp về mối dây gắn kết định hình nên con người cũng như cuộc đời, về những quyết định tưởng chừng nhỏ nhoi mà vang vọng qua hàng thế kỷ.',
+1, "Tên Nhà Cung Cấp:	Nhã Nam
+Tác giả:	Khaled Hosseini
+Người Dịch:	Tất An
+NXB:	NXB Hội Nhà Văn
+Năm XB:	2021
+Trọng lượng (gr):	500
+Kích Thước Bao Bì:	20.5 x 14 cm
+Số trang:	512
+Hình thức:	Bìa Mềm", 100);
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Vì Ước Mơ Ngại Gì Dốc Cạn Tâm Sức", "Mễ Lạp", 123000, 4, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695026045/PHOTO_LIST/Sach_truyen_tieuthuyet/020/", 
+"NXB Hồng Đức", 
+'"Vì Ước Mơ Ngại Gì Dốc Cạn Tâm Sức"
+Ước mà không phải ánh mặt trời ngày nào cũng có cũng không phải nhưng đưa hoa nhỏ bé có thể nhìn thấy ở bất cứ nơi đầu. Nó vừa nhân ái cùng vừa khắc nghiệt, vừa khôn ngoan vừa biến sẵn, chi chiếu sáng cho những người dùng cảm đốc cạn tâm sức, kiến từ đến cùng.
+Phấn đấu một đời. trầy trật gian nan, vượt quá cả chặng đường khó khăn. giêng báo chi để tiến gần hơn một bước đến ước mơ.',
+1, "Tên Nhà Cung Cấp:	MCBooks
+Tác giả:	Mễ Lạp
+Người Dịch:	Hoàng Anh
+NXB:	Hồng Đức
+Năm XB:	2021
+Ngôn Ngữ:	Tiếng Việt
+Trọng lượng (gr):	317
+Kích Thước Bao Bì:	20.5 x 14 x 1.5cm
+Số trang:	311
+Hình thức:	Bìa Mềm", 100);
+-- Phần Quan Huy thêm dữ liệu vào bảng sách (lần 2 từ 11-20)
+-- TÂM LÝ TÂM LINH TÔN GIÁO
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("3 Phút Thiền", "Christophe Andre", 74500, 5, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695027318/PHOTO_LIST/Tamly_Tamlinh_Tongiao/011/", 
+"NXB Thế Giới", 
+'"3 Phút Thiền"
+Đã hơn 2000 năm nay con người biết đến thiền định, ở cả phương Đông cũng như phương Tây. Ngày nay, nhiều nghiên cứu khoa học đã khẳng định những lợi ích của thiền. Phi tôn giáo và dễ tiếp cận, thiền tỉnh thức được thực hành tại các phòng mạch, nhà trường, công sở hoặc nhà riêng. Không những mang lại sự thanh thản, mạnh mẽ và sáng suốt, thiền tỉnh thức còn giúp ta chống lại những chứng ô nhiễm tâm lý nghiêm trọng của thời đai: chủ nghĩa vật chất, chủ nghĩa tiêu dùng và sự phân tán tư tưởng gây nên bởi thế giới thiết bị số. Khi cho phép chúng ta tập trung lại vào cái chính yếu, thiền xứng đáng được gọi là môn thể thao của trí tuệ.', 1, "Nhà xuất bản: Nhã Nam
+Ngày xuất bản: 22/02/2019
+Nhà phát hành: Nhã Nam
+Kích thước: 14.0 x 20.5 x 1.4 cm
+Số trang: 270 trang
+Trọng lượng: 470 gram", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Sám Pháp Địa Xúc", "Thích Nhất Hạnh", 110500, 5, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695027349/PHOTO_LIST/Tamly_Tamlinh_Tongiao/012/", 
+"NXB Thế Giới", 
+'"Sám Pháp Địa Xúc"
+Mỗi bài trong quyển Sám Pháp Địa Xúc này giống như một buổi tâm tình với đức Thế Tôn. Ta có thể chọn một bài thích hợp với hoàn cảnh của ta mà thực tập. Trước khi thực tập Sám Pháp, ta có thể ngồi thiền hoặc đi thiền 30 phút để làm thân tâm lắng lại. Ta có thể một mình thực tập Sám Pháp Địa Xúc hoặc thực tập chung với nhiều người. Sau mỗi đoạn sám, mọi người thực tập lạy xuống khi nghe tiếng chuông. Mỗi lần lạy ta chỉ nên lạy hai hoặc ba lạy. Trong khi lạy, ta hoàn toàn phú thác thân mạng ta cho Đất, để đất có thể ôm lấy ta và giúp ta chuyển hóa những khổ đau và bế tắc trong ta...', 1, "Nhà xuất bản: NXB Thế Giới
+Ngày xuất bản: 22/10/2018
+Nhà phát hành: Phương Nam
+Kích thước: 15.5 x 24.0 x 1.0 cm
+Số trang: 198 trang
+Trọng lượng: 398 gram", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Hỏi Đường Mây Trắng Qua", "Lama Anagarika Govinda", 114500, 5, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695027384/PHOTO_LIST/Tamly_Tamlinh_Tongiao/013/", 
+"NXB Hồng Đức", 
+'"Hỏi Đường Mây Trắng Qua"
+"Không chỉ truyền cảm hứng cho người đọc bởi bút lực tài tình, cuốn sách còn là một tài liệu nhân chủng học để ta học hỏi phương pháp nghiên cứu thực địa, một sử liệu giá trị về văn hóa và lịch sử Tây Tạng. Những dấu tích ấy, theo lẽ sinh diệt hồn nhiên, nay không còn nguyên! Tuy vậy, nhữung nười có trực quan mạnh mẽ hay tín tâm kiền thành vẫn có thể "thấy" nó qua những trang sách đẫm màu tươi rói."
+"The Way of the White Clouds”, ai cũng có thể hiểu (sát nghĩa) là "con đường của mây trắng". Thực ra, đó là ẩn nghĩa thâm huyền của câu cuối trong bài kệ tương truyền của Bồ Tát Di Lặc, trong một tiền kiếp khi chưa thành Phật, đã "một mình ôm bình bát" đi "vạn dặm" tìm "Đường Cái" (Đạo). Nhà thanh tu kia thân khoác hoại y, ôm bình bát lang thang trong cõi trần tục lụy nhưng chân bước trên con đường trí, mắt xanh dõi tìm người tri đạo, và ngẩng đầu nhìn mây trắng thao thiết bao la, hoát nhiên "hỏi Đường Mây Trắng qua".
+"Vấn lộ bạch vân đầu". Mây làm gì có đường để hỏi. Đường của mây là không lối. Sơn cùng lộ tuyệt đại hải vô biên mây đều lướt tới, nhưng không từ đâu lại. Mây không đường nên có vạn đường, như bậc xuất gia không nhà nên đâu cũng là nhà. Hỏi đường mây trắng là hỏi hư không, hỏi cả đại thân thế giới. Mây tượng trưng cho Pháp. Pháp là hồi chuông triêu mộ đánh thức những cơn mê ngủ, là phương tiện chở người về bến mộng bên kia. Thuyền đi và bến đỗ hòa trong tinh cầu này."', 1, "Nhà xuất bản: NXB Hồng Đức
+Ngày xuất bản: 01/02/2017
+Nhà phát hành: Phương Nam
+Kích thước: 14.0 x 21.0 cm
+Số trang: 424 trang
+Trọng lượng: 624 gram", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Chuyện Kinh Thánh", "Pearl Buck", 119000, 5, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695027409/PHOTO_LIST/Tamly_Tamlinh_Tongiao/014/", 
+"NXB Văn Học", 
+'"Chuyện Kinh Thánh"
+Chuyện Kinh Thánh không phản ánh hết được toàn bộ Kinh Thánh, cũng không thể thay thế cho Kinh Thánh, nhưng theo nhận xét của nhiều người trong giới thẩm quyền giảng huấn tôn giáo và phê bình văn học thì đây là một thành tựu to lớn của Pearl Buck. Tác phẩm cô đọng sự kết hợp hai truyền thống đông tây, cả văn học lẫn tôn giáo.
+Pearl Buck kể Chuyện Kinh Thánh chứ không viết lại Kinh Thánh, không thêm không sửa, nhất là cố giữ phần đối thoại y nguyên tối đa, bà chỉ minh họa thêm vài cử chỉ, ít nụ cười, mấy tiếng thở dài... Dưới ngòi bút linh động của bà, các chuyện bà kể vừa chuyên chở được bản thông điệp tâm linh, vừa giữ được tính cách chính thống trong phạm vi qui điển, đồng thời, tạo được nhịp cầu giao cảm giữa độc giả ngày nay với tâm linh nhân vật và các sự kiện lịch sử hàng ngàn năm trước. Bà đã chuyển được phần nào nội dung của cuốn Kinh Thánh dày cộm thành những câu chuyện hấp dẫn và đặt vào lòng bàn tay của người đọc bình thường, trong và ngoài Kitô giáo.
+Bền vững và ngời sáng giữa các câu chuyện xa xưa ấy là đức tin tôn giáo nguyên sơ, mộc mạc và dồi dào khí lực. Vượt lên trên các luận thuyết phức tạp, xuyên phá nghi lễ và phẩm trật, ở bên kia ngôn từ và truyền thuyết, đức tin thuần khiết ấy hồn nhiên tỏa hơi ấm đều khắp cuộc sống thường ngày. Và trong cuộc sáng chế đang tiếp diễn và ngày càng tốt đẹp ấy, Kinh Thánh mãi mãi là lời giao ước và là tin vui cho mọi dân tộc, cho mọi người, để sống hiệp nhất và bình an. Và đó chính là bức thông điệp mà Chuyện Kinh Thánh muốn gửi đến bạn đọc.', 1, "Nhà xuất bản: NXB Văn Học
+Ngày xuất bản: 10/05/2011
+Nhà phát hành: Đang cập nhật
+Kích thước: 16.0 x 24.0 cm
+Số trang: 542 trang
+Trọng lượng: 700 gram", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Mật Mã Do Thái", "Perry Stone", 50000, 5, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695027425/PHOTO_LIST/Tamly_Tamlinh_Tongiao/015/", 
+"NXB Từ Điển Bách Khoa", 
+'"Mật Mã Do Thái"
+Người Do Thái chỉ chiếm ít hơn 1% dân số thế giới nhưng đã đạt được nhiều thành tựu đáng kể, bao gồm 176 người đạt giải Nobel và 25% các tổ chức nhận giải thưởng Nobel Hòa bình do người Do Thái thành lập hoặc đồng sáng lập.
+Người Do Thái cũng có tỷ lệ cao hơn trong việc vào được đại học, đặc biệt là trường Ivy League danh giá của Mỹ.
+Các nghiên cứu cho thấy người Do Thái gốc Đức và Bắc Âu có chỉ số IQ cao hơn so với nhóm không phải Do Thái.
+Có nhiều ý kiến cho rằng sự thành công của người Do Thái là do yếu tố thiên tài hoặc do yếu tố thành công bí mật ẩn chứa trong văn hóa Do Thái.
+Cuốn sách “Mật mã Do Thái” khám phá và giải mã bộ kinh Torah, giao ước Áp ra ham và lời mặc khải thiêng liêng trong Cựu ước để hiểu rõ hơn về cách sống và suy nghĩ của người Do Thái.
+Cuốn sách cung cấp những hướng dẫn quan trọng trong cuộc sống thường ngày, trong đó có chìa khóa cho sự thịnh vượng, sức khỏe, hay chúc tụng những giai đoạn cuộc sống, và nuôi dạy con cái thành tài.', 1, "Nhà xuất bản: Nxb Từ điển Bách Khoa
+Ngày xuất bản: 01/02/2014
+Nhà phát hành: Thái Hà
+Kích thước: 15.5 x 24.0 cm
+Số trang: 206 trang
+Trọng lượng: 190 gram", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Đức Kitô Hôm Qua, Hôm Nay và Mãi Mãi", "ĐGM Phaolô Bùi Văn Đọc Và Một Số Linh Mục Khác", 34500, 5, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695027441/PHOTO_LIST/Tamly_Tamlinh_Tongiao/016/", 
+"NXB Tôn Giáo", 
+'"Đức Kitô Hôm Qua, Hôm Nay và Mãi Mãi"
+Trong niềm tin đơn giản và thường nhật của người Kitô hữu, Đức Giêsu Kitô đã trỏ thành rất quen thuộc, không mấy khi tạo ra khó khăn và thắc mắc. Nhưng thật ra, vấn đề không dễ dàng, khi chúng ta muốn tìm hiểu sâu hơn về con người Giêsu Kitô.
+Niềm tin của Giáo hội không phải là một niềm tin yên ổn, thoát khỏi mọi sóng gió. Nhân vật Giêsu Kitô không phải lúc nào cũng được nhìn như nhau. Câu hỏi của Đức Giêsu luôn hiện đại: người ta bảo con Người là ai? Còn anh em, anh em bảo Con Người là ai?
+Trên bình diện lịch sử thần học, câu trả lời, hoặc nghiêng về Giêsu, con người lịch sử, hoặc nghiêng về Kitô, Đấng Cứu Thế, Đấng Thánh của Thiên Chúa, con của Thiên Chúa...', 1, "Nhà xuất bản: NXB Tôn Giáo
+Ngày xuất bản: 10/05/2009
+Nhà phát hành: Đang cập nhật
+Kích thước: 14.5 x 20.5 cm
+Số trang: 320 trang
+Trọng lượng: 396 gram", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Đồng Hành Cùng Thánh Kinh", "Oswald Chambers", 100000, 5, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695027458/PHOTO_LIST/Tamly_Tamlinh_Tongiao/017/", 
+"NXB Thời Đại", 
+'"Đồng Hành Cùng Thánh Kinh"
+Đồng Hành Cùng Thánh Kinh Cuốn sách Đồng Hành Cùng Thánh Kinh của Oswald Chambers là một khai triển những trích đoạn từ Thánh Kinh Kitô giáo - cả Tân Ước và Cựu Ước - trên cơ sở đức tin của người Kitô hữu. 365 ngày trong một năm-từ 1/1 đến 31/12-là 365 bài giảng đề cập đến những ý niệm then chốt và uyên nguyên của Kitô giáo trong tinh thần nhân văn của thời hiện đại. Độc giả không phải Kitô hữu cũng sẽ tìm thấy trong cuốn sách này nhiều điều bổ ích, từ những khái niệm đến sự diễn dịch và hành trình tư duy của một trong những tôn giáo lớn nhất và có ảnh hưởng nhất của nhân loại hơn hai ngàn năm nay. Như “Lời nói đầu” của cuốn sách này giới thiệu, trong hơn 60 năm, đây là một trong những cuốn sách được đọc nhiều nhất trong thế giới Kitô giáo.', 1, "Tên Nhà Cung Cấp: Cty Văn Hóa Văn Lang
+Tác giả: Oswald Chambers
+NXB: NXB Thời Đại
+Năm XB:  03-2012
+Trọng lượng (gr): 430
+Kích Thước Bao Bì: 21 x 13.5
+Số trang: 502
+Hình thức: Bìa Mềm", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Trò Chuyện Với Cõi Vô Hình", "Hoàng Thị Thiêm", 143000, 5, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695027475/PHOTO_LIST/Tamly_Tamlinh_Tongiao/018/", 
+"NXB Hội Nhà Văn", 
+'"Trò Chuyện Với Cõi Vô Hình"
+Trò chuyện với cõi vô hình” của nhà ngoại cảm Hoàng Thị Thiêm kể lại cuộc đời của cô từ thời thơ ấu tại Hải Phòng và Lào Cai, trải qua những khó khăn của chiến tranh, cho đến khi trở thành một nhà ngoại cảm nổi tiếng. Cô đã có những khả năng kỳ lạ từ nhỏ và sau này, dù bị coi là điên, cô đã được hướng dẫn về cõi giới bên kia và kỹ thuật áp vong. Cô đã giúp nhiều gia đình đoàn tụ với người đã mất và tìm được mộ của nhiều người có công với đất nước. Cuốn sách đã được tái bản vào năm 2021 với một số chỉnh sửa và bổ sung để làm cho nội dung rõ ràng và sinh động hơn. Cuốn sách cung cấp cái nhìn sâu sắc vào cuộc sống và công việc của một nhà ngoại cảm.', 1, "Nhà xuất bản: NXB Hội Nhà Văn
+Ngày xuất bản: 05/02/2021
+Nhà phát hành: Thái Hà
+Kích thước: 15.5 x 24.0 x 2.5 cm
+Số trang: 480 trang
+Trọng lượng: 700 gram", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Thiền Vipassana Não Bộ: Đường Đến Chân Hạnh Phúc", "Phước Tuệ Từ", 212500, 5, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695027489/PHOTO_LIST/Tamly_Tamlinh_Tongiao/019/", 
+"NXB Thế Giới", 
+'"Thiền Vipassana Não Bộ: Đường Đến Chân Hạnh Phúc"
+Khi bạn cầm được quyển sách này trên tay thì tôi và bạn là hữu duyên, không có gì là tình cờ, chúng ta đã có thể là bạn đồng hành trên con đường tâm linh nhiều đời nhiều kiếp rồi nay cơ duyên đã đến nên chúng ta hội ngộ. Cuốn sách này chia sẻ con đường tầm đạo, quá trình hành thiền  và kinh nghiệm thưc chứng của tôi trên 20 năm. Mục đích của cuộc hành trình này là thoát khỏi khổ đau, thoát khỏi sự thống trị của tham sân si và đạt đến hạnh phúc tối hậu.
+Bây giờ xin mời các bạn bước vào cuộc du hành lý thú nhất trong đời bạn, cuộc du hành nội tâm qua phương pháp Thiền Vipassana Não Bộ để đạt tới chân hạnh phúc, bạn sẽ khám phá ra bộ não của bạn được lập trình để hoạt động như thế nào? Bạn thực sự là ai? Cuộc đời bạn có nghĩa lý gì? Sự thật tuyệt đối là gì? Nguồn gốc của sự sống? Phương pháp hành thiền? Luật nhân quả là gì? Sự hình thành của các thế giới?', 1, "Nhà xuất bản: NXB Thế Giới
+Ngày xuất bản: 26/12/2022
+Nhà phát hành: Thái Hà
+Kích thước: 14.5 x 20.5 x 1.0 cm
+Số trang: 204 trang
+Trọng lượng: 350 gram", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Con Đường Heartfulness", "Daaji, Kamlesh D Patel", 91500, 5, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695027507/PHOTO_LIST/Tamly_Tamlinh_Tongiao/020/", 
+"NXB Hà Nội", 
+'"Con Đường Heartfulness"
+Kamlesh D. Patel chia sẻ về cuộc sống và sự bí ẩn của nó. Ông đã nhận được nhiều phước lành trong suốt cuộc đời, trong đó có việc tìm hiểu về thiền Heartfulness và gặp gỡ vị guru đầu tiên của mình, Ram Chandra (Babuji). Thiền Heartfulness đã tạo ra một tác động sâu sắc đối với ông và giúp ông tìm thấy hướng đi cho cuộc đời mình. Thực hành thiền đơn giản giúp chúng ta khám phá linh hồn bên trong chính mình và nuôi dưỡng tâm hồn. Cuốn sách của ông giới thiệu về thiền Heartfulness và cách thức thực hành, cũng như vai trò của guru. Cuốn sách hy vọng sẽ giúp người đọc có được lợi ích từ những gì ông đã học được trong cuộc hành trình của cuộc sống.', 1, "Nhà xuất bản: NXB Hà Nội
+Ngày xuất bản: 22/01/2020
+Nhà phát hành: Thái Hà
+Kích thước: 14.5 x 20.5 x 1.4 cm
+Số trang: 294 trang
+Trọng lượng: 490 gram", 100);
+
+-- THIẾU NHI
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Joni Mặt Tịt Và Đồng Bọn Tinh Nghịch", "Nguyễn Khắc Cường", 100000, 6, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695028070/PHOTO_LIST/Thieu_nhi/011/", 
+"NXB Trẻ", 
+'“Joni Mặt Tịt Và Đồng Bọn Tinh Nghịch” 
+Được coi là một câu chuyện hấp dẫn dành cho trẻ con về chú mèo Ba Tư tên Joni, tình cờ lưu lạc đến Việt Nam và được gia đình “mẹ” Đan nuôi dưỡng. Xinh xắn đáng yêu, “cục bông mặt tịt” Joni cũng nghịch ngợm hiếu động và nhiều phen đối đầu với nguy hiểm. Tuy nhiên, dù có thế nào, dưới góc nhìn của mèo Joni cuộc sống lúc nào cũng thật tươi đẹp. Và vòng tròn bạn bè của chú mèo bông cứ ngày càng mở rộng, nhờ tính cách lạc quan, nhân ái và tràn đầy yêu thương như thế. Người lớn cũng có thể tìm thấy trong trang sách những phút thư giãn thoải mái, khi đắm mình theo các cuộc phiêu lưu thú vị của chú mèo Joni cùng nhóm bạn bè nhiều màu sắc.', 1, "Tác giả: Nguyễn Khắc Cường
+Nhà xuất bản: Nxb Trẻ
+Nhà phát hành: NXB Trẻ
+Khối lượng: 420.00 gam
+Ngôn ngữ: Tiếng Việt
+Định dạng: Bìa mềm
+Kích thước: 20 x 13 x 0.5 cm
+Ngày phát hành: 2022
+Số trang: 224", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Con Có Thể Tự Bảo Vệ Mình - Cơ Thể Con Là Của Con (Tái Bản 2022)", "Dagmar Geisler", 75000, 6, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695028082/PHOTO_LIST/Thieu_nhi/012/", 
+"NXB Thể giới", 
+'"Con Có Thể Tự Bảo Vệ Mình - Cơ Thể Con Là Của Con" (Tái Bản 2022)
+“Cơ thể con là của con” là một cuốn sách kể về cô bé Clara, có một điều đặc biệt đó là cơ thể của cô bé chỉ thuộc về một mình cô bé. Clara nhận thức được sự thay đổi của cơ thể mình hàng ngày và tự hào về điều đó. Cô bé rất thích được ôm và âu yếm, nhưng không phải lúc nào cũng vậy. Clara không thích bị ôm hôn ngấu nghiến hay những trò đùa quá trớn. Cô bé quyết định nói “Không” khi mình cảm thấy không thoải mái và nếu người đó cố tình vi phạm, cô bé sẽ tự biết cách bảo vệ mình bằng cách tránh xa và kể cho những người tin tưởng. Cuốn sách này được tạo nên bởi những hình ảnh đáng yêu với cốt truyện rõ ràng, nhấn mạnh vào thái độ con tôn trọng cơ thể con, con tôn trọng người khác và mọi người cũng cần tôn trọng con.', 1, "Tác giả: Dagmar Geisler
+Người dịch: Bùi Thị Phương Nhung
+Nhà xuất bản: Nxb Thế giới
+Nhà phát hành: AZ books
+Giấy phép XB: -QĐ/TG
+Khối lượng: 100.00 gam
+Ngôn ngữ: Tiếng Việt
+Định dạng: Bìa mềm
+Kích thước: 29.5 x 20.8 cm
+Ngày phát hành: 2022", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Cùng Phiêu Lưu Bắc Cực", "Nadine Brun-Cosme, Anna Aparicio Català", 46500, 6, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695028095/PHOTO_LIST/Thieu_nhi/013/", 
+"NXB Kim Đồng", 
+'"Cùng Phiêu Lưu Bắc Cực"
+Nico và Khỉ đuôi sóc chuẩn bị cho chuyến thám hiểm đến Bắc Cực bằng một con tàu đa năng. Cả hai sẽ cùng nhau trải qua những cuộc phiêu lưu kì thú và gặp gỡ những người bạn mới. Nico có sở thích chế tạo máy móc và cùng Khỉ đuôi sóc khám phá nhiều nơi chốn thú vị. Tất cả đang chờ em cùng khám phá đấy!', 1, "Nhà xuất bản: NXB Kim Đồng
+Ngày xuất bản: 04/08/2023
+Nhà phát hành: NXB Kim Đồng
+Kích thước: 20.0 x 26.0 cm
+Số trang: 46 trang
+Trọng lượng: 200 gram", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Chúng Ta Đa Dạng", "Magdalena Guerrero, María Jose Poblete, Alfredo Cáceres", 97500, 6, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695028111/PHOTO_LIST/Thieu_nhi/014/", 
+"NXB Kim Đồng", 
+'"Chúng Ta Đa Dạng"
+_x000D_
+_x000D_
+Xin chào, nhà hoạt động! Chúng tớ đang đợi cậu! Chúng tớ biết cậu là người đặc biệt. Chúng tớ cũng biết cậu đang gắn kết với thế giới xung quanh và quan sát kĩ lưỡng để nhận biết những gì cậu quan tâm, những điều cậu muốn bảo tồn và cả những điều cậu muốn thay đổi. Giống như cậu, trên thế giới này có nhiều đàn ông và phụ nữ cùng quan sát, kết nối với nhau, quyết định bắt tay nhau làm cho thế giới tốt đẹp hơn. Và rất nhiều người đã thành công!_x000D_
+Cuốn sách này sẽ giúp cậu đánh thức nhà hoạt động vô cùng đặc biệt đang say ngủ bên trong con người cậu. _x000D_
+Tớ, nhà hoạt động, sẽ hướng dẫn để cậu có thể mang lại những thay đổi, dù lớn hay nhỏ, trong lớp học, trường học, và cả thế giới cậu đang sống._x000D_
+VÌ TẤT CẢ CHÚNG TA CÓ THỂ CHUNG TAY LÀM CHO THẾ GIỚI TỐT ĐẸP HƠN!_x000D_
+---_x000D_
+Mời các bạn tìm đọc trọn bộ Chúng Ta Đa Dạng + Tớ, Nhà Hoạt Động (2 cuốn)_x000D_
+•    Tớ, Nhà Hoạt Động - Sổ Tay Hướng Dẫn Thay Đổi Xã Hội, Từ Nhỏ Tới Lớn_x000D_
+•    Chúng Ta Đa Dạng - Một Chuyến Du Lịch Văn Hóa Để Nhận Biết Giá Trị Và Tôn Trọng Sự Khác Biệt_x000D_
+Bộ sách mang đến góc nhìn toàn cảnh về cá nhân và xã hội thời hiện đại, về sự khác biệt đáng quí của mỗi chúng ta và cách biến thế giới thành một nơi tốt đẹp hơn. _x000D_', 1, "Nhà xuất bản: NXB Kim Đồng
+Ngày xuất bản: 08/08/2023
+Nhà phát hành: NXB Kim Đồng
+Kích thước: 21.5 x 28.0 x 2.0 cm
+Số trang: 72 trang
+Trọng lượng: 250 gram", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Hứa với mẹ, bé hãy an toàn khi ở nhà", "Park Eun-Gyung", 63500, 6, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695028123/PHOTO_LIST/Thieu_nhi/015/", 
+"NXB Hà Nội", 
+'"Hứa với mẹ, bé hãy an toàn khi ở nhà"
+Theo thống kê của Viện Người tiêu dùng Hàn Quốc, trên 60% vụ tai nạn ở trẻ em xảy ra tại nhà hoặc xung quanh nhà. Chỉ cần các bậc phụ huynh chú ý hơn một chút, thì hoàn toàn có thể phòng tránh các tai nạn dù nhỏ hay lớn. Trước tiên, phải tìm hiểu xem những địa điểm nào, những tình huống nào dễ gây ra tai nạn, sau đó, hãy biến ngôi nhà của gia đình thành không gian an toàn cho trẻ. Tiếp theo đó, phải dạy cho trẻ phân biệt được những hành động an toàn và hành động nguy hiểm, dạy trẻ cách tự bảo vệ bản thân khi có bất kỳ tình huống nào xảy ra. Cha mẹ hãy cùng trẻ đọc cuốn sách này, đi quanh nhà và tìm hiểu những nguyên tắc an toàn phải thực hiện. Bằng cách đó, chúng ta có thể bảo vệ sự an toàn cho những đứa con thân yêu của mình.', 1, "Nhà xuất bản: NXB Hà Nội
+Ngày xuất bản: 01/01/2023
+Nhà phát hành: Thái Hà
+Kích thước: 22.0 x 28.0 cm
+Số trang: 44 trang
+Trọng lượng: 100 gram", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Tranh Truyện Lịch Sử Việt Nam - Duy Tân (Tái Bản 2023)", "Nguyễn Huy Thắng, Lê Minh Hải", 17000, 6, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695028167/PHOTO_LIST/Thieu_nhi/016/", 
+"NXB Kim Đồng", 
+'"Tranh Truyện Lịch Sử Việt Nam - Duy Tân" (Tái Bản 2023)
+Vua Duy Tân tên là Nguyễn Phúc Vĩnh San, sinh ngày 19-9-1900, lên ngôi lúc tám tuổi. Ông bất hợp tác với chính quyền thuộc địa Pháp và bí mật lên kế hoạch khởi nghĩa năm 1916 nhưng thất bại và bị đưa đến đảo Réunion. Thi hài ông được đưa về Việt Nam năm 1987. Tủ sách “Tranh truyện lịch sử Việt Nam” dành cho thiếu niên nhi đồng giúp các em làm quen với lịch sử thông qua những câu chuyện về các danh nhân được thể hiện bằng các trang sách màu.', 1, "Nhà xuất bản: NXB Kim Đồng
+Ngày xuất bản: 22/07/2023
+Nhà phát hành: NXB Kim Đồng
+Kích thước: 14.5 x 20.5 x 0.2 cm
+Số trang: 32 trang
+Trọng lượng: 250 gram", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Thiên Mã (Tái Bản 2023)", "Hà Thủy Nguyên", 55000, 6, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695028200/PHOTO_LIST/Thieu_nhi/017/", 
+"NXB Kim Đồng", 
+'"Thiên Mã" (Tái Bản 2023)
+Thần Đồng, cậu bé có trí tuệ siêu việt đã tạo ra một chú ngựa có cánh mang tên Thần Thoại bằng cách lai ghép giữa ngựa và thiên nga. Cùng với một cô bé thông minh, bướng bỉnh, bộ ba đã rong ruổi phiêu lưu khắp bốn phương trời, tới Ai Cập, Trung tâm Vũ trụ và Ngôi đền Yên tĩnh trên dãy núi Himalaya. Những miền đất bí ẩn, những bí mật và những nhân vật lạ lùng đang chờ đón các nhân vật nhỏ tuổi và độc giả nhỏ tuổi cùng khám phá. Úmbala, nào ta cùng mở sách ra.', 1, "Nhà xuất bản: NXB Kim Đồng
+Ngày xuất bản: 06/07/2023
+Nhà phát hành: NXB Kim Đồng
+Kích thước: 14.0 x 22.5 x 1.0 cm
+Số trang: 200 trang
+Trọng lượng: 350 gram", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Bộ Sách Chân Dung Những Người Thay Đổi Thế Giới - Charles Darwin Là Ai? (Tái Bản 2023)", "Deborah Hopkinson - Nancy Harrison", 59000, 6, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695028212/PHOTO_LIST/Thieu_nhi/018/", 
+"NXB Dân Trí", 
+'"Bộ Sách Chân Dung Những Người Thay Đổi Thế Giới - Charles Darwin Là Ai?" (Tái Bản 2023)
+Bộ sách chân dung – Những người thay đổi thế giới cung cấp thông tin thú vị về những nhân vật nổi tiếng trong lịch sử lẫn hiện tại. Cuốn sách miêu tả chân thực nội tâm cảm xúc nhân vật và hình ảnh minh họa sống động. Bạn sẽ hiểu được những thăng trầm, biến cố và thành công trong cuộc đời của mỗi thiên tài. Biết đâu sau khi đọc xong bộ sách này, bạn sẽ trở thành những Albert Einstein, Newton, Edison thế hệ tiếp theo!', 1, "Tên Nhà Cung Cấp: Alpha Books
+Tác giả: Deborah Hopkinson, Nancy Harrison
+Người Dịch: Nguyễn Thanh Hải, Nguyễn Hồng Hoa, Nguyễn Hằng Hà
+NXB: Dân Trí
+Năm XB: 2023
+Ngôn Ngữ: Tiếng Việt
+Trọng lượng (gr): 120
+Kích Thước Bao Bì: 19 x 13 x 0.5 cm
+Số trang: 108
+Hình thức: Bìa Mềm", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Cổ Tích Trăng Non - Chiếc Xe Đạp Của Gấu Con", "Minh Anh, Ngọc Phương", 16000, 6, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695028223/PHOTO_LIST/Thieu_nhi/019/", 
+"NXB Phụ Nữ Việt Nam", 
+'"Cổ Tích Trăng Non - Chiếc Xe Đạp Của Gấu Con"
+Bộ sách Cổ Tích Trăng Non được minh họa bởi những nét vẽ tươi sáng, sinh động, giúp các em nhỏ yêu thích kho tàng cổ tích Việt Nam hơn. Sau mỗi câu chuyện kể đều có những câu hỏi vui học giúp tăng tư duy cho các em. Đây là một thế giới hấp dẫn, lôi cuốn với biết bao tình tiết li kỳ và bài học giáo dục nhẹ nhàng nhưng tác động mạnh mẽ trong việc bồi dưỡng tâm hồn trẻ thơ.', 1, "Tên Nhà Cung Cấp: Huy Hoang Bookstore
+Tác giả: Minh Anh, Ngọc Phương
+NXB: NXB Phụ Nữ Việt Nam
+Năm XB:	2021
+Trọng lượng (gr): 10
+Kích Thước Bao Bì: 24 x 17 cm
+Số trang: 24
+Hình thức: Bìa Mềm", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Những Cuộc Phiêu Lưu Của Huckleberry Finn", "Mark Twain", 98000, 6, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695028254/PHOTO_LIST/Thieu_nhi/020/", 
+"NXB Văn Học", 
+'"Những cuộc phiêu lưu của Huckleberry Finn"
+Đây là tiểu thuyết ưu tú nhất của Mark Twain. Tác giả đã vận dụng phương ngữ của nhiều vùng, nhiều tầng lớp người để diễn tả những trạng huống tâm lý phức tạp và mô tả xuất sắc cảnh vật thiên nhiên. Tác phẩm này đã lọt vào danh sách những tiểu thuyết hay nhất mọi thời đại của văn học Mỹ và rất nhiều lần được đưa lên màn ảnh. Ernest Hemingway từng nói: “Toàn bộ văn học Mỹ hiện đại đều thoát thai từ một cuốn sách của Mark Twain, đó là Những cuộc phiêu lưu của Huckleberry Finn”', 1, "Tên Nhà Cung Cấp: Huy Hoang Bookstore
+Tác giả: Mark Twain
+Người Dịch: Xuân Oanh
+NXB: NXB Văn Học
+Năm XB: 2019
+Trọng lượng (gr): 450
+Kích Thước Bao Bì: 13.5 x 20.5 x 2.1
+Số trang: 435
+Hình thức: Bìa Mềm", 100);
+
+-- VĂN HỌC NGHỆ THUẬT
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Phép Màu Cho Marigold", "L M Montgomery", 129000, 7, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695032317/PHOTO_LIST/Van_hoc_nghe_thuat/011/", 
+"NXB Lao Động", 
+'"Phép Màu Cho Marigold"
+“Cháu thực sự nghĩ gì về thế giới?” Marigold, tuy ngạc nhiên, nhưng biết rõ cô bé nghĩ gì về thế giới.
+“Cháu nghĩ thế giới rất thú vị.” Cô bé nói. Cụ bà nhìn cô bé chằm chằm rồi cười lớn.
+“Vậy thì cháu đã rất đúng. Lời nói có thể sẽ không được thực hiện, của cải có thể sẽ biến mất – nhưng những điều rực rỡ của cuộc sống con người sẽ luôn tiếp tục. Ta chưa bao giờ cảm thấy mệt mỏi khi chứng kiến những điều đó. Ta đã sống gần một thế kỷ rồi - và trong tất cả mọi thứ, chẳng có gì làm ta biết ơn hơn sự thực rằng ta luôn cảm thấy thế giới và con người sống trong đó thú vị. Đúng, cuộc sống này thật đáng sống…”', 1, "Tên Nhà Cung Cấp: Đinh Tị
+Tác giả: L M Montgomery
+Người Dịch: Phùng Nga
+NXB: NXB Lao Động
+Năm XB:	2020
+Trọng lượng (gr): 500
+Kích Thước Bao Bì: 20.5 x 14.5 cm
+Số trang: 452
+Hình thức: Bìa Mềm", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Ba Gã Cùng Thuyền - Chưa Kể Con Chó - Jerome K. Jerome", "Jerome K. Jerome", 88000, 7, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695032333/PHOTO_LIST/Van_hoc_nghe_thuat/012/", 
+"NXB Văn Học", 
+'"Ba Gã Cùng Thuyền - Chưa Kể Con Chó - Jerome K. Jerome"
+Đây là một cuốn sách của tác giả Jerome K. Jerome, kể về chuyến du hành sông Thames của ba người đàn ông và một con chó với mục đích để thư giãn. Trong chuyến du hành này, họ gặp phải nhiều trở ngại như sự cứng đầu cứng cổ của mớ hành lý, sự vô ơn của con thuyền, sự quỷ quyệt của cái ấm trà, sự om sòm của bầy thiên nga, nhưng cuối cùng họ vẫn được thư giãn thật sự và biết thế nào là một chuyến du hành đích thực. Cuốn sách này đã được độc giả đón nhận hết sức nồng nhiệt và là bước đệm để tác giả cùng một số người khác sáng lập ra The Idler – tạp chí hài hước với nhiều bài viết của Bret Hart, Mark Twain, W.W. Jacobs, … Năm 1990, Jerome xuất bản cuốn Three man in a bummel (Tạm dịch: Ba gã dạo chơi), kể tiếp về chuyến đi bộ của ba nhân vật chính đến nước Đức. Ngoài ra, ông cũng viết một số vở kịch có phong cách gần giống với phong cách của bạn mình - nhà văn J.M.Barrie, nổi tiếng nhất trong số đó là The passing of the third floor back (Tạm dịch: Vị khách trọ phía sau tầng ba) - một câu chuyện luân lý với bối cảnh hiện đại.', 1, "Tác giả: Jerome K. Jerome
+Dịch giả: Petal Lê
+Hình thức: bìa mềm, 13 x 20.5 cm. 262 trang
+Nhà xuất bản: NXB Văn Học, 2023", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Hóa Thân (Tái Bản 2018)", "Franz Kafka", 54000, 7, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695032353/PHOTO_LIST/Van_hoc_nghe_thuat/013/", 
+"NXB Hội Nhà Văn", 
+'"Hóa Thân (Tái Bản 2018)"
+Một sáng tỉnh giấc sau những giấc mơ xáo động, Gregor Samsa, nằm trên giường, nhận thấy mình đã biến thành một con côn trùng khổng lồ. Anh nằm ngửa trên cái lưng rắn như thể được bọc giáp sắt, và khi dợm nhấc đầu lên, anh nhìn thấy bụng mình khum tròn, nâu bóng, phân chia làm nhiều đốt cong cứng đờ, tấm chăn bong đắp trên bụng đã bị xô lệch, gần tuột hẳn. Chân anh nhiều ra, mảnh khảnh đến thảm hại so với phần còn lại của thân hình to đùng, vung vẩy bất lực trước mắt anh.', 1, "Tên Nhà Cung Cấp: Nhã Nam
+Tác giả: Franz Kafka
+Người Dịch: Đức Tài
+NXB: NXB Hội Nhà Văn
+Năm XB:	2018
+Trọng lượng (gr): 280
+Kích Thước Bao Bì: 13 x 20.5
+Số trang: 126
+Hình thức: Bìa Mềm", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Nghệ Thuật Và Thợ Thủ Công", "Oscar Wilde", 110000, 7, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695032392/PHOTO_LIST/Van_hoc_nghe_thuat/014/", 
+"NXB Đà Nẵng", 
+'“Nghệ Thuật Và Thợ Thủ Công” 
+Đây là một tập tiểu luận của tác giả Oscar Wilde, được dịch bởi Minh Hùng và Lê Duy Nam, và xuất bản bởi Đà Nẵng vào năm 2020. Tập sách này gồm 4 tiểu luận và bài giảng của Oscar Wilde về sự kiến tạo tinh thần trong thời đại mà ông sống: Châu Âu thế kỷ 19 dưới thời đại trị vì của nữa hoàng Victoria. Ông bàn về cách nghệ thuật cần phải hướng tới các giá trị thẩm mỹ ra sao, người nghệ sĩ cần giữ thái độ độc lập và chuẩn mực sáng tác như thế nào, chúng ta cần phải hướng tới tự do cá nhân như một lẽ sống không thể chối bỏ. Con đường kiến tạo của ông đi ngược lại xu hướng thế kỷ 19 ở Anh quốc nói riêng và châu Âu nói chung, khi mà cuộc Cách mạng công nghiệp lúc bấy giờ đã gây ra một thảm trạng về cảnh quan và môi trường sống. Cuốn sách này cung cấp cho người đọc những niềm tin đang hiện hữu trong công chúng, lật ngược lại các niềm tin đó, để người đọc nhận ra được bản chất của vấn đề.', 1, "Tác giả	Oscar Wilde
+Người Dịch: Minh Hùng, Lê Duy Nam
+NXB: Đà Nẵng
+Năm XB:	2020
+Trọng lượng (gr): 200
+Kích Thước Bao Bì: 20.5 x 12 x 0.9 cm
+Số trang: 205
+Hình thức: Bìa Mềm", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Heidi - Bìa Cứng (Tái Bản 2023)", "Johanna Spyri, Elena Selivanova", 280000, 7, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695032409/PHOTO_LIST/Van_hoc_nghe_thuat/015/", 
+"NXB Đà Nẵng", 
+'“Heidi - Bìa Cứng” 
+Đây là một cuốn sách của nữ nhà văn Johanna Spyri, được dịch bởi Thanh Vân và minh họa bởi Elena Selivanova, và xuất bản bởi Đông A vào năm 2023. Cuốn sách kể về cô bé Heidi, được người dì ích kỉ gửi đến sống với ông nội đang sống cô độc trên vùng núi Alm. Dù ban đầu ai cũng ái ngại cho Heidi khi phải sống với ông già lập dị và cục cằn ấy, nhưng Heidi bé bỏng với tấm lòng nhân hậu tự nhiên, chẳng những giúp ông nội tìm lại lòng yêu cuộc sống, mà còn mang đến bao đổi thay kì diệu. Những ai từng gặp Heidi, dù ở Dörfli hay Frankfurt, đều muốn cô bé mãi mãi ở bên mình. Nhưng tất cả đều hiểu, chỉ ở giữa cánh đồng hoa rực rỡ, thung lũng mênh mông và ráng chiều rực đỏ trên những ngọn núi thanh tĩnh ngàn đời của dãy Alm, Heidi mới thực sự hạnh phúc để tặng niềm vui cho mọi người. Cuốn sách này đã được chuyển thể thành phim điện ảnh, phim truyền hình, kịch bản sân khấu và anime.', 1, "Tên Nhà Cung Cấp: Đông A
+Tác giả: Johanna Spyri, Elena Selivanova
+Người Dịch: Thanh Vân
+NXB: Văn Học
+Năm XB:	2023
+Ngôn Ngữ: Tiếng Việt
+Trọng lượng (gr): 1200
+Kích Thước Bao Bì: 24 x 15.5 x 2 cm
+Số trang: 304
+Hình thức: Bìa Cứng", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Chị Kể Chuyện", "Lucy Maud Montgomery", 139000, 7, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695032433/PHOTO_LIST/Van_hoc_nghe_thuat/016/", 
+"NXB Văn Học", 
+'“Chị Kể Chuyện”
+Đây là một cuốn sách của nữ nhà văn L. M. Montgomery, được dịch bởi Hàn Băng Vũ và xuất bản bởi Văn Học vào năm 2023. Cuốn sách kể về câu chuyện của anh em Bevery và Felix, được cha gửi về sống một thời gian với gia đình chú thím ở đảo Hoàng Tử Edward. Tại đây, hai cậu bé được gặp rồi kết thân với các anh chị em họ và đặc biệt là Sara Stanley - người được mọi người gọi với biệt danh là “chị Kể Chuyện” vì khả năng kể chuyện tuyệt vời của mình. Cùng với những câu chuyện hấp dẫn của chị Kể Chuyện và các cuộc phiêu lưu, các cô bé cậu bé đã cùng nhau trải qua một mùa hè đầy thú vị và nhiều cảm xúc khó quên.', 1, "Tên Nhà Cung Cấp: Công ty TNHH Tazano
+Tác giả: Lucy Maud Montgomery
+Người Dịch: Hàn Băng Vũ
+NXB: Văn Học
+Năm XB:	2023
+Trọng lượng (gr): 440
+Kích Thước Bao Bì: 20.5 x 14 x 2.1 cm
+Số trang: 424
+Hình thức: Bìa Mềm", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Thung Lũng Cầu Vồng", "Lucy Maud Montgomery", 138000, 7, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695032449/PHOTO_LIST/Van_hoc_nghe_thuat/017/", 
+"NXB Hội Nhà Văn", 
+'"Thung Lũng Cầu Vồng"
+Cuốn sách kể về một vùng lòng chảo nhỏ bé, nên thơ và quạnh hiu được lũ trẻ nhà Bên Ánh Lửa âu yếm gọi tên: Thung Lũng Cầu Vồng. Nơi đây, lũ trẻ tha hồ bày trò náo động, yên bình đọc thơ, câu cá suối, thu hoạch nhựa vân sam, ăn những bữa tiệc đến các ông hoàng bà chúa cũng phải ghen tỵ. Cũng nơi đây, chúng tìm được những tình bạn tâm đầu ý hợp nơi bốn đứa trẻ con nhà mục sư và một cô bé mồ côi. Cùng nhau, chúng đã có những cuộc phiêu lưu lấp lánh trong mắt con trẻ, dẫu có phần kinh hoảng trong mắt những người dân chất phác ham ngồi mê đôi mách làng Glen.', 1, "Tên Nhà Cung Cấp: Nhã Nam
+Tác giả: Lucy Maud Montgomery
+Người Dịch: Huyền Vũ
+NXB: NXB Hội Nhà Văn
+Năm XB:	2021
+Trọng lượng (gr): 450
+Kích Thước Bao Bì: 20.5 x 14 cm
+Số trang: 412
+Hình thức: Bìa Mềm", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Anne Tóc Đỏ Làng Avonlea", "Lucy Maud Montgomery", 112000, 7, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695032464/PHOTO_LIST/Van_hoc_nghe_thuat/018/", 
+"NXB Hội Nhà Văn", 
+'"Anne Tóc Đỏ Làng Avonlea"
+Mới ngày nào cô bé Anne mặt tàn nhang và dễ kích động vừa mới đặt chân lên đảo Hoàng Tử Edward đã gây bao xôn xao, xáo trộn. Vậy mà giờ đây Anne đã vụt lớn thành một thiếu nữ mười sáu tuổi tươi tắn và xinh đẹp. Tuổi mười sáu đặt lên vai cô nhiều trọng trách: một cô giáo làng với tham vọng gieo những ước vọng đẹp đẽ trong tâm hồn trẻ thơ, một sáng lập viên Hội Cải tạo với mong muốn biến Avonlea thành một ngôi làng xanh sạch đẹp hơn, và một người bảo hộ bất đắc dĩ của hai đứa bé sinh đôi mồ côi rất đáng yêu nhưng cũng gây lắm chuyện đau đầu. Nhưng tuổi mười sáu vẫn không làm mất đi trong Anne tính lãng mạn vô phương cứu chữa cũng như chẳng khiến Anne thôi vướng vào vô số sự cố dở khóc dở cười chẳng khác gì những học trò nhỏ tinh nghịch và hăng hái của cô.
+Mười một, mười sáu rồi mười tám, Anne từng bước trưởng thành nhưng vẫn không thôi là Anne thánh thiện, lạc quan và căng tràn sức sống – nguồn cảm hứng tinh khôi quyến rũ biết bao thế hệ bạn đọc đủ mọi lứa tuổi trên khắp thế giới.', 1, "Tên Nhà Cung Cấp: Nhã Nam
+Tác giả: Lucy Maud Montgomery
+Người Dịch: Hồ Thanh Ái
+NXB: NXB Hội Nhà Văn
+Năm XB:	2022
+Trọng lượng (gr): 450
+Kích Thước Bao Bì: 20.5 x 14 x 1.5 cm
+Số trang: 404
+Hình thức: Bìa Mềm", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Beartown - Thị Trấn Nhỏ, Giấc Mơ Lớn", "Fredrik Backman", 189000, 7, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695032668/PHOTO_LIST/Van_hoc_nghe_thuat/019/", 
+"NXB Trẻ", 
+'"Beartown - Thị Trấn Nhỏ, Giấc Mơ Lớn"
+Từ tác giả cuốn sách bán chạy toàn cầu “Người đàn ông mang tên Ove”
+Fredrik Backman cuốn hút người đọc vào cuốn tiểu thuyết sâu sắc, quyến rũ về một thị trấn nhỏ mang giấc mơ lớn – và cái giá phải trả để biến giấc mơ thành hiện thực.
+Ai cũng nói Beartown vậy là xong rồi. Một cộng đồng nhỏ nép mình sâu trong rừng, và ngày càng nhỏ lại khi cây cối xâm lấn. Nhưng ở đây có một sân băng cũ, và đây là lí do người dân Beartown tin rằng ngày mai sẽ tốt hơn hôm nay. Đội khúc côn cầu trên băng của họ sắp thi đấu ở vòng bán kết quốc gia, và họ hoàn toàn có cơ hội chiến thắng. Tất cả hi vọng và ước mơ của nơi này được đặt lên vai những cậu trai tuổi teen.
+Nhưng chính điều đó lại tạo thành một gánh nặng cho các cậu, và đã kích hoạt một hành động bạo lực, cả thị trấn chìm trong hỗn loạn.
+“Beartown” đi sâu vào những hi vọng gắn kết một cộng đồng nhỏ lại với nhau, những bí mật đã chia cắt nó và sự can đảm cần có để một người làm điều khác thường. Trong câu chuyện về thị trấn nhỏ trong rừng này, Fredrik Backman đã tìm được cả thế giới.', 1, "Tên Nhà Cung Cấp: NXB Trẻ
+Tác giả: Fredrik Backman
+Người Dịch: Hoàng Anh
+NXB: Trẻ
+Năm XB:	2023
+Ngôn Ngữ: Tiếng Việt
+Trọng lượng (gr): 600
+Kích Thước Bao Bì: 20 x 13 x 2 cm
+Số trang: 604
+Hình thức: Bìa Mềm", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Bồ Câu Bay Đi Tìm Bà", "Walter Macken", 77000, 7, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695032683/PHOTO_LIST/Van_hoc_nghe_thuat/020/", 
+"NXB Hội Nhà Văn", 
+'"Bồ Câu Bay Đi Tìm Bà"
+Đã bao giờ bạn đọc một cuốn sách phiêu lưu mà ngọt ngào đến thế này chưa? Ngọt từ chú bé mồ côi vẫn còn ở tuổi ham bắn bi, đá bóng mà đã dám ra một quyết định tày trời: bỏ nhà ra đi để bảo vệ người mình yêu thương. Ngọt đến cô em gái nhỏ xinh như búp bê nhưng không ngại ăn đường ngủ phố, trèo núi băng đồng, hết mực tin tưởng người anh không ca thán nửa lời. Ngọt đến cả những người hai anh em chúng gặp trên đường, từ lớn chí bé: mỗi bận ta run lên lo sợ là mỗi bận ta thở phào hân hoan nhận ra người tốt hóa ra ở khắp nơi. Tất nhiên là trừ nhân vật phản diện: ông bố dượng giả tạo quyết tâm lùng kiếm chúng bằng được, chẳng phải yêu thương gì mà chỉ vì muốn giành lại khoản thừa kế kếch xù.
+Biết bao cảm hứng và tưởng tượng hẳn sẽ được khơi lên từ đây, câu chuyện về anh em nhà họ Dove - hai chú bồ câu bé nhỏ, gan dạ - bỏ nhà vượt biển, tìm kiếm một ngôi làng không biết tên, ở một đất nước không quen thuộc, để đến với bà ngoại - biểu tượng của tình yêu thương mà chúng luôn khao khát.
+WALTER MACKEN (1915-1967) là nhà văn và nhà soạn kịch người Ai Len. Xuất thân diễn viên, Macken chỉ bắt đầu tập trung hẳn vào sự nghiệp viết lách sau thành công của cuốn sách thứ ba trên thị trường Mỹ, Rain on the Wind. Tác phẩm nổi tiếng nhất của ông là bộ ba tiểu thuyết về lịch sử Ai Len: Seek the Fair Land, The Silent People và The Scorching Wind. Gia tài sáng tác đồ sộ của Macken có đến 5 tuyển tập truyện ngắn cùng 2 tiểu thuyết cho thiếu nhi, trong đó nổi bật nhất là Bồ câu bay đi tìm bà (xuất bản năm 1963, chuyển thể thành phim điện ảnh năm 1971).', 1, "Tên Nhà Cung Cấp: Nhã Nam
+Tác giả: Walter Macken
+Người Dịch: Nguyễn Bích Lan
+NXB: NXB Hội Nhà Văn
+Năm XB: 2021
+Trọng lượng (gr): 300
+Kích Thước Bao Bì: 20.5 x 14 cm x 1.2
+Số trang: 220
+Hình thức: Bìa Mềm", 100);
+
+-- VĂN HÓA, XÃ HỘI - LỊCH SỬ
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Các Dân Tộc Ở Đông Nam Á", "Viện Hàn Lâm Khoa Học Xã Hội Việt Nam, Viện Nghiên Cứu Đông Nam Á Nguyễn Duy Thiệu", 195000, 8, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695042780/PHOTO_LIST/Vanhoaxahoi_lichsu/011/", 
+"NXB Đại Học Quốc Gia Hà Nội", 
+'"Các Dân Tộc Ở Đông Nam Á"
+Giới thiệu các dân tộc ở Đông Nam Á: về bức tranh tổng quan các tộc người; các nhóm ngôn ngữ và sự phân bố tộc người ở hai cấp độ: trên toàn khu vực và trong phạm vi của từng nước cụ thể; nhận diện các đặc trưng văn hóa đã làm nên bản sắc khu vực trong quá khứ như là những tiền đề góp phần tái lập bản sắc của một thực thể Đông Nam Á trong bối cảnh đương đại.', 1, "Nhà Cung Cấp: Cty Tri Thức Văn Hóa Sách VN
+Tác giả: Viện Hàn Lâm Khoa Học Xã Hội Việt Nam, Viện Nghiên Cứu Đông Nam Á Nguyễn Duy Thiệu
+NXB: NXB Đại Học Quốc Gia Hà Nội
+Năm XB: 2019
+Trọng lượng (gr): 400
+Kích Thước Bao Bì: 16 x 24 cm
+Số trang: 383
+Hình thức: Bìa Mềm", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Người Nông Dân Châu Thổ Bắc Kỳ", "Pierre Gourou", 185000, 8, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695042800/PHOTO_LIST/Vanhoaxahoi_lichsu/012/", 
+"NXB Trẻ", 
+'"Người Nông Dân Châu Thổ Bắc Kỳ"
+Cuốn sách của Pierre Gourou nghiên cứu về châu thổ Sông Hồng, một châu thổ vào loại đông dân nhất thế giới, cái nôi của nền văn minh Việt Nam, là một tác phẩm đặc sắc nghiên cứu về địa lý nhân văn. Mặc dù sách đã xuất bản (nguyên bản tiếng Pháp) từ các năm 30 của thế kỷ trước, nhưng đến nay sau hơn 70 năm, nó vẫn còn nguyên tính thời sự… Bởi lẽ dù vùng đất này đã có nhiều biến đổi về chính trị, kinh tế và xã hội nhưng vẫn còn lưu giữ được những nét cơ bản cho đến tận ngày nay. Cần biết thêm đôi điều về tác giả. Pierre Gourou là người đã sống gần trọn thế kỷ XX. Ông là Thạc sĩ sử học và địa lý học, Tiến sĩ văn chương, Ủy viên thông tấn Viện Viễn đông Bác cổ Pháp. Oâng đã thực hiện nhiều cuộc điều tra trên thực địa, tiếp xúc với nông dân, chú ý đến cấu trúc gia đình, tín ngưỡng tôn giáo… Và có lẽ nhờ vậy, những công trình nghiên cứu của ông là một phương thức đóng góp cho sự phát triển đi lên của các nước nghèo.', 1, "Tên Nhà Cung Cấp: NXB Trẻ
+Tác giả: Pierre Gourou
+NXB: Trẻ
+Năm XB: 04/2015
+Trọng lượng (gr): 760
+Kích Thước Bao Bì: 15.5x23 x 4.3
+Số trang: 701
+Hình thức: Bìa Mềm", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Cách Mạng Pháp Và Tâm Lý Học Của Các Cuộc Cách Mạng", "Gustave Le Bon", 129000, 8, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695042820/PHOTO_LIST/Vanhoaxahoi_lichsu/013/", 
+"NXB Thế Giới", 
+'"Cách Mạng Pháp Và Tâm Lý Học Của Các Cuộc Cách Mạng"
+Cách Mạng Pháp Và Tâm Lý Học Của Các Cuộc Cách Mạng Lịch sử của cuộc Cách mạng Pháp trên thực tế được cấu thành từ một loạt những biến cố lịch sử song hành và thường độc lập với nhau: Lịch sử chế độ cũ nát đang tàn lụi do không có những người bảo vệ: lịch sử những hội đồng cách mạng; lịch sử những phong trào quần chúng cùng thủ lĩnh của họ; lịch sử những đạo quân; lịch sử những thiết chế mới...Tất cả những nấc thang lịch sử vốn đa phần thể hiện sự xung đột của các động lực tâm lý học này đề cần phải được nghiên cứu bằng những phương pháp mượn từ khoa học tâm lý. (Gustave Le Bon)', 1, "Tên Nhà Cung Cấp: Alpha Books
+Tác giả: Gustave Le Bon
+NXB: NXB Thế Giới
+Năm XB:	04-2014
+Trọng lượng (gr): 650
+Kích Thước Bao Bì: 20.5 x 14
+Số trang: 443
+Hình thức: Bìa Mềm", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Châu Phi Nghìn Trùng", " Isak Dinesen", 132000, 8, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695042845/PHOTO_LIST/Vanhoaxahoi_lichsu/014/", 
+"NXB Phụ Nữ", 
+'"Châu Phi Nghìn Trùng"
+“Châu Phi nghìn trùng” của Isak Dinesen (bút danh của Karen Blixen) là một cuốn hồi ức về những năm tháng tác giả sống tại châu Phi (1914 - 1931) trên một đồn điền cà phê rộng 4000 mẫu Anh gần Nairobi. Cuốn sách được chia thành 5 phần, mô tả cư dân bản xứ, quan niệm về công lí, sự trừng phạt, và những vị khách của đồn điền.
+Blixen đã có mối quan hệ thân tình với con người châu Phi, và đã đảm đương toàn bộ điền sản sau khi chia tay chồng. Tuy nhiên, do khí hậu và địa hình không thuận lợi cho cây cà phê, đồn điền của bà đã phải trải qua nhiều khó khăn và cuối cùng phải bán đi. Blixen sau đó trở về Đan Mạch và bắt đầu sự nghiệp viết lách. “Châu Phi nghìn trùng” được xuất bản vào năm 1937.', 1, "Tác giả: Isak Dinesen
+Dịch giả: Hà Thế Giang;
+Ngày xuất bản: 06-2021
+Kích thước: 16 x 24 cm
+Nhà xuất bản: NXB Phụ Nữ
+Hình thức bìa: Bìa mềm
+Số trang: 408", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Khái Lược Văn Minh Luận", "Fukuzawa Yukichi", 159000, 8, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695042864/PHOTO_LIST/Vanhoaxahoi_lichsu/015/", 
+"NXB Thế Giới", 
+'"Khái Lược Văn Minh Luận"
+Khái lược văn minh luận là cuốn sách đặc biệt quan trong của Fukuzawa Kukichi – nhà tư tưởng của cuộc Canh Tân Minh Trị để hình thành nên đất nước Nhật Bản hiện đại. Fukuzawa Kukichi nêu những kiến giải của ông về văn minh hiện đại hầu như đối lập với lối tư duy thủ cựu Nho giáo của Nhật Bản lúc bấy giờ. Từ đó, ông trình bày mọi suy nghĩ về tiến trình phát triển của người Nhật để trở thành một quốc gia, một dân tộc văn minh. Và theo ông, độc lập quốc gia là mục tiêu, và văn minh hiện tại của nước Nhật là cách thức để đạt được mục tiêu đó. (Lời giới thiệu – Nhật Chiêu)
+Fukuzawa Yukichi viết cuốn sách này năm 1875, gần 10 năm sau khi công cuộc Minh Trị Duy tân bắt đầu ở Nhật. Đó là giai đoạn người Nhật vẫn phải đương đầu với những chống đối trong nước, với nhiều người thuộc phe có tinh thần bảo thủ muốn duy trì thể chế và nhất là văn hóa truyền thống lâu đời. Nhận thức được những khó khăn đó, Fukuzawa Yukichi tin rằng, cần lí giải rõ hành trình mà nước Nhật Bản phải đi để tạo dựng nền văn minh mới, nền văn minh hiện đại của một quốc gia hiện đại. Cả cuốn sách đề cập đến tiến trình này dưới nhiều yếu tố như thiết chế, việc học tập, thương mại, ông mô tả văn minh như một dòng chảy tất yếu của loài người. Xuyên suốt cuốn sách, ông đề cập những yếu tố cơ bản của nền văn minh: đó là khai sáng, tự do, công bằng và những điều tốt đẹp cho xã hội.
+Điểm cốt lõi của tác phẩm mà Fukuzawa hướng tới là những gì nước Nhật cần làm để trở thành một quốc gia văn minh, những thay đổi thể chế, chính sách quốc gia, ước muốn độc lập thực sự cả về thương mại, kinh tế và tư tưởng là mục tiêu cao cả nhất. (Lời giới thiệu – Nguyễn Cảnh Bình).', 1, "Tên Nhà Cung Cấp: Alpha Books
+Tác giả: Fukuzawa Yukichi
+Người Dịch: Nguyễn Đỗ An Nhiên
+NXB: NXB Thế Giới
+Năm XB:	2018
+Ngôn Ngữ: Tiếng Việt
+Trọng lượng (gr): 500
+Kích Thước Bao Bì: 20.5 x 14 cm
+Số trang: 420
+Hình thức: Bìa Mềm", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Lên Đồng - Hành Trình Của Thần Linh Và Thân Phận", "Ngô Đức Thịnh", 98000, 8, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695042882/PHOTO_LIST/Vanhoaxahoi_lichsu/016/", 
+"NXB Dân Trí", 
+'"Lên Đồng - Hành Trình Của Thần Linh Và Thân Phận"
+“… lên đồng không phải là trạng thái bệnh lý, mà chỉ là trạng thái tâm sinh lý, là trạng thái biến đổi ý thức đặc biệt, ở đó các ông đồng, bà đồng chủ động tự đưa mình vào trạng thái ấy. Chính trong môi trường tự biến đổi ý thức đó, cái vô thức trỗi dậy, giúp bà đồng, ông đồng giải tỏa nhiều ức chế tâm thần cũng chính là nguồn gốc của nhiều hiện tượng tâm sinh lý, như điên loạn, bệnh tật, kết tóc, cơ đày... Và cũng không có gì ngạc nhiên khi ra đồng và thường xuyên lên đồng thì trong môi trường tự biến đổi ý thức do tự ám thị mà các ức chế vô thức được giải tỏa, dần khỏi bệnh, dần khắc phục được các hành vi lệch chuẩn và tái hòa nhập cộng đồng như những người bình thường khác.” Lên đồng, hành trình của thần linh và thân phận không chỉ dừng lại ở việc khái lược và nhận diện bản chất của hiện tượng lên đồng mà còn bước đầu cố gắng tìm hiểu các khía cạnh tâm sinh lý và trị liệu của hiện tượng này, cùng với đó là những vấn đề khác như cơ đầy, ái nam ái nữ, quan hệ đồng giới hay giải phóng các khát vọng của phụ nữ trong xã hội cổ truyền và xã hội hiện đại.', 1, "Tên Nhà Cung Cấp: Nhã Nam
+Tác giả: Ngô Đức Thịnh
+NXB: NXB Dân Trí
+Năm XB: 2020
+Ngôn Ngữ: Tiếng Việt
+Trọng lượng (gr): 320
+Kích Thước Bao Bì: 20.5 x 14 x 1.6 cm
+Số trang: 304
+Hình thức: Bìa Mềm", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Văn Hóa - Văn Học Dưới Góc Nhìn Liên Không Gian", "Nguyễn Văn Dân", 138000, 8, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695042902/PHOTO_LIST/Vanhoaxahoi_lichsu/017/", 
+"NXB Thế Giới", 
+'"Văn Hóa - Văn Học Dưới Góc Nhìn Liên Không Gian"
+Cuốn sách này đề xuất một khái niệm mới về “quan hệ liên không gian” trong văn hoá - xã hội, mở ra cho độc giả một cái nhìn văn hoá - văn học từ góc độ toàn cầu hoá. Tác giả lý giải một số vấn đề về nhận thức văn hoá - xã hội và phê bình đối với một số hiện tượng văn hoá - văn học trong bối cảnh hội nhập quốc tế. Cuốn sách cung cấp cho độc giả một nguồn kiến thức về lý luận và thực tiễn văn hoá - xã hội, giúp ích cho những ai quan tâm đến tình hình nghiên cứu văn học - văn hoá - xã hội hiện tại của nước nhà. Tác giả có cách lập luận chặt chẽ, logic, liên hệ cụ thể đến các hiện tượng, sự việc thực tế, chỉ ra cả những khiếm khuyết trong nhận thức của một số người trong giới nghiên cứu. Cuốn sách là một nguồn kiến thức quý báu cho những ai quan tâm đến lĩnh vực này.', 1, "Nhà Cung Cấp: CÔNG TY TNHH PHÁT HÀNH S BOOKS
+Tác giả: Nguyễn Văn Dân
+NXB: NXB Thế Giới
+Năm XB:	2020
+Trọng lượng (gr): 250
+Kích Thước Bao Bì: 20.5 x 14.5 cm
+Số trang: 274
+Hình thức: Bìa Mềm", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Hội Hè Lễ Tết Của Người Việt", "Nguyễn Văn Huyên", 115000, 8, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695042922/PHOTO_LIST/Vanhoaxahoi_lichsu/018/", 
+"NXB Thế Giới", 
+'"Hội Hè Lễ Tết Của Người Việt"
+Hội Hè Lễ Tết Của Người Việt tập hợp những tiểu luận nghiên cứu của Nguyễn Văn Huyên về lễ-tết-hội, về tín ngưỡng, tâm thức tôn giáo của người Việt trong xã hội truyền thống. Viết bằng tiếng Pháp, những tiểu luận này, trước hết, là cách trò chuyện thú vị và hấp dẫn giữa một người trí thức bản địa với những độc giả, nhà nghiên cứu Pháp, những người cũng đang mong muốn và thậm chí, tham vọng tìm hiểu Việt Nam một cách kỹ càng. Thông qua cách trò chuyện mang tính hàn lâm đó, Nguyễn Văn Huyên còn tiến đến những vỡ lẽ nhận thức mà ngày nay chúng ta càng thấm thía hơn: chính sự đa dạng và khác biệt văn hóa của mỗi dân tộc, mỗi cộng đồng mới thực sự làm nên giá trị bền vững chứ không phải là hơn - kém hay ít - nhiều.
+Cuốn sách sẽ cho ta trở lại đắm mình trong không khí của Tết Nguyên đán, Tết Thanh Minh, Tết Đoan Ngọ, Tết Trung thu…, cho ta hình dung rõ ràng và như được tham dự Lễ hội Phù Đổng. Những điều đặc biệt khác, như tục thờ cúng thần tiên, sự có mặt khắp chốn của thành hoàng làng, các húy kỵ sinh và tử, sự phong nhiêu của thần tiên gốc Việt…, cũng sẽ được tác giả mô tả, phân tích hết sức sinh động, tinh tế và khoa học.
+Bởi luôn lắng nghe và suy tư về cỗi gốc dân tộc mình nên những trang viết của Nguyễn Văn Huyên, sau hơn bảy mươi năm, vẫn có thể mời gọi mọi độc giả Việt hôm nay cùng đọc lại, nghĩ suy và tiếp nối hành trình đối thoại, thông hiểu lẫn nhau.', 1, "Tên Nhà Cung Cấp: Nhã Nam
+Tác giả: Nguyễn Văn Huyên
+NXB: NXB Thế Giới
+Năm XB: 12-2017
+Trọng lượng (gr): 250
+Kích Thước Bao Bì: 15 x 24
+Số trang: 243
+Hình thức: Bìa Mềm", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Boxset Metalize Quý Ngài Phara-Ông (Bộ 3 Tập)", "Hiroto Wada", 120000, 8, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695042945/PHOTO_LIST/Vanhoaxahoi_lichsu/019/", 
+"NXB Kim Đồng", 
+'"Boxset Metalize Quý Ngài Phara-Ông"
+Lương 1.000 Yên/Giờ, tuổi đời đã 7.000 năm ~!
+Xác ướp Phara-ông, Hoàng đế của Ai Cập cổ đại đã được khai quật và hồi sinh tại thành phố Kokubunji, Tokyo. Để hòa nhập với xã hội hiện đại, ngày ngày, ngài Phara-ông phải đối mặt với biết bao khó khăn trong cả công việc lẫn... chuyện tình cảm! Cuộc sống rời xa ngai vàng của vị vua Ai Cập cổ đại sẽ ra sao?
+Tác phẩm thuộc thể loại hài-giật gân đã sẵn sàng ra mắt trong mùa hè này với một chiếc hộp Metalize lấp lánh đầy huyền bí, xin mời các bạn cùng đón đọc nhé!!', 1, "Độ Tuổi: 16+
+Tên Nhà Cung Cấp: Nhà Xuất Bản Kim Đồng
+Tác giả: Hiroto Wada
+Người Dịch: Tanpopo Team
+NXB: Kim Đồng
+Năm XB: 2023
+Ngôn Ngữ: Tiếng Việt
+Trọng lượng (gr): 520
+Kích Thước Bao Bì: 18 x 13 x 2.6 cm
+Số trang: 480
+Hình thức: Bìa Mềm", 100);
+
+INSERT INTO Book(name, author, price, category_id, img, publisher, description, status, detail, quantity)
+VALUES ("Lịch Sử Thế Giới Qua 6 Thức Uống - A History Of The World In 6 Glasses", "Tom Standage", 148000, 8, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695042959/PHOTO_LIST/Vanhoaxahoi_lichsu/020/", 
+"NXB Dân Trí", 
+'"Lịch Sử Thế Giới Qua 6 Thức Uống - A History Of The World In 6 Glasses"
+Cuốn sách đưa chúng ta ngược dòng thời gian khám phá những cánh đồng ngũ cốc mênh mông ở Lưỡng Hà và Ai Cập, vườn nho bạt ngàn nơi thành Rome, những đồi cà phê trù phú ở Ả Rập cùng sự phổ biến rộng rãi của trà Trung Quốc, và cuối cùng là sự lên ngôi của Hoa Kỳ cùng nước giải khát coca-cola.
+Sáu thức uống - bia, rượu vang, rượu mạnh, cà phê, trà và coca-cola - không chỉ xoa dịu cơn khát và thỏa mãn đam mê của con người, mà còn là minh chứng cho mỗi giai đoạn đặc biệt trong nền văn minh nhân loại.
+Sau tất cả, bạn sẽ thấy, ly đồ uống trong tay mình chứa đựng cả một câu chuyện nhân gian. 
+Cuốn sách nhận hơn 25,000 lượt bình chọn trên Goodreads.', 1, "Tên Nhà Cung Cấp	Huy Hoang Bookstore
+Tác giả:Tom Standage
+Người Dịch: Miên Túc
+NXB: Dân Trí
+Năm XB: 2022
+Trọng lượng (gr): 400
+Kích Thước Bao Bì: 20.5 x 13 cm
+Số trang: 372
+Hình thức: Bìa Mềm", 100);
 
 -- Thêm dữ liệu vào bảng Cart
 INSERT INTO Cart(account_id) VALUES (3), (4);

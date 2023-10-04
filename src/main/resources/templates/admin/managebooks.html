@@ -82,7 +82,7 @@
 						  </form>
 						</td>
 	                    <td class="align-middle text-center">
-	                        <a href="@{${pageContext.request.contextPath}/managedetailbook(bookId=${book.id})}" class="btn btn-primary">Xem chi tiết</a>
+	                        <a th:href="@{/managedetailbook(bookId=${book.id})}" class="btn btn-primary">Xem chi tiết</a>
 	                    </td>
 	                </tr>
 	            </th:block>

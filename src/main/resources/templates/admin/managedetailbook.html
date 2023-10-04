@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thông tin sách</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    
+</head>
+<body>
+	<div th:replace="~{admin/headeradmin :: header}"></div>
+    <div class="container-fluid mb-4">
+        <h1>Thông tin sách</h1>
+        
+        <!-- Hiển thị thông báo nếu có -->
+	    <div th:if="${param.message}" class="alert"
+			th:classappend="${#strings.containsIgnoreCase(param.message, 'thành công') ? 'alert-success' : 'alert-danger'}">
+			<span th:text="${param.message}"></span>
+		</div>
+        
+        <div class="card">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img th:src="${book.img + '1'}" alt="Book Image" class="card-img">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <div class="d-flex flex-grow-1">
+                            <a th:href="@{/updatebook(bookId=${book.id})}" class="btn btn-success">Sửa thông tin</a>
+                            <div class="ml-2">
+                                <a th:href="@{/managebooks}" class="btn btn-primary">Thoát</a>
+                            </div>
+                        </div>
+                        
+                        <p class="card-text mt-4">Mã: <span th:text="${book.id}"></span></p>
+                        <h5 class="card-title">Tên sách: <span th:text="${book.name}"></span></h5>
+                        <p class="card-text">Tác giả: <span th:text="${book.author}"></span></p>
+                        <p class="card-text">Giá: <span th:text="${book.price}"></span> vnd</p>
+                        <p class="card-text">Số lượng: <span th:text="${book.quantity}"></span></p>
+                        <p class="card-text">Danh mục: <span th:text="${book.category.name}"></span></p>
+                        <p class="card-text">Mô tả:</p>
+                        <pre class="card-text" th:text="${book.description}"></pre>
+                        <p class="card-text">Chi tiết:</p>
+                        <pre class="card-text" th:text="${book.detail}"></pre>
+                        <th:block th:switch="${book.status}">
+                            <div th:case="1" class="alert alert-success" role="alert">Đang kinh doanh</div>
+                            <div th:case="0" class="alert alert-danger" role="alert">Ngừng kinh doanh</div>
+                        </th:block>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+	<div th:replace="~{admin/footeradmin :: footer}"></div>
+</body>
+</html>
