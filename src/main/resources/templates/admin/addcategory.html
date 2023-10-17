@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm danh mục</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    
+</head>
+<body>
+	<div th:replace="~{admin/headeradmin :: header}"></div>
+    <div class="container">
+        <h1>Thêm danh mục</h1>
+        
+        <!-- Hiển thị thông báo nếu có -->
+        <div th:if="${param.message}" class="alert"
+		     th:classappend="${#strings.containsIgnoreCase(param.message, 'thành công') ? 'alert-success' : 'alert-danger'}">
+		    <span th:text="${param.message}"></span>
+		</div>
+	        
+        <form th:action="@{/addcategory}" method="post">
+            <div class="form-group">
+                <label for="name">Tên danh mục:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="status">Trạng thái:</label>
+                <select class="form-control" id="status" name="status">
+                    <option value="0">Ngừng kinh doanh</option>
+                    <option value="1">Đang kinh doanh</option>
+                </select>
+            </div>
+            <div class="text-center mb-4">
+                <button type="submit" class="btn btn-primary">Tạo mới</button>
+                <a th:href="@{/managecategories}" class="btn btn-secondary">Thoát</a>
+            </div>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <div th:replace="~{admin/footeradmin :: footer}"></div>
+</body>
+</html>

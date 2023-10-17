@@ -1,5 +1,6 @@
 package com.nhom14.webbookstore.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -42,6 +43,43 @@ public class OrderServiceImpl implements OrderService {
 		Optional<Order> order = orderRepository.findById(orderId);
 	    return order.orElse(null);
 	}
+
+	@Override
+	public List<Order> getAllOrders() {
+		return orderRepository.findAll(); // Nếu không có order sẽ trả về empty list
+	}
+
+	@Override
+	public List<Order> getOrdersByStatusID(int statusId) {
+		return orderRepository.findByStatus(statusId);
+	}
+
+	@Override
+	public List<Order> searchOrdersByKeyword(List<Order> orders, String searchKeyword) {
+		List<Order> result = new ArrayList<>();
+	    String lowercaseKeyword = searchKeyword.toLowerCase();
+
+	    for (Order order : orders) {
+	        if (containsIgnoreCase(Integer.toString(order.getId()), lowercaseKeyword)
+	                || containsIgnoreCase(order.getDateOrder().toString(), lowercaseKeyword)
+	                || containsIgnoreCase(Double.toString(order.getTotalPrice()), lowercaseKeyword)
+	                || containsIgnoreCase(order.getName(), lowercaseKeyword)
+	                || containsIgnoreCase(order.getAddress(), lowercaseKeyword)
+	                || containsIgnoreCase(order.getPhoneNumber(), lowercaseKeyword)
+	                || containsIgnoreCase(order.getEmail(), lowercaseKeyword)
+	                || containsIgnoreCase(Integer.toString(order.getAccount().getId()), lowercaseKeyword)
+	                || containsIgnoreCase(Integer.toString(order.getStatus()), lowercaseKeyword)) {
+	            result.add(order);
+	        }
+	    }
+
+	    return result;
+	}
 	
+	// Kiểm tra xem một chuỗi có chứa một chuỗi con cụ thể hay không,
+	// mà không phân biệt chữ hoa chữ thường trong quá trình so sánh
+	private boolean containsIgnoreCase(String text, String keyword) {
+	    return text.toLowerCase().contains(keyword);
+	}
 	
 }

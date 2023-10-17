@@ -37,7 +37,7 @@
 	            Lọc theo danh mục
 	        </button>
 	        <div class="dropdown-menu" aria-labelledby="categoryDropdown">
-	            <a class="dropdown-item" href="?">Tất cả</a>
+	            <a class="dropdown-item" th:href="@{/managebooks}">Tất cả</a>
 	            <th:block th:each="category : ${categories}">
 	                <a class="dropdown-item" th:href="@{/managebooks(category=${category.id})}" th:text="${category.name}"></a>
 	            </th:block>

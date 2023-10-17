@@ -2,6 +2,7 @@ package com.nhom14.webbookstore.controller.admin;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -53,7 +54,7 @@ public class AdminBookController {
             HttpSession session) {
 		Account admin = (Account) session.getAttribute("admin");
 
-	    // Kiểm tra xem người dùng đã đăng nhập hay chưa
+	    // Kiểm tra xem admin đã đăng nhập hay chưa
 	    if (admin == null) {
 	        // Nếu chưa đăng nhập, chuyển hướng về trang đăng nhập
 	        return "redirect:/loginadmin";
@@ -365,6 +366,10 @@ public class AdminBookController {
         // Cập nhật sách trong cơ sở dữ liệu
         bookService.updateBook(updateBook);
         
+        // Sinh giá trị ngẫu nhiên
+        Random random = new Random();
+        int randomNumber = random.nextInt();
+        redirectAttributes.addAttribute("randomNumber", randomNumber);
         redirectAttributes.addAttribute("message", "Đã cập nhật sách thành công!");
         redirectAttributes.addAttribute("bookId", updateBook.getId());
         return "redirect:/updatebook";

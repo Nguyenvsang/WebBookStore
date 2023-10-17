@@ -1,5 +1,6 @@
 package com.nhom14.webbookstore.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,47 @@ public class CategoryServiceImpl implements CategoryService {
 	@Override
 	public Category getCategoryById(int id) {
 		return categoryRepository.findById(id).orElse(null);
+	}
+
+
+	@Override
+	public List<Category> getCategoriesByStatusID(int statusId) {
+		return categoryRepository.findByStatus(statusId);
+	}
+
+
+	@Override
+	public List<Category> searchCategoriesByKeyword(List<Category> categories, String searchKeyword) {
+		List<Category> result = new ArrayList<>();
+	    String lowercaseKeyword = searchKeyword.toLowerCase();
+	    
+	    for (Category category : categories) {
+	        if (containsIgnoreCase(Integer.toString(category.getId()), lowercaseKeyword)
+	                || containsIgnoreCase(category.getName(), lowercaseKeyword)
+	                || containsIgnoreCase(Integer.toString(category.getStatus()), lowercaseKeyword)) {
+	            result.add(category);
+	        }
+	    }
+
+	    return result;
+	}
+	
+	// Kiểm tra xem một chuỗi có chứa một chuỗi con cụ thể hay không,
+	// mà không phân biệt chữ hoa chữ thường trong quá trình so sánh
+	private boolean containsIgnoreCase(String text, String keyword) {
+	    return text.toLowerCase().contains(keyword);
+	}
+
+
+	@Override
+	public void updateCategory(Category category) {
+		categoryRepository.save(category);
+	}
+
+
+	@Override
+	public void addCategory(Category category) {
+		categoryRepository.save(category);
 	}
 
 }

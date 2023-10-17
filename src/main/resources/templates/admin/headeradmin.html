@@ -40,10 +40,10 @@
                     <a class="nav-link" th:href="@{/managebooks}">Sản phẩm</a>
                 </li>
                 <li class="nav-item" th:if="${session.admin != null}">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/managecategory">Danh mục</a>
+                    <a class="nav-link" th:href="@{/managecategories}">Danh mục</a>
                 </li>
                 <li class="nav-item" th:if="${session.admin != null}">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/manageorder">Đơn hàng</a>
+                    <a class="nav-link" th:href="@{/manageorders}">Đơn hàng</a>
                 </li>
                 <li class="nav-item" th:if="${session.admin != null}">
                     <a class="nav-link" href="#">Chào

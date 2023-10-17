@@ -15,4 +15,16 @@ public interface CategoryService {
 	// Phương thức lấy danh mục theo id
 	Category getCategoryById(int id);
 
+	// Lấy danh mục theo trạng thái
+	List<Category> getCategoriesByStatusID(int statusId);
+
+	// Lấy danh mục theo từ khóa
+	List<Category> searchCategoriesByKeyword(List<Category> categories, String searchKeyword);
+
+	// Cập nhật danh mục
+	void updateCategory(Category category);
+
+	// Phương thức để thêm một danh mục mới
+	void addCategory(Category category);
+
 }
