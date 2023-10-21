@@ -81,5 +81,10 @@ public class OrderServiceImpl implements OrderService {
 	private boolean containsIgnoreCase(String text, String keyword) {
 	    return text.toLowerCase().contains(keyword);
 	}
+
+	@Override
+	public void updateOrder(Order order) {
+		orderRepository.save(order);
+	}
 	
 }

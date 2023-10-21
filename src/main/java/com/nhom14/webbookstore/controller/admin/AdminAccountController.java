@@ -55,4 +55,16 @@ public class AdminAccountController {
         	return "redirect:/loginadmin";
         }
     }
+	
+	@GetMapping("/logoutadmin")
+	public String logoutAdminForm() {
+		return "admin/logoutadmin";
+	}
+	
+	@PostMapping("/logoutadmin")
+	public String logoutAdmin(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+        session.invalidate();
+        return "redirect:/loginadmin";
+	}
 }

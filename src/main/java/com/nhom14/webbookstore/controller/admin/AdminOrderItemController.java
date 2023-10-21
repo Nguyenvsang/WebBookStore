@@ -1,4 +1,4 @@
-package com.nhom14.webbookstore.controller.customer;
+package com.nhom14.webbookstore.controller.admin;
 
 import java.util.List;
 
@@ -16,40 +16,43 @@ import com.nhom14.webbookstore.service.OrderService;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
-public class OrderItemController {
+public class AdminOrderItemController {
 
 	private OrderItemService orderItemService;
 	private OrderService orderService;
-
-	public OrderItemController(OrderItemService orderItemService, OrderService orderService) {
+	
+	public AdminOrderItemController(OrderItemService orderItemService, OrderService orderService) {
 		super();
 		this.orderItemService = orderItemService;
 		this.orderService = orderService;
 	}
-	
-	@GetMapping("/vieworderitems")
-	public String viewOrderItems(@RequestParam int orderId, 
+
+	@GetMapping("/manageorderitems")
+	public String manageOrderItems(@RequestParam int orderId,
 			HttpSession session, 
 			Model model) {
-	    Account account = (Account) session.getAttribute("account");
+		
+		Account admin = (Account) session.getAttribute("admin");
 
-	    // Kiểm tra xem người dùng đã đăng nhập hay chưa
-	    if (account == null) {
+	    // Kiểm tra xem admin đã đăng nhập hay chưa
+	    if (admin == null) {
 	        // Nếu chưa đăng nhập, chuyển hướng về trang đăng nhập
-	        return "redirect:/customer/loginaccount";
+	        return "redirect:/loginadmin";
 	    }
-
+	    
 	    // Lấy đối tượng Order từ OrderService bằng orderId
 	    Order order = orderService.getOrderById(orderId);
-
+	    
 	    // Lấy danh sách OrderItem từ OrderItemService
 	    List<OrderItem> orderItems = orderItemService.getOrderItemsByOrder(order);
-
+	    
 	    // Đặt đối tượng Order và orderItems vào thuộc tính model để sử dụng trong Thymeleaf
 	    model.addAttribute("order", order);
 	    model.addAttribute("orderItems", orderItems);
-
+	    
 	    // Trả về tên của view để render ra giao diện
-	    return "customer/vieworderitems";
+	    return "admin/manageorderitems";
+	    
 	}
+	
 }

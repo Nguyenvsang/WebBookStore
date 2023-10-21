@@ -24,19 +24,6 @@
 	            <p>Tìm kiếm từ khóa: <span th:text="${param.search}"></span></p>
 	        </div>
 	    </div>
-	
-	    <div class="my-2 my-lg-0 mt-3 mb-3">
-	        <label for="status">Trạng thái:</label>
-	        <form class="form-inline" method="GET" th:action="@{/manageorders}">
-	            <select class="form-control" id="status" name="status" th:onchange="|this.form.submit()|">
-	                <option value="-1" th:selected="${param.status == '-1'}">Tất cả</option>
-	                <option value="0" th:selected="${param.status == '0'}">Chờ xác nhận</option>
-	                <option value="1" th:selected="${param.status == '1'}">Chờ lấy hàng</option>
-	                <option value="2" th:selected="${param.status == '2'}">Đang giao</option>
-	                <option value="3" th:selected="${param.status == '3'}">Đã giao</option>
-	            </select>
-	        </form>
-	    </div>
 	    
 	    <div class="dropdown mb-3 mt-3">
 	        <button class="btn btn-secondary dropdown-toggle" type="button" id="statusDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -68,7 +55,7 @@
 	        <tbody>
 	            <tr th:each="order : ${orders}">
 	                <td class="align-middle text-center" th:text="${order.id}"></td>
-	                <td class="align-middle text-center" th:text="${order.dateOrder}"></td>
+	                <td class="align-middle text-center" th:text="${#dates.format(order.dateOrder, 'dd/MM/yyyy')}"></td>
 	                <td class="align-middle text-center" th:text="${order.totalPrice}"></td>
 	                <td>
 	                    <span class="badge badge-success" th:if="${order.status == 0}">Chờ xác nhận</span>
@@ -82,7 +69,7 @@
 	                <td class="align-middle text-center" th:text="${order.phoneNumber}"></td>
 	                <td class="align-middle text-center" th:text="${order.email}"></td>
 	                <td class="align-middle text-center">
-	                    <a class="btn btn-primary btn-sm" th:href="@{/orderdetail/{id}(id=${order.id})}">Xem chi tiết</a>
+	                    <a class="btn btn-primary btn-sm" th:href="@{/manageorderitems(orderId=${order.id})}">Xem chi tiết</a>
 	                </td>
 	            </tr>
 	        </tbody>

@@ -28,6 +28,9 @@ public interface OrderService {
 	// Lấy đơn hàng theo từ khóa
 	List<Order> searchOrdersByKeyword(List<Order> orders, String searchKeyword);
 
+	// Phương thức để cập nhật một đơn hàng
+	void updateOrder(Order order);
+
 	
 
 }

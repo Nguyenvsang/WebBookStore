@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nhom14.webbookstore.entity.Account;
@@ -83,4 +84,28 @@ public class AdminOrderController {
         return "admin/manageorders";
 	}
 	
+	@PostMapping("/updateorderstatus")
+	public String updateOrderStatus(@RequestParam("orderId") int orderId, 
+			@RequestParam("status") int status, 
+			HttpSession session) {
+	    Account admin = (Account) session.getAttribute("admin");
+
+	    // Kiểm tra xem admin đã đăng nhập hay chưa
+	    if (admin == null) {
+	        // Nếu chưa đăng nhập, chuyển hướng về trang đăng nhập
+	        return "redirect:/loginadmin";
+	    }
+
+	    // Lấy đơn hàng từ Service
+	    Order order = orderService.getOrderById(orderId);
+
+	    // Cập nhật trạng thái đơn hàng
+	    order.setStatus(status);
+
+	    // Cập nhật đơn hàng thông qua Service
+	    orderService.updateOrder(order);
+
+	    // Chuyển hướng về trang manageorderitems.jsp
+	    return "redirect:/manageorderitems?orderId=" + orderId;
+	}
 }
