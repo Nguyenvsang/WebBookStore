@@ -50,7 +50,7 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public List<Order> getOrdersByStatusID(int statusId) {
+	public List<Order> getOrdersByStatus(int statusId) {
 		return orderRepository.findByStatus(statusId);
 	}
 

@@ -10,4 +10,9 @@ public class AdminHomeController {
 	public String showAdminHome() {
 		return "admin/indexadmin";
 	}
+	
+	@GetMapping("/aboutusadmin")
+	public String showAboutUs() {
+		return "admin/aboutusadmin";
+	}
 }

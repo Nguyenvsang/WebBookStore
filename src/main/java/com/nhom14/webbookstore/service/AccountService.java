@@ -1,5 +1,7 @@
 package com.nhom14.webbookstore.service;
 
+import java.util.List;
+
 import com.nhom14.webbookstore.entity.Account;
 
 public interface AccountService {
@@ -17,4 +19,16 @@ public interface AccountService {
 
 	// Phương thức để kiểm tra đăng nhập của một tài khoản admin 
 	boolean checkLoginAdmin(String username, String password);
+
+	// Phương thức để lấy danh sách tất cả các tài khoản
+	List<Account> getAllAccounts();
+
+	// Phương thức để lấy danh sách tài khoản theo trạng thái
+	List<Account> getAccountsByStatus(int status);
+
+	// Phương thức tìm kiếm tài khoản dựa trên từ khóa
+	List<Account> searchAccountsByKeyword(List<Account> accounts, String searchKeyword);
+
+	// Phương thức để tìm kiếm một tài khoản theo id
+	Account getAccountById(int accountId);
 }

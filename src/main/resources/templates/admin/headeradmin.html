@@ -24,7 +24,7 @@
 <body>
 	<!-- Header trong Thymeleaf phải thêm <header><> trong file header.html -->
     <header class="navbar navbar-expand-lg navbar-light bg-danger">
-        <a class="navbar-brand" href="${pageContext.request.contextPath}/jsp/admin/aboutusadmin.jsp">Booktopia Admin</a>
+        <a class="navbar-brand" th:href="@{/aboutusadmin}">Booktopia Admin</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -51,11 +51,11 @@
                     </a>
                 </li>
                 <li class="nav-item" th:if="${session.admin != null}">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/manageaccount">Tài khoản</a>
+                    <a class="nav-link" th:href="@{/manageaccounts}">Tài khoản</a>
                 </li>
                 <li class="nav-item" th:if="${session.admin != null}">
                     <a class="nav-link"
-                        href="${pageContext.request.contextPath}/jsp/admin/logoutadmin.jsp">Đăng xuất</a>
+                        th:href="@{/logoutadmin}">Đăng xuất</a>
                 </li>
             </ul>
         </div>

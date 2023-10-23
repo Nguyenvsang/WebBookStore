@@ -23,7 +23,7 @@ public interface OrderService {
 	List<Order> getAllOrders();
 
 	// Lấy đơn hàng theo mã trạng thái
-	List<Order> getOrdersByStatusID(int statusId);
+	List<Order> getOrdersByStatus(int statusId);
 
 	// Lấy đơn hàng theo từ khóa
 	List<Order> searchOrdersByKeyword(List<Order> orders, String searchKeyword);

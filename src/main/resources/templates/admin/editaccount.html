@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cập nhật thông tin</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+	<div th:replace="~{admin/headeradmin :: header}"></div>
+    <div class="container">
+        <h1>Nhập thông tin cần sửa</h1>
+
+        <!-- Hiển thị thông báo nếu có -->
+        <div th:if="${message}" class="alert"
+             th:classappend="${message.contains('thành công') ? 'alert-success' : 'alert-danger'}"
+             th:text="${message}"></div>
+                 
+        <form th:action="@{/editaccount}" th:object="${account}" method="post" enctype="multipart/form-data">
+		    <div class="form-group">
+		        <label for="id">Mã:</label>
+		        <input type="text" class="form-control" id="id" th:field="*{id}" readonly>
+		    </div>
+		    <div class="form-group">
+		        <label for="firstName">Tên:</label>
+		        <input type="text" class="form-control" id="firstName" th:field="*{firstName}" required>
+		    </div>
+		    <div class="form-group">
+		        <label for="lastName">Họ:</label>
+		        <input type="text" class="form-control" id="lastName" th:field="*{lastName}" required>
+		    </div>
+		    <div class="form-group">
+		        <label for="username">Tên người dùng:</label>
+		        <input type="text" class="form-control" id="username" th:field="*{username}" required>
+		    </div>
+		    <div class="form-group">
+		        <label for="gender">Giới tính:</label>
+		        <select class="form-control" id="gender" th:field="*{gender}" required>
+		            <option value="Nam">Nam</option>
+		            <option value="Nữ">Nữ</option>
+		        </select>
+		    </div>
+		    <div class="form-group">
+		        <label for="image">Đổi hình ảnh:</label>
+		        <input type="file" class="form-control-file" id="image" name="image">
+		    </div>
+		    <div class="form-group"> 
+				<label for="dob">Ngày sinh:</label> 
+				<input type="date" class="form-control" id="dob" name="dob" th:value="${#dates.format(account.dateOfBirth, 'yyyy-MM-dd')}" th:attr="placeholder=${#dates.format(account.dateOfBirth, 'dd/MM/yyyy')}" required> 
+			</div>
+		    <div class="form-group">
+		        <label for="address">Địa chỉ:</label>
+		        <input type="text" class="form-control" id="address" th:field="*{address}" required>
+		    </div>
+		    <div class="form-group">
+		        <label for="phoneNumber">Số điện thoại:</label>
+		        <input type="tel" class="form-control" id="phoneNumber" th:field="*{phoneNumber}" required>
+		    </div>
+		    <div class="form-group">
+		        <label for="email">Email:</label>
+		        <input type="email" class="form-control" id="email" th:field="*{email}" required>
+		    </div>
+		    <div class="text-center mb-4">
+		        <button type="submit" class="btn btn-primary">Lưu</button>
+		        <a th:href="@{/managedetailaccount(accountId=${account.id})}" class="btn btn-secondary">Thoát</a>
+		    </div>
+		</form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <div th:replace="~{admin/footeradmin :: footer}"></div>
+</body>
+</html>

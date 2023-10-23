@@ -30,7 +30,7 @@ public class AdminOrderController {
 	}
 	
 	@GetMapping("/manageorders")
-	public String manageOrders(@RequestParam(value = "status", required = false) Integer statusId,
+	public String manageOrders(@RequestParam(value = "status", required = false) Integer status,
 	@RequestParam(value = "search", required = false) String searchKeyword,
 	@RequestParam(value = "page", required = false, defaultValue = "1") Integer currentPage,
 	Model model,
@@ -53,10 +53,10 @@ public class AdminOrderController {
         int end;
         int totalPages;
         
-        if (statusId == null || (statusId == -1)) {
+        if (status == null || (status == -1)) {
         	orders = orderService.getAllOrders();
         } else {
-        	orders = orderService.getOrdersByStatusID(statusId);
+        	orders = orderService.getOrdersByStatus(status);
         }
         
         if (searchKeyword != null && !searchKeyword.isEmpty()) {
@@ -105,7 +105,7 @@ public class AdminOrderController {
 	    // Cập nhật đơn hàng thông qua Service
 	    orderService.updateOrder(order);
 
-	    // Chuyển hướng về trang manageorderitems.jsp
+	    // Chuyển hướng về trang manageorderitems
 	    return "redirect:/manageorderitems?orderId=" + orderId;
 	}
 }
