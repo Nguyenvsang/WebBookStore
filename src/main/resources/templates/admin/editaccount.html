@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Cập nhật thông tin</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-</head>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" /></head>
 <body>
 	<div th:replace="~{admin/headeradmin :: header}"></div>
     <div class="container">
@@ -65,8 +64,10 @@
 		    </div>
 		</form>
     </div>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <!-- Thêm các tệp tin JavaScript -->
+    <script th:src="@{/js/jquery-3.4.1.slim.min.js}"></script>
+    <script th:src="@{/js/popper.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
     <div th:replace="~{admin/footeradmin :: footer}"></div>
 </body>
 </html>

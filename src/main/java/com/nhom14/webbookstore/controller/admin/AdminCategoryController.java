@@ -3,6 +3,9 @@ package com.nhom14.webbookstore.controller.admin;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -83,6 +86,46 @@ public class AdminCategoryController {
         model.addAttribute("currentPage", currentPage);
         
         return "admin/managecategories";
+	}
+	
+	@PostMapping("/updatestatuscategory")
+	public ResponseEntity<String> updateStatusCategory(@RequestParam("categoryId") int categoryId, 
+			@RequestParam("status") int status,
+			HttpSession session) {
+	    
+		Account admin = (Account) session.getAttribute("admin");
+
+	    // Kiểm tra xem admin đã đăng nhập hay chưa
+	    if (admin == null) {
+	    	// Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
+	        HttpHeaders headers = new HttpHeaders();
+	        headers.add("Location", "/loginadmin");
+	        return ResponseEntity.status(HttpStatus.FOUND)
+	                .headers(headers)
+	                .body("User not logged in");
+	    }
+		
+	    // Lấy Category từ categoryId 
+		Category category = categoryService.getCategoryById(categoryId);
+	    
+	    if (category == null) {
+	        return ResponseEntity.badRequest().body("Category not found");
+	    }
+	    
+	    // Kiểm tra nếu trạng thái mới của danh mục là 0 và đã được lưu thành công vào cơ sở dữ liệu
+        // Thì cập nhật trạng thái của các cuốn sách thuộc danh mục này thành 0
+	    category.setStatus(status);
+        categoryService.updateCategory(category);
+	    if (status == 0) {
+            // Cập nhật trạng thái của các cuốn sách thuộc danh mục thành 0
+            List<Book> booksInCategory = bookService.getBooksByCategory(categoryId);
+            for (Book book : booksInCategory) {
+                book.setStatus(status);
+                bookService.updateBook(book);
+            }
+	    }
+	    
+	    return ResponseEntity.ok("success");
 	}
 	
 	@GetMapping("/updatecategory")

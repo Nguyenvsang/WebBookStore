@@ -1,5 +1,13 @@
 package com.nhom14.webbookstore.controller.admin;
 
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -22,12 +30,19 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.nhom14.webbookstore.entity.Account;
+import com.nhom14.webbookstore.entity.Author;
 import com.nhom14.webbookstore.entity.Book;
+import com.nhom14.webbookstore.entity.BookAuthor;
+import com.nhom14.webbookstore.entity.BookImage;
 import com.nhom14.webbookstore.entity.Category;
+import com.nhom14.webbookstore.service.AuthorService;
+import com.nhom14.webbookstore.service.BookAuthorService;
 import com.nhom14.webbookstore.service.BookService;
 import com.nhom14.webbookstore.service.CategoryService;
 import com.nhom14.webbookstore.service.CloudinaryService;
+import com.nhom14.webbookstore.service.bookImageService;
 
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
@@ -36,14 +51,21 @@ public class AdminBookController {
 	private BookService bookService;
 	private CategoryService categoryService;
 	private CloudinaryService cloudinaryService;
+	private BookAuthorService bookAuthorService;
+	private AuthorService authorService;
+	private bookImageService bookImageService;
 	
 	@Autowired
 	public AdminBookController(BookService bookService, CategoryService categoryService,
-			CloudinaryService cloudinaryService) {
+			CloudinaryService cloudinaryService, BookAuthorService bookAuthorService,
+			AuthorService authorService, bookImageService bookImageService) {
 		super();
 		this.bookService = bookService;
 		this.categoryService = categoryService;
 		this.cloudinaryService = cloudinaryService;
+		this.bookAuthorService = bookAuthorService;
+		this.authorService = authorService;
+		this.bookImageService = bookImageService;
 	}
 	
 	@GetMapping("/managebooks")
@@ -241,9 +263,19 @@ public class AdminBookController {
 	    
 	    // Truy xuất dữ liệu từ nguồn dữ liệu
 	    Book book = bookService.getBookById(bookId);
+	    
+	    List<BookAuthor> bookAuthors = bookAuthorService.getByBook(book);
+	    String authors = "";
+	    for (int i = 0; i < bookAuthors.size(); i++) {
+	        authors += bookAuthors.get(i).getAuthor().getName();
+	        if (i < bookAuthors.size() - 1) {
+	            authors += ", ";
+	        }
+	    }
 
 	    // Đặt thuộc tính vào model để sử dụng trong view
 	    model.addAttribute("book", book);
+	    model.addAttribute("authors", authors);
 
 	    // Forward đến trang chi tiết sách
 	    return "admin/managedetailbook";
@@ -264,10 +296,24 @@ public class AdminBookController {
 	    //Lấy sách theo Id
 	    Book book = bookService.getBookById(bookId);
 	    
-	    // Đặt thuộc tính vào model để sử dụng trong view
+        // Lấy danh sách tác giả của cuốn sách
+        List<BookAuthor> bookAuthors = bookAuthorService.getByBook(book);
+        List<Author> authors = new ArrayList<>();
+
+	     // Lặp qua danh sách bookAuthors và lấy ra tác giả tương ứng
+	     for (BookAuthor bookAuthor : bookAuthors) {
+	         authors.add(bookAuthor.getAuthor());
+	     }
+        
+        // Lấy danh sách tất cả tác giả
+        List<Author> allAuthors = authorService.getAllAuthors();
+        
+        // Đặt thuộc tính vào model để sử dụng trong view
 	    model.addAttribute("book", book);
 	    List<Category> categories = categoryService.getAllCategories();
         model.addAttribute("categories", categories);
+        model.addAttribute("authors", authors);
+        model.addAttribute("allAuthors", allAuthors);
         
         return "admin/updatebook";
 	}
@@ -279,6 +325,7 @@ public class AdminBookController {
             @RequestParam("image3") MultipartFile image3,
             @RequestParam("image4") MultipartFile image4,
             @RequestParam("categoryId") Integer categoryId,
+            @RequestParam("authorsIds") List<Integer> authorIds,
             HttpSession session,
             Model model,
             RedirectAttributes redirectAttributes) {
@@ -293,10 +340,40 @@ public class AdminBookController {
 	    // Tạo sách để cập nhật 
 	    Book updateBook = bookService.getBookById(bookParam.getId());
 	    
+	    // Lấy danh sách BookImage liên quan đến cuốn sách
+	    List<BookImage> bookImages = bookImageService.getByBook(updateBook);
+
+	    // Duyệt qua danh sách BookImage
+	    for (BookImage bookImage : bookImages) {
+	        // Lấy tên của BookImage
+	        String imageName = bookImage.getName();
+	        int imagePosition = bookImage.getPosition();
+
+	        // Tạo biến MultipartFile tương ứng
+	        MultipartFile imageFile = null;
+
+	        // Dựa vào vị trí, xác định và gán ảnh mới cho biến imageFile
+	        if (imagePosition == 1) {
+	            imageFile = image1;
+	        } else if (imagePosition == 2) {
+	            imageFile = image2;
+	        } else if (imagePosition == 3) {
+	            imageFile = image3;
+	        } else if (imagePosition == 4) {
+	            imageFile = image4;
+	        }
+
+	        // Nếu imageFile không rỗng, lưu ảnh mới
+	        if (imageFile != null && !imageFile.isEmpty()) {
+	            // Lưu ảnh mới vào cùng vị trí
+	            overwriteImage(imageFile, bookImage.getPath());
+	        }
+	    }
+	    
 	    //Cập nhật thông tin cho cuốn sách
 	    updateBook.setName(bookParam.getName());
-	    updateBook.setAuthor(bookParam.getAuthor());
-	    updateBook.setPrice(bookParam.getPrice());
+	    updateBook.setCostPrice(bookParam.getCostPrice());
+	    updateBook.setSellPrice(bookParam.getSellPrice());
 	    Category category = categoryService.getCategoryById(categoryId);
 	    updateBook.setCategory(category);
 	    updateBook.setPublisher(bookParam.getPublisher());
@@ -304,59 +381,8 @@ public class AdminBookController {
 	    updateBook.setStatus(bookParam.getStatus());
 	    updateBook.setDetail(bookParam.getDetail());
 	    updateBook.setQuantity(bookParam.getQuantity());
+	   
 	    
-	    try {
-	        // Tạo public ID cho hình ảnh trên Cloudinary (sử dụng id sách)
-	        String publicId = "WebBookStore/img_book/book_" + updateBook.getId();
-	        
-	        // Tạo một danh sách các nhiệm vụ tải lên ảnh
-	        List<Callable<String>> uploadTasks = new ArrayList<>();
-	        
-	        // Kiểm tra và tạo nhiệm vụ tải lên ảnh cho từng ảnh
-	        if (!image1.isEmpty()) {
-	            uploadTasks.add(() -> cloudinaryService.uploadImage(image1, publicId + "/1"));
-	        } else {
-	            uploadTasks.add(() -> cloudinaryService.uploadImageFromUrl(updateBook.getImg() + "1", publicId + "/1"));
-	        }
-	        if (!image2.isEmpty()) {
-	            uploadTasks.add(() -> cloudinaryService.uploadImage(image2, publicId + "/2"));
-	        } else {
-	            uploadTasks.add(() -> cloudinaryService.uploadImageFromUrl(updateBook.getImg() + "2", publicId + "/2"));
-	        }
-	        if (!image3.isEmpty()) {
-	            uploadTasks.add(() -> cloudinaryService.uploadImage(image3, publicId + "/3"));
-	        } else {
-	            uploadTasks.add(() -> cloudinaryService.uploadImageFromUrl(updateBook.getImg() + "3", publicId + "/3"));
-	        }
-	        if (!image4.isEmpty()) {
-	            uploadTasks.add(() -> cloudinaryService.uploadImage(image4, publicId + "/4"));
-	        } else {
-	            uploadTasks.add(() -> cloudinaryService.uploadImageFromUrl(updateBook.getImg() + "4", publicId + "/4"));
-	        }
-	        
-	        // Tạo một ExecutorService để thực hiện các nhiệm vụ tải lên ảnh song song
-	        ExecutorService executorService = Executors.newFixedThreadPool(uploadTasks.size());
-	        
-	        // Thực hiện các nhiệm vụ tải lên ảnh và lấy URL của ảnh đã tải lên
-	        List<Future<String>> uploadResults = executorService.invokeAll(uploadTasks);
-	        String imageUrl = "";
-	        for (Future<String> uploadResult : uploadResults) {
-	            imageUrl = uploadResult.get();
-	            // Lấy đường dẫn URL mà bỏ kí tự sau dấu / cuối cùng
-	            int lastSlashIndex = imageUrl.lastIndexOf("/");
-	            String imageUrlWithoutTrailingContent = imageUrl.substring(0, lastSlashIndex + 1);
-	            
-	            // Cập nhật URL hình ảnh vào tài khoản
-	            updateBook.setImg(imageUrlWithoutTrailingContent);
-	        }
-	        
-	        // Đóng ExecutorService sau khi hoàn thành
-	        executorService.shutdown();
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	        redirectAttributes.addAttribute("message", "Đã xảy ra lỗi khi cập nhật sách.");
-	        return "redirect:/updatebook";
-	    }
 	    
 	    // Kiểm tra trường hợp số lượng bằng 0 sẽ đưa về ngừng kinh doanh
         if (updateBook.getQuantity() == 0) {
@@ -366,6 +392,27 @@ public class AdminBookController {
         // Cập nhật sách trong cơ sở dữ liệu
         bookService.updateBook(updateBook);
         
+        // Phần cập nhật tác giả cho cuốn sách
+	    List<Author> newAuthors = new ArrayList<>();
+	    
+	    for (Integer authorId : authorIds) {
+	        Author author = authorService.getAuthorById(authorId);
+	        if (author != null) {
+	            newAuthors.add(author);
+	        }
+	    }
+	    
+	    // Xóa các bản ghi cũ trong bảng BookAuthor
+	    bookAuthorService.deleteBookAuthorsByBook(updateBook);
+	    
+	    // Tạo các bản ghi mới trong bảng BookAuthor cho tác giả mới
+	    for (Author author : newAuthors) {
+	        BookAuthor bookAuthor = new BookAuthor();
+	        bookAuthor.setBook(updateBook);
+	        bookAuthor.setAuthor(author);
+	        bookAuthorService.addBookAuthor(bookAuthor);
+	    }
+        
         // Sinh giá trị ngẫu nhiên
         Random random = new Random();
         int randomNumber = random.nextInt();
@@ -373,5 +420,22 @@ public class AdminBookController {
         redirectAttributes.addAttribute("message", "Đã cập nhật sách thành công!");
         redirectAttributes.addAttribute("bookId", updateBook.getId());
         return "redirect:/updatebook";
+	}
+	
+	private void overwriteImage(MultipartFile imageFile, String existingImagePath) {
+	    try {
+	        // Tạo đường dẫn tuyệt đối với thư mục lưu trữ ảnh
+	        String absolutePath = "file:///D:/Baitapthumuc/HK1Nam4/Tieuluanchuyennganh/MoitruongchoAppBookSpringBoot/WebBookStore/src/main/resources/static" + existingImagePath;
+	        Path existingImageFilePath = Paths.get(absolutePath);
+	        
+	        // Ghi đè tệp ảnh mới lên tệp ảnh cũ
+	        Files.copy(imageFile.getInputStream(), existingImageFilePath, StandardCopyOption.REPLACE_EXISTING);
+	        
+	        // Cập nhật đường dẫn ảnh hiện tại với đường dẫn tệp tin mới
+	        existingImagePath = existingImageFilePath.toString();
+
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
 	}
 }

@@ -138,7 +138,7 @@ public class CartController {
     private double calculateTotalAmount(List<CartItem> cartItems) {
         double totalAmount = 0.0;
         for (CartItem cartItem : cartItems) {
-            totalAmount += cartItem.getQuantity() * cartItem.getBook().getPrice();
+            totalAmount += cartItem.getQuantity() * cartItem.getBook().getSellPrice();
         }
         return totalAmount;
     }

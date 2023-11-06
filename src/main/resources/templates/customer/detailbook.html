@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Thông tin sách</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
 </head>
 <body>
 	<div th:replace="~{layout/header :: header}"></div>
@@ -30,14 +30,16 @@
         <div class="card">
             <div class="row no-gutters">
                 <div class="col-md-4">
-                    <img th:src="${book.img + '1'}" alt="Book Image" class="card-img">
+                    <img th:src="${book.bookImages[0].path}" alt="Book Image" class="card-img">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
                         <h5 class="card-title" th:text="${book.name}"></h5>
-                        <p class="card-text">Tác giả: <span th:text="${book.author}"></span></p>
+                        <p class="card-text">Tác giả:
+		                    <span th:each="bookauthor : ${book.bookAuthors}" th:text="${bookauthor.author.name}"></span>
+		                </p>
                         <p class="card-text">Nhà xuất bản: <span th:text="${book.publisher}"></span></p>
-                        <p class="card-text">Giá: <span th:text="${book.price}"></span> vnd</p>
+                        <p class="card-text">Giá: <span th:text="${book.sellPrice}"></span> vnd</p>
                         <p class="card-text">Số lượng: <span th:text="${book.quantity}"></span></p>
                         <div class="d-flex flex-grow-1">
                             <form th:action="@{/addtocart}" method="post">
@@ -68,13 +70,15 @@
         
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script>
         function goBack() {
             window.history.back();
         }
     </script>
 <div th:replace="~{layout/footer :: footer}"></div>
+<!-- Thêm các tệp tin JavaScript -->
+<script th:src="@{/js/jquery-3.4.1.slim.min.js}"></script>
+<script th:src="@{/js/popper.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
 </body>
 </html>

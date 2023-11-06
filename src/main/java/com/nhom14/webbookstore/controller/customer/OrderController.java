@@ -126,7 +126,7 @@ public class OrderController {
             OrderItem orderItem = new OrderItem();
             orderItem.setQuantity(cartItem.getQuantity());
             Book book = cartItem.getBook();
-            double price = cartItem.getQuantity() * book.getPrice();
+            double price = cartItem.getQuantity() * book.getSellPrice();
             orderItem.setPrice(price);
             orderItem.setBook(book);
             orderItem.setOrder(lastOrder);
@@ -159,7 +159,7 @@ public class OrderController {
 	private double calculateTotalAmount(List<CartItem> cartItems) {
         double totalAmount = 0.0;
         for (CartItem cartItem : cartItems) {
-            totalAmount += cartItem.getQuantity() * cartItem.getBook().getPrice();
+            totalAmount += cartItem.getQuantity() * cartItem.getBook().getSellPrice();
         }
         return totalAmount;
     }

@@ -27,7 +27,7 @@ public class OrderItem {
     @JoinColumn(name = "book_id")
     private Book book;
 
-    //bi-directional many-to-one association with MyOrder
+    //bi-directional many-to-one association with Order
     @ManyToOne
     @JoinColumn(name = "order_id")
     private Order order;

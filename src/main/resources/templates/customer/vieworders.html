@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Xem danh sách đơn hàng</title>
     <!-- Đường dẫn tới các tệp CSS của Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
 </head>
 <body>
 	<div th:replace="~{layout/header :: header}"></div>
@@ -53,9 +53,10 @@
         </table>
         
     </div>
-    <!-- Đường dẫn tới các tệp JavaScript của Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <div th:replace="~{layout/footer :: footer}"></div>
+    <!-- Thêm các tệp tin JavaScript -->
+    <script th:src="@{/js/jquery-3.4.1.slim.min.js}"></script>
+    <script th:src="@{/js/popper.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
 </body>
 </html>

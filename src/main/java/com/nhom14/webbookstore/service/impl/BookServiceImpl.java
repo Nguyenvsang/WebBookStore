@@ -11,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.nhom14.webbookstore.entity.Book;
+import com.nhom14.webbookstore.entity.BookAuthor;
 import com.nhom14.webbookstore.entity.Category;
+import com.nhom14.webbookstore.repository.BookAuthorRepository;
 import com.nhom14.webbookstore.repository.BookRepository;
 import com.nhom14.webbookstore.repository.CategoryRepository;
 import com.nhom14.webbookstore.service.BookService;
@@ -21,12 +23,14 @@ public class BookServiceImpl implements BookService {
 
 	private BookRepository bookRepository;
 	private CategoryRepository categoryRepository;
+	private BookAuthorRepository bookAuthorRepository;
 	
 	@Autowired
-	public BookServiceImpl(BookRepository bookRepository, CategoryRepository categoryRepository) {
+	public BookServiceImpl(BookRepository bookRepository, CategoryRepository categoryRepository, BookAuthorRepository bookAuthorRepository) {
 		super();
 		this.bookRepository = bookRepository;
 		this.categoryRepository = categoryRepository;
+		this.bookAuthorRepository = bookAuthorRepository;
 	}
 
 	@Override
@@ -47,22 +51,31 @@ public class BookServiceImpl implements BookService {
 	public List<Book> searchBooksByKeyword(List<Book> books, String searchKeyword) {
 	    List<Book> result = new ArrayList<>();
 	    Set<Integer> addedBookIds = new HashSet<>();
-	    String lowercaseKeyword = searchKeyword.toLowerCase();
-	    
+
 	    for (Book book : books) {
-	        Category category = book.getCategory();
-	        if (containsIgnoreCase(book.getAuthor(), lowercaseKeyword)
-	                || containsIgnoreCase(book.getName(), lowercaseKeyword)
-	                || containsIgnoreCase(book.getDescription(), lowercaseKeyword)
-	                || containsIgnoreCase(book.getPublisher(), lowercaseKeyword)
-	                || (category != null && containsIgnoreCase(category.getName(), lowercaseKeyword))) {
+	        List<BookAuthor> bookAuthors = bookAuthorRepository.findByBook(book);
+	        boolean isAuthorMatched = false;
+
+	        for (BookAuthor bookAuthor : bookAuthors) {
+	            String authorName = bookAuthor.getAuthor().getName();
+	            if (containsIgnoreCase(authorName, searchKeyword)) {
+	                isAuthorMatched = true;
+	                break;
+	            }
+	        }
+
+	        if (isAuthorMatched
+	                || containsIgnoreCase(book.getName(), searchKeyword)
+	                || containsIgnoreCase(book.getDescription(), searchKeyword)
+	                || containsIgnoreCase(book.getPublisher(), searchKeyword)
+	                || (book.getCategory() != null && containsIgnoreCase(book.getCategory().getName(), searchKeyword))) {
 	            if (!addedBookIds.contains(book.getId())) {
 	                result.add(book);
 	                addedBookIds.add(book.getId());
 	            }
 	        }
 	    }
-	    
+
 	    return result;
 	}
 

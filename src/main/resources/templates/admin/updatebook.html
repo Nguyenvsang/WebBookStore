@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Cập nhậtsách</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
 </head>
 <body>
 	<div th:replace="~{admin/headeradmin :: header}"></div>
@@ -28,13 +28,22 @@
 			</div>
 			
 			<div class="form-group">
-			    <label for="author">Tác giả:</label>
-			    <input type="text" class="form-control" id="author" name="author" th:field="*{author}" required>
+			    <label for="authorsIds">Tác giả:</label>
+			    <select multiple class="form-control" id="authorsIds" name="authorsIds" required>
+			        <option th:each="author : ${allAuthors}" th:value="${author.id}" th:selected="${book.bookAuthors != null and book.bookAuthors.![author.id].contains(author.id)}">
+			            <span th:text="${author.name}"></span>
+		            </option>
+			    </select>
+			</div>
+		
+			<div class="form-group">
+			    <label for="costPrice">Giá nhập:</label>
+			    <input type="number" class="form-control" id="costPrice" name="costPrice" th:field="*{costPrice}" required>
 			</div>
 			
 			<div class="form-group">
-			    <label for="price">Giá:</label>
-			    <input type="number" class="form-control" id="price" name="price" th:field="*{price}" required>
+			    <label for="sellPrice">Giá bán:</label>
+			    <input type="number" class="form-control" id="sellPrice" name="sellPrice" th:field="*{sellPrice}" required>
 			</div>
 			
 			<div class="form-group">
@@ -72,22 +81,21 @@
 			    <input type="number" id="quantity" name="quantity" class="form-control" min="0" th:field="*{quantity}" required>
 			</div>
 			
-			<input type="hidden" name="img" th:value="${book.img}">
 			
 			<div class="form-group">
-			    <img th:src="${book.img + '1' + '?v=' + randomNumber}" alt="Book Image 1" width="200"><br>
+			    <img th:src="${book.bookImages[0].path + '?v=' + randomNumber}" alt="Book Image 1" width="200"><br>
 			</div>
 			
 			<div class="form-group">
-			    <img th:src="${book.img + '2' + '?v=' + randomNumber}" alt="Book Image 2" width="200"><br>
+			    <img th:src="${book.bookImages[1].path + '?v=' + randomNumber}" alt="Book Image 2" width="200"><br>
 			</div>
 			
 			<div class="form-group">
-			    <img th:src="${book.img + '3' + '?v=' + randomNumber}" alt="Book Image 3" width="200"><br>
+			    <img th:src="${book.bookImages[2].path + '?v=' + randomNumber}" alt="Book Image 3" width="200"><br>
 			</div>
 			
 			<div class="form-group">
-			    <img th:src="${book.img + '4' + '?v=' + randomNumber}" alt="Book Image 4" width="200"><br>
+			    <img th:src="${book.bookImages[3].path + '?v=' + randomNumber}" alt="Book Image 4" width="200"><br>
 			</div>
 			
 			<div class="form-group">
@@ -116,8 +124,10 @@
 			</div>
         </form>
     </div>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <div th:replace="~{admin/footeradmin :: footer}"></div>
+    <!-- Thêm các tệp tin JavaScript -->
+    <script th:src="@{/js/jquery-3.4.1.slim.min.js}"></script>
+    <script th:src="@{/js/popper.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
 </body>
 </html>

@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <title>Xem chi tiết đơn hàng</title>
     <!-- Đường dẫn tới các tệp CSS của Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-	
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />	
 </head>
 <body>
 	<div th:replace="~{admin/headeradmin :: header}"></div>
@@ -66,7 +65,7 @@
             <tr th:each="orderItem : ${orderItems}">
                 <td th:text="${orderItem.book.name}"></td>
                 <td th:text="${orderItem.quantity}"></td>
-                <td th:text="${orderItem.book.price}"></td>
+                <td th:text="${orderItem.book.sellPrice}"></td>
                 <td th:text="${orderItem.price}"></td>
             </tr>
         </table>
@@ -75,9 +74,10 @@
             <a th:href="@{/manageorders}" class="btn btn-primary">Trở lại</a>
         </p>
     </div>
-    <!-- Đường dẫn tới các tệp JavaScript của Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 	<div th:replace="~{admin/footeradmin :: footer}"></div>
+	<!-- Thêm các tệp tin JavaScript -->
+    <script th:src="@{/js/jquery-3.4.1.slim.min.js}"></script>
+    <script th:src="@{/js/popper.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
 </body>
 </html>

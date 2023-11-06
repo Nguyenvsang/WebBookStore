@@ -290,14 +290,14 @@ public class AdminAccountController {
 	    if (!BCrypt.checkpw(currentPassword, account.getPassword())) {
 	        // Hiển thị thông báo mật khẩu hiện tại không đúng
 	    	redirectAttributes.addAttribute("message", "Mật khẩu hiện tại không đúng. Vui lòng thử lại.");
-	        return "redirect:/managechangepassword";
+	        return "redirect:/managechangepassword?accountId=" + account.getId();
 	    }
 	    
 	    // Kiểm tra mật khẩu mới và mật khẩu nhập lại
 	    if (!newPassword.equals(confirmPassword)) {
 	        // Hiển thị thông báo mật khẩu nhập lại không khớp
 	    	redirectAttributes.addAttribute("message", "Mật khẩu nhập lại không khớp. Vui lòng thử lại.");
-	        return "redirect:/managechangepassword";
+	        return "redirect:/managechangepassword?accountId=" + account.getId();
 	    }
 	    
 	    // Băm mật khẩu mới sử dụng bcrypt
