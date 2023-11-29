@@ -1,5 +1,7 @@
 package com.nhom14.webbookstore.controller.admin;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -15,6 +17,8 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+
+import javax.imageio.ImageIO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -37,10 +41,11 @@ import com.nhom14.webbookstore.entity.BookImage;
 import com.nhom14.webbookstore.entity.Category;
 import com.nhom14.webbookstore.service.AuthorService;
 import com.nhom14.webbookstore.service.BookAuthorService;
+import com.nhom14.webbookstore.service.BookImageService;
 import com.nhom14.webbookstore.service.BookService;
 import com.nhom14.webbookstore.service.CategoryService;
 import com.nhom14.webbookstore.service.CloudinaryService;
-import com.nhom14.webbookstore.service.bookImageService;
+import com.nhom14.webbookstore.service.BookImageService;
 
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpSession;
@@ -53,12 +58,12 @@ public class AdminBookController {
 	private CloudinaryService cloudinaryService;
 	private BookAuthorService bookAuthorService;
 	private AuthorService authorService;
-	private bookImageService bookImageService;
+	private BookImageService bookImageService;
 	
 	@Autowired
 	public AdminBookController(BookService bookService, CategoryService categoryService,
 			CloudinaryService cloudinaryService, BookAuthorService bookAuthorService,
-			AuthorService authorService, bookImageService bookImageService) {
+			AuthorService authorService, BookImageService bookImageService) {
 		super();
 		this.bookService = bookService;
 		this.categoryService = categoryService;
@@ -177,6 +182,7 @@ public class AdminBookController {
             @RequestParam("image3") MultipartFile image3,
             @RequestParam("image4") MultipartFile image4,
             @RequestParam("categoryId") Integer categoryId,
+            @RequestParam("authorsIds") List<Integer> authorIds,
             HttpSession session,
             Model model,
             RedirectAttributes redirectAttributes) {
@@ -192,8 +198,8 @@ public class AdminBookController {
 	    
 	    //Cập nhật thông tin cho cuốn sách mới
 	    newBook.setName(bookParam.getName());
-	    newBook.setAuthor(bookParam.getAuthor());
-	    newBook.setPrice(bookParam.getPrice());
+	    newBook.setCostPrice(bookParam.getCostPrice());
+	    newBook.setSellPrice(bookParam.getSellPrice());
 	    Category category = categoryService.getCategoryById(categoryId);
 	    newBook.setCategory(category);
 	    newBook.setPublisher(bookParam.getPublisher());
@@ -202,41 +208,6 @@ public class AdminBookController {
 	    newBook.setDetail(bookParam.getDetail());
 	    newBook.setQuantity(bookParam.getQuantity());
 	    
-	    try {
-	    	if (!image1.isEmpty()&&!image2.isEmpty()&&!image3.isEmpty()&&!image4.isEmpty()) {
-	    		// Add book để lấy được id thêm vào trong ảnh
-	    		newBook.setImg("");
-	    		bookService.addBook(newBook);
-	    		newBook = bookService.getLastBook();
-	        	// Tạo public ID cho hình ảnh trên Cloudinary (sử dụng id sach)
-                String publicId1 = "WebBookStore/img_book/book_" + newBook.getId() + "/1";
-
-                // Tải lên hình ảnh lên Cloudinary và lấy URL
-                String imageUrl1 = cloudinaryService.uploadImage(image1, publicId1);
-
-                // Lấy đường dẫn URL mà bỏ kí tự sau dấu / cuối cùng
-                int lastSlashIndex = imageUrl1.lastIndexOf("/");
-                String imageUrl1WithoutTrailingContent = imageUrl1.substring(0, lastSlashIndex + 1);
-                
-                // Cập nhật URL hình ảnh vào tài khoản
-                newBook.setImg(imageUrl1WithoutTrailingContent);
-                
-                // Tạo public ID và tải 3 hình ảnh còn lại lên Cloudinary
-                String publicId2 = "WebBookStore/img_book/book_" + newBook.getId() + "/2";
-                String imageUrl2 = cloudinaryService.uploadImage(image2, publicId2);
-                
-                String publicId3 = "WebBookStore/img_book/book_" + newBook.getId() + "/3";
-                String imageUrl3 = cloudinaryService.uploadImage(image3, publicId3);
-                
-                String publicId4 = "WebBookStore/img_book/book_" + newBook.getId() + "/4";
-                String imageUrl4 = cloudinaryService.uploadImage(image4, publicId4);
-	        }
-		} catch (Exception e) {
-			e.printStackTrace();
-	        redirectAttributes.addAttribute("message", "Đã xảy ra lỗi khi thêm sách.");
-	        return "redirect:/addbook";
-		}
-	    
 	    // Kiểm tra trường hợp số lượng bằng 0 sẽ đưa về ngừng kinh doanh
         if (newBook.getQuantity() == 0) {
         	newBook.setStatus(0);
@@ -244,6 +215,57 @@ public class AdminBookController {
         
         // Cập nhật sách trong cơ sở dữ liệu
         bookService.updateBook(newBook);
+        
+        // Lấy danh sách BookImage liên quan đến cuốn sách
+	    List<BookImage> bookImages = bookImageService.getByBook(updateBook);
+
+	    // Duyệt qua danh sách BookImage
+	    for (BookImage bookImage : bookImages) {
+	        // Lấy tên của BookImage
+	        String imageName = bookImage.getName();
+	        int imagePosition = bookImage.getPosition();
+
+	        // Tạo biến MultipartFile tương ứng
+	        MultipartFile imageFile = null;
+
+	        // Dựa vào vị trí, xác định và gán ảnh mới cho biến imageFile
+	        if (imagePosition == 1) {
+	            imageFile = image1;
+	        } else if (imagePosition == 2) {
+	            imageFile = image2;
+	        } else if (imagePosition == 3) {
+	            imageFile = image3;
+	        } else if (imagePosition == 4) {
+	            imageFile = image4;
+	        }
+
+	        // Nếu imageFile không rỗng, lưu ảnh mới
+	        if (imageFile != null && !imageFile.isEmpty()) {
+	            // Lưu ảnh mới vào thư mục upload
+	            updateImage(imageFile, bookImage.getPath());
+	        }
+	    }
+        
+        // Cập nhật sách trong cơ sở dữ liệu
+        bookService.updateBook(newBook);
+        
+        // Phần cập nhật tác giả cho cuốn sách
+	    List<Author> newAuthors = new ArrayList<>();
+	    
+	    for (Integer authorId : authorIds) {
+	        Author author = authorService.getAuthorById(authorId);
+	        if (author != null) {
+	            newAuthors.add(author);
+	        }
+	    }
+	    
+	    // Tạo các bản ghi trong bảng BookAuthor cho tác giả mới
+	    for (Author author : newAuthors) {
+	        BookAuthor bookAuthor = new BookAuthor();
+	        bookAuthor.setBook(newBook);
+	        bookAuthor.setAuthor(author);
+	        bookAuthorService.addBookAuthor(bookAuthor);
+	    }
         
         redirectAttributes.addAttribute("message", "Đã thêm sách thành công!");
         return "redirect:/addbook";
@@ -269,7 +291,7 @@ public class AdminBookController {
 	    for (int i = 0; i < bookAuthors.size(); i++) {
 	        authors += bookAuthors.get(i).getAuthor().getName();
 	        if (i < bookAuthors.size() - 1) {
-	            authors += ", ";
+	            authors += ", hfjjfjfj";
 	        }
 	    }
 
@@ -308,7 +330,14 @@ public class AdminBookController {
         // Lấy danh sách tất cả tác giả
         List<Author> allAuthors = authorService.getAllAuthors();
         
+        // Lấy danh sách ảnh của cuốn sách
+        
+        
         // Đặt thuộc tính vào model để sử dụng trong view
+        // Sinh giá trị ngẫu nhiên
+        Random random = new Random();
+        int randomNumber = random.nextInt();
+        model.addAttribute("randomNumber", randomNumber);
 	    model.addAttribute("book", book);
 	    List<Category> categories = categoryService.getAllCategories();
         model.addAttribute("categories", categories);
@@ -340,7 +369,31 @@ public class AdminBookController {
 	    // Tạo sách để cập nhật 
 	    Book updateBook = bookService.getBookById(bookParam.getId());
 	    
-	    // Lấy danh sách BookImage liên quan đến cuốn sách
+	    
+	    
+	    //Cập nhật thông tin cho cuốn sách
+	    updateBook.setName(bookParam.getName());
+	    updateBook.setCostPrice(bookParam.getCostPrice());
+	    updateBook.setSellPrice(bookParam.getSellPrice());
+	    Category category = categoryService.getCategoryById(categoryId);
+	    updateBook.setCategory(category);
+	    updateBook.setPublisher(bookParam.getPublisher());
+	    updateBook.setDescription(bookParam.getDescription());
+	    updateBook.setStatus(bookParam.getStatus());
+	    updateBook.setDetail(bookParam.getDetail());
+	    updateBook.setQuantity(bookParam.getQuantity());
+	   
+	    
+	    
+	    // Kiểm tra trường hợp số lượng bằng 0 sẽ đưa về ngừng kinh doanh
+        if (updateBook.getQuantity() == 0) {
+        	updateBook.setStatus(0);
+        }
+        
+        // Cập nhật sách trong cơ sở dữ liệu
+        bookService.updateBook(updateBook);
+        
+        // Lấy danh sách BookImage liên quan đến cuốn sách
 	    List<BookImage> bookImages = bookImageService.getByBook(updateBook);
 
 	    // Duyệt qua danh sách BookImage
@@ -365,32 +418,12 @@ public class AdminBookController {
 
 	        // Nếu imageFile không rỗng, lưu ảnh mới
 	        if (imageFile != null && !imageFile.isEmpty()) {
-	            // Lưu ảnh mới vào cùng vị trí
-	            overwriteImage(imageFile, bookImage.getPath());
+	            // Lưu ảnh mới vào thư mục upload
+	            updateImage3(imageFile, bookImage);
+	            
+	            
 	        }
 	    }
-	    
-	    //Cập nhật thông tin cho cuốn sách
-	    updateBook.setName(bookParam.getName());
-	    updateBook.setCostPrice(bookParam.getCostPrice());
-	    updateBook.setSellPrice(bookParam.getSellPrice());
-	    Category category = categoryService.getCategoryById(categoryId);
-	    updateBook.setCategory(category);
-	    updateBook.setPublisher(bookParam.getPublisher());
-	    updateBook.setDescription(bookParam.getDescription());
-	    updateBook.setStatus(bookParam.getStatus());
-	    updateBook.setDetail(bookParam.getDetail());
-	    updateBook.setQuantity(bookParam.getQuantity());
-	   
-	    
-	    
-	    // Kiểm tra trường hợp số lượng bằng 0 sẽ đưa về ngừng kinh doanh
-        if (updateBook.getQuantity() == 0) {
-        	updateBook.setStatus(0);
-        }
-        
-        // Cập nhật sách trong cơ sở dữ liệu
-        bookService.updateBook(updateBook);
         
         // Phần cập nhật tác giả cho cuốn sách
 	    List<Author> newAuthors = new ArrayList<>();
@@ -412,28 +445,86 @@ public class AdminBookController {
 	        bookAuthor.setAuthor(author);
 	        bookAuthorService.addBookAuthor(bookAuthor);
 	    }
-        
-        // Sinh giá trị ngẫu nhiên
-        Random random = new Random();
-        int randomNumber = random.nextInt();
-        redirectAttributes.addAttribute("randomNumber", randomNumber);
+	    
         redirectAttributes.addAttribute("message", "Đã cập nhật sách thành công!");
         redirectAttributes.addAttribute("bookId", updateBook.getId());
         return "redirect:/updatebook";
 	}
 	
-	private void overwriteImage(MultipartFile imageFile, String existingImagePath) {
+	private void updateImage2(MultipartFile imageFile, BookImage bookImage) {
 	    try {
-	        // Tạo đường dẫn tuyệt đối với thư mục lưu trữ ảnh
-	        String absolutePath = "file:///D:/Baitapthumuc/HK1Nam4/Tieuluanchuyennganh/MoitruongchoAppBookSpringBoot/WebBookStore/src/main/resources/static" + existingImagePath;
-	        Path existingImageFilePath = Paths.get(absolutePath);
-	        
+	    	// Lấy đường dẫn tuyệt đối đến thư mục hiện tại
+	    	String currentFolder = System.getProperty("user.dir");
+
+	    	// Lấy tên của ảnh
+	    	String imageName = imageFile.getOriginalFilename();
+
+	    	// Tạo đường dẫn đến thư mục mới trong resource của dự án
+	    	String newImagePath = currentFolder + "/src/main/resources/static/images/updated/" + imageName;
+
+	    	// Lưu tệp ảnh mới vào thư mục mới
+	    	Files.copy(imageFile.getInputStream(), Paths.get(newImagePath));
+
+	    	// Cập nhật đường dẫn đến thư mục mới trong cơ sở dữ liệu
+	    	bookImage.setPath(newImagePath);
+
+	    	// Lưu ảnh vào cơ sở dữ liệu
+	    	bookImageService.updateBookImage(bookImage);
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	}
+
+	
+	private void updateImage(MultipartFile imageFile, String existingImagePath) {
+	    try {
+	        // Lấy đường dẫn tuyệt đối đến thư mục hiện tại
+	        String currentFolder = System.getProperty("user.dir");
+
+	        // Tạo đường dẫn tới tệp tin ảnh cũ
+	        Path existingImageFilePath = Paths.get(currentFolder, "src", "main", "resources", "static", existingImagePath);
+
 	        // Ghi đè tệp ảnh mới lên tệp ảnh cũ
 	        Files.copy(imageFile.getInputStream(), existingImageFilePath, StandardCopyOption.REPLACE_EXISTING);
-	        
-	        // Cập nhật đường dẫn ảnh hiện tại với đường dẫn tệp tin mới
-	        existingImagePath = existingImageFilePath.toString();
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	}
+	
+	private void updateImage3(MultipartFile imageFile, BookImage bookImage) {
+	    try {
+	        // Lấy đường dẫn tuyệt đối đến thư mục hiện tại
+	        String currentFolder = System.getProperty("user.dir");
 
+	        // Tạo đường dẫn tới tệp tin ảnh cũ
+	        Path existingImageFilePath = Paths.get(currentFolder, "src", "main", "resources", "static", bookImage.getPath());
+
+	        // Lấy tên thư mục của file ảnh cũ
+	        String oldFolderName = existingImageFilePath.getParent().getFileName().toString();
+	        
+	        // Lấy tên file của file ảnh cũ
+	        String oldFileName = existingImageFilePath.getFileName().toString();
+	        
+	        // Tạo tên file mới với thời gian hiện tại và tên image cũ
+	        String newFileName = oldFileName.substring(0, oldFileName.lastIndexOf(".")) + "_" + System.currentTimeMillis() + ".jpg";
+	        
+	        // Tạo đường dẫn tới file ảnh mới
+	        Path newImageFilePath = Paths.get(oldFolderName, newFileName);
+	        
+	        // Tạo đối tượng BufferedImage từ tham số imageFile
+	        BufferedImage newImage = ImageIO.read(imageFile.getInputStream());
+	        
+	        // Ghi file ảnh mới vào đường dẫn mới bằng định dạng thích hợp
+	        ImageIO.write(newImage, "jpg", newImageFilePath.toFile());
+	        
+	        // Xóa file ảnh cũ
+	        Files.delete(existingImageFilePath);
+	        
+	        // Cập nhật đường dẫn hình ảnh cuốn sách
+	        bookImage.setPath(newImageFilePath.toString());
+	        
+	        bookImageService.updateBookImage(bookImage);
+	        
 	    } catch (IOException e) {
 	        e.printStackTrace();
 	    }

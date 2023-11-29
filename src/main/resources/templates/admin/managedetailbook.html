@@ -32,9 +32,7 @@
                         
                         <p class="card-text mt-4">Mã: <span th:text="${book.id}"></span></p>
                         <h5 class="card-title">Tên sách: <span th:text="${book.name}"></span></h5>
-                        <p class="card-text">Tác giả:
-		                    <span th:each="bookauthor : ${book.bookAuthors}" th:text="${bookauthor.author.name}"></span>
-		                </p>
+                        <p class="card-text">Tác giả: <span th:text="${authors}"></span></p>
                         <p class="card-text">Giá: <span th:text="${book.sellPrice}"></span> vnd</p>
                         <p class="card-text">Số lượng: <span th:text="${book.quantity}"></span></p>
                         <p class="card-text">Danh mục: <span th:text="${book.category.name}"></span></p>

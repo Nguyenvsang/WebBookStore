@@ -8,15 +8,15 @@ import org.springframework.stereotype.Service;
 import com.nhom14.webbookstore.entity.Book;
 import com.nhom14.webbookstore.entity.BookImage;
 import com.nhom14.webbookstore.repository.BookImageRepository;
-import com.nhom14.webbookstore.service.bookImageService;
+import com.nhom14.webbookstore.service.BookImageService;
 
 @Service
-public class bookImageServiceImpl implements bookImageService {
+public class BookImageServiceImpl implements BookImageService {
 
 	private BookImageRepository bookImageRepository;
 
 	@Autowired
-	public bookImageServiceImpl(BookImageRepository bookImageRepository) {
+	public BookImageServiceImpl(BookImageRepository bookImageRepository) {
 		super();
 		this.bookImageRepository = bookImageRepository;
 	}
@@ -24,6 +24,12 @@ public class bookImageServiceImpl implements bookImageService {
 	@Override
 	public List<BookImage> getByBook(Book book) {
 		return bookImageRepository.findByBook(book);
+	}
+
+	@Override
+	public void updateBookImage(BookImage bookImage) {
+		bookImageRepository.save(bookImage);
+		
 	}
 	
 	
