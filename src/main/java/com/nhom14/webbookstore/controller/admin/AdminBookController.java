@@ -396,33 +396,39 @@ public class AdminBookController {
         // Lấy danh sách BookImage liên quan đến cuốn sách
 	    List<BookImage> bookImages = bookImageService.getByBook(updateBook);
 
-	    // Duyệt qua danh sách BookImage
-	    for (BookImage bookImage : bookImages) {
-	        // Lấy tên của BookImage
-	        String imageName = bookImage.getName();
-	        int imagePosition = bookImage.getPosition();
-
-	        // Tạo biến MultipartFile tương ứng
-	        MultipartFile imageFile = null;
-
-	        // Dựa vào vị trí, xác định và gán ảnh mới cho biến imageFile
-	        if (imagePosition == 1) {
-	            imageFile = image1;
-	        } else if (imagePosition == 2) {
-	            imageFile = image2;
-	        } else if (imagePosition == 3) {
-	            imageFile = image3;
-	        } else if (imagePosition == 4) {
-	            imageFile = image4;
-	        }
-
-	        // Nếu imageFile không rỗng, lưu ảnh mới
-	        if (imageFile != null && !imageFile.isEmpty()) {
-	            // Lưu ảnh mới vào thư mục upload
-	            updateImage3(imageFile, bookImage);
-	            
-	            
-	        }
+//	    // Duyệt qua danh sách BookImage
+//	    for (BookImage bookImage : bookImages) {
+//	        // Lấy tên của BookImage
+//	        String imageName = bookImage.getName();
+//	        int imagePosition = bookImage.getPosition();
+//
+//	        // Tạo biến MultipartFile tương ứng
+//	        MultipartFile imageFile = null;
+//
+//	        // Dựa vào vị trí, xác định và gán ảnh mới cho biến imageFile
+//	        if (imagePosition == 1) {
+//	            imageFile = image1;
+//	        } else if (imagePosition == 2) {
+//	            imageFile = image2;
+//	        } else if (imagePosition == 3) {
+//	            imageFile = image3;
+//	        } else if (imagePosition == 4) {
+//	            imageFile = image4;
+//	        }
+//
+//	        // Nếu imageFile không rỗng, lưu ảnh mới
+//	        if (imageFile != null && !imageFile.isEmpty()) {
+//	            // Lưu ảnh mới vào thư mục upload
+//	            updateImage3(imageFile, bookImage);
+//	            
+//	            
+//	        }
+//	    }
+	    boolean updatedImages = updateImages(updateBook, bookImages, image1, image2, image3, image4, true);
+	    // Nếu cập nhật ảnh bị lỗi thì
+	    if(updatedImages == false) {
+	    	redirectAttributes.addAttribute("message", "Đã xảy ra lỗi khi cập nhật ảnh cho sách.");
+	        return "redirect:/updatebook";
 	    }
         
         // Phần cập nhật tác giả cho cuốn sách
@@ -449,6 +455,63 @@ public class AdminBookController {
         redirectAttributes.addAttribute("message", "Đã cập nhật sách thành công!");
         redirectAttributes.addAttribute("bookId", updateBook.getId());
         return "redirect:/updatebook";
+	}
+	
+	private boolean updateImages(Book updateBook, List<BookImage> bookImages, MultipartFile image1, MultipartFile image2,
+			MultipartFile image3, MultipartFile image4,
+			boolean success) {
+		try {
+	        // Tạo public ID cho hình ảnh trên Cloudinary (sử dụng id sách)
+	        String publicId = "bookstoreTLCN/img_book/book_" + updateBook.getId();
+	        
+	        // Tạo một danh sách các nhiệm vụ tải lên ảnh
+	        List<Callable<String>> uploadTasks = new ArrayList<>();
+	        
+	        // Kiểm tra và tạo nhiệm vụ tải lên ảnh cho từng ảnh
+	        if (!image1.isEmpty()) {
+	            uploadTasks.add(() -> cloudinaryService.uploadImage(image1, publicId + "/1"));
+	        } else {
+	            uploadTasks.add(() -> cloudinaryService.uploadImageFromUrl(bookImages.get(0).getPath(), publicId + "/1"));
+	        }
+	        if (!image2.isEmpty()) {
+	            uploadTasks.add(() -> cloudinaryService.uploadImage(image2, publicId + "/2"));
+	        } else {
+	            uploadTasks.add(() -> cloudinaryService.uploadImageFromUrl(bookImages.get(1).getPath(), publicId + "/2"));
+	        }
+	        if (!image3.isEmpty()) {
+	            uploadTasks.add(() -> cloudinaryService.uploadImage(image3, publicId + "/3"));
+	        } else {
+	            uploadTasks.add(() -> cloudinaryService.uploadImageFromUrl(bookImages.get(2).getPath(), publicId + "/3"));
+	        }
+	        if (!image4.isEmpty()) {
+	            uploadTasks.add(() -> cloudinaryService.uploadImage(image4, publicId + "/4"));
+	        } else {
+	            uploadTasks.add(() -> cloudinaryService.uploadImageFromUrl(bookImages.get(3).getPath(), publicId + "/4"));
+	        }
+	        
+	        // Tạo một ExecutorService để thực hiện các nhiệm vụ tải lên ảnh song song
+	        ExecutorService executorService = Executors.newFixedThreadPool(uploadTasks.size());
+	        
+	        // Thực hiện các nhiệm vụ tải lên ảnh và lấy URL của ảnh đã tải lên
+	        List<Future<String>> uploadResults = executorService.invokeAll(uploadTasks);
+	        int i = 0;
+	        for (Future<String> uploadResult : uploadResults) {
+	            String imageUrl = uploadResult.get();
+	            // Cập nhật URL hình ảnh vào BookImage 
+	            bookImages.get(i).setPath(imageUrl);
+	            // Lưu vào cơ sở dữ liệu
+	            bookImageService.updateBookImage(bookImages.get(i));
+	            i++;
+	        }
+	        
+	        // Đóng ExecutorService sau khi hoàn thành
+	        executorService.shutdown();
+	        return success;
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        success = false;
+	        return success;
+	    }
 	}
 	
 	private void updateImage2(MultipartFile imageFile, BookImage bookImage) {
@@ -492,41 +555,46 @@ public class AdminBookController {
 	}
 	
 	private void updateImage3(MultipartFile imageFile, BookImage bookImage) {
-	    try {
-	        // Lấy đường dẫn tuyệt đối đến thư mục hiện tại
-	        String currentFolder = System.getProperty("user.dir");
+        try {
+            // Lấy thư mục hiện tại của ứng dụng
+            String currentFolder = System.getProperty("user.dir");
 
-	        // Tạo đường dẫn tới tệp tin ảnh cũ
-	        Path existingImageFilePath = Paths.get(currentFolder, "src", "main", "resources", "static", bookImage.getPath());
+            // Tạo đường dẫn đến thư mục upload
+            Path uploadPath = Paths.get(currentFolder, "src", "main", "resources", "upload");
 
-	        // Lấy tên thư mục của file ảnh cũ
-	        String oldFolderName = existingImageFilePath.getParent().getFileName().toString();
-	        
-	        // Lấy tên file của file ảnh cũ
-	        String oldFileName = existingImageFilePath.getFileName().toString();
-	        
-	        // Tạo tên file mới với thời gian hiện tại và tên image cũ
-	        String newFileName = oldFileName.substring(0, oldFileName.lastIndexOf(".")) + "_" + System.currentTimeMillis() + ".jpg";
-	        
-	        // Tạo đường dẫn tới file ảnh mới
-	        Path newImageFilePath = Paths.get(oldFolderName, newFileName);
-	        
-	        // Tạo đối tượng BufferedImage từ tham số imageFile
-	        BufferedImage newImage = ImageIO.read(imageFile.getInputStream());
-	        
-	        // Ghi file ảnh mới vào đường dẫn mới bằng định dạng thích hợp
-	        ImageIO.write(newImage, "jpg", newImageFilePath.toFile());
-	        
-	        // Xóa file ảnh cũ
-	        Files.delete(existingImageFilePath);
-	        
-	        // Cập nhật đường dẫn hình ảnh cuốn sách
-	        bookImage.setPath(newImageFilePath.toString());
-	        
-	        bookImageService.updateBookImage(bookImage);
-	        
-	    } catch (IOException e) {
-	        e.printStackTrace();
-	    }
-	}
+            // Tạo thư mục upload nếu nó không tồn tại
+            if (Files.notExists(uploadPath)) {
+                Files.createDirectories(uploadPath);
+            }
+
+            // Lấy ID của sách
+            int bookId = bookImage.getBook().getId();
+
+            // Tạo tên file mới: imgbook + id của book + ngày thời gian tạo
+            String newFileName = "imgbook" + bookId + "_" + System.currentTimeMillis() + ".jpg";
+
+            // Tạo đường dẫn tới file ảnh mới trong thư mục upload
+            Path newImageFilePath = uploadPath.resolve(newFileName);
+
+            // Lưu ảnh mới vào thư mục upload
+            Files.copy(imageFile.getInputStream(), newImageFilePath, StandardCopyOption.REPLACE_EXISTING);
+
+            // Xóa file ảnh cũ
+            if (Files.exists(uploadPath.resolve(bookImage.getName()))) {
+                Files.delete(uploadPath.resolve(bookImage.getName()));
+            }
+
+            // Cập nhật tên và đường dẫn hình ảnh cuốn sách trong cơ sở dữ liệu
+            bookImage.setName(newFileName);
+            // Sử dụng đường dẫn tuyệt đối của thư mục upload
+            String absoluteUploadPath = uploadPath.toAbsolutePath().toString();
+            bookImage.setPath(absoluteUploadPath + "/" + newFileName);
+            bookImageService.updateBookImage(bookImage);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Xử lý lỗi nếu cần
+        }
+    }
+
 }

@@ -417,13 +417,13 @@ INSERT INTO BookAuthor(book_id, author_id) VALUE(11,10);
 
 -- Thêm dữ liệu vào bảng BookImage
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (1, "1", 1, "/images/books/Chinhtri_phapluat/book001/1.jpg");
+VALUE (1, "1", 1, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/001/1");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (1, "2", 2, "/images/books/Chinhtri_phapluat/book001/2.jpg");
+VALUE (1, "2", 2, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/001/2");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (1, "3", 3, "/images/books/Chinhtri_phapluat/book001/3.jpg");
+VALUE (1, "3", 3, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/001/3");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (1, "4", 4, "/images/books/Chinhtri_phapluat/book001/4.jpg");
+VALUE (1, "4", 4, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/001/4");
 
 INSERT INTO BookImage(book_id, name, position, path) 
 VALUE (2, "1", 1, "/images/books/Chinhtri_phapluat/book002/1.jpg");
