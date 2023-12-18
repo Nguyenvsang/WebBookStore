@@ -30,12 +30,9 @@ public class Author {
 	public Author() {
 	}
 
-	public Author(int id, String name, String bio, List<BookAuthor> bookAuthors) {
-		super();
-		this.id = id;
+	public Author(String name, String bio) {
 		this.name = name;
 		this.bio = bio;
-		this.bookAuthors = bookAuthors;
 	}
 
 	public int getId() {

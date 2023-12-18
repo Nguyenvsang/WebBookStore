@@ -12,4 +12,10 @@ public interface AuthorService {
 	// Lấy tác giả theo mã
 	Author getAuthorById(int id);
 
+	// Phương thức tìm kiếm tác giả dựa trên từ khóa
+	List<Author> searchAuthorsByKeyword(List<Author> authors, String searchKeyword);
+
+	// Phương thức để thêm một tác giả mới
+	void addAuthor(Author author);
+
 }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm tác giả</title>
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />    
+</head>
+<body>
+	<div th:replace="~{admin/headeradmin :: header}"></div>
+    <div class="container">
+        <h1>Thêm tác giả</h1>
+        
+        <!-- Hiển thị thông báo nếu có -->
+        <div th:if="${param.message}" class="alert"
+		     th:classappend="${#strings.containsIgnoreCase(param.message, 'thành công') ? 'alert-success' : 'alert-danger'}">
+		    <span th:text="${param.message}"></span>
+		</div>
+	        
+        <form th:action="@{/addauthor}" method="post">
+            <div class="form-group">
+                <label for="name">Tên tác giả:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="name">Tiểu sử:</label>
+                <input type="text" class="form-control" id="bio" name="bio" required>
+            </div>
+            
+            <div class="text-center mb-4">
+                <button type="submit" class="btn btn-primary">Tạo mới</button>
+                <a th:href="@{/manageauthors}" class="btn btn-secondary">Thoát</a>
+            </div>
+        </form>
+    </div>
+    <!-- Thêm các tệp tin JavaScript -->
+    <script th:src="@{/js/jquery-3.4.1.slim.min.js}"></script>
+    <script th:src="@{/js/popper.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <div th:replace="~{admin/footeradmin :: footer}"></div>
+</body>
+</html>

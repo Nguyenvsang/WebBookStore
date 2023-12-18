@@ -93,7 +93,7 @@
 	    <div th:if="${totalPages > 1}">
 	        <ul class="pagination">
 	            <li th:if="${currentPage > 1}" class="page-item">
-	                <a class="page-link" th:href="@{/managebooks(page=${currentPage - 1})}">Trước</a>
+	                <a class="page-link" th:href="@{/managebooks(category=${categoryId}, page=${currentPage - 1})}">Trước</a>
 	            </li>
 	
 	            <th:block th:each="pageNumber : ${#numbers.sequence(1, totalPages)}">
@@ -102,19 +102,17 @@
 	                        <span class="page-link" th:text="${pageNumber}"></span>
 	                    </th:block>
 	                    <th:block th:unless="${pageNumber == currentPage}">
-	                        <a class="page-link" th:href="@{/managebooks(page=${pageNumber})}" th:text="${pageNumber}"></a>
+	                        <a class="page-link" th:inline="text" th:href="@{/managebooks(category=${categoryId}, page=${pageNumber})}" th:text="${pageNumber}"></a>
 	                    </th:block>
 	               <!---->
 	            </th:block>
 	
 	            <li th:if="${currentPage < totalPages}" class="page-item">
-	                <a class="page-link" th:href="@{/managebooks(page=${currentPage + 1})}">Sau</a>
+	                <a class="page-link" th:href="@{/managebooks(category=${categoryId}, page=${currentPage + 1})}">Sau</a>
 	            </li>
 	        </ul>
 	    </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script>
 	    function updateStatus(bookId, newStatus) {
 	        var xhr = new XMLHttpRequest();

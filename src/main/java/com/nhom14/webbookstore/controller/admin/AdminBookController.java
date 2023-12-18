@@ -99,6 +99,8 @@ public class AdminBookController {
             books = bookService.getAllBooks();
         } else {
             books = bookService.getBooksByCategory(categoryId);
+            // Thêm để hiển thị theo catagory cho các trang phía sau
+            model.addAttribute("categoryId", categoryId);
         }
         
         if (searchKeyword != null && !searchKeyword.isEmpty()) {
