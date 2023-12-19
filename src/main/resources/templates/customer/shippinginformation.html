@@ -3,58 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <title>Thông tin thanh toán và vận chuyển</title>
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <style>
+		h3 {
+        	text-align: center;
+        	margin-top: 40px;
+        	margin-bottom: 20px; 
+        	color: rgb(2,88,155);   	
+    	}
+    	.form-container {
+	        border: 2px solid rgb(182,232,241);
+	        border-radius: 5px;
+	        padding: 20px;
+	        border-radius: 15px;
+	        margin-top: 20px;
+        	margin-bottom: 50px;
+        	margin-left: 100px;
+        	margin-right: 100px;
+	    }
+	    .btn-cancle {
+			border: 2px solid rgb(241,56,71);	
+			color: rgb(0, 0, 0);
+			border-radius: 10px;
+		}
+		.btn-cancle:hover {
+			color: rgb(255, 0, 0);
+		}
+		
+		.btn-order {
+			background-color: rgb(2,88,155);
+			border-radius: 10px;
+			color: white;
+		}
+		.btn-order:hover {
+			color: rgb(182,232,241);
+		}
+		
+		.frame {
+			background-color: rgb(182,232,241);
+			border-radius: 10px;
+			height: 50px;	
+			margin-top: 20px;
+        	margin-bottom: 20px;	
+        	display: flex;
+		    justify-content: center;
+		    align-items: center;	
+		}
+		.text-total {
+			text-align: center;
+		}
+		
+	</style>
 </head>
 <body>
 	<div th:replace="~{layout/header :: header}"></div>
     <div class="container-fluid mb-4">
-        <h1 class="text-center">Thông tin thanh toán và vận chuyển</h1>
+        <h3 class="text-center">THÔNG TIN THANH TOÁN VÀ VẬN CHUYỂN</h3>
 
-        <form th:action="@{/placeorder}" method="post">
-            <div class="form-group row">
-                <label for="name" class="col-md-2 col-form-label">Tên:</label>
-                <div class="col-md-10">
-                    <input type="text" id="name" name="name" th:value="${account.firstName} + ' ' + ${account.lastName}" required class="form-control">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="address" class="col-md-2 col-form-label">Địa chỉ:</label>
-                <div class="col-md-10">
-                    <input type="text" id="address" name="address" th:value="${account.address}" required class="form-control">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="phoneNumber" class="col-md-2 col-form-label">Số điện thoại:</label>
-                <div class="col-md-10">
-                    <input type="text" id="phoneNumber" name="phoneNumber" th:value="${account.phoneNumber}" required class="form-control">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="email" class="col-md-2 col-form-label">Email:</label>
-                <div class="col-md-10">
-                    <input type="email" id="email" name="email" th:value="${account.email}" required class="form-control">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="paymentMethods" class="col-md-2 col-form-label">Phương thức thanh toán:</label>
-                <div class="col-md-10">
-                    <input type="text" id="paymentMethods" name="paymentMethods" value="Hiện chỉ có thanh toán khi nhận hàng" readonly class="form-control">
-                </div>
-            </div>
-            <div class="text-center alert alert-info">
-                <h4>Tổng số tiền: <span th:text="${totalAmount}"></span> vnd</h4>
-            </div>
-            <div class="text-center">
-                <button type="submit" class="btn btn-primary">Đặt hàng</button>
-                <a th:href="@{/viewcart}" class="btn btn-secondary">Hủy</a>
-            </div>
-        </form>
+		<div class="container">
+			<div class="form-container">
+		        <form th:action="@{/placeorder}" method="post">
+		            <div class="form-group row">
+		                <label for="name" class="col-md-2 col-form-label">Tên:</label>
+		                <div class="col-md-10">
+		                    <input type="text" id="name" name="name" th:value="${account.firstName} + ' ' + ${account.lastName}" required class="form-control">
+		                </div>
+		            </div>
+		            <div class="form-group row">
+		                <label for="address" class="col-md-2 col-form-label">Địa chỉ:</label>
+		                <div class="col-md-10">
+		                    <input type="text" id="address" name="address" th:value="${account.address}" required class="form-control">
+		                </div>
+		            </div>
+		            <div class="form-group row">
+		                <label for="phoneNumber" class="col-md-2 col-form-label">Số điện thoại:</label>
+		                <div class="col-md-10">
+		                    <input type="text" id="phoneNumber" name="phoneNumber" th:value="${account.phoneNumber}" required class="form-control">
+		                </div>
+		            </div>
+		            <div class="form-group row">
+		                <label for="email" class="col-md-2 col-form-label">Email:</label>
+		                <div class="col-md-10">
+		                    <input type="email" id="email" name="email" th:value="${account.email}" required class="form-control">
+		                </div>
+		            </div>
+		            <div class="form-group row">
+		                <label for="paymentMethods" class="col-md-2 col-form-label">Phương thức thanh toán:</label>
+		                <div class="col-md-10">
+		                    <input type="text" id="paymentMethods" name="paymentMethods" value="Hiện chỉ có thanh toán khi nhận hàng" readonly class="form-control">
+		                </div>
+		            </div>
+		            
+					<div class="frame">
+				        <div class="text-total">
+				           <h5>Tổng số tiền: <span th:text="${totalAmount}"></span> vnd</h5>
+				        </div>
+		            </div>
+		            
+		            <div class="text-center">
+		                <button type="submit" class="btn btn-order">Đặt hàng</button>
+		                <a th:href="@{/viewcart}" class="btn btn-cancle">Hủy</a>
+		            </div>
+		        </form>
+			</div>
+		</div>
     </div>
 
     <div th:replace="~{layout/footer :: footer}"></div>
-    <!-- Thêm các tệp tin JavaScript -->
-    <script th:src="@{/js/jquery-3.4.1.slim.min.js}"></script>
-    <script th:src="@{/js/popper.min.js}"></script>
-    <script th:src="@{/js/bootstrap.min.js}"></script>
 </body>
 </html>

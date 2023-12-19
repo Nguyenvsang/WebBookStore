@@ -3,7 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Booktopia - Văn thơ Việt Nam</title>
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous">
+    <!-- Các thư viện JavaScript cần cho carousel -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
     <!-- Các thư viện Thymeleaf đã được thêm -->
     <style>
         .custom-bg-green {
@@ -24,13 +36,13 @@
     <div id="carouselExampleControls" class="carousel slide d-flex" data-ride="carousel" data-interval="3000" data-pause="false">
         <div class="carousel-inner">
             <div class="carousel-item active justify-content-center align-items-center">
-                <img src="/images/index/index1.jpg" class="d-block mx-auto" alt="...">
+                <img src="https://res.cloudinary.com/dylwewmt0/image/upload/v1698856277/PHOTO_LIST/Index/book_01.jpg" class="d-block mx-auto" alt="...">
             </div>
             <div class="carousel-item justify-content-center align-items-center">
-                <img src="/images/index/index2.jpg" class="d-block mx-auto" alt="...">
+                <img src="https://res.cloudinary.com/dylwewmt0/image/upload/v1698856507/PHOTO_LIST/Index/book_02.jpg" class="d-block mx-auto" alt="...">
             </div>
             <div class="carousel-item justify-content-center align-items-center">
-                <img src="/images/index/index3.jpg" class="d-block mx-auto" alt="...">
+                <img src="https://res.cloudinary.com/dylwewmt0/image/upload/v1698856959/PHOTO_LIST/Index/book_03.jpg" class="d-block mx-auto" alt="...">
             </div>
             <!-- Thêm các mục carousel-item khác tương tự -->
         </div>
@@ -45,9 +57,5 @@
     </div>
     
     <div th:replace="~{layout/footer :: footer}"></div>
-    <!-- Thêm các tệp tin JavaScript -->
-    <script th:src="@{/js/jquery-3.4.1.slim.min.js}"></script>
-    <script th:src="@{/js/popper.min.js}"></script>
-    <script th:src="@{/js/bootstrap.min.js}"></script>
 </body>
 </html>

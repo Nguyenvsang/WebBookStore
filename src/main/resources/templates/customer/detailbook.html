@@ -4,11 +4,94 @@
     <meta charset="UTF-8">
     <title>Thông tin sách</title>
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <style>
+		h3 {
+        	text-align: center;
+        	margin-top: 40px;
+        	margin-bottom: 20px;  
+        	color: rgb(2,88,155);     	
+    	}
+    	h5 {
+			margin-left: 20px;
+		}
+    	.frame-01 {
+			border: 1px solid rgb(182,232,241);
+    		border-radius: 20px
+		}
+		.frame-02 {
+			margin-top: 20px;
+			margin-bottom: 20px;
+			margin-left: 20px;
+			margin-right: 20px;
+			border: 1px solid rgb(255, 255, 255);
+			
+		}
+		.btn-add-cart {
+			border-radius: 10px;
+			color: black;
+			background-color: white;
+			border: 2px solid rgb(2,88,155);			
+		}
+		.btn-add-cart:hover {
+			color:rgb(2,88,155); /* Thay đổi màu văn bản khi trỏ chuột vào nút */
+			background-color: azure;
+		} 
+		
+		.btn-back {
+			background-color: rgb(2,88,155);
+			border-radius: 10px;
+			color: white;
+		}
+		.btn-back:hover {
+			color: rgb(182,232,241)
+		}
+		
+		.flex-grow-2 {
+			display: flex;
+		    justify-content: right;
+		    align-items: center;
+		    margin-top: 30px;
+		}
+		.frame-description {
+			border: 1px solid rgb(182,232,241);
+    		border-radius: 20px;
+    		margin-top: 20px;
+		}
+		.frame-description:hover {
+			background-color:azure
+		}
+		
+		.card-text {
+			margin-top: 20px;
+			margin-bottom: 20px;
+			margin-left: 20px;
+			margin-right: 20px;
+		}
+		
+		.frame-description-01 {
+			margin-bottom: 20px;			
+		}
+		
+		.card-title {
+    		border-radius: 20px
+		}
+		
+		p.card-text.text-description {
+			font-size: 20px;
+			color: rgb(2,88,155);
+		}
+		.ml-2 {
+			display: flex;
+		    justify-content: right;
+		    margin-right: 15px;
+		}
+	
+	</style>
 </head>
 <body>
 	<div th:replace="~{layout/header :: header}"></div>
     <div class="container-fluid mb-4">
-        <h1>Thông tin sách</h1>
+        
         
         <!-- Decode the "message" parameter 
         <th:block th:with="messageId=${param.message}">
@@ -27,47 +110,64 @@
 		    <span th:text="${param.message}"></span>
 		</div>
         
-        <div class="card">
-            <div class="row no-gutters">
-                <div class="col-md-4">
-                    <img th:src="${book.bookImages[0].path}" alt="Book Image" class="card-img">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title" th:text="${book.name}"></h5>
-                        <p class="card-text">Tác giả:
-		                    <span th:each="bookauthor : ${book.bookAuthors}" th:text="${bookauthor.author.name}"></span>
-		                </p>
-                        <p class="card-text">Nhà xuất bản: <span th:text="${book.publisher}"></span></p>
-                        <p class="card-text">Giá: <span th:text="${book.sellPrice}"></span> vnd</p>
-                        <p class="card-text">Số lượng: <span th:text="${book.quantity}"></span></p>
-                        <div class="d-flex flex-grow-1">
-                            <form th:action="@{/addtocart}" method="post">
-                                <div class="row">
-                                    <div class="col-4">
-                                        <input type="number" id="quantity" name="quantity" class="form-control" min="1" th:max="${book.quantity}" value="1">
-                                    </div>
-                                    <div class="col-8">
-                                        <input type="hidden" name="bookId" th:value="${book.id}">
-                                        <button type="submit" class="btn btn-success btn-block">Thêm vào giỏ hàng</button>
-                                    </div>
-                                </div>
-                            </form>
-                            <div class="ml-2">
-                                <a th:href="@{/viewbooks}" class="btn btn-primary">Trở về</a>
-                            </div>
-                        </div>
-                        <p class="card-text">Danh mục: <span th:text="${book.category.name}"></span></p>
-                        <p class="card-text">Mô tả:</p>
-                        <pre class="card-text" th:text="${book.description}"></pre>
-                        <p class="card-text">Chi tiết:</p>
-                        <pre class="card-text" th:text="${book.detail}"></pre>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
         
+        <div class="container">
+        <h3>THÔNG TIN SÁCH</h3>
+	        <div class="frame-01">
+				<div class="frame-02">
+		            <div class="row no-gutters">
+		                <div class="col-md-3">
+		                    <img th:src="${book.bookImages[0].path}" alt="Book Image" class="card-img" style="border-radius: 15px;">
+		                </div>
+		                <div class="col-md-9">
+		                    <div class="card-body">
+		                        <h5 class="card-title" th:text="${book.name}"></h5>
+		                        <div class="row">
+									<div class="col">
+				                        <p class="card-text">Tác giả:
+						                    <span th:each="bookauthor : ${book.bookAuthors}" th:text="${bookauthor.author.name}"></span>
+						                </p>
+				                        <p class="card-text">Nhà xuất bản: <span th:text="${book.publisher}"></span></p>
+				                        <p class="card-text">Giá: <span th:text="${book.sellPrice}"></span> vnd</p>
+				                        <p class="card-text">Số lượng: <span th:text="${book.quantity}"></span></p>
+				                        <p class="card-text">Danh mục: <span th:text="${book.category.name}"></span></p>
+									</div>
+									<div class="col">
+										<p class="card-text">Chi tiết:</p>
+		                        		<pre class="card-text" th:text="${book.detail}"></pre>
+									</div>
+		                        </div>
+		                        
+		                        <div class="d-flex flex-grow-2">
+		                            <form th:action="@{/addtocart}" method="post">
+				                                <div class="col col-number">
+				                                    <div class="col col-number" style="margin-bottom: 10px; ">
+				                                        <input style="border: 2px solid rgb(2,88,155);" type="number" id="quantity" name="quantity" class="form-control" min="1" th:max="${book.quantity}" value="1">
+				                                    </div>				                                    
+				                                </div>
+						                        <div class="col-add-cart" style="margin-bottom: 20px;">				                                 
+						                            <div class="col">
+						                                <input type="hidden" name="bookId" th:value="${book.id}">
+						                                <button type="submit" class="btn btn-add-cart btn-block">Thêm vào giỏ hàng</button>
+						                            </div>
+						                        </div>
+				                    	</form>		                            
+		                        </div>
+		                        <div class="ml-2">
+		                        	<a th:href="@{/viewbooks}" class="btn btn-back">Trở về</a>
+		                        </div>		                        		                        		                    		                        
+		                    </div>
+		                </div>
+		            </div>
+				</div>
+	        </div>
+        	<div class="frame-description">	
+				<div class="frame-description-01">		
+			        <p class="card-text text-description">Mô tả:</p>
+				    <p class="card-text content" th:text="${book.description}" style="text-align: justify;"></p>
+				</div>
+	       	</div>
+        </div>
     </div>
 
     <script>

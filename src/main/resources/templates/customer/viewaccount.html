@@ -3,12 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <title>Thông tin cá nhân</title>
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <style>
+		.container-body {
+        	border: 2px solid rgb(182,232,241);
+        	padding: 20px;
+        	margin-top: 20px;
+        	margin-bottom: 50px;
+        	margin-left: 250px;
+        	margin-right: 250px;
+        	border-radius: 15px
+		}
+		h3 {
+        	text-align: center;
+        	margin-top: 40px;
+        	margin-bottom: 20px; 
+        	color: rgb(2,88,155);   	
+    	}
+    	.btn-edit-info {
+			background-color: rgb(2,88,155);
+			border-radius: 10px;
+			color: white;
+		}
+		.btn-edit-info:hover {
+			color: rgb(182,232,241)
+		}
+		.form-control {
+			border-radius: 10px;
+		}
+		.btn-edit-password {
+			background-color: rgb(241,56,71);
+			color: white;
+			border-radius: 10px;
+			margin-left: 400px;
+		}
+		.btn-edit-password:hover {
+			color: lavenderblush;
+		}
+		#currentImage {
+	        display: block;
+	        margin-left: auto;
+	        margin-right: auto;
+    	}
+    	.form-group {
+			color: rgb(2,88,155);
+			font-weight: 500;
+			margin: 20px;
+		}
+	</style>
 </head>
 <body>
 	<div th:replace="~{layout/header :: header}"></div>
     <div class="container">
-        <h1>Thông tin cá nhân</h1>
+        <h3>THÔNG TIN CÁ NHÂN</h3>
         
 		<!-- Hiển thị thông báo nếu có -->
         <div th:if="${param.message}" class="alert"
@@ -16,60 +63,58 @@
 		    <span th:text="${param.message}"></span>
 		</div>
         
-        <div class="form-group">
-            <label for="firstName">Tên:</label>
-            <output class="form-control" id="firstName" name="firstName" th:text="${account.firstName}"></output>
-        </div>
-        <div class="form-group">
-            <label for="lastName">Họ:</label>
-            <output class="form-control" id="lastName" name="lastName" th:text="${account.lastName}"></output>
-        </div>
-        <div class="form-group">
-            <label for="username">Tên người dùng:</label>
-            <output class="form-control" id="username" name="username" th:text="${account.username}"></output>
-        </div>
-        <div class="form-group">
-            <label for="password">Mật khẩu:</label>
-                <a th:href="@{/changepassword}" class="btn btn-danger">Đổi mật khẩu</a>
-        </div>
-        <div class="form-group">
-            <label for="gender">Giới tính:</label>
-            <output class="form-control" id="gender" name="gender" th:text="${account.gender}"></output>
-        </div>
-        <div class="form-group">
-            <label for="currentImage">Hình ảnh hiện tại:</label>
-            <div th:if="${session.account != null and session.account.img != ''}">
-                <img th:src="${session.account.img + '?v=' + randomNumber}" class="img-thumbnail" id="currentImage" alt="Hình ảnh hiện tại" style="width: 200px; height: 200px;">
-            </div>
-            <div th:if="${session.account == null or session.account.img == ''}">
-                <img src="https://res.cloudinary.com/dosdzo1lg/image/upload/v1687862555/Booktopia/img_account/account_default.jpg" class="img-thumbnail" style="width: 200px; height: 200px;" id="currentImage" alt="Hình ảnh mặc định">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="dob">Ngày sinh:</label>
-            <output class="form-control" id="dob" name="dob" th:text="${#dates.format(account.dateOfBirth, 'dd/MM/yyyy')}"></output>
-        </div>
-        <div class="form-group">
-            <label for="address">Địa chỉ:</label>
-            <output class="form-control" id="address" name="address" th:text="${account.address}"></output>
-        </div>
-        <div class="form-group">
-            <label for="phoneNumber">Số điện thoại:</label>
-            <output class="form-control" id="phoneNumber" name="phoneNumber" th:text="${account.phoneNumber}"></output>
-        </div>
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <output class="form-control" id="email" name="email" th:text="${account.email}"></output>
-        </div>
-        <div class="text-center mb-4">
-            <a th:href="@{/updateaccount}" class="btn btn-primary">Sửa thông tin</a>
+        <div class="container-body" >
+	        <div class="form-group">
+	            <label for="firstName">Tên:</label>
+	            <output class="form-control" id="firstName" name="firstName" th:text="${account.firstName}"></output>
+	        </div>
+	        <div class="form-group">
+	            <label for="lastName">Họ:</label>
+	            <output class="form-control" id="lastName" name="lastName" th:text="${account.lastName}"></output>
+	        </div>
+	        <div class="form-group">
+	            <label for="username">Tên người dùng:</label>
+	            <output class="form-control" id="username" name="username" th:text="${account.username}"></output>
+	        </div>
+	        <div class="form-group">
+	            <label for="password">Mật khẩu:</label>
+	                <a th:href="@{/changepassword}" class="btn btn-edit-password">Đổi mật khẩu</a>
+	        </div>
+	        <div class="form-group">
+	            <label for="gender">Giới tính:</label>
+	            <output class="form-control" id="gender" name="gender" th:text="${account.gender}"></output>
+	        </div>
+	        <div class="form-group">
+	            <label for="currentImage">Hình ảnh hiện tại:</label>
+	            <div th:if="${session.account != null and session.account.img != ''}">
+	                <img th:src="${session.account.img + '?v=' + randomNumber}" class="img-thumbnail" id="currentImage" alt="Hình ảnh hiện tại" style="width: 200px; height: 200px;">
+	            </div>
+	            <div th:if="${session.account == null or session.account.img == ''}">
+	                <img src="https://res.cloudinary.com/dosdzo1lg/image/upload/v1687862555/Booktopia/img_account/account_default.jpg" class="img-thumbnail" style="width: 200px; height: 200px;" id="currentImage" alt="Hình ảnh mặc định">
+	            </div>
+	        </div>
+	        <div class="form-group">
+	            <label for="dob">Ngày sinh:</label>
+	            <output class="form-control" id="dob" name="dob" th:text="${#dates.format(account.dateOfBirth, 'dd/MM/yyyy')}"></output>
+	        </div>
+	        <div class="form-group">
+	            <label for="address">Địa chỉ:</label>
+	            <output class="form-control" id="address" name="address" th:text="${account.address}"></output>
+	        </div>
+	        <div class="form-group">
+	            <label for="phoneNumber">Số điện thoại:</label>
+	            <output class="form-control" id="phoneNumber" name="phoneNumber" th:text="${account.phoneNumber}"></output>
+	        </div>
+	        <div class="form-group">
+	            <label for="email">Email:</label>
+	            <output class="form-control" id="email" name="email" th:text="${account.email}"></output>
+	        </div>
+	        <div class="text-center mb-4">
+	            <a th:href="@{/updateaccount}" class="btn btn-edit-info">Sửa thông tin</a>
+	        </div>
         </div>
     </div>
     
     <div th:replace="~{layout/footer :: footer}"></div>
-    <!-- Thêm các tệp tin JavaScript -->
-    <script th:src="@{/js/jquery-3.4.1.slim.min.js}"></script>
-    <script th:src="@{/js/popper.min.js}"></script>
-    <script th:src="@{/js/bootstrap.min.js}"></script>
 </body>
 </html>

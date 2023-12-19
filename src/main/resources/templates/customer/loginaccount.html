@@ -4,14 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Đăng nhập</title>
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+          
+    <style>
+    .form-container {
+        border: 2px solid rgb(182,232,241);
+        border-radius: 5px;
+        padding: 20px;
+        border-radius: 15px;
+        margin-top: 20px;
+	    margin-right: 100px;
+	    margin-left: 100px;	 
+	    margin-bottom: 40px;   
+	}
+	.btn-login {
+		background-color: rgb(2,88,155);
+		border-radius: 10px;
+		color: white;
+	}
+	.btn-login:hover {
+			color:rgb(182,232,241); /* Thay đổi màu văn bản khi trỏ chuột vào nút */
+	}
+	h3 {
+		color: rgb(2,88,155);
+		margin-top: 20px;
+	}
+	.form-control {
+		border-radius: 10px
+	}
+	</style>
 </head>
 <body>
 <div th:replace="~{layout/header :: header}"></div>
 <div class="container mt-4 mb-4">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <h3 class="text-center">Đăng nhập</h3>
+            <h3 class="text-center">ĐĂNG NHẬP</h3>
             
             <!-- Hiển thị thông báo nếu có -->
             <div th:if="${param.message}" class="alert"
@@ -19,26 +48,24 @@
 			    <span th:text="${param.message}"></span>
 			</div>
             
-            <form th:action="@{/customer/loginaccount}" method="post">
-                <div class="form-group">
-                    <label for="username">Tên đăng nhập:</label>
-                    <input type="text" class="form-control" id="username" name="username" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Mật khẩu:</label>
-                    <input type="password" class="form-control" id="password" name="password" required>
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary">Đăng nhập</button>
-                </div>
-            </form>
+            <div class="form-container">
+	            <form th:action="@{/customer/loginaccount}" method="post">
+	                <div class="form-group">
+	                    <label for="username">Tên đăng nhập:</label>
+	                    <input type="text" class="form-control" id="username" name="username" required>
+	                </div>
+	                <div class="form-group">
+	                    <label for="password">Mật khẩu:</label>
+	                    <input type="password" class="form-control" id="password" name="password" required>
+	                </div>
+	                <div class="text-center">
+	                    <button type="submit" class="btn btn-login">Đăng nhập</button>
+	                </div>
+	            </form>
+            </div>
         </div>
     </div>
 </div>
 <div th:replace="~{layout/footer :: footer}"></div>
-<!-- Thêm các tệp tin JavaScript -->
-<script th:src="@{/js/jquery-3.4.1.slim.min.js}"></script>
-<script th:src="@{/js/popper.min.js}"></script>
-<script th:src="@{/js/bootstrap.min.js}"></script>
 </body>
 </html>

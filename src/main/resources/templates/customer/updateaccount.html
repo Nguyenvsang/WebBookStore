@@ -3,68 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <title>Cập nhật thông tin</title>
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <style>
+		h3 {
+        	text-align: center;
+        	margin-top: 40px;
+        	margin-bottom: 20px; 
+        	color: rgb(2,88,155);   	
+    	}    	
+    	.container-body {
+        	border: 2px solid rgb(182,232,241);
+        	padding: 20px;
+        	margin-top: 20px;
+        	margin-bottom: 50px;
+        	margin-left: 250px;
+        	margin-right: 250px;
+        	border-radius: 15px
+		}
+		.form-control {
+			border-radius: 10px;
+		}
+		.btn-save {
+			background-color: rgb(2,88,155);
+			border-radius: 10px;
+			color: white;
+		}
+		.btn-save:hover {
+			color: rgb(182,232,241)
+		}
+		.btn-out {
+			border-radius: 10px;
+			color: black;
+			background-color: white;
+			border: 2px solid rgb(2,88,155);			
+		}
+		.btn-out:hover {
+			color:rgb(2,88,155); /* Thay đổi màu văn bản khi trỏ chuột vào nút */
+		}
+		.form-control-file {
+			color: white;
+		}
+		.form-group {
+			color: rgb(2,88,155);
+			font-weight: 500;
+			margin: 20px;
+		}
+		
+	</style>
+	<script>
+	var loadFile = function(event) {
+	    var output = document.getElementById('output');
+	    output.src = URL.createObjectURL(event.target.files[0]);
+	    output.onload = function() {
+	        URL.revokeObjectURL(output.src) // free memory
+	    }
+	};
+	</script>
 </head>
 <body>
 	<div th:replace="~{layout/header :: header}"></div>
     <div class="container">
-        <h1>Nhập thông tin cần sửa</h1>
+        <h3>NHẬP THÔNG TIN CẦN CHỈNH SỬA</h3>
 
         <!-- Hiển thị thông báo nếu có -->
         <div th:if="${message}" class="alert"
              th:classappend="${message.contains('thành công') ? 'alert-success' : 'alert-danger'}"
              th:text="${message}"></div>
-                 
-        <form th:action="@{/updateaccount}" th:object="${account}" method="post" enctype="multipart/form-data">
-		    <div class="form-group">
-		        <label for="firstName">Tên:</label>
-		        <input type="text" class="form-control" id="firstName" th:field="*{firstName}" required>
-		    </div>
-		    <div class="form-group">
-		        <label for="lastName">Họ:</label>
-		        <input type="text" class="form-control" id="lastName" th:field="*{lastName}" required>
-		    </div>
-		    <div class="form-group">
-		        <label for="username">Tên người dùng:</label>
-		        <input type="text" class="form-control" id="username" th:field="*{username}" required>
-		    </div>
-		    <div class="form-group">
-		        <label for="gender">Giới tính:</label>
-		        <select class="form-control" id="gender" th:field="*{gender}" required>
-		            <option value="Nam">Nam</option>
-		            <option value="Nữ">Nữ</option>
-		        </select>
-		    </div>
-		    <div class="form-group">
-		        <label for="image">Đổi hình ảnh:</label>
-		        <input type="file" class="form-control-file" id="image" name="image">
-		    </div>
-		    <div class="form-group"> 
-				<label for="dob">Ngày sinh:</label> 
-				<input type="date" class="form-control" id="dob" name="dob" th:value="${#dates.format(account.dateOfBirth, 'yyyy-MM-dd')}" th:attr="placeholder=${#dates.format(account.dateOfBirth, 'dd/MM/yyyy')}" required> 
-			</div>
-		    <div class="form-group">
-		        <label for="address">Địa chỉ:</label>
-		        <input type="text" class="form-control" id="address" th:field="*{address}" required>
-		    </div>
-		    <div class="form-group">
-		        <label for="phoneNumber">Số điện thoại:</label>
-		        <input type="tel" class="form-control" id="phoneNumber" th:field="*{phoneNumber}" required>
-		    </div>
-		    <div class="form-group">
-		        <label for="email">Email:</label>
-		        <input type="email" class="form-control" id="email" th:field="*{email}" required>
-		    </div>
-		    <div class="text-center mb-4">
-		        <button type="submit" class="btn btn-primary">Lưu</button>
-		        <a th:href="@{/viewaccount}" class="btn btn-secondary">Thoát</a>
-		    </div>
-		</form>
+             
+        <!--Khung cho phần chỉnh sửa-->
+        <div class="container-body" >               
+	        <form th:action="@{/updateaccount}" th:object="${account}" method="post" enctype="multipart/form-data">
+			    <div class="form-group">
+			        <label for="firstName">Tên:</label>
+			        <input type="text" class="form-control" id="firstName" th:field="*{firstName}" required>
+			    </div>
+			    <div class="form-group">
+			        <label for="lastName">Họ:</label>
+			        <input type="text" class="form-control" id="lastName" th:field="*{lastName}" required>
+			    </div>
+			    <div class="form-group">
+			        <label for="username">Tên người dùng:</label>
+			        <input type="text" class="form-control" id="username" th:field="*{username}" required>
+			    </div>
+			    <div class="form-group">
+			        <label for="gender">Giới tính:</label>
+			        <select class="form-control" id="gender" th:field="*{gender}" required>
+			            <option value="Nam">Nam</option>
+			            <option value="Nữ">Nữ</option>
+			        </select>
+			    </div>
+			    <div class="form-group">
+				    <label for="image">Đổi hình ảnh:</label>
+				    <input type="file" class="form-control-file" id="image" name="image" onchange="loadFile(event)">
+				    <img id="output" width="200" />
+				</div>
+			    <div class="form-group"> 
+					<label for="dob">Ngày sinh:</label> 
+					<input type="date" class="form-control" id="dob" name="dob" th:value="${#dates.format(account.dateOfBirth, 'yyyy-MM-dd')}" th:attr="placeholder=${#dates.format(account.dateOfBirth, 'dd/MM/yyyy')}" required> 
+				</div>
+			    <div class="form-group">
+			        <label for="address">Địa chỉ:</label>
+			        <input type="text" class="form-control" id="address" th:field="*{address}" required>
+			    </div>
+			    <div class="form-group">
+			        <label for="phoneNumber">Số điện thoại:</label>
+			        <input type="tel" class="form-control" id="phoneNumber" th:field="*{phoneNumber}" required>
+			    </div>
+			    <div class="form-group">
+			        <label for="email">Email:</label>
+			        <input type="email" class="form-control" id="email" th:field="*{email}" required>
+			    </div>
+			    <div class="text-center mb-4">
+			        <button type="submit" class="btn btn-save">Lưu</button>
+			        <a th:href="@{/viewaccount}" class="btn btn-out">Thoát</a>
+			    </div>
+			</form>
+        </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <div th:replace="~{layout/footer :: footer}"></div>
-    <!-- Thêm các tệp tin JavaScript -->
-    <script th:src="@{/js/jquery-3.4.1.slim.min.js}"></script>
-    <script th:src="@{/js/popper.min.js}"></script>
-    <script th:src="@{/js/bootstrap.min.js}"></script>
 </body>
 </html>

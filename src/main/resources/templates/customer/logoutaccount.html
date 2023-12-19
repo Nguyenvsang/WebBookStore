@@ -3,8 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Đăng xuất</title>
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous">
     <!-- Các thư viện Thymeleaf đã được thêm -->
+    <style>
+		.card-body {
+			border: 2px solid rgb(255, 255, 255);
+	        border-radius: 5px;
+	        padding: 20px;
+	        border-radius: 15px		
+	    }
+	    .text-center {
+			border: 2px solid rgb(182,232,241);
+	        border-radius: 5px;
+	        padding: 20px;
+	        border-radius: 15px	
+		}
+		.btn-logout {
+			border-radius: 10px;
+			background-color: rgb(2,88,155);
+			border: 2px solid rgb(2,88,155);	
+			color: white;		
+		}
+		.btn-logout:hover {
+			color:rgb(182,232,241); /* Thay đổi màu văn bản khi trỏ chuột vào nút */
+		}
+		.btn-no {
+			border-radius: 10px;
+			color: black;
+			background-color: white;
+			border: 2px solid rgb(2,88,155);			
+		}
+		.btn-no:hover {
+			color:rgb(2,88,155); /* Thay đổi màu văn bản khi trỏ chuột vào nút */
+		}
+		.card-title {
+			color: rgb(2,88,155);
+		}
+		
+	</style>
 </head>
 <body>
 	<div th:replace="layout/header :: header"></div>
@@ -12,19 +50,15 @@
     <div class="container d-flex align-items-center justify-content-center vh-100">
         <div class="card text-center">
             <div class="card-body">
-                <h3 class="card-title">Bạn có muốn đăng xuất?</h3>
+                <h3 class="card-title">BẠN CÓ MUỐN ĐĂNG XUẤT KHÔNG?</h3>
                 <form th:action="@{/customer/logoutaccount}" method="post">
-                    <button type="submit" class="btn btn-danger">Đăng xuất</button>
-                    <a th:href="@{/}" class="btn btn-secondary">Không</a>
+                    <button type="submit" class="btn btn-logout">Đăng xuất</button>
+                    <a th:href="@{/}" class="btn btn-no">Không</a>
                 </form>
             </div>
         </div>
     </div>
     
     <div th:replace="layout/footer :: footer"></div>
-    <!-- Thêm các tệp tin JavaScript -->
-    <script th:src="@{/js/jquery-3.4.1.slim.min.js}"></script>
-    <script th:src="@{/js/popper.min.js}"></script>
-    <script th:src="@{/js/bootstrap.min.js}"></script>
 </body>
 </html>

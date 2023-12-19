@@ -4,62 +4,167 @@
     <meta charset="UTF-8">
     <title>Giỏ hàng</title>
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <style>
+    	h3 {
+        	text-align: center;
+        	margin-top: 40px;
+        	margin-bottom: 20px;
+        	color: rgb(2,88,155);       	
+    	}		
+		.thead-title {
+		    border-radius: 25px;
+		    overflow: hidden;
+		    background-color: rgb(182,232,241);
+			color: black;
+			border-radius: 15px
+		}
+		
+		.thead-title th:first-child {
+		    border-top-left-radius: 15px;
+		}
+		
+		.thead-title th:last-child {
+		    border-top-right-radius: 15px;
+		}
+		.btn-delete {
+			border: 2px solid rgb(241,56,71);	
+			color: rgb(0, 0, 0);
+			border-radius: 10px;
+		}
+		.btn-delete:hover {
+			color: rgb(255, 0, 0);
+		}
+		.btn-purchase {
+			background-color: rgb(2,88,155);
+			border-radius: 10px;
+			color: white;
+		}
+		.btn-purchase:hover {
+			color: rgb(182,232,241)
+		}
+		
+		
+		tbody tr:last-child td:first-child {
+		    border-bottom-left-radius: 15px;
+		}
+		
+		tbody tr:last-child td:last-child {
+		    border-bottom-right-radius: 15px;
+		}
+		.thead-title th:first-child {
+		    border-top-left-radius: 15px;
+		}
+		
+		.thead-title th:last-child {
+		    border-top-right-radius: 15px;
+		}
+		.table {
+		    border-radius: 15px;
+		}
+		.btn-outline {
+			border-radius: 10px;
+			border: 2px solid rgb(2,88,155);	
+		}
+		.btn-outline:hover {
+			background-color: azure;
+		}
+		
+		.col-increase {
+			align-items: center;
+			margin-right: 20px;
+		}
+		
+		.col-decrease {
+			align-items: center;
+			margin-left: 20px;
+		}
+		.form-control {
+			border-radius: 15px;
+		}
+		table {
+        	border-collapse: collapse;
+	    }
+	    td {
+	        border: 1px solid rgb(242,242,242);
+	    }
+	    .container-body {
+			border: 2px solid rgb(182,232,241);
+	        border-radius: 5px;
+	        padding: 20px;
+	        border-radius: 15px
+		}
+		.text-right {
+			margin: 20px;
+		}
+	</style>
 </head>
 <body>
 	<div th:replace="~{layout/header :: header}"></div>
     <div class="container-fluid mb-4">
-        <h1>Giỏ hàng</h1>
+        <h3>GIỎ HÀNG</h3>
         
         <!-- Hiển thị thông báo nếu có -->
 		<div th:if="${message}" class="alert"
 		     th:classappend="${message.contains('thành công') ? 'alert-success' : 'alert-danger'}"
-		     th:text="${message}"></div>
-        
-        <table class="table table-striped table-bordered">
-            <thead class="thead-dark">
-                <tr>
-                    <th class="align-middle text-center">Ảnh</th>
-                    <th class="align-middle text-center">Tên sách</th>
-                    <th class="align-middle text-center">Số lượng</th>
-                    <th class="align-middle text-center">Giá (vnd)</th>
-                    <th class="align-middle text-center">Tổng (vnd)</th>
-                    <th class="align-middle text-center">Thao tác</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="cartItem : ${cartItems}">
-                    <td class="text-center text-center"><img th:src="${cartItem.book.bookImages[0].path}" width="100"></td>
-                    <td class="align-middle text-center">
-                        <span th:if="${#strings.length(cartItem.book.name) > 70}" th:text="${#strings.substring(cartItem.book.name, 0, 70) + '...'}"></span>
-                        <span th:if="${#strings.length(cartItem.book.name) <= 70}" th:text="${cartItem.book.name}"></span>
-                    </td>
-                    <td class="align-middle text-center">
-                        <div class="input-group justify-content-center">
-                            <div class="input-group-prepend">
-                                <button class="btn btn-outline-secondary" type="button" th:onclick="'decreaseQuantity(' + ${cartItem.id} + ')'">-</button>
-                            </div>
-                            <div class="col-auto">
-                                <input type="text" class="form-control" th:value="${cartItem.quantity}" th:id="'quantity_' + ${cartItem.id}" readonly>
-                            </div>
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button" th:onclick="'increaseQuantity(' + ${cartItem.id} + ', ' + ${cartItem.book.quantity} + ')'">+</button>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="align-middle text-center" th:text="${cartItem.book.sellPrice}"></td>
-                    <td class="align-middle text-center" th:id="'totalpriceitem_' + ${cartItem.id}" th:text="${cartItem.quantity * cartItem.book.sellPrice}"></td>
-                    <td class="align-middle text-center">
-                        <a th:href="@{/removefromcart(itemId=${cartItem.id})}" class="btn btn-danger">Xóa</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        
-        <div class="text-right" th:if="${totalAmount != null}">
-		    <h4>Tổng số tiền (vnd)</h4>
-		    <h4 id="totalpricecart" th:text="${totalAmount}"></h4>
-		    <a th:href="@{/shippinginformation(totalAmount=${totalAmount})}" class="btn btn-success">Mua hàng</a>
+		     th:text="${message}">
 		</div>
+        <div class="container">
+			<div class="container-body">
+		        <table class="table table-striped ">
+		            <thead class="thead-title">
+		                <tr>
+		                    <th class="align-middle text-center">Ảnh</th>
+		                    <th class="align-middle text-center">Tên sách</th>
+		                    <th class="align-middle text-center">Số lượng</th>
+		                    <th class="align-middle text-center">Giá (vnd)</th>
+		                    <th class="align-middle text-center">Tổng (vnd)</th>
+		                    <th class="align-middle text-center">Thao tác</th>
+		                </tr>
+		            </thead>
+		            <tbody>
+		                <tr th:each="cartItem : ${cartItems}">
+		                    <td class="text-center text-center"><img th:src="${cartItem.book.bookImages[0].path}" width="100"></td>
+		                    <td class="align-middle text-center">
+		                        <span th:if="${#strings.length(cartItem.book.name) > 70}" th:text="${#strings.substring(cartItem.book.name, 0, 70) + '...'}"></span>
+		                        <span th:if="${#strings.length(cartItem.book.name) <= 70}" th:text="${cartItem.book.name}"></span>
+		                    </td>
+		                    <td class="align-middle text-center">
+		                        <div class="input-group justify-content-center">
+		                            <div class="row">
+										<div class="col-decrease">						
+				                            <div class="input-group">
+				                                <button class="btn btn-outline" type="button" th:onclick="'decreaseQuantity(' + ${cartItem.id} + ')'">-</button>
+				                            </div>
+										</div>
+										<div class="col">
+				                             <input style="border: 1px solid rgb(2,88,155);" type="text-center align-middle" class="form-control" th:value="${cartItem.quantity}" th:id="'quantity_' + ${cartItem.id}">
+										</div>
+										<div class="col-increase">
+				                            <div class="input-group">
+				                                <button class="btn btn-outline" type="button" th:onclick="'increaseQuantity(' + ${cartItem.id} + ', ' + ${cartItem.book.quantity} + ')'">+</button>
+				                            </div>
+										</div>
+		                            </div>
+		                        </div>
+		                    </td>
+		                    <td class="align-middle text-center" th:text="${cartItem.book.sellPrice}"></td>
+		                    <td class="align-middle text-center" th:id="'totalpriceitem_' + ${cartItem.id}" th:text="${cartItem.quantity * cartItem.book.sellPrice}"></td>
+		                    <td class="align-middle text-center">
+		                        <a th:href="@{/removefromcart(itemId=${cartItem.id})}" class="btn btn-delete">Xóa</a>
+		                    </td>
+		                </tr>
+		            </tbody>
+		        </table>
+			</div>
+        </div>
+        
+        <div class="container">
+	        <div class="text-right" th:if="${totalAmount != null}">
+			    <h4>Tổng số tiền (vnd)</h4>
+			    <h4 id="totalpricecart" th:text="${totalAmount}" style="color: orangered"></h4>
+			    <a th:href="@{/shippinginformation(totalAmount=${totalAmount})}" class="btn btn-purchase">Mua hàng</a>
+			</div>
+        </div>
         
     </div>
 
