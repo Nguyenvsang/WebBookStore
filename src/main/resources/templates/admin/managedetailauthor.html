@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thông tin tác giả</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />    
+</head>
+<body>
+	<div th:replace="~{admin/headeradmin :: header}"></div>
+    <div class="container-fluid mb-4">
+        <h1>Thông tin tác giả</h1>
+        
+        <!-- Hiển thị thông báo nếu có -->
+	    <div th:if="${param.message}" class="alert"
+			th:classappend="${#strings.containsIgnoreCase(param.message, 'thành công') ? 'alert-success' : 'alert-danger'}">
+			<span th:text="${param.message}"></span>
+		</div>
+        
+        <div class="card">
+            <div class="row no-gutters">
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <div class="d-flex flex-grow-1">
+                            <a th:href="@{/updateauthor(authorId=${author.id})}" class="btn btn-success">Sửa thông tin</a>
+                            <div class="ml-2">
+                                <a th:href="@{/manageauthors}" class="btn btn-primary">Thoát</a>
+                            </div>
+                        </div>
+                        
+                        <p class="card-text mt-4">Mã: <span th:text="${author.id}"></span></p>
+                        <h5 class="card-title">Tên tác giả: <span th:text="${author.name}"></span></h5>
+                        <p class="card-text">Tiểu sử:</p>
+                        <pre class="card-text" th:text="${author.bio}"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+	<div th:replace="~{admin/footeradmin :: footer}"></div>
+	<!-- Thêm các tệp tin JavaScript -->
+    <script th:src="@{/js/jquery-3.4.1.slim.min.js}"></script>
+    <script th:src="@{/js/popper.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+</html>

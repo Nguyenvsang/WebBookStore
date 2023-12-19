@@ -12,6 +12,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.nhom14.webbookstore.entity.Account;
 import com.nhom14.webbookstore.entity.Author;
+import com.nhom14.webbookstore.entity.Book;
 import com.nhom14.webbookstore.entity.Category;
 import com.nhom14.webbookstore.service.AuthorService;
 
@@ -108,5 +109,84 @@ public class AdminAuthorController {
 	    redirectAttributes.addAttribute("message", "Đã thêm tác giả mới thành công");
 	    // Chuyển hướng đến trang addauthor.html sau khi thêm mới
 	    return "redirect:/addauthor";
+	}
+	
+	@GetMapping("/managedetailauthor")
+	public String manageDetailAuthor(@RequestParam("authorId") Integer authorId, 
+			Model model,
+			HttpSession session) {
+		Account admin = (Account) session.getAttribute("admin");
+
+	    // Kiểm tra xem người dùng đã đăng nhập hay chưa
+	    if (admin == null) {
+	        // Nếu chưa đăng nhập, chuyển hướng về trang đăng nhập
+	        return "redirect:/loginadmin";
+	    }
+	    
+	    // Truy xuất dữ liệu từ nguồn dữ liệu
+	    Author author = authorService.getAuthorById(authorId);
+	    
+	    // Đặt thuộc tính vào model để sử dụng trong view
+	    model.addAttribute("author", author);
+	    
+	    // Forward đến trang chi tiết tác giả
+	    return "admin/managedetailauthor";
+	}
+	
+	@GetMapping("/updateauthor")
+	public String showUpdateAuthorForm(@RequestParam("authorId") Integer authorId,
+			Model model,
+			HttpSession session) {
+		
+		Account admin = (Account) session.getAttribute("admin");
+
+	    // Kiểm tra xem admin đã đăng nhập hay chưa
+	    if (admin == null) {
+	        // Nếu chưa đăng nhập, chuyển hướng về trang đăng nhập
+	        return "redirect:/loginadmin";
+	    }
+	    
+	    // Lấy author từ authorId
+        Author author = authorService.getAuthorById(authorId);
+        
+        // Đặt thuộc tính vào model để sử dụng trong view
+	    model.addAttribute("author", author);
+	    
+	    return "admin/updateauthor";
+	    
+	}
+	
+	@PostMapping("/updateauthor")
+	public String updateAuthor(@RequestParam("id") Integer authorId,
+			@RequestParam("name") String authorName,
+	        @RequestParam("bio") String bio,
+			Model model,
+			HttpSession session,
+			RedirectAttributes redirectAttributes) {
+		
+		Account admin = (Account) session.getAttribute("admin");
+
+	    // Kiểm tra xem admin đã đăng nhập hay chưa
+	    if (admin == null) {
+	        // Nếu chưa đăng nhập, chuyển hướng về trang đăng nhập
+	        return "redirect:/loginadmin";
+	    }
+
+	    // Lấy author từ authorId
+	    Author author = authorService.getAuthorById(authorId);
+	    
+	    if (author != null) {
+	    	author.setName(authorName);
+	    	author.setBio(bio);
+	    	authorService.updateAuthor(author);
+	    	// Hiển thị thông báo cập nhật thành công
+	        redirectAttributes.addAttribute("message", "Cập nhật thành công");
+	        redirectAttributes.addAttribute("authorId", authorId);
+	    } else {
+	    	redirectAttributes.addAttribute("message", "Không tìm thấy tác giả");
+	    }
+	    
+	    // Chuyển hướng đến trang updateauthor
+	    return "redirect:/updateauthor?authorId=" + author.getId();
 	}
 }

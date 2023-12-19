@@ -35,9 +35,7 @@ public class BookImage {
 	public BookImage() {
 	}
 
-	public BookImage(int id, Book book, String name, int position, String path) {
-		super();
-		this.id = id;
+	public BookImage(Book book, String name, int position, String path) {
 		this.book = book;
 		this.name = name;
 		this.position = position;

@@ -171,8 +171,12 @@ public class AdminBookController {
 	        return "redirect:/loginadmin";
 	    }
 	    
+	    // Lấy danh sách tất cả tác giả
+        List<Author> allAuthors = authorService.getAllAuthors();
+	    
 	    List<Category> categories = categoryService.getAllCategories();
         model.addAttribute("categories", categories);
+        model.addAttribute("allAuthors", allAuthors);
 		
 		return "admin/addbook";
 	}
@@ -215,41 +219,36 @@ public class AdminBookController {
         	newBook.setStatus(0);
         }
         
-        // Cập nhật sách trong cơ sở dữ liệu
-        bookService.updateBook(newBook);
+        // Lưu sách trong cơ sở dữ liệu
+        bookService.addBook(newBook);
         
-        // Lấy danh sách BookImage liên quan đến cuốn sách
-	    List<BookImage> bookImages = bookImageService.getByBook(updateBook);
-
-	    // Duyệt qua danh sách BookImage
-	    for (BookImage bookImage : bookImages) {
-	        // Lấy tên của BookImage
-	        String imageName = bookImage.getName();
-	        int imagePosition = bookImage.getPosition();
-
-	        // Tạo biến MultipartFile tương ứng
-	        MultipartFile imageFile = null;
-
-	        // Dựa vào vị trí, xác định và gán ảnh mới cho biến imageFile
-	        if (imagePosition == 1) {
-	            imageFile = image1;
-	        } else if (imagePosition == 2) {
-	            imageFile = image2;
-	        } else if (imagePosition == 3) {
-	            imageFile = image3;
-	        } else if (imagePosition == 4) {
-	            imageFile = image4;
-	        }
-
-	        // Nếu imageFile không rỗng, lưu ảnh mới
-	        if (imageFile != null && !imageFile.isEmpty()) {
-	            // Lưu ảnh mới vào thư mục upload
-	            updateImage(imageFile, bookImage.getPath());
-	        }
+        // Lấy cuốn sách vừa được lưu để có id
+        newBook = bookService.getLastBook();
+        
+        // Tạo 4 BookImage mới để chuẩn bị chứa ảnh mới
+        BookImage bookImage1 = new BookImage(newBook, "1", 1, "url1");
+        BookImage bookImage2 = new BookImage(newBook, "2", 2, "url2");
+        BookImage bookImage3 = new BookImage(newBook, "3", 3, "url3");
+        BookImage bookImage4 = new BookImage(newBook, "4", 4, "url4");
+        
+        //Lưu các BookImage và database
+        bookImageService.addBookImage(bookImage1);
+        bookImageService.addBookImage(bookImage2);
+        bookImageService.addBookImage(bookImage3);
+        bookImageService.addBookImage(bookImage4);
+        
+        List<BookImage> bookImages = new ArrayList<>();
+        bookImages.add(bookImage1);
+        bookImages.add(bookImage2);
+        bookImages.add(bookImage3);
+        bookImages.add(bookImage4);
+        
+        boolean updatedImages = updateImages(newBook, bookImages, image1, image2, image3, image4, true);
+	    // Nếu cập nhật ảnh bị lỗi thì
+	    if(updatedImages == false) {
+	    	redirectAttributes.addAttribute("message", "Đã xảy ra lỗi khi cập nhật ảnh cho sách.");
+	        return "redirect:/addbook";
 	    }
-        
-        // Cập nhật sách trong cơ sở dữ liệu
-        bookService.updateBook(newBook);
         
         // Phần cập nhật tác giả cho cuốn sách
 	    List<Author> newAuthors = new ArrayList<>();
@@ -293,7 +292,7 @@ public class AdminBookController {
 	    for (int i = 0; i < bookAuthors.size(); i++) {
 	        authors += bookAuthors.get(i).getAuthor().getName();
 	        if (i < bookAuthors.size() - 1) {
-	            authors += ", hfjjfjfj";
+	            authors += ", ";
 	        }
 	    }
 
@@ -459,12 +458,12 @@ public class AdminBookController {
         return "redirect:/updatebook";
 	}
 	
-	private boolean updateImages(Book updateBook, List<BookImage> bookImages, MultipartFile image1, MultipartFile image2,
+	private boolean updateImages(Book book, List<BookImage> bookImages, MultipartFile image1, MultipartFile image2,
 			MultipartFile image3, MultipartFile image4,
 			boolean success) {
 		try {
 	        // Tạo public ID cho hình ảnh trên Cloudinary (sử dụng id sách)
-	        String publicId = "bookstoreTLCN/img_book/book_" + updateBook.getId();
+	        String publicId = "bookstoreTLCN/img_book/book_" + book.getId();
 	        
 	        // Tạo một danh sách các nhiệm vụ tải lên ảnh
 	        List<Callable<String>> uploadTasks = new ArrayList<>();

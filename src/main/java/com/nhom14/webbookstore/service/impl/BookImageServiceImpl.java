@@ -31,6 +31,11 @@ public class BookImageServiceImpl implements BookImageService {
 		bookImageRepository.save(bookImage);
 		
 	}
+
+	@Override
+	public void addBookImage(BookImage bookImage) {
+		bookImageRepository.save(bookImage);
+	}
 	
 	
 }

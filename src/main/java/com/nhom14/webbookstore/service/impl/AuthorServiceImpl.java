@@ -60,6 +60,12 @@ public class AuthorServiceImpl implements AuthorService {
 	public void addAuthor(Author author) {
 		authorRepository.save(author);
 	}
+
+	@Override
+	public void updateAuthor(Author author) {
+		authorRepository.save(author);
+		
+	}
 	
 	
 }

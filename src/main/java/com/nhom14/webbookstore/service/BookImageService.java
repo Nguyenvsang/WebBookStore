@@ -13,4 +13,7 @@ public interface BookImageService {
 	// Phương thức để cập nhật hình ảnh
 	void updateBookImage(BookImage bookImage);
 
+	// Phương thức để thêm một sách - hình ảnh mới
+	void addBookImage(BookImage bookImage);
+
 }

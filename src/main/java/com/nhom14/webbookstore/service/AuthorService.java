@@ -18,4 +18,7 @@ public interface AuthorService {
 	// Phương thức để thêm một tác giả mới
 	void addAuthor(Author author);
 
+	// Cập nhật tác giả
+	void updateAuthor(Author author);
+
 }
