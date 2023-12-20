@@ -6,83 +6,315 @@
     <title>Những cuốn sách</title>
     <!-- Phải thêm popper để không bị lỗi dropdown-menu -->
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
-	<style> .book-card { margin-bottom: 20px; } </style>
+	<style> 
+		body { background-color: #f8f9fa  }
+		.book-card { 
+			margin-bottom: 20px; 
+			margin-top: 20px;
+		} 
+		.book-card .card-img {
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
+		.card.book-card {
+    		border: 1px solid rgb(182,232,241);
+    		border-radius: 20px
+		}
+		.card.book-card:hover {
+    		background-color: azure;
+		}
+		.flex-item {
+    		display: flex;
+    		flex: 1 0 auto;
+		}
+		.outer-frame {
+			width: 340px;
+    		height: 300px;
+    		border: 1px solid rgb(255, 255, 255);
+    		padding: 10px;
+    		margin: 10px 10px 10px 10px;
+    		border-radius: 10px;
+		}
+		.btn-see-details:hover {
+			color: rgb(182,232,241);
+		}
+		.card-title a {
+			color: rgb(0, 0, 128);
+        	text-align: center;			 			
+		}
+		.btn-see-details{
+			background-color: rgb(2,88,155);
+			color: rgb(255, 255, 255);
+			border: 1px rgb(2,88,155);
+			border-radius: 10px
+		}
+		.btn-outline{
+			background-color: rgb(2,88,155);
+			color: rgb(255, 255, 255);
+			border: 1px rgb(2,88,155);
+			border-radius: 10px
+		}
+		.btn-outline:hover {
+			color: rgb(182,232,241);
+		}
+		.form-control:focus {
+        	width: 700px; /* Thay 500px bằng độ dài bạn muốn */
+        	height: 45px;
+        	border-radius: 10px
+    	}
+    	
+    	.btn-catalog {
+			background-color: rgb(2,88,155);
+			color: rgb(255, 255, 255);
+			border: 1px rgb(2,88,155);
+			border-radius: 5px;
+			height: 45px;
+			border-radius: 10px
+    	}
+    	.btn-catalog:hover {
+			color: rgb(182,232,241);
+		}
+		
+    	.frame.main {
+			margin-bottom: 10px;
+			margin-right: 10px;
+		}
+		.form-inline.my-2.my-lg-0 {
+			width: 70%; /* Điều chỉnh chiều rộng của form */
+			margin: auto; /* Căn giữa form */
+		}
+		.form-control.mr-sm-2 {
+			border: 2px solid rgb(182,232,241);
+			border-radius: 10px
+		}
+		
+		h3 {
+        	text-align: center;
+        	margin-top: 10px;
+        	margin-bottom: 20px;  
+        	color: rgb(2,88,155);     	
+    	}
+		.page-link {
+			border: 1px solid rgb(182,232,241);
+		}
+		
+		.frame-number {
+			display: flex;
+    		justify-content: center;
+			border-radius: 20px
+		}
+		.col-price {
+			margin-bottom: 20px;
+        	text-align: justify;			 
+		}
+		.card-text {
+			color: orangered;
+		}
+		
+		.row-image-intro {
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		}
+		
+		.col-image {
+		    padding: 0 10px; /* Điều chỉnh khoảng cách giữa các cột ở đây */
+		    
+		}
+		
+		.card-image {
+			width: 255px; /* Điều chỉnh chiều rộng ở đây */
+    		height: 300px; /* Điều chỉnh chiều cao ở đây */
+    		display: flex;
+		    justify-content: center;
+		    align-items: center;
+			border-radius: 20px;
+			margin-top: 15px;  
+			margin-bottom: 15px;  
+		}
+		
+		.frame-intro {
+			border: 1px solid rgb(182,232,241);
+    		display: flex;
+			margin-top: 20px;  
+			margin-bottom: 20px; 
+			border-radius: 20px;						
+		}
+		.frame-intro:hover {
+			background-color: azure;
+		}
+		.row{
+			margin-top: 10px;
+		}
+		
+		.container.main {
+			border: 2px ;
+	        border-radius: 5px;	  
+	        border-radius: 15px;	
+	        padding: 15px;
+	        margin-top: 10px;
+	        margin-bottom: 10px;
+		}
+		
+		.carousel-inner {
+		  border-radius: 20px;
+		  width: 810px; /* Chiều rộng cố định */
+		  height: 400px; /* Chiều cao cố định */
+		}
+		
+		.carousel-inner img {
+		  width: 100%; /* Chiều rộng của ảnh bằng với chiều rộng của khung */
+		  height: 100%; /* Chiều cao của ảnh bằng với chiều cao của khung */
+		  object-fit: cover; /* Ảnh sẽ được co dãn để vừa với khung mà không làm thay đổi tỷ lệ */
+		}
+		
+	</style>
 </head>
 <body>
 	<div th:replace="~{layout/header :: header}"></div>
-	<div class="container">
-	    <h1>Mời bạn xem qua</h1>
-	    
-	    <form class="form-inline my-2 my-lg-0" th:action="@{/viewbooks}" method="GET">
-	    	<input class="form-control mr-sm-2" type="text" name="search" placeholder="Tìm kiếm từ khóa">
-	    	<button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Tìm kiếm</button>
-		</form>
-		
-		<div th:if="${param.search != null && !param.search.isEmpty()}">
-	        <div>
-	            <p>Tìm kiếm từ khóa: <span th:text="${param.search}"></span></p>
-	        </div>
-	    </div>
 	
-	    <div class="dropdown mb-3 mt-3">
-	        <button class="btn btn-secondary dropdown-toggle" type="button" id="categoryDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	            Lọc theo danh mục
-	        </button>
-	        <div class="dropdown-menu" aria-labelledby="categoryDropdown">
-	            <a class="dropdown-item" href="?">Tất cả</a>
-	            <th:block th:each="category : ${categories}">
-	                <a class="dropdown-item" th:href="@{/viewbooks(category=${category.id})}" th:text="${category.name}"></a>
-	            </th:block>
-	        </div>
-	    </div>
+	<div class="main-container col2-left-layout no-margin-top">
+		<div class="container main" style="background-color: white;">
+			<div class="container-inner">			    
+			    
+			    <!--Ô nhập tìm kiếm và nhấn tìm kiếm-->
+			    <div style="display: flex; justify-content: center;">
+					<form class="form-inline my-2 my-lg-0" th:action="@{/viewbooks}" method="GET" style="display: flex;">
+						<input class="form-control mr-sm-2" type="text" name="search" placeholder="Tìm kiếm từ khóa" style="width: 82.8%;">
+						<button class="btn btn-outline my-2 my-sm-2" type="submit">Tìm kiếm</button>
+					</form>
+				</div>
+				
+				
+				
+				<!--Tìm kiếm từ khóa-->
+				<div th:if="${param.search != null && !param.search.isEmpty()}">
+					<div>
+						<p>Tìm kiếm từ khóa: <span th:text="${param.search}"></span></p>
+					</div>
+				</div>
+				
+				<div class="d-flex justify-content-center" style="margin-bottom: 10px; margin-right: 10px;">
+					<div class="col-left sidebar col-lg-3 col-md-3 col-sm-12 col-xs-12" style="padding-left: 0px;">
+						<div class="row row-content">
+							<li class="dropdown open">
+								<span>DANH MỤC SÁCH</span>
+								<ul class="dropdown-menu nav-left metro-dropdown-menu">
+									<li>huy</li>									
+								</ul>
+							</li>
+						</div>
+					</div>
+					
+					<div class="col-main col-lg-9 col-md-9 col-sm-12 col-xs-12 col-fhs-main-body">
+						<div class="category-products row">
+							<div id="carouselExampleControls" class="carousel slide d-flex" data-ride="carousel" data-interval="3000" data-pause="false">
+						        <div class="carousel-inner">
+						            <div class="carousel-item active justify-content-center align-items-center">
+						                <img src="https://res.cloudinary.com/dylwewmt0/image/upload/v1698856277/PHOTO_LIST/Index/book_01.jpg" class="d-block mx-auto" alt="...">
+						            </div>
+						            <div class="carousel-item justify-content-center align-items-center">
+						                <img src="https://res.cloudinary.com/dylwewmt0/image/upload/v1698856507/PHOTO_LIST/Index/book_02.jpg" class="d-block mx-auto" alt="...">
+						            </div>
+						            <div class="carousel-item justify-content-center align-items-center">
+						                <img src="https://res.cloudinary.com/dylwewmt0/image/upload/v1698856959/PHOTO_LIST/Index/book_03.jpg" class="d-block mx-auto" alt="...">
+						            </div>
+						            <!-- Thêm các mục carousel-item khác tương tự -->
+						        </div>
+						        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+						            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						            <span class="sr-only">Previous</span>
+						        </a>
+						        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+						            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+						            <span class="sr-only">Next</span>
+						        </a>
+			    			</div>
+							<div class="frame main">
+								
+								<!--Ảnh giới thiệu sản phẩm-->
+								<div class="row row-image-intro">
+									<div class="col-image">
+										<img class="card-image" src="https://res.cloudinary.com/dylwewmt0/image/upload/v1699206485/PHOTO_LIST/view_books/intro_01.jpg" alt>
+									</div>
+									<div class="col-image">
+										<img class="card-image" src="https://res.cloudinary.com/dylwewmt0/image/upload/v1699206485/PHOTO_LIST/view_books/intro_02.jpg" alt>
+									</div>
+									<div class="col-image">
+										<img class="card-image" src="https://res.cloudinary.com/dylwewmt0/image/upload/v1699206486/PHOTO_LIST/view_books/intro_03.jpg" alt>
+									</div>																			
+								</div>
+								
+							    <div class="dropdown mb-3 mt-3">
+							        <button class="btn btn-catalog dropdown-toggle" type="button" id="categoryDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							            Lọc theo danh mục
+							        </button>
+							        <div class="dropdown-menu" aria-labelledby="categoryDropdown">
+							            <a class="dropdown-item" href="?">Tất cả</a>
+							            <th:block th:each="category : ${categories}">
+							                <a class="dropdown-item" th:href="@{/viewbooks(category=${category.id})}" th:text="${category.name}"></a>
+							            </th:block>
+							        </div>
+							    </div>
+								<div class="row">
+								    <th:block th:each="book : ${books}">
+								        <div class="col-md-3 flex-item">
+											<div class="card book-card">
+									            <div class="row" style="display: flex; justify-content: center;">
+									                <div class="col-9 image-book">
+														<a th:href="@{/detailbook/{id} (id=${book.id})}">
+										                    <!-- Chỉ hiển thị hình ảnh đầu tiên -->
+										                	<img th:src="${book.bookImages[0].path}" alt="Book Image" class="card-img">
+														</a>
+									                </div>
+									                <div class="col-12">
+									                    <div class="frame">
+									                        <h6 class="card-title" style="text-align: justify; margin-left: 10px; margin-right: 10px; font-size: 12px">
+								            					<a th:href="@{/detailbook/{id} (id=${book.id})}" th:text="${book.name}"></a>
+								        					</h6>
+									                    </div>
+									                </div>
+									                <div class="col-price">
+														<p class="card-text" style="font-size: 16px; text-align: left;"><span th:text="${book.sellPrice}" ></span> vnd</p>
+									                </div>
+									            </div>
+											</div>
+								        </div>
+								    </th:block>
+								</div>
 	
-	    <th:block th:each="book : ${books}">
-	        <div class="card book-card">
-	            <div class="row no-gutters">
-	                <div class="col-md-4">
-	                    <!-- Chỉ hiển thị hình ảnh đầu tiên -->
-	                	<img th:src="${book.bookImages[0].path}" alt="Book Image" class="card-img">
-	                </div>
-	                <div class="col-md-8">
-	                    <div class="card-body">
-	                        <h5 class="card-title" th:text="${book.name}"></h5>
-	                        <p>Tác giả:
-			                    <span th:each="bookauthor : ${book.bookAuthors}" th:text="${bookauthor.author.name}"></span>
-			                </p>
-	                        <p class="card-text">Nhà xuất bản: <span th:text="${book.publisher}"></span></p>
-	                        <p class="card-text">Giá: <span th:text="${book.sellPrice}"></span> vnd</p>
-	                        <p class="card-text">Số lượng: <span th:text="${book.quantity}"></span></p>
-	                        <p class="card-text">Danh mục: <span th:text="${book.category.name}"></span></p>
-	                        <pre th:text="${book.description}"></pre>
-	                        <a th:href="@{/detailbook/{id} (id=${book.id})}" class="btn btn-primary">Xem chi tiết</a>
-	                    </div>
-	                </div>
-	            </div>
-	        </div>
-	    </th:block>
-	
-	    <div th:if="${totalPages > 1}">
-	        <ul class="pagination">
-	            <li th:if="${currentPage > 1}" class="page-item">
-	                <a class="page-link" th:href="@{/viewbooks(page=${currentPage - 1})}">Trước</a>
-	            </li>
-	
-	            <th:block th:each="pageNumber : ${#numbers.sequence(1, totalPages)}">
-	                <li class="page-item" th:classappend="${pageNumber == currentPage ? 'active' : ''}">
-	                    <th:block th:if="${pageNumber == currentPage}">
-	                        <span class="page-link" th:text="${pageNumber}"></span>
-	                    </th:block>
-	                    <th:block th:unless="${pageNumber == currentPage}">
-	                        <a class="page-link" th:href="@{/viewbooks(page=${pageNumber})}" th:text="${pageNumber}"></a>
-	                    </th:block>
-	               <!---->
-	            </th:block>
-	
-	            <li th:if="${currentPage < totalPages}" class="page-item">
-	                <a class="page-link" th:href="@{/viewbooks(page=${currentPage + 1})}">Sau</a>
-	            </li>
-	        </ul>
-	    </div>
+							    <div class="frame-number">
+								    <div th:if="${totalPages > 1}">
+								        <ul class="pagination">
+											<div class="row">
+									            <li th:if="${currentPage > 1}" class="page-item">
+									                <a class="page-link" th:href="@{/viewbooks(page=${currentPage - 1})}">Trước</a>
+									            </li>
+									
+									            <th:block th:each="pageNumber : ${#numbers.sequence(1, totalPages)}">
+									                <li class="page-item" th:classappend="${pageNumber == currentPage ? 'active' : ''}">
+									                    <th:block th:if="${pageNumber == currentPage}">
+									                        <span class="page-link" th:text="${pageNumber}"></span>
+									                    </th:block>
+									                    <th:block th:unless="${pageNumber == currentPage}">
+									                        <a class="page-link" th:href="@{/viewbooks(page=${pageNumber})}" th:text="${pageNumber}"></a>
+									                    </th:block>
+									               <!---->
+									            </th:block>
+									
+									            <li th:if="${currentPage < totalPages}" class="page-item">
+									                <a class="page-link" th:href="@{/viewbooks(page=${currentPage + 1})}">Sau</a>
+									            </li>
+											</div>
+								        </ul>
+								    </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	
 	

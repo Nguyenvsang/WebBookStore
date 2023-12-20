@@ -5,6 +5,9 @@
     <title>Thông tin sách</title>
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
     <style>
+		
+		body { background-color: #f8f9fa  }
+		
 		h3 {
         	text-align: center;
         	margin-top: 40px;
@@ -56,6 +59,7 @@
 			border: 1px solid rgb(182,232,241);
     		border-radius: 20px;
     		margin-top: 20px;
+    		background-color: white;
 		}
 		.frame-description:hover {
 			background-color:azure
@@ -85,6 +89,15 @@
 		    justify-content: right;
 		    margin-right: 15px;
 		}
+		
+		.container.main {
+			border: 2px ;
+	        border-radius: 5px;	  
+	        border-radius: 15px;	
+	        padding: 15px;
+	        margin-top: 10px;
+	        margin-bottom: 10px;
+		}
 	
 	</style>
 </head>
@@ -111,9 +124,9 @@
 		</div>
         
         
-        <div class="container">
-        <h3>THÔNG TIN SÁCH</h3>
-	        <div class="frame-01">
+        <div class="container main">
+	        <div class="frame-01" style="background-color: white;">
+				<h3>THÔNG TIN SÁCH</h3>
 				<div class="frame-02">
 		            <div class="row no-gutters">
 		                <div class="col-md-3">

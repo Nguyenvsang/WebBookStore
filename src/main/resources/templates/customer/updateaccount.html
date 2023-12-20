@@ -5,9 +5,12 @@
     <title>Cập nhật thông tin</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <style>
+		
+		body { background-color: #f8f9fa  }
+		
 		h3 {
         	text-align: center;
-        	margin-top: 40px;
+        	margin-top: 10px;
         	margin-bottom: 20px; 
         	color: rgb(2,88,155);   	
     	}    	
@@ -63,7 +66,7 @@
 <body>
 	<div th:replace="~{layout/header :: header}"></div>
     <div class="container">
-        <h3>NHẬP THÔNG TIN CẦN CHỈNH SỬA</h3>
+        
 
         <!-- Hiển thị thông báo nếu có -->
         <div th:if="${message}" class="alert"
@@ -71,7 +74,8 @@
              th:text="${message}"></div>
              
         <!--Khung cho phần chỉnh sửa-->
-        <div class="container-body" >               
+        <div class="container-body" style="background-color: white;">
+			<h3>NHẬP THÔNG TIN CẦN CHỈNH SỬA</h3>               
 	        <form th:action="@{/updateaccount}" th:object="${account}" method="post" enctype="multipart/form-data">
 			    <div class="form-group">
 			        <label for="firstName">Tên:</label>

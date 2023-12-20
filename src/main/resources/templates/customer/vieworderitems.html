@@ -6,14 +6,16 @@
     <!-- Đường dẫn tới các tệp CSS của Bootstrap -->
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
     <style>
+		
+		body { background-color: #f8f9fa  }
+		
     	h3 {
         	text-align: center;
-        	margin-top: 40px;
-        	margin-bottom: 20px;  
+        	margin-top: 20px;
+        	margin-bottom: 30px;  
         	color: rgb(2,88,155);     	
     	}
     	h4 {
-        	margin-top: 20px;
         	margin-bottom: 20px;  
         	color: rgb(2,88,155);     	
     	}
@@ -22,7 +24,7 @@
 			border-radius: 10px;
 			color: white;
 			display: center;
-			margin: 30px 30px;
+			margin-top: 20px;
 			text-align: left;
 		}
 		.btn-back:hover {
@@ -32,7 +34,8 @@
 	        border: 2px solid rgb(182,232,241);
 	        border-radius: 5px;
 	        padding: 20px;
-	        border-radius: 15px
+	        border-radius: 15px;
+	        margin-bottom: 30px;
 	    }
 	    
 	    .frame-main-3 {
@@ -45,7 +48,8 @@
 	        border: 2px solid rgb(182,232,241);
 	        border-radius: 5px;
 	        padding: 20px;
-	        border-radius: 15px
+	        border-radius: 15px;
+	        margin-bottom: 30px;
 	    }
 	    
 	    .thead-title {
@@ -76,13 +80,29 @@
 	    td {
 	        border: 1px solid rgb(242,242,242);
 	    }
+	    
+	    .container.main {
+			border: 2px ;
+	        border-radius: 5px;	  
+	        border-radius: 15px;	
+	        padding: 15px;
+	        margin-top: 10px;
+	        margin-bottom: 10px;
+		}
+		
+		.frame-main-4 {
+		  background-color: white;
+		  margin-top: 10px;
+		}
 	</style>
 </head>
 <body>
 	<div th:replace="~{layout/header :: header}"></div>
-    <div class="container">
-        <h3>CHI TIẾT ĐƠN HÀNG</h3>
-	        <div class="frame-main">
+    <div class="container main" style="background-color: white;">
+		<div class="frame-main-4" style="background-color: white; margin-top: 20px;">
+        	<h3>CHI TIẾT ĐƠN HÀNG</h3>
+		</div>
+	        <div class="frame-main" style="background-color: white;">
 			        <table class="table table-striped">
 						<thead class="thead-title">
 				            <tr>
@@ -111,8 +131,9 @@
 			        </table>
 	            </div>
         
-        <h4>Chi tiết vận chuyển</h4>
-        <div class="frame-main-2">
+        
+        <div class="frame-main-2" style="background-color: white;">
+			<h4>Chi tiết vận chuyển</h4>
 	    	<table class="table table-striped"> 
 				<thead class="thead-title">
 					<tr>
@@ -131,8 +152,9 @@
 	    	</table>
         </div>
         
-        <h4>Những món hàng</h4>
-        <div class="frame-main-3">
+        
+        <div class="frame-main-3" style="background-color: white;">
+			<h4>Những món hàng</h4>
 	        <table class="table table-striped">
 	            <thead class="thead-title">
 		            <tr>

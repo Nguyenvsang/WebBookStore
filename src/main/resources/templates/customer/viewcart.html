@@ -5,9 +5,12 @@
     <title>Giỏ hàng</title>
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
     <style>
+		
+		body { background-color: #f8f9fa  }
+		
     	h3 {
         	text-align: center;
-        	margin-top: 40px;
+        	margin-top: 3px;
         	margin-bottom: 20px;
         	color: rgb(2,88,155);       	
     	}		
@@ -91,7 +94,8 @@
 			border: 2px solid rgb(182,232,241);
 	        border-radius: 5px;
 	        padding: 20px;
-	        border-radius: 15px
+	        border-radius: 15px;
+	        margin-top: 30px;
 		}
 		.text-right {
 			margin: 20px;
@@ -100,8 +104,8 @@
 </head>
 <body>
 	<div th:replace="~{layout/header :: header}"></div>
-    <div class="container-fluid mb-4">
-        <h3>GIỎ HÀNG</h3>
+    <div class="container-fluid mb-4" >
+        
         
         <!-- Hiển thị thông báo nếu có -->
 		<div th:if="${message}" class="alert"
@@ -109,7 +113,8 @@
 		     th:text="${message}">
 		</div>
         <div class="container">
-			<div class="container-body">
+			<div class="container-body" style="background-color: white;">
+				<h3>GIỎ HÀNG</h3>
 		        <table class="table table-striped ">
 		            <thead class="thead-title">
 		                <tr>
@@ -155,17 +160,13 @@
 		                </tr>
 		            </tbody>
 		        </table>
+		        <div class="text-right" th:if="${totalAmount != null}">
+				    <h4>Tổng số tiền (vnd)</h4>
+				    <h4 id="totalpricecart" th:text="${totalAmount}" style="color: orangered"></h4>
+				    <a th:href="@{/shippinginformation(totalAmount=${totalAmount})}" class="btn btn-purchase">Mua hàng</a>
+				</div>
 			</div>
-        </div>
-        
-        <div class="container">
-	        <div class="text-right" th:if="${totalAmount != null}">
-			    <h4>Tổng số tiền (vnd)</h4>
-			    <h4 id="totalpricecart" th:text="${totalAmount}" style="color: orangered"></h4>
-			    <a th:href="@{/shippinginformation(totalAmount=${totalAmount})}" class="btn btn-purchase">Mua hàng</a>
-			</div>
-        </div>
-        
+        </div>      
     </div>
 
     <script th:inline="javascript">

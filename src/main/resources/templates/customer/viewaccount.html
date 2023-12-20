@@ -5,18 +5,21 @@
     <title>Thông tin cá nhân</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <style>
+		
+		body { background-color: #f8f9fa  }
+		
 		.container-body {
         	border: 2px solid rgb(182,232,241);
         	padding: 20px;
         	margin-top: 20px;
-        	margin-bottom: 50px;
+        	margin-bottom: 20px;
         	margin-left: 250px;
         	margin-right: 250px;
         	border-radius: 15px
 		}
 		h3 {
         	text-align: center;
-        	margin-top: 40px;
+        	margin-top: 10px;
         	margin-bottom: 20px; 
         	color: rgb(2,88,155);   	
     	}
@@ -55,7 +58,7 @@
 <body>
 	<div th:replace="~{layout/header :: header}"></div>
     <div class="container">
-        <h3>THÔNG TIN CÁ NHÂN</h3>
+        
         
 		<!-- Hiển thị thông báo nếu có -->
         <div th:if="${param.message}" class="alert"
@@ -63,7 +66,8 @@
 		    <span th:text="${param.message}"></span>
 		</div>
         
-        <div class="container-body" >
+        <div class="container-body" style="background-color: white;">
+			<h3>THÔNG TIN CÁ NHÂN</h3>
 	        <div class="form-group">
 	            <label for="firstName">Tên:</label>
 	            <output class="form-control" id="firstName" name="firstName" th:text="${account.firstName}"></output>

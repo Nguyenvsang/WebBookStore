@@ -6,9 +6,12 @@
     <!-- Đường dẫn tới các tệp CSS của Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <style>
+		
+		body { background-color: #f8f9fa  }
+		
     	h3 {
         	text-align: center;
-        	margin-top: 40px;
+        	margin-top: 3px;
         	margin-bottom: 20px;  
         	color: rgb(2,88,155);     	
     	}
@@ -70,10 +73,10 @@
 </head>
 <body>
 	<div th:replace="~{layout/header :: header}"></div>
-    <div class="container">
-        <h3>DANH SÁCH ĐƠN HÀNG</h3>
+    <div class="container">        
         
-        <div class="container-body">
+        <div class="container-body" style="background-color: white;">
+			<h3>DANH SÁCH ĐƠN HÀNG</h3>
 	        <table class="table table-striped">
 	            <thead class="thead-title">
 	                <tr>
@@ -92,7 +95,7 @@
 	                <tr th:each="order : ${orders}">
 	                    <td th:text="${order.id}" class="align-middle text-center"></td>
 	                    <td th:text="${#dates.format(order.dateOrder, 'dd/MM/yyyy')}" class="align-middle text-center"></td>
-	                    <td th:text="${order.totalPrice}" class="align-middle text-center"></td>
+	                    <td th:text="${order.totalPrice}" class="align-middle text-center" style="color: orangered"></td>
 	                    <td class="align-middle text-center">
 	                        <span th:classappend="${order.status == 0} ? 'badge badge-success' : (${order.status == 1} ? 'badge badge-info' : (${order.status == 2} ? 'badge badge-primary' : (${order.status == 3} ? 'badge badge-secondary' : '')))">
 	                            <span th:switch="${order.status}">
