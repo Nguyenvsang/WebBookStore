@@ -21,7 +21,14 @@
         crossorigin="anonymous"></script>
         
     <style>
-    	 
+		p.a{
+			color: black;
+			font-family: Arial, sans-serif;
+		}
+    	a:hover {
+			text-decoration: none;
+			color: rgb(2,88,155);;
+		}
 	</style>
 </head>
 <body>
@@ -86,10 +93,19 @@
 									<h5 style="color: rgb(33,31,127); margin-top: 40px; text-align: left; margin-bottom: 15px;">TÀI KHOẢN CỦA TÔI</h5>									
 								</div>
 								<div class="row-09">
-									<p style="font-size: 14px;">Đăng nhập/Tạo mới tài khoản</p>	
-									<p style="font-size: 14px;">Thay đổi địa chỉ khách hàng</p>	
-									<p style="font-size: 14px;">Chi tiết tài khoản</p>
-									<p style="font-size: 14px;">Lịch sử mua hàng</p>
+									<p style="font-size: 14px;">
+										<a href="/customer/loginaccount" style="color: black; text-decoration: none;">Đăng nhập</a>
+										<a href="/customer/registeraccount" style="color: black; text-decoration: none;">/Tạo mới tài khoản</a>
+									</p>	
+									<p style="font-size: 14px;">
+										<a href="/updateaccount" style="color: black; text-decoration: none;">Thay đổi địa chỉ</a>
+									</p>	
+									<p style="font-size: 14px;">
+										<a href="/viewaccount" style="color: black; text-decoration: none;">Chi tiết tài khoản</a>
+									</p>
+									<p style="font-size: 14px;">
+										<a href="/vieworders" style="color: black; text-decoration: none;">Lịch sử mua hàng</a>
+									</p>
 								</div>
 							</div>
 							

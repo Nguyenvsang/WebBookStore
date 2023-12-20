@@ -5,6 +5,8 @@
     <title>Xác nhận đơn hàng</title>
     <!-- Đường dẫn tới các tệp CSS của Bootstrap -->
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <style> 
 		th, td { text-align: center; } 
 		
@@ -124,7 +126,7 @@
 	            <tr>
 	                <td th:text="${order.id}"></td>
 	                <td th:text="${#dates.format(order.dateOrder, 'dd/MM/yyyy')}"></td>
-	                <td th:text="${order.totalPrice}" class="align-middle text-center" style="color: orangered"></td>
+	                <td th:text="${#numbers.formatInteger(order.totalPrice, 0, 'POINT')}" class="align-middle text-center" style="color: orangered"></td>
 	                <td>
 	                    <span th:switch="${order.status}">
 	                        <span th:case="0" class="badge badge-success">Chờ xác nhận</span>
@@ -173,8 +175,8 @@
 	            <tr th:each="orderItem : ${orderItems}">
 	                <td th:text="${orderItem.book.name}" class="align-middle"></td>
 	                <td th:text="${orderItem.quantity}" class="align-middle text-center"></td>
-	                <td th:text="${orderItem.book.sellPrice}" class="align-middle" style="text-align: right;"></td>
-	                <td th:text="${orderItem.price}" class="align-middle" style="color: orangered; text-align: right;"></td>
+	                <td th:text="${#numbers.formatInteger(orderItem.book.sellPrice, 0, 'POINT')}" class="align-middle" style="text-align: right;"></td>
+	                <td th:text="${#numbers.formatInteger(orderItem.price, 0, 'POINT')}" class="align-middle" style="color: orangered; text-align: right;"></td>
 	            </tr>
 	        </table>
         </div>

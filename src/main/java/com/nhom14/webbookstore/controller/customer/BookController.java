@@ -33,7 +33,7 @@ public class BookController {
                             Model model) {
         List<Book> books;
         int totalBooks;
-        int recordsPerPage = 10;
+        int recordsPerPage = 12;
         int start;
         int end;
         int totalPages;
