@@ -57,7 +57,7 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public List<Order> searchOrdersByKeyword(List<Order> orders, String searchKeyword) {
 		List<Order> result = new ArrayList<>();
-	    String lowercaseKeyword = searchKeyword.toLowerCase();
+	    String lowercaseKeyword = searchKeyword.toLowerCase().trim();
 
 	    for (Order order : orders) {
 	        if (containsIgnoreCase(Integer.toString(order.getId()), lowercaseKeyword)

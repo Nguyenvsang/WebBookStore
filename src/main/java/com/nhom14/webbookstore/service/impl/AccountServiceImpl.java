@@ -72,7 +72,7 @@ public class AccountServiceImpl implements AccountService {
 	@Override
 	public List<Account> searchAccountsByKeyword(List<Account> accounts, String searchKeyword) {
 		List<Account> result = new ArrayList<>();
-	    String lowercaseKeyword = searchKeyword.toLowerCase();
+	    String lowercaseKeyword = searchKeyword.toLowerCase().trim();
 	    
 	    for (Account account : accounts) {
 	    	if (containsIgnoreCase(Integer.toString(account.getId()), lowercaseKeyword)

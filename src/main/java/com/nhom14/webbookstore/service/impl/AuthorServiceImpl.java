@@ -37,7 +37,7 @@ public class AuthorServiceImpl implements AuthorService {
 	@Override
 	public List<Author> searchAuthorsByKeyword(List<Author> authors, String searchKeyword) {
 		List<Author> result = new ArrayList<>();
-	    String lowercaseKeyword = searchKeyword.toLowerCase();
+	    String lowercaseKeyword = searchKeyword.toLowerCase().trim();
 	    
 	    for (Author author : authors) {
 	        if (containsIgnoreCase(Integer.toString(author.getId()), lowercaseKeyword)

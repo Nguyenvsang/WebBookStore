@@ -49,8 +49,9 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public List<Book> searchBooksByKeyword(List<Book> books, String searchKeyword) {
-	    List<Book> result = new ArrayList<>();
+		List<Book> result = new ArrayList<>();
 	    Set<Integer> addedBookIds = new HashSet<>();
+	    String lowercaseKeyword = searchKeyword.toLowerCase().trim();
 
 	    for (Book book : books) {
 	        List<BookAuthor> bookAuthors = bookAuthorRepository.findByBook(book);
@@ -65,10 +66,12 @@ public class BookServiceImpl implements BookService {
 	        }
 
 	        if (isAuthorMatched
-	                || containsIgnoreCase(book.getName(), searchKeyword)
-	                || containsIgnoreCase(book.getDescription(), searchKeyword)
-	                || containsIgnoreCase(book.getPublisher(), searchKeyword)
-	                || (book.getCategory() != null && containsIgnoreCase(book.getCategory().getName(), searchKeyword))) {
+	        		|| containsIgnoreCase(Integer.toString(book.getId()), lowercaseKeyword)
+	                || containsIgnoreCase(book.getName(), lowercaseKeyword)
+	                || containsIgnoreCase(book.getDescription(), lowercaseKeyword)
+	                || containsIgnoreCase(book.getPublisher(), lowercaseKeyword)
+	                || containsIgnoreCase(Double.toString(book.getSellPrice()), lowercaseKeyword)
+	                || (book.getCategory() != null && containsIgnoreCase(book.getCategory().getName(), lowercaseKeyword))) {
 	            if (!addedBookIds.contains(book.getId())) {
 	                result.add(book);
 	                addedBookIds.add(book.getId());

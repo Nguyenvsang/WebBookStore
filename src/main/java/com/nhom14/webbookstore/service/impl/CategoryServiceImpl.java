@@ -49,7 +49,7 @@ public class CategoryServiceImpl implements CategoryService {
 	@Override
 	public List<Category> searchCategoriesByKeyword(List<Category> categories, String searchKeyword) {
 		List<Category> result = new ArrayList<>();
-	    String lowercaseKeyword = searchKeyword.toLowerCase();
+	    String lowercaseKeyword = searchKeyword.toLowerCase().trim();
 	    
 	    for (Category category : categories) {
 	        if (containsIgnoreCase(Integer.toString(category.getId()), lowercaseKeyword)
