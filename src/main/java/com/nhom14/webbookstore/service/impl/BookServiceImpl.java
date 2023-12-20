@@ -69,6 +69,7 @@ public class BookServiceImpl implements BookService {
 	        		|| containsIgnoreCase(Integer.toString(book.getId()), lowercaseKeyword)
 	                || containsIgnoreCase(book.getName(), lowercaseKeyword)
 	                || containsIgnoreCase(book.getDescription(), lowercaseKeyword)
+	                || containsIgnoreCase(book.getDetail(), lowercaseKeyword)
 	                || containsIgnoreCase(book.getPublisher(), lowercaseKeyword)
 	                || containsIgnoreCase(Double.toString(book.getSellPrice()), lowercaseKeyword)
 	                || (book.getCategory() != null && containsIgnoreCase(book.getCategory().getName(), lowercaseKeyword))) {
@@ -85,7 +86,7 @@ public class BookServiceImpl implements BookService {
 	// Kiểm tra xem một chuỗi có chứa một chuỗi con cụ thể hay không, 
 	// mà không phân biệt chữ hoa chữ thường trong quá trình so sánh
 	private boolean containsIgnoreCase(String text, String keyword) {
-		return text.matches("(?i).*" + keyword + ".*");
+		return text.toLowerCase().contains(keyword);
 	}
 
 	@Override

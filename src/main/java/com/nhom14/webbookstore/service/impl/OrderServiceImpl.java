@@ -79,7 +79,7 @@ public class OrderServiceImpl implements OrderService {
 	// Kiểm tra xem một chuỗi có chứa một chuỗi con cụ thể hay không,
 	// mà không phân biệt chữ hoa chữ thường trong quá trình so sánh
 	private boolean containsIgnoreCase(String text, String keyword) {
-		return text.matches("(?i).*" + keyword + ".*");
+		return text.toLowerCase().contains(keyword);
 	}
 
 	@Override
