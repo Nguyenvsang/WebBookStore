@@ -3,71 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <title>Cập nhật thông tin</title>
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" /></head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    
+    <style> 
+		
+		body { background-color: #f8f9fa  }
+		
+		th, td { text-align: center; } 
+		h3 {
+	        text-align: center;
+	        margin-top: 20px;
+	        margin-bottom: 20px;  
+	        color: rgb(2,88,155);     	
+	    }
+	    .container-body {
+			border: 2px solid rgb(182,232,241);
+	    	border-radius: 20px;
+	    	margin-left: 250px;
+	    	margin-right: 250px;
+	    	margin-top: 20px;
+	    	margin-bottom: 20px;   		
+		}
+		.frame-body {
+			margin: 30px;
+		}
+		
+		.btn-save {
+				background-color: rgb(2,88,155);
+				border-radius: 10px;
+				color: white;
+		}
+		.btn-save:hover {
+			color: rgb(182,232,241)
+		}
+		
+		.btn-out {
+			border-radius: 10px;
+			color: black;
+			background-color: white;
+			border: 2px solid rgb(2,88,155);			
+		}
+		.btn-out:hover {
+			color:rgb(2,88,155); /* Thay đổi màu văn bản khi trỏ chuột vào nút */
+			background-color: azure;
+		}
+		
+		.btn-confirm {
+				background-color: rgb(2,88,155);
+				border-radius: 10px;
+				color: white;
+		}
+		.btn-confirm:hover {
+			color: rgb(182,232,241)
+		}
+		
+		.btn-out {
+			border-radius: 10px;
+			color: black;
+			background-color: white;
+			border: 2px solid rgb(2,88,155);			
+		}
+		.btn-out:hover {
+			color:rgb(2,88,155); /* Thay đổi màu văn bản khi trỏ chuột vào nút */
+			background-color: azure;
+		}
+		
+	</style>
+</head>
 <body>
 	<div th:replace="~{admin/headeradmin :: header}"></div>
-    <div class="container">
-        <h1>Nhập thông tin cần sửa</h1>
+    <div class="container">        
 
         <!-- Hiển thị thông báo nếu có -->
         <div th:if="${message}" class="alert"
              th:classappend="${message.contains('thành công') ? 'alert-success' : 'alert-danger'}"
              th:text="${message}"></div>
-                 
-        <form th:action="@{/editaccount}" th:object="${account}" method="post" enctype="multipart/form-data">
-		    <div class="form-group">
-		        <label for="id">Mã:</label>
-		        <input type="text" class="form-control" id="id" th:field="*{id}" readonly>
-		    </div>
-		    <div class="form-group">
-		        <label for="firstName">Tên:</label>
-		        <input type="text" class="form-control" id="firstName" th:field="*{firstName}" required>
-		    </div>
-		    <div class="form-group">
-		        <label for="lastName">Họ:</label>
-		        <input type="text" class="form-control" id="lastName" th:field="*{lastName}" required>
-		    </div>
-		    <div class="form-group">
-		        <label for="username">Tên người dùng:</label>
-		        <input type="text" class="form-control" id="username" th:field="*{username}" required>
-		    </div>
-		    <div class="form-group">
-		        <label for="gender">Giới tính:</label>
-		        <select class="form-control" id="gender" th:field="*{gender}" required>
-		            <option value="Nam">Nam</option>
-		            <option value="Nữ">Nữ</option>
-		        </select>
-		    </div>
-		    <div class="form-group">
-		        <label for="image">Đổi hình ảnh:</label>
-		        <input type="file" class="form-control-file" id="image" name="image">
-		    </div>
-		    <div class="form-group"> 
-				<label for="dob">Ngày sinh:</label> 
-				<input type="date" class="form-control" id="dob" name="dob" th:value="${#dates.format(account.dateOfBirth, 'yyyy-MM-dd')}" th:attr="placeholder=${#dates.format(account.dateOfBirth, 'dd/MM/yyyy')}" required> 
+        <div class="container-body" style="background-color: white;"> 
+			<h3>NHẬP THÔNG TIN CẦN CHỈNH SỬA</h3>
+			<div class="frame-body">         
+		        <form th:action="@{/editaccount}" th:object="${account}" method="post" enctype="multipart/form-data">
+				    <div class="form-group">
+				        <label for="id" style="color: rgb(2,88,155);">Mã:</label>
+				        <input type="text" class="form-control" id="id" th:field="*{id}" readonly style="border-radius: 10px;">
+				    </div>
+				    <div class="form-group">
+				        <label for="firstName" style="color: rgb(2,88,155);">Tên:</label>
+				        <input type="text" class="form-control" id="firstName" th:field="*{firstName}" required style="border-radius: 10px;">
+				    </div>
+				    <div class="form-group">
+				        <label for="lastName" style="color: rgb(2,88,155);">Họ:</label>
+				        <input type="text" class="form-control" id="lastName" th:field="*{lastName}" required style="border-radius: 10px;">
+				    </div>
+				    <div class="form-group">
+				        <label for="username" style="color: rgb(2,88,155);">Tên người dùng:</label>
+				        <input type="text" class="form-control" id="username" th:field="*{username}" required style="border-radius: 10px;">
+				    </div>
+				    <div class="form-group">
+				        <label for="gender" style="color: rgb(2,88,155);">Giới tính:</label>
+				        <select class="form-control" id="gender" th:field="*{gender}" required style="border-radius: 10px;">
+				            <option value="Nam">Nam</option>
+				            <option value="Nữ">Nữ</option>
+				        </select>
+				    </div>
+				    <div class="form-group">
+				        <label for="image" style="color: rgb(2,88,155);">Đổi hình ảnh:</label>
+				        <input type="file" class="form-control-file" id="image" name="image">
+				    </div>
+				    <div class="form-group"> 
+						<label for="dob" style="color: rgb(2,88,155);">Ngày sinh:</label> 
+						<input type="date" class="form-control" id="dob" name="dob" th:value="${#dates.format(account.dateOfBirth, 'yyyy-MM-dd')}" th:attr="placeholder=${#dates.format(account.dateOfBirth, 'dd/MM/yyyy')}" required style="border-radius: 10px;"> 
+					</div>
+				    <div class="form-group">
+				        <label for="address" style="color: rgb(2,88,155);">Địa chỉ:</label>
+				        <input type="text" class="form-control" id="address" th:field="*{address}" required style="border-radius: 10px;">
+				    </div>
+				    <div class="form-group">
+				        <label for="phoneNumber" style="color: rgb(2,88,155);">Số điện thoại:</label>
+				        <input type="tel" class="form-control" id="phoneNumber" th:field="*{phoneNumber}" required style="border-radius: 10px;">
+				    </div>
+				    <div class="form-group">
+				        <label for="email" style="color: rgb(2,88,155);">Email:</label>
+				        <input type="email" class="form-control" id="email" th:field="*{email}" required style="border-radius: 10px;">
+				    </div>
+				    <div class="text-center mb-4">
+				        <button type="submit" class="btn btn-save">Lưu</button>
+				        <a th:href="@{/managedetailaccount(accountId=${account.id})}" class="btn btn-out">Thoát</a>
+				    </div>
+				</form>
 			</div>
-		    <div class="form-group">
-		        <label for="address">Địa chỉ:</label>
-		        <input type="text" class="form-control" id="address" th:field="*{address}" required>
-		    </div>
-		    <div class="form-group">
-		        <label for="phoneNumber">Số điện thoại:</label>
-		        <input type="tel" class="form-control" id="phoneNumber" th:field="*{phoneNumber}" required>
-		    </div>
-		    <div class="form-group">
-		        <label for="email">Email:</label>
-		        <input type="email" class="form-control" id="email" th:field="*{email}" required>
-		    </div>
-		    <div class="text-center mb-4">
-		        <button type="submit" class="btn btn-primary">Lưu</button>
-		        <a th:href="@{/managedetailaccount(accountId=${account.id})}" class="btn btn-secondary">Thoát</a>
-		    </div>
-		</form>
+        </div>
     </div>
-    <!-- Thêm các tệp tin JavaScript -->
-    <script th:src="@{/js/jquery-3.4.1.slim.min.js}"></script>
-    <script th:src="@{/js/popper.min.js}"></script>
-    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <div th:replace="~{admin/footeradmin :: footer}"></div>
 </body>
 </html>

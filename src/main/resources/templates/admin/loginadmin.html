@@ -1,44 +1,118 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Đăng nhập</title>
-<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Đăng nhập</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<style>
+		.form-control {
+			border-radius: 10px;
+		}
+		.form-container {
+	        border: 2px solid rgb(182,232,241);
+	        border-radius: 5px;
+	        padding: 20px;
+	        border-radius: 15px;
+	        margin-top: 100px;
+	        margin-bottom: 100px;
+	        margin-right: 100px;        
+		}
+		.btn-login {
+			background-color: rgb(2,88,155);
+			border-radius: 10px;
+			color: white;
+		}
+		.btn-login:hover {
+			color: rgb(182,232,241);
+		}
+		
+		.col-image {
+       	 	width: 50%; /* Thay đổi kích thước cột ở đây */
+    	}
+		.col-image .responsive-image-01 {
+		    width: 100%; /* Ảnh sẽ chiếm 100% chiều rộng của cột */
+		    height: auto; /* Chiều cao của ảnh sẽ tự động điều chỉnh để giữ nguyên tỷ lệ khung hình */
+		    border-radius: 20px;
+		}
+		.col-image .responsive-image-02 {
+		    width: 100%; /* Ảnh sẽ chiếm 100% chiều rộng của cột */
+		    height: auto; /* Chiều cao của ảnh sẽ tự động điều chỉnh để giữ nguyên tỷ lệ khung hình */
+		    border-radius: 20px;
+		}
+		.col-image {
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		}
+		.row-image {
+			width: 90%;
+			height: 90%;
+			float: right;		    
+		}
+		h4.login {
+			color: white;
+		}
+		.col.center-content {
+			width: 30%;
+		}
+		
+		.row {
+		    display: flex;
+		}
+		
+		h3 {
+        	text-align: center;
+        	margin-bottom: 20px;  
+        	color: rgb(2,88,155);     	
+    	}
+		
+	</style>
 </head>
 <body>
 <div th:replace="~{admin/headeradmin :: header}"></div>
 <div class="container mt-4 mb-4">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <h3 class="text-center">Đăng nhập cho admin</h3>
             
             <!-- Hiển thị thông báo nếu có -->
 		    <div th:if="${param.message}" class="alert"
 				th:classappend="${#strings.containsIgnoreCase(param.message, 'thành công') ? 'alert-success' : 'alert-danger'}">
 				<span th:text="${param.message}"></span>
 			</div>
-            
-            <form th:action="@{/loginadmin}" method="post">
-                <div class="form-group">
-                    <label for="username">Tên đăng nhập:</label>
-                    <input type="text" class="form-control" id="username" name="username" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Mật khẩu:</label>
-                    <input type="password" class="form-control" id="password" name="password" required>
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary">Đăng nhập</button>
-                </div>
-            </form>
-        </div>
+			<div class="row">  
+				<div class="col">  
+					<div class="row"> 
+						<h4 class="login">ĐĂNG NHẬP</h4> 						 
+					</div>
+					<div class="row row-image">  
+						<div class="col-image">
+							<img class="responsive-image-01" src="https://res.cloudinary.com/dylwewmt0/image/upload/v1699020641/PHOTO_LIST/AboutUs/login_01.png" alt>
+						</div>
+						<div class="col-image">
+							<img class="responsive-image-02" src="https://res.cloudinary.com/dylwewmt0/image/upload/v1699020664/PHOTO_LIST/AboutUs/login_02.png" alt>
+						</div>
+					
+					</div>
+				</div>    
+				<div class="col">
+					<div class="form-container">      
+			            <form th:action="@{/loginadmin}" method="post">
+							<h3 class="text-center">ĐĂNG NHẬP</h3> 
+			                <div class="form-group">
+			                    <label for="username">Tên đăng nhập:</label>
+			                    <input type="text" class="form-control" id="username" name="username" required>
+			                </div>
+			                <div class="form-group">
+			                    <label for="password">Mật khẩu:</label>
+			                    <input type="password" class="form-control" id="password" name="password" required>
+			                </div>
+			                <div class="text-center">
+			                    <button type="submit" class="btn btn-login">Đăng nhập</button>
+			                </div>
+			            </form>
+					</div>
+			</div>
     </div>
 </div>
 <div th:replace="~{admin/footeradmin :: footer}"></div>
-<!-- Thêm các tệp tin JavaScript -->
-<script th:src="@{/js/jquery-3.4.1.slim.min.js}"></script>
-<script th:src="@{/js/popper.min.js}"></script>
-<script th:src="@{/js/bootstrap.min.js}"></script>
 </body>
 </html>
