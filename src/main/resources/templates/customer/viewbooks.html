@@ -52,7 +52,6 @@
 			border-radius: 10px
 		}
 		.btn-outline{
-			background-color: rgb(2,88,155);
 			color: rgb(255, 255, 255);
 			border: 1px rgb(2,88,155);
 			border-radius: 10px
@@ -196,7 +195,7 @@
 		
 		a:hover {
 			text-decoration: none;
-			color: rgb(2,88,155);;
+			color: rgb(2,88,155);
 		}
 		
 		h4 {
@@ -229,6 +228,28 @@
 			color: rgb(2,88,155);
 		}
 		
+		.product.images-container{
+			width: 120px;
+			height: 200px;
+		}
+		
+		.item-inner {
+			margin-bottom: 30px;
+		}
+		
+		.ma-box-content {
+	        border-radius: 5px;
+	        padding: 10px;
+	    }
+	        
+	    .ma-box-content:hover {
+			box-shadow: 0 3px 5px rgb(226, 226, 226);
+			border: solid 1px rgb(226, 226, 226);
+		}
+	
+	    .hidden-content {
+	        display: none;
+	    }
 	</style>
 </head>
 <body>
@@ -276,21 +297,19 @@
 					</div>
 					
 					<div class="col-main col-lg-9 col-md-9 col-sm-12 col-xs-12 col-fhs-main-body" style="margin-left: 25px;">
+						
 						<!--Ô nhập tìm kiếm và nhấn tìm kiếm-->
 					    <div style="display: flex; justify-content: center;">
 							<form class="form-inline my-2 my-lg-0" th:action="@{/viewbooks}" method="GET" style="display: flex;">
-								<input class="form-control mr-sm-2" type="text" name="search" placeholder="Tìm kiếm từ khóa" style="width: 80%;">
-								<button class="btn btn-outline my-2 my-sm-2" type="submit">Tìm kiếm</button>
+								<input class="form-control mr-sm-2" type="text" name="search" placeholder="Tìm kiếm từ khóa" style="width: 88.5%;">
+								
+								<button class="btn btn-outline my-2 my-sm-2" type="submit" style="width: 10%;"><span class="material-symbols-outlined">search</span></button>
 							</form>
 						</div>
-						
-						
-						
+																	
 						<!--Tìm kiếm từ khóa-->
 						<div th:if="${param.search != null && !param.search.isEmpty()}">
-							<div>
-								<p>Tìm kiếm từ khóa: <span th:text="${param.search}"></span></p>
-							</div>
+							
 						</div>
 						
 						<div class="category-products row">
@@ -345,25 +364,26 @@
 								<div class="row">
 								    <th:block th:each="book : ${books}">
 								        <div class="col-md-3 flex-item">
-											<div class="card book-card">
-									            <div class="row" style="display: flex; justify-content: center;">
-									                <div class="col-9 image-book">
-														<a th:href="@{/detailbook/{id} (id=${book.id})}">
-										                    <!-- Chỉ hiển thị hình ảnh đầu tiên -->
-										                	<img th:src="${book.bookImages[0].path}" alt="Book Image" class="card-img">
-														</a>
-									                </div>
-									                <div class="col-12">
-									                    <div class="frame">
-									                        <h6 class="card-title" style="text-align: justify; margin-left: 10px; margin-right: 10px; font-size: 12px">
-								            					<a th:href="@{/detailbook/{id} (id=${book.id})}" th:text="${book.name}"></a>
-								        					</h6>
-									                    </div>
-									                </div>
-									                <div class="col-price">
-														<p class="card-text" style="font-size: 16px; text-align: left;"><span th:text="${#numbers.formatInteger(book.sellPrice, 0, 'POINT')}" ></span> đ</p>
-									                </div>
-									            </div>
+											<div class="item-inner">
+												<div class="ma-box-content">								
+										            <div class="products clear" style="display: flex; justify-content: center; align-items: center;">
+										                <div class="product images-container">
+															<a th:href="@{/detailbook/{id} (id=${book.id})}">
+											                    <!-- Chỉ hiển thị hình ảnh đầu tiên -->
+											                	<img th:src="${book.bookImages[0].path}" alt="Book Image" class="card-img">
+															</a>
+										                </div>
+										            </div>
+										            <div>
+										                <h6 class="product-name-no-ellipsis">
+									            			<a th:href="@{/detailbook/{id} (id=${book.id})}" th:text="${book.name}" style="display: inline-block; width: 170px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"></a>
+										                </h6>
+										               
+										                <div class="price-label">
+															<p class="card-text" style="font-size: 16px; text-align: left;"><span th:text="${#numbers.formatInteger(book.sellPrice, 0, 'POINT')}" ></span> đ</p>
+										                </div>
+										            </div>
+												</div>
 											</div>
 								        </div>
 								    </th:block>

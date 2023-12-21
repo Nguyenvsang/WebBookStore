@@ -19,6 +19,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <style>
+		
+		body { background-color: #f8f9fa  }
+		
 		h1 {
         font-family: Tahoma; /* Thay đổi font chữ ở đây */
     	}
@@ -50,12 +53,48 @@
 		    width: 100%; /* Ảnh sẽ chiếm 100% chiều rộng của cột */
 		    height: auto; /* Chiều cao của ảnh sẽ tự động điều chỉnh để giữ nguyên tỷ lệ khung hình */
 		    border-radius: 20px;
+		    margin-left: 30px;
+		}
+		.col {
+			margin-left: 20px;;
+		}
+		.navbar-nav {
+			display: frex;
+		}
+		.navbar-nav-left {
+			width: 70%;
+		}
+		.navbar-nav-right {
+			width: 30%;
+		}
+		.nav-link {
+			display: flex;
+      		align-items: center;
+      		column-gap: 0.5rem;
+      		width: fit-content;
+		}
+		.move-right {
+			margin-left: auto;
+			display: flex;
+			float: right;
+		}
+		.material-symbols-outlined{
+			color: rgb(2,88,155);
+		}
+		
+		.container.main {
+			border: 2px ;
+	        border-radius: 5px;	  
+	        border-radius: 15px;	
+	        padding: 15px;
+	        margin-top: 10px;
+	        margin-bottom: 10px;
 		}
 	</style>
 </head>
 <body>
 	<div th:replace="~{layout/header :: header}"></div>
-    <div class="container mt-4 mb-4">
+    <div class="container main" style="background-color: white;">
 		<div class="row" style="margin-bottom: 70px; margin-top: 70px;">
 			<div class="col-image">
 				<img class="responsive-image" src="https://res.cloudinary.com/dylwewmt0/image/upload/v1698828968/PHOTO_LIST/AboutUs/book_01.jpg" alt>				
