@@ -46,6 +46,11 @@
 			color:rgb(2,88,155); /* Thay đổi màu văn bản khi trỏ chuột vào nút */
 			background-color: azure;
 		}
+		
+		.container-body {
+			box-shadow: 0 8px 10px rgb(226, 226, 226);
+			border: solid 2px rgb(226, 226, 226);
+		}
 	
     </style>
     <script>
@@ -160,7 +165,7 @@
 				            <div class="form-group">
 				                <label for="image" style="color: rgb(2,88,155);">Ảnh 2:</label>
 				                <input type="file" class="form-control-file" id="image2" name="image2" accept="image/*" onchange="loadFile2(event)" style="margin-bottom: 10px ;" required>
-				                <img id="output2" width="100" />
+				                <img id="output2" width="100"/>
 				            </div>
 						</div>
 						<div class="col">
@@ -188,7 +193,7 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <div th:replace="~{admin/footeradmin :: footer}"></div>   
+    <!--<div th:replace="~{admin/footeradmin :: footer}"></div>-->   
 	
 </body>
 </html>

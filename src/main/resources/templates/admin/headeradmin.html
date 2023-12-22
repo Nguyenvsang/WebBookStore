@@ -9,6 +9,14 @@
         .custom-bg-red {
             background-color: rgb(225, 225, 225);
         }
+        a {
+			display: flex;
+			align-items: center;
+		}
+		.col-01 {
+			margin-left: 10px;
+			margin-right: 10px;
+		}
     </style>
 </head>
 <body>
@@ -26,35 +34,87 @@
 	        </button>
 	        <div class="collapse navbar-collapse" id="navbarNav">
 	            <ul class="navbar-nav">
+					<div class="row">
 	                <!-- Hiển thị "Username" và "Đăng xuất" và "Giỏ hàng" và "Đơn hàng" -->
-	                <li class="nav-item active" th:if="${session.admin != null}">
-	                    <a class="nav-link" th:href="@{/admin}" style="color:rgb(0, 0, 160); font-family: Arial, sans-serif;">Trang chủ <span
-	                            class="sr-only">(current)</span></a>
-	                </li>
-	                <li class="nav-item" th:if="${session.admin != null}">
-	                    <a class="nav-link" th:href="@{/manageauthors}" style="color:rgb(0, 0, 160); font-family: Arial, sans-serif;">Tác giả</a>
-	                </li>
-	                <li class="nav-item" th:if="${session.admin != null}">
-	                    <a class="nav-link" th:href="@{/managebooks}" style="color:rgb(0, 0, 160); font-family: Arial, sans-serif;">Sản phẩm</a>
-	                </li>
-	                <li class="nav-item" th:if="${session.admin != null}">
-	                    <a class="nav-link" th:href="@{/managecategories}" style="color:rgb(0, 0, 160); font-family: Arial, sans-serif;">Danh mục</a>
-	                </li>
-	                <li class="nav-item" th:if="${session.admin != null}">
-	                    <a class="nav-link" th:href="@{/manageorders}" style="color:rgb(0, 0, 160); font-family: Arial, sans-serif;">Đơn hàng</a>
-	                </li>
-	                <li class="nav-item" th:if="${session.admin != null}">
-	                    <a class="nav-link" href="#" style="color:rgb(0, 0, 160); font-family: Arial, sans-serif;">Chào
-	                        <span th:text="${session.admin['firstName']}"></span>
-	                    </a>
-	                </li>
-	                <li class="nav-item" th:if="${session.admin != null}">
-	                    <a class="nav-link" th:href="@{/manageaccounts}" style="color:rgb(0, 0, 160); font-family: Arial, sans-serif;">Tài khoản</a>
-	                </li>
-	                <li class="nav-item" th:if="${session.admin != null}">
-	                    <a class="nav-link"
-	                        th:href="@{/logoutadmin}" style="color:rgb(0, 0, 160); font-family: Arial, sans-serif;">Đăng xuất</a>
-	                </li>
+	                	
+	                	<div class="col-01" style="margin-left: 80px; margin-right: 20px;">
+			                <li class="nav-item active" th:if="${session.admin != null}">
+								<a class="nav-link" th:href="@{/admin}" style="color:rgb(0, 0, 160); font-family: Arial, sans-serif; padding: 0%; display: flex; align-items: center; justify-content: center;">
+									<span class="material-symbols-outlined" style="display: flex;">roofing</span><span
+			                            class="sr-only">(current)</span></a>
+			                    <a class="nav-link" th:href="@{/admin}" style="color:rgb(0, 0, 160); font-family: Arial, sans-serif; padding: 0%;">
+									Trang chủ <span
+			                            class="sr-only">(current)</span></a>
+			                </li>
+	                	</div>
+	                	
+	                	<div class="col-01" style="margin-left: 20px; margin-right: 20px;">
+			                <li class="nav-item" th:if="${session.admin != null}">
+								<a class="nav-link" th:href="@{/manageauthors}" style="color:rgb(0, 0, 160); font-family: Arial, sans-serif; padding: 0%; display: flex; align-items: center; justify-content: center;" >
+									<span class="material-symbols-outlined" style="display: flex;">stylus</span></a>
+			                    <a class="nav-link" th:href="@{/manageauthors}" style="color:rgb(0, 0, 160); font-family: Arial, sans-serif; padding: 0%;">
+									Tác giả</a>
+			                </li>
+	                	</div>
+	                	
+	                	<div class="col-01" style="margin-left: 20px; margin-right: 20px;">
+			                <li class="nav-item" th:if="${session.admin != null}">
+								<a class="nav-link" th:href="@{/managebooks}" style="color:rgb(0, 0, 160); font-family: Arial, sans-serif; padding: 0%; display: flex; align-items: center; justify-content: center;">
+									<span class="material-symbols-outlined" style="display: flex;">book_5</span></a>
+			                    <a class="nav-link" th:href="@{/managebooks}" style="color:rgb(0, 0, 160); font-family: Arial, sans-serif; padding: 0%;">
+									Sản phẩm</a>
+			                </li>
+	                	</div>
+	                	
+	                	<div class="col-01" style="margin-left: 20px; margin-right: 20px;">							
+			                <li class="nav-item" th:if="${session.admin != null}">
+								<a class="nav-link" th:href="@{/managecategories}" style="color:rgb(0, 0, 160); font-family: Arial, sans-serif; padding: 0%; display: flex; align-items: center; justify-content: center;">
+									<span class="material-symbols-outlined" style="display: flex;">category</span></a>
+			                    <a class="nav-link" th:href="@{/managecategories}" style="color:rgb(0, 0, 160); font-family: Arial, sans-serif; padding: 0%;">
+									Danh mục</a>							
+			                </li>
+	                	</div>
+	                	
+	                	<div class="col-01" style="margin-left: 20px; margin-right: 20px;">
+			                <li class="nav-item" th:if="${session.admin != null}">
+								<a class="nav-link" th:href="@{/manageorders}" style="color:rgb(0, 0, 160); font-family: Arial, sans-serif; padding: 0%; display: flex; align-items: center; justify-content: center;">
+									<span class="material-symbols-outlined" style="display: flex;">orders</span></a>
+			                    <a class="nav-link" th:href="@{/manageorders}" style="color:rgb(0, 0, 160); font-family: Arial, sans-serif; padding: 0%;">
+									Đơn hàng</a>
+			                </li>
+	                	</div>
+	                	
+	                	<div class="col-01" style="margin-left: 20px; margin-right: 20px;">
+			                <li class="nav-item" th:if="${session.admin != null}">
+			                    <a class="nav-link" href="#" style="color:rgb(0, 0, 160); font-family: Arial, sans-serif; padding: 0%; display: flex; align-items: center; justify-content: center;">
+									<span class="material-symbols-outlined">waving_hand</span>			                      
+			                    </a>
+			                    <a class="nav-link" href="#" style="color:rgb(0, 0, 160); font-family: Arial, sans-serif; padding: 0%;"> Xin chào
+			                        <span th:text="${session.admin['firstName']}"></span>
+			                    </a>
+			                </li>
+	                	</div>
+	                	
+	                	<div class="col-01" style="margin-left: 20px; margin-right: 20px;">
+			                <li class="nav-item" th:if="${session.admin != null}">
+								<a class="nav-link" th:href="@{/manageaccounts}" style="color:rgb(0, 0, 160); font-family: Arial, sans-serif; padding: 0%; display: flex; align-items: center; justify-content: center;">
+									<span class="material-symbols-outlined" style="display: flex;">manage_accounts</span></a>
+			                    <a class="nav-link" th:href="@{/manageaccounts}" style="color:rgb(0, 0, 160); font-family: Arial, sans-serif; padding: 0%;">
+									Tài khoản</a>
+			                </li>
+	                	</div>
+	                	
+	                	<div class="col-01" style="margin-left: 20px; margin-right: 20px;">
+			                <li class="nav-item" th:if="${session.admin != null}">
+								<a class="nav-link"
+			                        th:href="@{/logoutadmin}" style="color:rgb(0, 0, 160); font-family: Arial, sans-serif; padding: 0%; display: flex; align-items: center; justify-content: center;">
+			                        <span class="material-symbols-outlined" style="display: flex;">logout</span></a>
+			                    <a class="nav-link"
+			                        th:href="@{/logoutadmin}" style="color:rgb(0, 0, 160); font-family: Arial, sans-serif; padding: 0%;">
+			                        Đăng xuất</a>
+			                </li>
+	                	</div>
+					</div>
 	            </ul>
 	        </div>
         </div>

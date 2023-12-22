@@ -29,13 +29,13 @@
 			color: rgb(182,232,241)
 		}
 		
-		.btn-add-category {
-			background-color: rgb(2,88,155);
+		.nav-link.add-category {
+			background-color: rgb(255, 255, 255) ;
 			border-radius: 10px;
-			color: white;
+			color: rgb(6, 206, 82);
 		}
-		.btn-add-category:hover {
-			color: rgb(182,232,241)
+		.nav-link.add-category:hover {
+			color:#62bf5e ; /* Thay đổi màu văn bản khi trỏ chuột vào nút */
 		}
 		
 		.btn-filter-status {
@@ -51,7 +51,6 @@
 			border-radius: 10px;
 			color: black;
 			background-color: white;
-			border: 2px solid rgb(2,88,155);			
 		}
 		.btn-search:hover {
 				color:rgb(2,88,155); /* Thay đổi màu văn bản khi trỏ chuột vào nút */
@@ -82,6 +81,10 @@
 	        margin-bottom: 10px;
 		}
 		
+		.container.main {
+			box-shadow: 0 8px 10px rgb(226, 226, 226);
+			border: solid 2px rgb(226, 226, 226);
+		}
     </style>
 </head>
 <body>
@@ -89,23 +92,22 @@
     <div class="container-fluid mb-4">
 		<div class="container main" style="background-color: white;">
 
-	        <h3>QUẢN LÝ DANH MỤC</h3>
-	        
-	        <div class="mb-3">
-		        <a th:href="@{/addcategory}" class="btn btn-add-category">Thêm danh mục</a>
-		    </div>
+	        <h3>QUẢN LÝ DANH MỤC</h3>	       	        
 	        
 	        <form class="form-inline my-2 my-lg-0" method="GET" th:action="@{/managecategories}">
 	            <input class="form-control mr-sm-2" type="text" name="search" placeholder="Tìm kiếm từ khóa" style="border: 2px solid rgb(182,232,241); border-radius: 10px;">
-	            <button class="btn btn-search my-2 my-sm-0" type="submit">Tìm kiếm</button>
+	            <button class="btn btn-search my-2 my-sm-0" type="submit"><span class="material-symbols-outlined">search</span></button>
 	        </form>
 	        
-	        <div th:if="${param.search != null && param.search != ''}">
-	            <div>
-	                <p>Tìm kiếm từ khóa: <span th:text="${param.search}"></span></p>
-	            </div>
-	        </div>
-			
+	        <div class="mb-3">
+				<div class="col" style="display: flex; justify-content: right;">
+					<a th:href="@{/addcategory}" class="nav-link add-category" style="font-family: Arial, sans-serif; padding: 0%; display: right; align-items: center; justify-content: right;">
+						<span class="material-symbols-outlined">add_circle</span></a>	
+						<a th:href="@{/addcategory}" class="nav-link add-category" style="font-family: Arial, sans-serif; padding: 0%; display: right; align-items: center; justify-content: right;">
+							Thêm danh mục</a>			        
+				</div>
+		    </div>
+	
 			<div class="dropdown mb-3 mt-3">
 		        <button class="btn btn-filter-status dropdown-toggle" type="button" id="statusDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		            Lọc theo trạng thái
@@ -169,6 +171,6 @@
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-	<div th:replace="~{admin/footeradmin :: footer}"></div>
+	<!--<div th:replace="~{admin/footeradmin :: footer}"></div>-->
 </body>
 </html>

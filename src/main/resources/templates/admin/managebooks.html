@@ -21,14 +21,14 @@
         	color: rgb(2,88,155);     	
     }
     
-    .btn-ad-book {
-		background-color: rgb(2,88,155);
-		border-radius: 10px;
-		color: white;
-	}
-	.btn-ad-book:hover {
-			color:rgb(182,232,241); /* Thay đổi màu văn bản khi trỏ chuột vào nút */
-	}
+    .nav-link.add-book {
+			background-color: rgb(255, 255, 255) ;
+			border-radius: 10px;
+			color: rgb(6, 206, 82);
+		}
+		.nav-link.add-book:hover {
+			color:#62bf5e ; /* Thay đổi màu văn bản khi trỏ chuột vào nút */
+		}
 	
 	.btn-filter-catalog {
 		background-color: rgb(2,88,155);
@@ -43,7 +43,6 @@
 			border-radius: 10px;
 			color: black;
 			background-color: white;
-			border: 2px solid rgb(2,88,155);			
 	}
 	.btn-outline-search:hover {
 			color:rgb(2,88,155); /* Thay đổi màu văn bản khi trỏ chuột vào nút */
@@ -104,7 +103,10 @@
 	        margin-top: 10px;
 	        margin-bottom: 10px;
 		}
-		
+	.container.main {
+			box-shadow: 0 8px 10px rgb(226, 226, 226);
+			border: solid 2px rgb(226, 226, 226);
+		}	
 </style>
 </head>
 <body>
@@ -112,22 +114,22 @@
 	<div class="container-fluid mb-4">
 		<div class="container main" style="background-color: white;">
 		    <h3>QUẢN LÝ SÁCH</h3>
-		    
-		    <div class="mb-3">
-		        <a th:href="@{/addbook}" class="btn btn-ad-book">Thêm sách</a>
-		    </div>
+		    		    
 		    
 		    <form class="form-inline my-2 my-lg-0" method="GET" th:action="@{/managebooks}">
 		    	<input class="form-control mr-sm-2" type="text" name="search" placeholder="Tìm kiếm từ khóa" style="border: 2px solid rgb(182,232,241); border-radius: 10px;">
-		    	<button class="btn btn-outline-search my-2 my-sm-0" type="submit">Tìm kiếm</button>
+		    	<button class="btn btn-outline-search my-2 my-sm-0" type="submit"><span class="material-symbols-outlined">search</span></button>
 			</form>
 			
-			<div th:if="${param.search != null && !param.search.isEmpty()}">
-		        <div>
-		            <p>Tìm kiếm từ khóa: <span th:text="${param.search}"></span></p>
-		        </div>
+			<div class="mb-3">
+				<div class="col" style="display: flex; justify-content: right;">
+			        <a th:href="@{/addbook}" class="nav-link add-book" style="font-family: Arial, sans-serif; padding: 0%; display: flex; align-items: center; justify-content: right;">
+						<span class="material-symbols-outlined">add_circle</span></a>
+					<a th:href="@{/addbook}" class="nav-link add-book" style="font-family: Arial, sans-serif; padding: 0%; display: flex; align-items: center; justify-content: right;">
+						</span>Thêm sách</a>
+				</div>	
 		    </div>
-		
+
 		    <div class="dropdown mb-3 mt-3">
 		        <button class="btn btn-filter-catalog dropdown-toggle" type="button" id="categoryDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		            Lọc theo danh mục
@@ -254,6 +256,6 @@
 	    });
 	    
 	</script>
-    <div th:replace="~{admin/footeradmin :: footer}"></div>
+    <!--<div th:replace="~{admin/footeradmin :: footer}"></div>-->
 </body>
 </html>

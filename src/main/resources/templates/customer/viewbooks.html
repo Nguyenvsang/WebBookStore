@@ -51,13 +51,13 @@
 			border: 1px rgb(2,88,155);
 			border-radius: 10px
 		}
-		.btn-outline{
-			color: rgb(255, 255, 255);
-			border: 1px rgb(2,88,155);
-			border-radius: 10px
+		.btn-outline {
+			border-radius: 10px;
+			color: black;
+			background-color: white;
 		}
 		.btn-outline:hover {
-			color: rgb(182,232,241);
+				color:rgb(2,88,155); /* Thay đổi màu văn bản khi trỏ chuột vào nút */
 		}
 		.form-control:focus {
         	width: 700px; /* Thay 500px bằng độ dài bạn muốn */
@@ -250,6 +250,10 @@
 	    .hidden-content {
 	        display: none;
 	    }
+	    .container.main {
+			box-shadow: 0 8px 10px rgb(226, 226, 226);
+			border: solid 2px rgb(226, 226, 226);
+		}
 	</style>
 </head>
 <body>
@@ -267,7 +271,7 @@
 			   				
 				<div class="d-flex justify-content-center" style="margin-bottom: 10px; margin-right: 10px;">
 					<div class="col-left sidebar col-lg-3 col-md-3 col-sm-12 col-xs-12" style="border-right: 1px solid #cecece;" >
-						<div class="row row-content" >
+						<div class="row row-content" style="justify-content: center;">
 							<li class="dropdown open" style="border-bottom: 1px solid #cecece;"> 
 								<h4>DANH MỤC SÁCH <span class="material-symbols-outlined">drag_click</span></h4>								
 								<span style="color: rgb(2,88,155);"></span>
@@ -298,27 +302,27 @@
 									</li>								
 								</ul>
 							</li>
-							<li class="dropdown open" style="border-bottom: 1px solid #cecece; margin-top: 20PX;"> 
+							<li class="dropdown open" style="border-bottom: 1px solid #cecece; margin-top: 20px;"> 
 								<h4>THEO NXB <span class="material-symbols-outlined">drag_click</span></h4>								
 								<span style="color: rgb(2,88,155);"></span>
 								<ul class="no-bullets nav-left">
 									<li class="level-0">
-										<a href="/viewbooks?category=1">NXB KIM ĐỒNG</a>
+										<a th:href="@{/viewbooks?search=NXB+Kim+Đồng}">NXB KIM ĐỒNG</a>
 									</li>
 									<li class="level-0">
-										<a href="/viewbooks?category=2">NXB LAO ĐỘNG</a>
+										<a th:href="@{/viewbooks?search=NXB+Lao+Động}">NXB LAO ĐỘNG</a>
 									</li>
 									<li class="level-0">
-										<a href="/viewbooks?category=3">NXB THỂ GIỚI</a>
+										<a th:href="@{/viewbooks?search=NXB+Thế+Giới}">NXB THỂ GIỚI</a>
 									</li>
 									<li class="level-0">
-										<a href="/viewbooks?category=4">NXB TRẺ</a>
+										<a th:href="@{/viewbooks?search=NXB+Trẻ}">NXB TRẺ</a>
 									</li>
 									<li class="level-0">
-										<a href="/viewbooks?category=5">NXB HỒNG ĐỨC</a>
+										<a th:href="@{/viewbooks?search=NXB+Hồng+Đức}">NXB HỒNG ĐỨC</a>
 									</li>	
 									<li class="level-0">
-										<a href="/viewbooks?category=6">NXB CHÍNH TRỊ QUỐC GIA</a>
+										<a th:href="@{/viewbooks?search=NXB+Chính+Trị+Quốc+Gia}">NXB CHÍNH TRỊ QUỐC GIA</a>
 									</li>								
 								</ul>
 							</li>							

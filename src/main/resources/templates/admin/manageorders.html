@@ -30,7 +30,6 @@
 			border-radius: 10px;
 			color: black;
 			background-color: white;
-			border: 2px solid rgb(2,88,155);			
 		}
 		.btn-search:hover {
 				color:rgb(2,88,155); /* Thay đổi màu văn bản khi trỏ chuột vào nút */
@@ -85,6 +84,12 @@
 	        margin-bottom: 10px;
 		}
 		
+		.container.main {
+			margin-top: 20px;
+			box-shadow: 0 8px 10px rgb(226, 226, 226);
+			border: solid 2px rgb(226, 226, 226);
+		}
+		
 	</style> 
 </head> 
 <body>
@@ -95,14 +100,9 @@
 		
 		    <form class="form-inline my-2 my-lg-0" method="GET" th:action="@{/manageorders}">
 		        <input class="form-control mr-sm-2" type="text" name="search" placeholder="Tìm kiếm từ khóa" style="border: 2px solid rgb(182,232,241); border-radius: 10px;">
-		        <button class="btn btn-search my-2 my-sm-0" type="submit">Tìm kiếm</button>
+		        <button class="btn btn-search my-2 my-sm-0" type="submit"><span class="material-symbols-outlined">search</span></button>
 		    </form>
 		
-		    <div th:if="${param.search != null && !param.search.isEmpty()}">
-		        <div>
-		            <p>Tìm kiếm từ khóa: <span th:text="${param.search}"></span></p>
-		        </div>
-		    </div>
 		    
 		    <div class="dropdown mb-3 mt-3">
 		        <button class="btn btn-filter-status dropdown-toggle" type="button" id="statusDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -180,6 +180,6 @@
 	</div>
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-	<div th:replace="~{admin/footeradmin :: footer}"></div>
+	<!--<div th:replace="~{admin/footeradmin :: footer}"></div>-->
 </body> 
 </html>
