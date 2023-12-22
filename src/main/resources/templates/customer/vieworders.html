@@ -29,7 +29,6 @@
         	border-radius: 15px
 		}
 		.btn-detail {
-			background-color: rgb(2,88,155);
 			border-radius: 10px;
 			color: white;
 			display: center;
@@ -100,6 +99,15 @@
 			box-shadow: 0 8px 10px rgb(226, 226, 226);
 			border: solid 2px rgb(226, 226, 226);
 		}
+		
+		.material-symbols-outlined.info {
+			color: rgb(2,88,155);
+		}
+		
+		.material-symbols-outlined.info:hover {
+			color: rgb(182,232,241);
+		}
+		
 	</style>
 </head>
 <body>
@@ -126,7 +134,7 @@
 	                <tr th:each="order : ${orders}">
 	                    <td th:text="${order.id}" class="align-middle text-center"></td>
 	                    <td th:text="${#dates.format(order.dateOrder, 'dd/MM/yyyy')}" class="align-middle text-center"></td>
-	                    <td th:text="${#numbers.formatInteger(order.totalPrice, 0, 'POINT')}" class="align-middle text-center" style="color: orangered"></td>
+	                    <td th:text="${#numbers.formatInteger(order.totalPrice, 0, 'POINT') + ' đ'}" class="align-middle text-center" style="color: orangered; width: 100px;"></td>
 	                    <td class="align-middle text-center">
 	                        <span th:classappend="${order.status == 0} ? 'badge badge-success' : (${order.status == 1} ? 'badge badge-info' : (${order.status == 2} ? 'badge badge-primary' : (${order.status == 3} ? 'badge badge-secondary' : '')))">
 	                            <span th:switch="${order.status}">
@@ -138,12 +146,14 @@
 	                            </span>
 	                        </span>
 	                    </td>
-	                    <td th:text="${order.name}" class="align-middle text-center"></td>
+	                    <td th:text="${order.name}" class="align-middle text-center" style="width: 100px;"></td>
 	                    <td th:text="${order.address}" class="align-middle text-center"></td>
 	                    <td th:text="${order.phoneNumber}" class="align-middle text-center"></td>
 	                    <td th:text="${order.email}" class="align-middle text-center"></td>
 	                    <td>
-	                        <a th:href="@{/vieworderitems(orderId=${order.id})}" class="btn btn-detail">Chi tiết</a>
+	                        <a th:href="@{/vieworderitems(orderId=${order.id})}" class="btn btn-detail" style="width: 100px;">
+								<span class="material-symbols-outlined info">info</span>
+							</a>
 	                    </td>
 	                </tr>
 	            </tbody>

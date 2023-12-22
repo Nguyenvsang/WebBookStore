@@ -22,7 +22,6 @@
         	color: rgb(2,88,155);     	
     	}
     	.btn-back {
-			background-color: rgb(2,88,155);
 			border-radius: 10px;
 			color: white;
 			display: center;
@@ -127,11 +126,25 @@
 			margin-top: 20px;
 			margin-bottom: 30px;
 		}
+		
+		.material-symbols-outlined.back {
+			color: rgb(2,88,155);
+		}
+		
+		.material-symbols-outlined.back:hover {
+			color: rgb(182,232,241);
+		}
+		
 	</style>
 </head>
 <body>
 	<div th:replace="~{layout/header :: header}"></div>
     <div class="container main" style="background-color: white;">
+		<p class="text">
+            <a href="javascript:history.back()" class="btn btn-back">
+				<span class="material-symbols-outlined back">arrow_back_ios</span>
+			</a>
+        </p>
 		<div class="frame-main-4" style="background-color: white; margin-top: 20px;">
         	<h3>CHI TIẾT ĐƠN HÀNG</h3>
 		</div>
@@ -148,7 +161,7 @@
 			            <tr>
 			                <td th:text="${order.id}" class="align-middle text-center"></td>
 			                <td th:text="${#dates.format(order.dateOrder, 'dd/MM/yyyy')}" class="align-middle text-center"></td>
-			                <td th:text="${#numbers.formatInteger(order.totalPrice, 0, 'POINT')}" class="align-middle text-center" style="color: orangered"></td>
+			                <td th:text="${#numbers.formatInteger(order.totalPrice, 0, 'POINT') + ' đ'}" class="align-middle text-center" style="color: orangered"></td>
 			                <td class="align-middle text-center">
 				                <span th:classappend="${order.status == 0} ? 'badge badge-success' : (${order.status == 1} ? 'badge badge-info' : (${order.status == 2} ? 'badge badge-primary' : (${order.status == 3} ? 'badge badge-secondary' : '')))" class="align-middle text-center">
 				                    <span th:switch="${order.status}" >
@@ -200,14 +213,12 @@
 	            <tr th:each="orderItem : ${orderItems}">
 	                <td th:text="${orderItem.book.name}" class="align-middle"</td>
 	                <td th:text="${orderItem.quantity}" class="align-middle text-center"></td>
-	                <td th:text="${#numbers.formatInteger(orderItem.book.sellPrice, 0, 'POINT')}" class="align-middle" style="text-align: right;"></td>
-	                <td th:text="${#numbers.formatInteger(orderItem.price, 0, 'POINT')}" class="align-middle" style="color: orangered; text-align: right;"></td>
+	                <td th:text="${#numbers.formatInteger(orderItem.book.sellPrice, 0, 'POINT')+ ' đ'}" class="align-middle" style="text-align: center; color: orangered;"></td>
+	                <td th:text="${#numbers.formatInteger(orderItem.price, 0, 'POINT')+ ' đ'}" class="align-middle" style="color: orangered; text-align: center;"></td>
 	            </tr>
 	        </table>
         </div>       
-        <p class="text-center">
-            <a href="javascript:history.back()" class="btn btn-back">Trở lại</a>
-        </p>
+        
     </div>
     <div th:replace="~{layout/footer :: footer}"></div>
     <!-- Thêm các tệp tin JavaScript -->

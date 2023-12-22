@@ -135,7 +135,7 @@
 						</div>
 						
 						<div class="form-group">
-						    <label for="authorsIds">Tác giả:</label>
+						    <label for="authorsIds" style="color: rgb(2,88,155);">Tác giả:</label>
 						    <select multiple class="form-control" id="authorsIds" name="authorsIds" style="border-radius: 10px;" required>
 						        <option th:each="author : ${allAuthors}" th:value="${author.id}" th:selected="${book.bookAuthors != null and book.bookAuthors.![author.id].contains(author.id)}">
 						            <span th:text="${author.name}"></span>
@@ -144,12 +144,12 @@
 						</div>
 					
 						<div class="form-group">
-						    <label for="costPrice">Giá nhập:</label>
+						    <label for="costPrice" style="color: rgb(2,88,155);">Giá nhập:</label>
 						    <input type="number" class="form-control" id="costPrice" name="costPrice" th:field="*{costPrice}" style="border-radius: 10px;" required>
 						</div>
 						
 						<div class="form-group">
-						    <label for="sellPrice">Giá bán:</label>
+						    <label for="sellPrice" style="color: rgb(2,88,155);">Giá bán:</label>
 						    <input type="number" class="form-control" id="sellPrice" name="sellPrice" th:field="*{sellPrice}" style="border-radius: 10px;" required>
 						</div>
 						
@@ -194,9 +194,11 @@
 							    <img th:src="${book.bookImages[0].path + '?v=' + randomNumber}" alt="Book Image 1" width="150" style="border-radius: 10px;"><br>							    
 							</div>
 							<div class="form-group">
-								<label for="image">Ảnh 1:</label>
+								<label for="image" style="color: rgb(2,88,155);">Ảnh 1:</label>
 								<input type="file" class="form-control-file" id="image1" name="image1" accept="image/*" onchange="loadFile1(event)" style="margin-bottom: 10px ;">
-								<img id="output1" width="100"/>
+								<div style="display: flex; justify-content: center; align-items: center;">
+								    <img id="output1" width="100"/>
+								</div>
 							</div>
 						</div>
 						
@@ -205,9 +207,11 @@
 							    <img th:src="${book.bookImages[1].path + '?v=' + randomNumber}" alt="Book Image 2" width="150" style="border-radius: 10px;"><br>
 							</div>	
 							<div class="form-group">
-							    <label for="image">Ảnh 2:</label>
+							    <label for="image" style="color: rgb(2,88,155);">Ảnh 2:</label>
 							    <input type="file" class="form-control-file" id="image2" name="image2" accept="image/*" onchange="loadFile2(event)" style="margin-bottom: 10px ;">
-							    <img id="output2" width="100"/>
+							    <div style="display: flex; justify-content: center; align-items: center;">
+								    <img id="output2" width="100"/>
+								</div>
 							</div>						
 						</div>
 						
@@ -216,9 +220,11 @@
 							    <img th:src="${book.bookImages[2].path + '?v=' + randomNumber}" alt="Book Image 3" width="150" style="border-radius: 10px;"><br>
 							</div>
 							<div class="form-group">
-							    <label for="image">Ảnh 3:</label>
+							    <label for="image" style="color: rgb(2,88,155);">Ảnh 3:</label>
 							    <input type="file" class="form-control-file" id="image3" name="image2" accept="image/*" onchange="loadFile3(event)" style="margin-bottom: 10px ;">
-							    <img id="output3" width="100"/>
+							    <div style="display: flex; justify-content: center; align-items: center;">
+								    <img id="output3" width="100"/>
+								</div>
 							</div>
 						</div>
 						
@@ -227,9 +233,11 @@
 							    <img th:src="${book.bookImages[3].path + '?v=' + randomNumber}" alt="Book Image 4" width="150" style="border-radius: 10px;"><br>
 							</div>
 							<div class="form-group">
-							    <label for="image">Ảnh 4:</label>
+							    <label for="image" style="color: rgb(2,88,155);">Ảnh 4:</label>
 							    <input type="file" class="form-control-file" id="image4" name="image4" accept="image/*" onchange="loadFile4(event)" style="margin-bottom: 10px ;">
-							    <img id="output4" width="100"/>
+							    <div style="display: flex; justify-content: center; align-items: center;">
+								    <img id="output4" width="100"/>
+								</div>
 							</div>
 						</div>
 					</div>					

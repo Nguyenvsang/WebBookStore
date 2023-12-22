@@ -23,10 +23,9 @@
         font-family: Tahoma; /* Thay đổi font chữ ở đây */
     	}
     	.btn-change-roles {
-			background-color: rgb(2,88,155);
 			border-radius: 10px;
-			color: white;
-			display: center;
+			color: rgb(2,88,155);
+			display: center;			
 		}
 		.btn-change-roles:hover {
 			color: rgb(182,232,241)
@@ -70,7 +69,9 @@
 		        <p>Thế kỉ nào tôi mới biết đến thơ</p>
 		        <p>Ờ đó là thế kỉ hai mươi mốt</p>
 		        <div class="text-center mb-4">
-		        	<a class="btn btn-change-roles" th:href="@{/loginadmin}">Đổi vai trò</a>
+		        	<a class="btn btn-change-roles" th:href="@{/loginadmin}">
+						<span class="material-symbols-outlined" style="font-size: xx-large;">change_circle</span>
+					</a>
 		        </div>
 			 </div>
 			 

@@ -73,6 +73,17 @@
 			border: solid 2px rgb(226, 226, 226);
 		}
 	</style>
+	
+	<script>
+	var loadFile = function(event) {
+	    var output = document.getElementById('output');
+	    output.src = URL.createObjectURL(event.target.files[0]);
+	    output.onload = function() {
+	        URL.revokeObjectURL(output.src) // free memory
+	    }
+	};
+	</script>
+	
 </head>
 <body>
 	<div th:replace="~{admin/headeradmin :: header}"></div>
@@ -111,7 +122,10 @@
 				    </div>
 				    <div class="form-group">
 				        <label for="image" style="color: rgb(2,88,155);">Đổi hình ảnh:</label>
-				        <input type="file" class="form-control-file" id="image" name="image">
+				        <input type="file" class="form-control-file" id="image" name="image" accept="image/*" onchange="loadFile(event)" style="margin-bottom: 10px ;">
+				        <div style="display: flex; justify-content: center; align-items: center;">
+						    <img id="output" width="100"/>
+						</div>
 				    </div>
 				    <div class="form-group"> 
 						<label for="dob" style="color: rgb(2,88,155);">Ngày sinh:</label> 

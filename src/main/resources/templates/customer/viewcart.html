@@ -31,14 +31,7 @@
 		.thead-title th:last-child {
 		    border-top-right-radius: 15px;
 		}
-		.btn-delete {
-			border: 2px solid rgb(241,56,71);	
-			color: rgb(0, 0, 0);
-			border-radius: 10px;
-		}
-		.btn-delete:hover {
-			color: rgb(255, 0, 0);
-		}
+		
 		.btn-purchase {
 			background-color: rgb(2,88,155);
 			border-radius: 10px;
@@ -132,6 +125,15 @@
 			box-shadow: 0 8px 10px rgb(226, 226, 226);
 			border: solid 2px rgb(226, 226, 226);
 		}
+		
+		.material-symbols-outlined.delete {
+			color: orangered;
+		}
+		
+		.material-symbols-outlined.delete:hover {
+			color: rgb(255, 128, 128);
+		}
+		
 	</style>
 </head>
 <body>
@@ -184,10 +186,12 @@
 		                            </div>
 		                        </div>
 		                    </td>
-		                    <td class="align-middle text-center" th:text="${#numbers.formatInteger(cartItem.book.sellPrice, 0, 'POINT')}"></td>
-		                    <td class="align-middle text-center" th:id="'totalpriceitem_' + ${cartItem.id}" th:text="${#numbers.formatInteger(cartItem.quantity * cartItem.book.sellPrice, 0, 'POINT')}"></td>
+		                    <td class="align-middle text-center" th:text="${#numbers.formatInteger(cartItem.book.sellPrice, 0, 'POINT')+ ' đ'}" style="width: 100px;" ></td>
+		                    <td class="align-middle text-center" th:id="'totalpriceitem_' + ${cartItem.id}" th:text="${#numbers.formatInteger(cartItem.quantity * cartItem.book.sellPrice, 0, 'POINT')+ ' đ'}" style=" width: 100px;"></td>
 		                    <td class="align-middle text-center">
-		                        <a th:href="@{/removefromcart(itemId=${cartItem.id})}" class="btn btn-delete">Xóa</a>
+		                        <a th:href="@{/removefromcart(itemId=${cartItem.id})}" class="btn btn-delete">
+									<span class="material-symbols-outlined delete">delete</span>
+								</a>
 		                    </td>
 		                </tr>
 		            </tbody>

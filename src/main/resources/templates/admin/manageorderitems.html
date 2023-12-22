@@ -127,7 +127,7 @@
 	            <tr>
 	                <td th:text="${order.id}"></td>
 	                <td th:text="${#dates.format(order.dateOrder, 'dd/MM/yyyy')}"></td>
-	                <td th:text="${order.totalPrice}"></td>
+	                <td th:text="${#numbers.formatInteger(order.totalPrice, 0, 'POINT') + ' đ'}" style="color: orangered;"></td>
 	                <td>
 					    <span th:switch="${order.status}">
 					        <span th:case="0" class="badge badge-wait-confirm">Chờ xác nhận</span>
@@ -190,8 +190,8 @@
 	            <tr th:each="orderItem : ${orderItems}">
 	                <td th:text="${orderItem.book.name}" class="align-middle"></td>
 	                <td th:text="${orderItem.quantity}" class="align-middle text-center"></td>
-	                <td th:text="${orderItem.book.sellPrice}" class="align-middle"></td>
-	                <td th:text="${orderItem.price}" class="align-middle"></td>
+	                <td th:text="${#numbers.formatInteger(orderItem.book.sellPrice, 0, 'POINT') + ' đ'}" class="align-middle" style="text-align: center; color: orangered;"></td>
+	                <td th:text="${#numbers.formatInteger(orderItem.price, 0, 'POINT') + ' đ'}" class="align-middle" style="text-align: center; color: orangered;"></td>
 	            </tr>
 	        </table>
         </div>  

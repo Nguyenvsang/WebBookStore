@@ -35,9 +35,8 @@
 		}
 		
 		.btn-detail {
-			background-color: rgb(2,88,155);
 			border-radius: 10px;
-			color: white;
+			color: rgb(2,88,155);
 		}
 		.btn-detail:hover {
 			color:rgb(182,232,241); /* Thay đổi màu văn bản khi trỏ chuột vào nút */
@@ -92,6 +91,22 @@
 			box-shadow: 0 8px 10px rgb(226, 226, 226);
 			border: solid 2px rgb(226, 226, 226);
 		}
+		
+		.page-link {
+	        height: 40px;
+	        color: rgb(2,88,155);
+			border: #f8f9fa;
+			border-radius: 10px !important;
+			margin: 2px;
+	    }
+	    .page-item.active .page-link {
+			background-color: rgb(182,232,241);;
+			color: rgb(2,88,155);
+		}
+
+	    .page-link:hover {
+			background-color: rgb(182,232,241);	 
+		}
 </style>
 </head>
 <body>
@@ -130,7 +145,9 @@
 		                    <td class="align-middle text-center" th:text="${author.name}"></td>
 		                    <td class="align-middle text-center" th:text="${author.bio}"></td>
 		                    <td class="align-middle text-center">
-		                        <a th:href="@{/managedetailauthor(authorId=${author.id})}" class="btn btn-detail">Xem chi tiết</a>
+		                        <a th:href="@{/managedetailauthor(authorId=${author.id})}" class="btn btn-detail">
+									<span class="material-symbols-outlined">info</span>
+								</a>
 		                    </td>
 		                </tr>
 		            </th:block>
@@ -141,7 +158,9 @@
 			    <div th:if="${totalPages > 1}">
 			        <ul class="pagination">
 			            <li th:if="${currentPage > 1}" class="page-item">
-			                <a class="page-link" th:href="@{/manageauthors(page=${currentPage - 1})}">Trước</a>
+			                <a class="page-link" th:href="@{/manageauthors(page=${currentPage - 1})}">
+								<span class="material-symbols-outlined">navigate_before</span>
+							</a>
 			            </li>
 			
 			            <th:block th:each="pageNumber : ${#numbers.sequence(1, totalPages)}">
@@ -156,7 +175,9 @@
 			            </th:block>
 			
 			            <li th:if="${currentPage < totalPages}" class="page-item">
-			                <a class="page-link" th:href="@{/manageauthors(page=${currentPage + 1})}">Sau</a>
+			                <a class="page-link" th:href="@{/manageauthors(page=${currentPage + 1})}">
+								<span class="material-symbols-outlined">navigate_next</span>
+							</a>
 			            </li>
 			        </ul>
 			    </div>

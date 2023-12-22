@@ -20,13 +20,13 @@
         	margin-bottom: 20px;  
         	color: rgb(2,88,155);     	
     	}
+    	
     	.btn-edit {
-			background-color: rgb(2,88,155);
 			border-radius: 10px;
-			color: white;
+			color: rgb(2,88,155);
 		}
 		.btn-edit:hover {
-			color: rgb(182,232,241)
+			color:rgb(182,232,241); /* Thay đổi màu văn bản khi trỏ chuột vào nút */
 		}
 		
 		.nav-link.add-category {
@@ -85,6 +85,21 @@
 			box-shadow: 0 8px 10px rgb(226, 226, 226);
 			border: solid 2px rgb(226, 226, 226);
 		}
+		.page-link {
+	        height: 40px;
+	        color: rgb(2,88,155);
+			border: #f8f9fa;
+			border-radius: 10px !important;
+			margin: 2px;
+	    }
+	    .page-item.active .page-link {
+			background-color: rgb(182,232,241);;
+			color: rgb(2,88,155);
+		}
+
+	    .page-link:hover {
+			background-color: rgb(182,232,241);	 
+		}
     </style>
 </head>
 <body>
@@ -138,7 +153,9 @@
 	                        <span th:unless="${category.status == 0 || category.status == 1}">Trạng thái không hợp lệ</span>
 	                    </td>
 	                    <td class="align-middle text-center">
-	                        <a th:href="@{/updatecategory(categoryId=${category.id})}" class="btn btn-edit">Sửa</a>
+	                        <a th:href="@{/updatecategory(categoryId=${category.id})}" class="btn btn-edit">
+								<span class="material-symbols-outlined">edit</span>
+							</a>
 	                    </td>
 	                </tr>
 	            </tbody>
@@ -147,7 +164,9 @@
 	        <div th:if="${totalPages > 1}">
 		        <ul class="pagination">
 		            <li th:if="${currentPage > 1}" class="page-item">
-		                <a class="page-link" th:href="@{/managecategories(page=${currentPage - 1})}">Trước</a>
+		                <a class="page-link" th:href="@{/managecategories(page=${currentPage - 1})}">
+							<span class="material-symbols-outlined">navigate_before</span>
+						</a>
 		            </li>
 		
 		            <th:block th:each="pageNumber : ${#numbers.sequence(1, totalPages)}">
@@ -162,7 +181,9 @@
 		            </th:block>
 		
 		            <li th:if="${currentPage < totalPages}" class="page-item">
-		                <a class="page-link" th:href="@{/managecategories(page=${currentPage + 1})}">Sau</a>
+		                <a class="page-link" th:href="@{/managecategories(page=${currentPage + 1})}">
+							<span class="material-symbols-outlined">navigate_next</span>
+						</a>
 		            </li>
 		        </ul>
 		    </div>

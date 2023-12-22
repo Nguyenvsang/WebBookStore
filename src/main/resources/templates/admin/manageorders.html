@@ -35,13 +35,12 @@
 				color:rgb(2,88,155); /* Thay đổi màu văn bản khi trỏ chuột vào nút */
 		}
 		
-		.btn-seen-detail {
-			background-color: rgb(2,88,155);
+		.btn-detail {
 			border-radius: 10px;
-			color: white;
+			color: rgb(2,88,155);
 		}
-		.btn-seen-detail:hover {
-				color:rgb(182,232,241); /* Thay đổi màu văn bản khi trỏ chuột vào nút */
+		.btn-detail:hover {
+			color:rgb(182,232,241); /* Thay đổi màu văn bản khi trỏ chuột vào nút */
 		}
 		
 		.thead-title {
@@ -90,6 +89,21 @@
 			border: solid 2px rgb(226, 226, 226);
 		}
 		
+		.page-link {
+	        height: 40px;
+	        color: rgb(2,88,155);
+			border: #f8f9fa;
+			border-radius: 10px !important;
+			margin: 2px;
+	    }
+	    .page-item.active .page-link {
+			background-color: rgb(182,232,241);;
+			color: rgb(2,88,155);
+		}
+
+	    .page-link:hover {
+			background-color: rgb(182,232,241);	 
+		}
 	</style> 
 </head> 
 <body>
@@ -135,7 +149,7 @@
 		            <tr th:each="order : ${orders}">
 		                <td class="align-middle text-center" th:text="${order.id}"></td>
 		                <td class="align-middle text-center" th:text="${#dates.format(order.dateOrder, 'dd/MM/yyyy')}"></td>
-		                <td class="align-middle text-center" th:text="${order.totalPrice}"></td>
+		                <td class="align-middle text-center" th:text="${#numbers.formatInteger(order.totalPrice, 0, 'POINT' )+ ' đ'}" style="color: orangered;"></td>
 		                <td>
 		                    <span class="badge badge-success" th:if="${order.status == 0}">Chờ xác nhận</span>
 		                    <span class="badge badge-info" th:if="${order.status == 1}">Chờ lấy hàng</span>
@@ -148,7 +162,9 @@
 		                <td class="align-middle text-center" th:text="${order.phoneNumber}"></td>
 		                <td class="align-middle text-center" th:text="${order.email}"></td>
 		                <td class="align-middle text-center">
-		                    <a class="btn btn-seen-detail btn-sm" th:href="@{/manageorderitems(orderId=${order.id})}">Xem chi tiết</a>
+		                    <a class="btn btn-detail btn-sm" th:href="@{/manageorderitems(orderId=${order.id})}">
+								<span class="material-symbols-outlined">info</span>
+							</a>
 		                </td>
 		            </tr>
 		        </tbody>
@@ -157,7 +173,9 @@
 		    <div th:if="${totalPages > 1}">
 		        <ul class="pagination">
 		            <li th:if="${currentPage > 1}" class="page-item">
-		                <a class="page-link" th:href="@{/manageorders(page=${currentPage - 1})}">Trước</a>
+		                <a class="page-link" th:href="@{/manageorders(page=${currentPage - 1})}">
+							<span class="material-symbols-outlined">navigate_before</span>
+						</a>
 		            </li>
 		
 		            <th:block th:each="pageNumber : ${#numbers.sequence(1, totalPages)}">
@@ -172,7 +190,8 @@
 		            </th:block>
 		
 		            <li th:if="${currentPage < totalPages}" class="page-item">
-		                <a class="page-link" th:href="@{/manageorders(page=${currentPage + 1})}">Sau</a>
+		                <a class="page-link" th:href="@{/manageorders(page=${currentPage + 1})}">
+						<span class="material-symbols-outlined">navigate_next</span></a>
 		            </li>
 		        </ul>
 		    </div>

@@ -49,12 +49,11 @@
 	}
 	
 	.btn-detail {
-		background-color: rgb(2,88,155);
 		border-radius: 10px;
-		color: white;
+		color: rgb(2,88,155);
 	}
 	.btn-detail:hover {
-			color:rgb(182,232,241); /* Thay đổi màu văn bản khi trỏ chuột vào nút */
+		color:rgb(182,232,241); /* Thay đổi màu văn bản khi trỏ chuột vào nút */
 	}
 	
 	.frame-number {
@@ -106,6 +105,22 @@
 	.container.main {
 			box-shadow: 0 8px 10px rgb(226, 226, 226);
 			border: solid 2px rgb(226, 226, 226);
+		}
+		
+		.page-link {
+	        height: 40px;
+	        color: rgb(2,88,155);
+			border: #f8f9fa;
+			border-radius: 10px !important;
+			margin: 2px;
+	    }
+	    .page-item.active .page-link {
+			background-color: rgb(182,232,241);;
+			color: rgb(2,88,155);
+		}
+
+	    .page-link:hover {
+			background-color: rgb(182,232,241);	 
 		}	
 </style>
 </head>
@@ -176,7 +191,7 @@
 		                    <td class="align-middle text-center" >
 		                    	<span th:each="bookauthor : ${book.bookAuthors}" th:text="${bookauthor.author.name}"></span>
 							</td>
-		                    <td class="align-middle text-center" th:text="${book.sellPrice} + ' vnd'"></td>
+		                    <td class="align-middle text-center" th:text="${#numbers.formatInteger(book.sellPrice, 0, 'POINT')} + ' đ'" style="color: orangered; width: 100px;"></td>
 		                    <td class="align-middle text-center" th:text="${book.quantity}"></td>        
 		                    <td class="align-middle text-center" th:text="${book.category.name}"></td>
 		                    <td class="align-middle text-center">
@@ -189,7 +204,9 @@
 							  </form>
 							</td>
 		                    <td class="align-middle text-center">
-		                        <a th:href="@{/managedetailbook(bookId=${book.id})}" class="btn btn-detail">Chi tiết</a>
+		                        <a th:href="@{/managedetailbook(bookId=${book.id})}" class="btn btn-detail" style="width: 100px;">
+									<span class="material-symbols-outlined">info</span>
+								</a>
 		                    </td>
 		                </tr>
 		            </th:block>
@@ -199,7 +216,8 @@
 			    <div th:if="${totalPages > 1}">
 			        <ul class="pagination">
 			            <li th:if="${currentPage > 1}" class="page-item">
-			                <a class="page-link" th:href="@{/managebooks(category=${categoryId}, page=${currentPage - 1})}">Trước</a>
+			                <a class="page-link" th:href="@{/managebooks(category=${categoryId}, page=${currentPage - 1})}">
+							<span class="material-symbols-outlined">navigate_before</span></a>
 			            </li>
 			    
 			            <th:block th:each="pageNumber : ${#numbers.sequence(1, totalPages)}">
@@ -214,7 +232,9 @@
 			            </th:block>
 			    
 			            <li th:if="${currentPage < totalPages}" class="page-item">
-			                <a class="page-link" th:href="@{/managebooks(category=${categoryId}, page=${currentPage + 1})}">Sau</a>
+			                <a class="page-link" th:href="@{/managebooks(category=${categoryId}, page=${currentPage + 1})}">
+								<span class="material-symbols-outlined">navigate_next</span>
+							</a>
 			            </li>
 			        </ul>
 			    </div>

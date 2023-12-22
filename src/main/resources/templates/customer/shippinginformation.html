@@ -129,7 +129,7 @@
 		            
 					<div class="frame">
 				        <div class="text-total">
-				           <h5>Tổng số tiền: <span th:text="${#numbers.formatInteger(totalAmount, 0, 'POINT')}"></span>đ</h5>
+				           <h5>Tổng số tiền: <span th:text="${#numbers.formatInteger(totalAmount, 0, 'POINT') + ' đ'}"></span></h5>
 				        </div>
 		            </div>
 		            

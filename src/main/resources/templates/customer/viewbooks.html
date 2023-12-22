@@ -254,6 +254,21 @@
 			box-shadow: 0 8px 10px rgb(226, 226, 226);
 			border: solid 2px rgb(226, 226, 226);
 		}
+		
+		.material-symbols-outlined.search{
+			color: rgb(2,88,155);
+		}
+		.material-symbols-outlined.search:hover {
+			color: rgb(182,232,241);
+		}
+		
+		.material-symbols-outlined.click{
+			color: rgb(2,88,155);
+		}
+		.material-symbols-outlined.click:hover {
+			color: rgb(182,232,241);
+		}
+		
 	</style>
 </head>
 <body>
@@ -273,7 +288,7 @@
 					<div class="col-left sidebar col-lg-3 col-md-3 col-sm-12 col-xs-12" style="border-right: 1px solid #cecece;" >
 						<div class="row row-content" style="justify-content: center;">
 							<li class="dropdown open" style="border-bottom: 1px solid #cecece;"> 
-								<h4>DANH MỤC SÁCH <span class="material-symbols-outlined">drag_click</span></h4>								
+								<h4>DANH MỤC SÁCH <span class="material-symbols-outlined click">drag_click</span></h4>								
 								<span style="color: rgb(2,88,155);"></span>
 								<ul class="no-bullets nav-left">
 									<li class="level-0">
@@ -303,7 +318,7 @@
 								</ul>
 							</li>
 							<li class="dropdown open" style="border-bottom: 1px solid #cecece; margin-top: 20px;"> 
-								<h4>THEO NXB <span class="material-symbols-outlined">drag_click</span></h4>								
+								<h4>THEO NXB <span class="material-symbols-outlined click">drag_click</span></h4>								
 								<span style="color: rgb(2,88,155);"></span>
 								<ul class="no-bullets nav-left">
 									<li class="level-0">
@@ -336,7 +351,8 @@
 							<form class="form-inline my-2 my-lg-0" th:action="@{/viewbooks}" method="GET" style="display: flex;">
 								<input class="form-control mr-sm-2" type="text" name="search" placeholder="Tìm kiếm từ khóa" style="width: 88.5%;">
 								
-								<button class="btn btn-outline my-2 my-sm-2" type="submit" style="width: 10%;"><span class="material-symbols-outlined">search</span></button>
+								<button class="btn btn-outline my-2 my-sm-2" type="submit" style="width: 10%;">
+									<span class="material-symbols-outlined search">search</span></button>
 							</form>
 						</div>
 																	
@@ -371,15 +387,15 @@
 							<div class="frame main">
 								
 								<!--Ảnh giới thiệu sản phẩm-->
-								<div class="row row-image-intro" style="border-bottom: 1px solid #cecece;" >
+								<div class="row row-image-intro" style="border-bottom: 1px solid #cecece; margin-top: 30px; margin-bottom: 30px;" >
 									<div class="col-image">
-										<img class="card-image" src="https://res.cloudinary.com/dylwewmt0/image/upload/v1699206485/PHOTO_LIST/view_books/intro_01.jpg" alt>
+										<img class="card-image" src="https://res.cloudinary.com/dylwewmt0/image/upload/v1703262523/PHOTO_LIST/view_books/intro_07.jpg" alt>
 									</div>
 									<div class="col-image">
-										<img class="card-image" src="https://res.cloudinary.com/dylwewmt0/image/upload/v1699206485/PHOTO_LIST/view_books/intro_02.jpg" alt>
+										<img class="card-image" src="https://res.cloudinary.com/dylwewmt0/image/upload/v1703261221/PHOTO_LIST/view_books/intro_08.jpg" alt>
 									</div>
 									<div class="col-image">
-										<img class="card-image" src="https://res.cloudinary.com/dylwewmt0/image/upload/v1699206486/PHOTO_LIST/view_books/intro_03.jpg" alt>
+										<img class="card-image" src="https://res.cloudinary.com/dylwewmt0/image/upload/v1703261220/PHOTO_LIST/view_books/intro_09.jpg" alt>
 									</div>																			
 								</div>
 								
@@ -420,7 +436,9 @@
 								        <ul class="pagination">
 											<div class="row">
 									            <li th:if="${currentPage > 1}" class="page-item">
-									                <a class="page-link" th:href="@{/viewbooks(page=${currentPage - 1})}">Trước</a>
+									                <a class="page-link" th:href="@{/viewbooks(page=${currentPage - 1})}">
+														<span class="material-symbols-outlined">navigate_before</span>
+													</a>
 									            </li>
 									
 									            <th:block th:each="pageNumber : ${#numbers.sequence(1, totalPages)}">
@@ -435,7 +453,9 @@
 									            </th:block>
 									
 									            <li th:if="${currentPage < totalPages}" class="page-item">
-									                <a class="page-link" th:href="@{/viewbooks(page=${currentPage + 1})}">Sau</a>
+									                <a class="page-link" th:href="@{/viewbooks(page=${currentPage + 1})}">
+														<span class="material-symbols-outlined">navigate_next</span>
+													</a>
 									            </li>
 											</div>
 								        </ul>

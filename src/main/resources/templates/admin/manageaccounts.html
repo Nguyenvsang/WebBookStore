@@ -36,9 +36,8 @@
 		}
 		
 		.btn-detail {
-			background-color: rgb(2,88,155);
 			border-radius: 10px;
-			color: white;
+			color: rgb(2,88,155);
 		}
 		.btn-detail:hover {
 			color:rgb(182,232,241); /* Thay đổi màu văn bản khi trỏ chuột vào nút */
@@ -94,7 +93,23 @@
 			box-shadow: 0 8px 10px rgb(226, 226, 226);
 			border: solid 2px rgb(226, 226, 226);
 		}
-		
+
+		.page-link {
+	        height: 40px;
+	        color: rgb(2,88,155);
+			border: #f8f9fa;
+			border-radius: 10px !important;
+			margin: 2px;
+	    }
+	    .page-item.active .page-link {
+			background-color: rgb(182,232,241);;
+			color: rgb(2,88,155);
+		}
+
+	    .page-link:hover {
+			background-color: rgb(182,232,241);	 
+		}
+	    
 	</style> 
 </head> 
 <body>
@@ -156,17 +171,20 @@
 		                    <span th:if="${account.status == 1}" class="badge badge-success">Đang hoạt động</span>
 		                </td>
 		                <td class="align-middle text-center">
-		                    <a class="btn btn-detail" th:href="@{/managedetailaccount(accountId=${account.id})}">Chi tiết</a>
+		                    <a class="btn btn-detail" th:href="@{/managedetailaccount(accountId=${account.id})}" style="width: 100px;">
+								<span class="material-symbols-outlined">info</span>
+							</a>
 		                </td>
 		            </tr>
 		        </tbody>
 		    </table>
 		    
-		    <div class="frame-number">
+		    <div class="frame-number" >
 			    <div th:if="${totalPages > 1}">
 			        <ul class="pagination">
-			            <li th:if="${currentPage > 1}" class="page-item">
-			                <a class="page-link" th:href="@{/managebooks(category=${categoryId}, page=${currentPage - 1})}">Trước</a>
+			            <li th:if="${currentPage > 1}" class="page-item" >
+			                <a class="page-link" th:href="@{/manageaccounts(category=${categoryId}, page=${currentPage - 1})}" >
+							<span class="material-symbols-outlined">navigate_before</span></a>
 			            </li>
 			    
 			            <th:block th:each="pageNumber : ${#numbers.sequence(1, totalPages)}">
@@ -175,13 +193,14 @@
 			                        <span class="page-link" th:text="${pageNumber}"></span>
 			                    </th:block>
 			                    <th:block th:unless="${pageNumber == currentPage}">
-			                        <a class="page-link" th:inline="text" th:href="@{/managebooks(category=${categoryId}, page=${pageNumber})}" th:text="${pageNumber}"></a>
+			                        <a class="page-link" th:inline="text" th:href="@{/manageaccounts(category=${categoryId}, page=${pageNumber})}" th:text="${pageNumber}"></a>
 			                    </th:block>
 			                </li>
 			            </th:block>
 			    
 			            <li th:if="${currentPage < totalPages}" class="page-item">
-			                <a class="page-link" th:href="@{/managebooks(category=${categoryId}, page=${currentPage + 1})}">Sau</a>
+			                <a class="page-link" th:href="@{/manageaccounts(category=${categoryId}, page=${currentPage + 1})}">
+							<span class="material-symbols-outlined">navigate_next</span></a>
 			            </li>
 			        </ul>
 			    </div>

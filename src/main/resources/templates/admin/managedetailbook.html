@@ -25,7 +25,7 @@
 			margin-top: 20px;
 			margin-bottom: 20px;
 			margin-left: 20px;
-			margin-right: 20px;
+			
 			border: 1px solid rgb(255, 255, 255);
 			
 		}
@@ -109,26 +109,62 @@
 				<h3>THÔNG TIN SÁCH</h3>			
 		        <div class="frame-02">
 		            <div class="row no-gutters">
-						
-		                <div class="col-md-3">
-		                    <img th:src="${book.bookImages[0].path}" alt="Book Image" class="card-img" style="border-radius: 15px;">
-		                </div>
-		                <div class="col-md-9">
+						<div class="col-md-4">
+							<div class="row">
+								<div class="col-md-4">
+				                    <img th:src="${book.bookImages[1].path + '?v=' + randomNumber}" alt="Book Image 1" width="90" style="margin-bottom: 10px;"><br>
+				                    <img th:src="${book.bookImages[2].path + '?v=' + randomNumber}" alt="Book Image 1" width="90" style="margin-bottom: 10px;"><br>
+				                    <img th:src="${book.bookImages[3].path + '?v=' + randomNumber}" alt="Book Image 1" width="90" style="margin-bottom: 10px;"><br>
+				                </div>
+				                <div class="col-md-8">
+				                    <img th:src="${book.bookImages[0].path}" alt="Book Image" class="card-img" style="border-radius: 15px;">
+				                </div>
+							</div>
+						</div>
+		                <div class="col-md-8">
 		                    <div class="card-body">								
 		                        <h5 class="card-title" th:text="${book.name}"></h5>
-		                        <div class="row">
-		                        	<div class="col">									
-				                        <p class="card-text">Tác giả: <span th:text="${authors}"></span></p>
-				                        <p class="card-text">Nhà xuất bản: <span th:text="${book.publisher}"></span></p>
-				                        <p class="card-text">Giá: <span th:text="${book.sellPrice}"></span> vnd</p>
-				                        <p class="card-text">Số lượng: <span th:text="${book.quantity}"></span></p>
-				                        <p class="card-text">Danh mục: <span th:text="${book.category.name}"></span></p>
-		                        	</div>
-		                        	<div class="col">
-				                        <p class="card-text">Chi tiết:</p>
-				                        <pre class="card-text" th:text="${book.detail}"></pre>
-		                        	</div>
-		                        			                        	
+		                        <div class="row main" style="margin-right: 250px;">
+									<div class="col" style="margin-left: 20px;" >
+										
+										<div class="row one" style="display: flex; justify-content: center; align-items: center;">
+											<div class="col">
+						                        <p class="card-text" style="display: flex; justify-content: left; align-items: center;">Tác giả:</p>
+											</div>
+											<div class="col" style="display: flex; justify-content: left; align-items: center;">
+												<span th:each="bookauthor : ${book.bookAuthors}" th:text="${bookauthor.author.name}"></span>
+											</div>
+										</div>
+										
+					                    <div class="row two" style="display: flex; justify-content: center; align-items: center;"> 
+											<div class="col">
+					                        	<p class="card-text" style="display: flex; justify-content: left; align-items: center;">Nhà xuất bản: </p>
+											</div>
+											<div class="col" style="display: flex; justify-content: left; align-items: center;">
+												<span th:text="${book.publisher}"></span>
+											</div>
+					                    </div>
+	
+					                    <div class="row third" style="display: flex; justify-content: center; align-items: center;"> 
+											<div class="col">  
+					                        	<p class="card-text" style="display: flex; justify-content: left; align-items: center;">Số lượng: </p>
+											</div>
+											<div class="col" style="display: flex; justify-content: left; align-items: center;">
+												<span th:text="${book.quantity}"></span>
+											</div>
+					                    </div>
+					                    
+					                    <div class="row four" style="display: flex; justify-content: center; align-items: center;">
+											<div class="col">
+					                        	<p class="card-text" style="display: flex; justify-content: left; align-items: center;">Danh mục:</p>
+											</div>
+											<div class="col" style="display: flex; justify-content: left; align-items: center;">
+												 <span th:text="${book.category.name}"></span>
+											</div>	
+					                    </div>
+					                        									
+				                        	<p class="card-text" style="font-size: 30px; font-weight: bold;text-align: left; color: orangered;"><span th:text="${#numbers.formatInteger(book.sellPrice, 0, 'POINT')}" ></span> đ</p>
+									</div>																		
 		                        </div>
 		                        <div class="d-flex flex-grow-2">
 				                    	<form th:action="@{/addtocart}" method="post">
@@ -155,6 +191,14 @@
 				    	<p class="card-text content" th:text="${book.description}" style="text-align: justify;"></p>
 					</div>
 	       		</div>
+	       		<div class="frame-description">	
+				<div class="frame-description-01">
+			       	<div class="col">
+						<p class="card-text">Chi tiết:</p>
+				        <pre class="card-text" th:text="${book.detail}"></pre>
+					</div>
+				</div>
+	       	</div>
 	        </div>
        
     </div>

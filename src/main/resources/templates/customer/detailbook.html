@@ -12,7 +12,7 @@
 		
 		h3 {
         	text-align: center;
-        	margin-top: 40px;
+        	margin-top: 0px;
         	margin-bottom: 20px;  
         	color: rgb(2,88,155);     	
     	}
@@ -28,6 +28,7 @@
 			box-shadow: 0 8px 10px rgb(226, 226, 226);
 			border: solid 2px rgb(226, 226, 226);
 		}
+		
 		.frame-02 {
 			margin-top: 20px;
 			margin-bottom: 20px;
@@ -48,7 +49,6 @@
 		} 
 		
 		.btn-back {
-			background-color: rgb(2,88,155);
 			border-radius: 10px;
 			color: white;
 		}
@@ -76,12 +76,6 @@
 			background-color:azure
 		}
 		
-		.card-text {
-			margin-top: 20px;
-			margin-bottom: 20px;
-			margin-left: 20px;
-			margin-right: 20px;
-		}
 		
 		.frame-description-01 {
 			margin-bottom: 20px;			
@@ -132,6 +126,36 @@
 		.material-symbols-outlined{
 			color: rgb(2,88,155);
 		}
+		
+		.row.one {
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+		
+		.row.two {
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+		.row.third {
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+		.row.four {
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+		
+		.frame-description-01 {
+			margin: 20px;
+		}
+		
+		.material-symbols-outlined.back {
+			color: rgb(2,88,155);
+		}
+		
+		.material-symbols-outlined.back:hover {
+			color: rgb(182,232,241);
+		}
 	</style>
 </head>
 <body>
@@ -159,6 +183,11 @@
         
         <div class="container main">
 	        <div class="frame-01" style="background-color: white;">
+				<p class="text" style="height: 40px;">
+		            <a href="javascript:history.back()" class="btn btn-back" style="margin: 10px;">
+						<span class="material-symbols-outlined back">arrow_back_ios</span>
+					</a>
+		        </p>
 				<h3>THÔNG TIN SÁCH</h3>
 				<div class="frame-02">
 		            <div class="row no-gutters">
@@ -177,20 +206,47 @@
 		                <div class="col-md-8">
 		                    <div class="card-body">
 		                        <h5 class="card-title" th:text="${book.name}"></h5>
-		                        <div class="row">
-									<div class="col">
-				                        <p class="card-text">Tác giả:
-						                    <span th:each="bookauthor : ${book.bookAuthors}" th:text="${bookauthor.author.name}"></span>
-						                </p>
-				                        <p class="card-text">Nhà xuất bản: <span th:text="${book.publisher}"></span></p>
-				                        <p class="card-text" style="font-size: 16px; text-align: left; color: orangered;"><span th:text="${#numbers.formatInteger(book.sellPrice, 0, 'POINT')}" ></span> đ</p>
-				                        <p class="card-text">Số lượng: <span th:text="${book.quantity}"></span></p>
-				                        <p class="card-text">Danh mục: <span th:text="${book.category.name}"></span></p>
-									</div>
-									<div class="col">
-										<p class="card-text">Chi tiết:</p>
-		                        		<pre class="card-text" th:text="${book.detail}"></pre>
-									</div>
+		                        <div class="row main" style="margin-right: 250px;">
+									<div class="col" style="margin-left: 20px;" >
+										
+										<div class="row one" style="display: flex; justify-content: center; align-items: center;">
+											<div class="col">
+						                        <p class="card-text" style="display: flex; justify-content: left; align-items: center;">Tác giả:</p>
+											</div>
+											<div class="col" style="display: flex; justify-content: left; align-items: center;">
+												<span th:each="bookauthor : ${book.bookAuthors}" th:text="${bookauthor.author.name}"></span>
+											</div>
+										</div>
+										
+					                    <div class="row two" style="display: flex; justify-content: center; align-items: center;"> 
+											<div class="col">
+					                        	<p class="card-text" style="display: flex; justify-content: left; align-items: center;">Nhà xuất bản: </p>
+											</div>
+											<div class="col" style="display: flex; justify-content: left; align-items: center;">
+												<span th:text="${book.publisher}"></span>
+											</div>
+					                    </div>
+	
+					                    <div class="row third" style="display: flex; justify-content: center; align-items: center;"> 
+											<div class="col">  
+					                        	<p class="card-text" style="display: flex; justify-content: left; align-items: center;">Số lượng: </p>
+											</div>
+											<div class="col" style="display: flex; justify-content: left; align-items: center;">
+												<span th:text="${book.quantity}"></span>
+											</div>
+					                    </div>
+					                    
+					                    <div class="row four" style="display: flex; justify-content: center; align-items: center;">
+											<div class="col">
+					                        	<p class="card-text" style="display: flex; justify-content: left; align-items: center;">Danh mục:</p>
+											</div>
+											<div class="col" style="display: flex; justify-content: left; align-items: center;">
+												 <span th:text="${book.category.name}"></span>
+											</div>	
+					                    </div>
+					                        									
+				                        	<p class="card-text" style="font-size: 30px; font-weight: bold;text-align: left; color: orangered;"><span th:text="${#numbers.formatInteger(book.sellPrice, 0, 'POINT')}" ></span> đ</p>
+									</div>																		
 		                        </div>
 		                        
 		                        <div class="d-flex flex-grow-2">
@@ -209,7 +265,7 @@
 				                    	</form>		                            
 		                        </div>
 		                        <div class="ml-2">
-		                        	<a th:href="@{/viewbooks}" class="btn btn-back">Trở về</a>
+		                        	
 		                        </div>		                        		                        		                    		                        
 		                    </div>
 		                </div>
@@ -220,6 +276,14 @@
 				<div class="frame-description-01">		
 			        <p class="card-text text-description">Mô tả:</p>
 				    <p class="card-text content" th:text="${book.description}" style="text-align: justify;"></p>
+				</div>
+	       	</div>
+	       	<div class="frame-description">	
+				<div class="frame-description-01">
+			       	<div class="col">
+						<p class="card-text">Chi tiết:</p>
+				        <pre class="card-text" th:text="${book.detail}"></pre>
+					</div>
 				</div>
 	       	</div>
         </div>
