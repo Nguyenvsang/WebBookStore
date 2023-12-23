@@ -223,6 +223,10 @@ INSERT INTO Author(name, bio)
 VALUES ("Kate Andersen Brower", "");
 INSERT INTO Author(name, bio)
 VALUES ("Trần Công Diêu", "");
+INSERT INTO Author(name, bio)
+VALUES ("Phan Văn Trường", "");
+INSERT INTO Author(name, bio)
+VALUES ("Andrea Hirata", "");
 
 -- Thêm dữ liệu vào bảng Book  
 INSERT INTO Book(name, cost_price, sell_price, category_id, publisher, description, status, detail, quantity)
@@ -401,6 +405,39 @@ Ngôn ngữ: Tiếng Việt
 Kích thước: 23.5 x 16.5 cm
 Ngày phát hành: 01/2021
 Số trang: 392", 100);
+INSERT INTO Book(name, cost_price, sell_price, category_id, publisher, description, status, detail, quantity)
+VALUES ("Cơn Lốc Quản Trị - Ba Trụ Cột Của Văn Hóa Doanh Nghiệp", 105000, 110000, 3,
+"NXB Trẻ", 
+'"Cơn Lốc Quản Trị - Ba Trụ Cột Của Văn Hóa Doanh Nghiệp"
+Doanh nghiệp nào cũng có lúc gặp phải những vấn đề không nhất thiết mang tính kỹ thuật, như sự thiếu vắng động lực, hoặc tinh thần tương tác và làm việc nhóm thấp, thậm chí là mâu thuẫn giữa các thành viên, trong đó có cả các lãnh đạo cấp trung và cấp cao. Chẳng công cụ quản lý nào cho phép giải quyết được những vấn đề bắt nguồn từ sự ganh tị, đố kị, thiên vị, hoặc tệ hơn nữa là nạn bè đảng hay tham nhũng nội bộ.
+Các mô hình quản lý chỉ mang lý luận kỹ thuật cục bộ hạn hẹp và những giải pháp cấu trúc có sẵn cho doanh nghiệp. Chỉ văn hóa mới có khả năng vào sâu một cách uyển chuyển các vấn đề trong mối quan hệ giữa người với người. Và đây chính là những vấn đề mà các doanh nghiệp Việt Nam thường gặp phải.
+Trong tác phẩm mới nhất về văn hóa doanh nghiệp, tác giả Phan Văn Trường phát triển và đi sâu hơn nữa về chủ đề khá trừu tượng này. Vẫn giữ nguyên phong cách tiếp cận dựa trên những câu chuyện từ thực tế trải nghiệm của mình, ông dẫn dắt độc giả trên con đường tìm hiểu vai trò của văn hóa doanh nghiệp, đồng thời đi sâu giải thích ba phong cách văn hóa mà chính ông đã tiên phong áp dụng cho những doanh nghiệp mình từng tham gia quản trị.', 
+1, "Tên Nhà Cung Cấp:	NXB Trẻ
+Tác giả:	Phan Văn Trường
+NXB:	Trẻ
+Năm XB:	2023
+Ngôn Ngữ:	Tiếng Trung
+Trọng lượng (gr):	260
+Kích Thước Bao Bì:	23 x 15.5 x 1.2 cm
+Số trang:	248
+Hình thức:	Bìa Mềm", 100);
+INSERT INTO Book(name, cost_price, sell_price, category_id, publisher, description, status, detail, quantity)
+VALUES ("Chiến Binh Cầu Vồng (Tái Bản 2020)", 109000, 119000, 4,
+"NXB Hội Nhà Văn", 
+'"Chiến Binh Cầu Vồng (Tái Bản 2020)"
+“Thầy Harfan và cô Mus nghèo khổ đã mang đến cho tôi tuổi thơ đẹp nhất, tình bạn đẹp nhất, và tâm hồn phong phú, một thứ gì đó vô giá, thậm chí còn có giá trị hơn những khao khát mơ ước. Có thể tôi lầm, nhưng theo ý tôi, đây thật sự là hơi thở của giáo dục và linh hồn của một chốn được gọi là trường học.” - (Trích tác phẩm)
+Trong ngày khai giảng, nhờ sự xuất hiện vào phút chót của cậu bé thiểu năng trí tuệ Harun, trường Muhammadiyah may mắn thoát khỏi nguy cơ đóng cửa. Nhưng ước mơ dạy và học trong ngôi trường Hồi giáo ấy liệu sẽ đi về đâu, khi ngôi trường xập xệ dường như sẵn sàng sụp xuống bất cứ lúc nào, khi lời đe dọa đóng cửa từ viên thanh tra giáo dục luôn lơ lửng trên đầu, khi những cỗ máy xúc hung dữ đang chực chờ xới tung ngôi trường để dò mạch thiếc…? Và liệu niềm đam mê học tập của những Chiến binh Cầu vồng đó có đủ sức chinh phục quãng đường ngày ngày đạp xe bốn mươi cây số, rồi đầm cá sấu lúc nhúc bọn ăn thịt người, chưa kể sự mê hoặc từ những chuyến phiêu lưu chết người theo tiếng gọi của ngài pháp sư bí ẩn trên đảo Hải Tặc, cùng sức cám dỗ khôn cưỡng từ những đồng tiền còm kiếm được nhờ công việc cu li toàn thời gian ...?
+Chiến binh Cầu vồng có cả tình yêu trong sáng tuổi học trò lẫn những trò đùa tinh quái, cả nước mắt lẫn tiếng cười – một bức tranh chân thực về hố sâu ngăn cách giàu nghèo, một tác phẩm văn học cảm động truyền tải sâu sắc nhất ý nghĩa đích thực của việc làm thầy, việc làm trò và việc học.
+Tác phẩm đã bán được trên năm triệu bản, được dịch ra 26 thứ tiếng, là một trong những đại diện xuất sắc nhất của  văn học Indonesia hiện đại.', 
+1, "Tên Nhà Cung Cấp:	Nhã Nam
+Tác giả:	Andrea Hirata
+Người Dịch:	Dạ Thảo
+NXB:	NXB Hội Nhà Văn
+Năm XB:	2020
+Trọng lượng (gr):	450
+Kích Thước Bao Bì:	20.5 x 14 cm
+Số trang:	428
+Hình thức:	Bìa Mềm", 100);
 
 -- Thêm dữ liệu vào bảng BookAuthor
 INSERT INTO BookAuthor(book_id, author_id) VALUE(1,1);
@@ -414,6 +451,8 @@ INSERT INTO BookAuthor(book_id, author_id) VALUE(8,7);
 INSERT INTO BookAuthor(book_id, author_id) VALUE(9,8);
 INSERT INTO BookAuthor(book_id, author_id) VALUE(10,9);
 INSERT INTO BookAuthor(book_id, author_id) VALUE(11,10);
+INSERT INTO BookAuthor(book_id, author_id) VALUE(12,11);
+INSERT INTO BookAuthor(book_id, author_id) VALUE(13,12);
 
 -- Thêm dữ liệu vào bảng BookImage
 INSERT INTO BookImage(book_id, name, position, path) 
@@ -426,103 +465,112 @@ INSERT INTO BookImage(book_id, name, position, path)
 VALUE (1, "4", 4, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/001/4");
 
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (2, "1", 1, "/images/books/Chinhtri_phapluat/book002/1.jpg");
+VALUE (2, "1", 1, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/002/1");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (2, "2", 2, "/images/books/Chinhtri_phapluat/book002/2.jpg");
+VALUE (2, "2", 2, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/002/2");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (2, "3", 3, "/images/books/Chinhtri_phapluat/book002/3.jpg");
+VALUE (2, "3", 3, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/002/3");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (2, "4", 4, "/images/books/Chinhtri_phapluat/book002/4.jpg");
+VALUE (2, "4", 4, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/002/4");
 
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (3, "1", 1, "/images/books/Chinhtri_phapluat/book003/1.jpg");
+VALUE (3, "1", 1, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/003/1");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (3, "2", 2, "/images/books/Chinhtri_phapluat/book003/2.jpg");
+VALUE (3, "2", 2, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/003/2");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (3, "3", 3, "/images/books/Chinhtri_phapluat/book003/3.jpg");
+VALUE (3, "3", 3, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/003/3");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (3, "4", 4, "/images/books/Chinhtri_phapluat/book003/4.jpg");
+VALUE (3, "4", 4, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/003/4");
 
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (3, "1", 1, "/images/books/Chinhtri_phapluat/book003/1.jpg");
+VALUE (4, "1", 1, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/004/1");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (3, "2", 2, "/images/books/Chinhtri_phapluat/book003/2.jpg");
+VALUE (4, "2", 2, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/004/2");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (3, "3", 3, "/images/books/Chinhtri_phapluat/book003/3.jpg");
+VALUE (4, "3", 3, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/004/3");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (3, "4", 4, "/images/books/Chinhtri_phapluat/book003/4.jpg");
+VALUE (4, "4", 4, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/004/4");
 
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (4, "1", 1, "/images/books/Chinhtri_phapluat/book004/1.jpg");
+VALUE (5, "1", 1, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/005/1");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (4, "2", 2, "/images/books/Chinhtri_phapluat/book004/2.jpg");
+VALUE (5, "2", 2, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/005/2");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (4, "3", 3, "/images/books/Chinhtri_phapluat/book004/3.jpg");
+VALUE (5, "3", 3, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/005/3");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (4, "4", 4, "/images/books/Chinhtri_phapluat/book004/4.jpg");
+VALUE (5, "4", 4, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/005/4");
 
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (5, "1", 1, "/images/books/Chinhtri_phapluat/book005/1.jpg");
+VALUE (6, "1", 1, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/006/1");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (5, "2", 2, "/images/books/Chinhtri_phapluat/book005/2.jpg");
+VALUE (6, "2", 2, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/006/2");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (5, "3", 3, "/images/books/Chinhtri_phapluat/book005/3.jpg");
+VALUE (6, "3", 3, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/006/3");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (5, "4", 4, "/images/books/Chinhtri_phapluat/book005/4.jpg");
+VALUE (6, "4", 4, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/006/4");
 
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (6, "1", 1, "/images/books/Chinhtri_phapluat/book006/1.jpg");
+VALUE (7, "1", 1, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/007/1");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (6, "2", 2, "/images/books/Chinhtri_phapluat/book006/2.jpg");
+VALUE (7, "2", 2, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/007/2");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (6, "3", 3, "/images/books/Chinhtri_phapluat/book006/3.jpg");
+VALUE (7, "3", 3, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/007/3");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (6, "4", 4, "/images/books/Chinhtri_phapluat/book006/4.jpg");
+VALUE (7, "4", 4, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/007/4");
 
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (7, "1", 1, "/images/books/Chinhtri_phapluat/book007/1.jpg");
+VALUE (8, "1", 1, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/008/1");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (7, "2", 2, "/images/books/Chinhtri_phapluat/book007/2.jpg");
+VALUE (8, "2", 2, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/008/2");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (7, "3", 3, "/images/books/Chinhtri_phapluat/book007/3.jpg");
+VALUE (8, "3", 3, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/008/3");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (7, "4", 4, "/images/books/Chinhtri_phapluat/book007/4.jpg");
+VALUE (8, "4", 4, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/008/4");
 
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (8, "1", 1, "/images/books/Chinhtri_phapluat/book008/1.jpg");
+VALUE (9, "1", 1, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/009/1");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (8, "2", 2, "/images/books/Chinhtri_phapluat/book008/2.jpg");
+VALUE (9, "2", 2, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/009/2");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (8, "3", 3, "/images/books/Chinhtri_phapluat/book008/3.jpg");
+VALUE (9, "3", 3, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/009/3");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (8, "4", 4, "/images/books/Chinhtri_phapluat/book008/4.jpg");
+VALUE (9, "4", 4, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/009/4");
 
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (9, "1", 1, "/images/books/Chinhtri_phapluat/book009/1.jpg");
+VALUE (10, "1", 1, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/010/1");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (9, "2", 2, "/images/books/Chinhtri_phapluat/book009/2.jpg");
+VALUE (10, "2", 2, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/010/2");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (9, "3", 3, "/images/books/Chinhtri_phapluat/book009/3.jpg");
+VALUE (10, "3", 3, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/010/3");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (9, "4", 4, "/images/books/Chinhtri_phapluat/book009/4.jpg");
+VALUE (10, "4", 4, "https://res.cloudinary.com/dylwewmt0/image/upload/v1694971592/PHOTO_LIST/Chinhtri_phapluat/010/4");
 
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (10, "1", 1, "/images/books/Chinhtri_phapluat/book010/1.jpg");
+VALUE (11, "1", 1, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695020353/PHOTO_LIST/Giao_trinh/001/1");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (10, "2", 2, "/images/books/Chinhtri_phapluat/book010/2.jpg");
+VALUE (11, "2", 2, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695020353/PHOTO_LIST/Giao_trinh/001/2");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (10, "3", 3, "/images/books/Chinhtri_phapluat/book010/3.jpg");
+VALUE (11, "3", 3, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695020353/PHOTO_LIST/Giao_trinh/001/3");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (10, "4", 4, "/images/books/Chinhtri_phapluat/book010/4.jpg");
+VALUE (11, "4", 4, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695020353/PHOTO_LIST/Giao_trinh/001/4");
 
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (11, "1", 1, "/images/books/Giao_trinh/book002/1.jpg");
+VALUE (12, "1", 1, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695021586/PHOTO_LIST/Khoahoc_congnghe_kinhte/001/1");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (11, "2", 2, "/images/books/Giao_trinh/book002/2.jpg");
+VALUE (12, "2", 2, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695021586/PHOTO_LIST/Khoahoc_congnghe_kinhte/001/2");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (11, "3", 3, "/images/books/Giao_trinh/book002/3.jpg");
+VALUE (12, "3", 3, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695021586/PHOTO_LIST/Khoahoc_congnghe_kinhte/001/3");
 INSERT INTO BookImage(book_id, name, position, path) 
-VALUE (11, "4", 4, "/images/books/Giao_trinh/book002/4.jpg");
+VALUE (12, "4", 4, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695021586/PHOTO_LIST/Khoahoc_congnghe_kinhte/001/4");
+
+INSERT INTO BookImage(book_id, name, position, path) 
+VALUE (13, "1", 1, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695025933/PHOTO_LIST/Sach_truyen_tieuthuyet/001/1");
+INSERT INTO BookImage(book_id, name, position, path) 
+VALUE (13, "2", 2, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695025933/PHOTO_LIST/Sach_truyen_tieuthuyet/001/2");
+INSERT INTO BookImage(book_id, name, position, path) 
+VALUE (13, "3", 3, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695025933/PHOTO_LIST/Sach_truyen_tieuthuyet/001/3");
+INSERT INTO BookImage(book_id, name, position, path) 
+VALUE (13, "4", 4, "https://res.cloudinary.com/dylwewmt0/image/upload/v1695025933/PHOTO_LIST/Sach_truyen_tieuthuyet/001/4");
 
 -- Thêm dữ liệu vào bảng Cart
 INSERT INTO Cart(account_id) VALUES (3), (4);
