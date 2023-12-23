@@ -34,16 +34,7 @@
 			color: rgb(182,232,241)
 		}
 		
-		.btn-out {
-			border-radius: 10px;
-			color: black;
-			background-color: white;
-			border: 2px solid rgb(2,88,155);			
-		}
-		.btn-out:hover {
-			color:rgb(2,88,155); /* Thay đổi màu văn bản khi trỏ chuột vào nút */
-			background-color: azure;
-		}
+		
 		.card {
 			border: 2px ;
 	        border-radius: 5px;	  
@@ -72,6 +63,15 @@
 			box-shadow: 0 8px 10px rgb(226, 226, 226);
 			border: solid 2px rgb(226, 226, 226);
 		}
+		
+		.material-symbols-outlined.back {
+			color: rgb(2,88,155);
+		}
+		
+		.material-symbols-outlined.back:hover {
+			color: rgb(182,232,241);
+		}
+		
 </style>
 </head>
 <body>
@@ -86,6 +86,11 @@
 		</div>
         
         <div class="card">
+			<div class="ml-2">
+	            <a th:href="@{/manageauthors}" class="btn btn-out">
+				<span class="material-symbols-outlined back">arrow_back_ios</span>
+				</a>
+	        </div>
 			<h3>THÔNG TIN TÁC GIẢ</h3>
             <div class="row no-gutters justify-content: center;">
                 <div class="col-md-12 justify-content: center;">
@@ -103,9 +108,7 @@
             </div>
             <div class="d-flex flex-grow-1 justify-content-center" >
 	          	<a th:href="@{/updateauthor(authorId=${author.id})}" class="btn btn-editinfo">Sửa thông tin</a>
-	            	<div class="ml-2">
-	                   <a th:href="@{/manageauthors}" class="btn btn-out">Thoát</a>
-	            	</div>
+	            	
 	        </div>
         </div>
         

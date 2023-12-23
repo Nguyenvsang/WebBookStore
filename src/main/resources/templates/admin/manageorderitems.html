@@ -17,22 +17,10 @@
         	color: rgb(2,88,155);     	
     	}
     	h4 {
-        	margin-top: 10px;
+        	margin-top: 0px;
         	margin-bottom: 20px;  
         	color: rgb(2,88,155);     	
     	}
-    	.btn-back {
-			background-color: rgb(2,88,155);
-			border-radius: 10px;
-			color: white;
-			display: center;
-			margin-bottom: 20px;
-			margin-top: 20px;
-			text-align: left;
-		}
-		.btn-back:hover {
-			color: rgb(182,232,241)
-		}
 		.frame-main {
 	        border: 2px solid rgb(182,232,241);
 	        border-radius: 5px;
@@ -107,11 +95,25 @@
 			box-shadow: 0 8px 10px rgb(226, 226, 226);
 			border: solid 2px rgb(226, 226, 226);
 		}
+		
+		.material-symbols-outlined.back {
+			color: rgb(2,88,155);
+		}
+		
+		.material-symbols-outlined.back:hover {
+			color: rgb(182,232,241);
+		}
+		
 	</style>
 </head>
 <body>
 	<div th:replace="~{admin/headeradmin :: header}"></div>
     <div class="container main" style="background-color: white;">
+	
+       	<a th:href="@{/manageorders}" class="btn btn-back">
+			<span class="material-symbols-outlined back">arrow_back_ios</span>
+        </a>
+        
         <h3>CHI TIẾT ĐƠN HÀNG</h3>
         <div class="frame-main">
 	        <table class="table table-striped">
@@ -196,9 +198,7 @@
 	        </table>
         </div>  
         
-        <p class="text-center">
-            <a th:href="@{/manageorders}" class="btn btn-back">Trở lại</a>
-        </p>
+        
     </div>
     <!-- Đường dẫn tới các tệp JavaScript của Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>

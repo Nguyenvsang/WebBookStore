@@ -12,7 +12,7 @@
 		th, td { text-align: center; } 
 		h3 {
 	        text-align: center;
-	        margin-top: 20px;
+	        margin-top: 0px;
 	        margin-bottom: 20px;  
 	        color: rgb(2,88,155);     	
 	    }
@@ -37,15 +37,12 @@
 			color: rgb(182,232,241)
 		}
 		
-		.btn-out {
-			border-radius: 10px;
-			color: black;
-			background-color: white;
-			border: 2px solid rgb(2,88,155);			
+		.material-symbols-outlined.back {
+			color: rgb(2,88,155);
 		}
-		.btn-out:hover {
-			color:rgb(2,88,155); /* Thay đổi màu văn bản khi trỏ chuột vào nút */
-			background-color: azure;
+		
+		.material-symbols-outlined.back:hover {
+			color: rgb(182,232,241);
 		}
 		
 		.container-body {
@@ -65,6 +62,9 @@
 		    <span th:text="${param.message}"></span>
 		</div>
 	    <div class="container-body" style="background-color: white;"> 
+			<a th:href="@{/managecategories}" class="btn btn-out" style="margin: 10px;">
+				<span class="material-symbols-outlined back">arrow_back_ios</span>
+			</a>
 			<h3>CHỈNH SỬA DANH MỤC</h3>
 			<div class="frame-body">   
 		        <form th:action="@{/updatecategory}" method="post">
@@ -86,7 +86,7 @@
 		            </div>
 		            <div class="text-center mb-4">
 		                <button type="submit" class="btn btn-save">Lưu</button>
-		                <a th:href="@{/managecategories}" class="btn btn-out">Thoát</a>
+		                
 		            </div>
 		        </form>
 			</div>

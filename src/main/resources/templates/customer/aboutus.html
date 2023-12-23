@@ -25,14 +25,6 @@
 		h1 {
         font-family: Tahoma; /* Thay đổi font chữ ở đây */
     	}
-    	.btn-change-roles {
-			border-radius: 10px;
-			color: rgb(2,88,155);
-			display: center;			
-		}
-		.btn-change-roles:hover {
-			color: rgb(182,232,241);
-		}
 		p {
     		text-align: justify;
     		margin: 20px;
@@ -77,9 +69,7 @@
 			display: flex;
 			float: right;
 		}
-		.material-symbols-outlined{
-			color: rgb(2,88,155);
-		}
+		
 		
 		.container.main {
 			border: 2px ;
@@ -92,6 +82,13 @@
 		.container.main {
 			box-shadow: 0 8px 10px rgb(226, 226, 226);
 			border: solid 2px rgb(226, 226, 226);
+		}
+		
+		.btn-change-roles{
+			color: rgb(2,88,155);
+		}
+		.btn-change-roles:hover {
+			color: rgb(182,232,241);
 		}
 	</style>
 </head>
@@ -112,9 +109,10 @@
 		        <p>Thế kỉ nào tôi mới biết đến thơ</p>
 		        <p>Ờ đó là thế kỉ hai mươi mốt</p>
 		        <div class="text-center mb-4">
-		        	<a class="btn btn-change-roles" th:href="@{/loginadmin}">
-						<span class="material-symbols-outlined" style="font-size: xx-large;">change_circle</span>
-					</a>
+		        	<a class="btn btn-change-roles" th:href="@{/loginadmin}" style="display: flex; justify-content: center; align-items: center;" >
+						<span class="material-symbols-outlined change" style="font-size: xx-large; margin: 5px;">change_circle</span>	
+						<span>Đổi vai trò</span>			
+					</a>					
 		        </div>
 			 </div>			 
 		</div>

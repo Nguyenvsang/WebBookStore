@@ -36,15 +36,7 @@
 		.btn-save:hover {
 			color: rgb(182,232,241)
 		}
-		.btn-out {
-			border-radius: 10px;
-			color: black;
-			background-color: white;
-			border: 2px solid rgb(2,88,155);			
-		}
-		.btn-out:hover {
-			color:rgb(2,88,155); /* Thay đổi màu văn bản khi trỏ chuột vào nút */
-		}
+		
 		.form-control-file {
 			color: white;
 		}
@@ -80,6 +72,15 @@
 			box-shadow: 0 8px 10px rgb(226, 226, 226);
 			border: solid 2px rgb(226, 226, 226);
 		}
+		
+		.material-symbols-outlined.back {
+			color: rgb(2,88,155);
+		}
+		
+		.material-symbols-outlined.back:hover {
+			color: rgb(182,232,241);
+		}
+		
 	</style>
 	<script>
 	var loadFile = function(event) {
@@ -103,6 +104,9 @@
              
         <!--Khung cho phần chỉnh sửa-->
         <div class="container-body" style="background-color: white;">
+			<a th:href="@{/viewaccount}" class="btn btn-out">
+				<span class="material-symbols-outlined back">arrow_back_ios</span>
+			</a>
 			<h3>NHẬP THÔNG TIN CẦN CHỈNH SỬA</h3>               
 	        <form th:action="@{/updateaccount}" th:object="${account}" method="post" enctype="multipart/form-data">
 			    <div class="form-group">
@@ -149,7 +153,7 @@
 			    </div>
 			    <div class="text-center mb-4">
 			        <button type="submit" class="btn btn-save">Lưu</button>
-			        <a th:href="@{/viewaccount}" class="btn btn-out">Thoát</a>
+			        
 			    </div>
 			</form>
         </div>
