@@ -50,12 +50,15 @@
 		    height: auto; /* Chiều cao của ảnh sẽ tự động điều chỉnh để giữ nguyên tỷ lệ khung hình */
 		    border-radius: 20px;
 		}
+		
+		body { background-color: #f8f9fa  }
+		
 	</style>
 </head>
 <body>
 	<div th:replace="~{admin/headeradmin :: header}"></div>
-    <div class="container mt-4 mb-4">
-		<div class="row">
+    <div class="container mt-4 mb-4 main" style="background-color: white; padding: 20px; border-radius: 20px;">
+		<div class="row" style="margin-left: 20px; margin-top: 20px;">
 			<div class="col-image">
 				<img class="responsive-image" src="https://res.cloudinary.com/dylwewmt0/image/upload/v1698830013/PHOTO_LIST/AboutUs/book_02.jpg" alt>				
 			</div>
