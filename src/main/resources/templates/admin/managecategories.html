@@ -162,7 +162,7 @@
 	        </table>
 	
 	        <div th:if="${totalPages > 1}">
-		        <ul class="pagination">
+		        <ul class="pagination" style="display: flex; align-items: center; justify-content: center;">
 		            <li th:if="${currentPage > 1}" class="page-item">
 		                <a class="page-link" th:href="@{/managecategories(page=${currentPage - 1})}">
 							<span class="material-symbols-outlined">navigate_before</span>
