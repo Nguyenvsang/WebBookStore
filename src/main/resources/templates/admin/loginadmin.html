@@ -118,9 +118,10 @@
 				                    <input type="text" class="form-control" id="username" name="username" required>
 				                </div>
 				                <div class="form-group">
-				                    <label for="password">Mật khẩu:</label>
-				                    <input type="password" class="form-control" id="password" name="password" required>
-				                </div>
+								    <label for="password">Mật khẩu:</label>
+								    <input type="password" class="form-control" id="password" name="password" required>
+								    <input type="checkbox" id="togglePassword" style="margin-top: 20px;"> Hiển thị mật khẩu
+								</div>
 				                <div class="text-center">
 				                    <button type="submit" class="btn btn-login">Đăng nhập</button>
 				                </div>
@@ -131,5 +132,18 @@
 			</div>
 </div>
 <!--<div th:replace="~{admin/footeradmin :: footer}"></div>-->
+<div th:replace="~{layout/footer :: footer}"></div>
+	<script>
+	    var password = document.getElementById('password');
+	    var togglePassword = document.getElementById('togglePassword');
+	
+	    togglePassword.addEventListener('click', function () {
+	        if (password.type === 'password') {
+	            password.type = 'text';
+	        } else {
+	            password.type = 'password';
+	        }
+	    });
+	</script>
 </body>
 </html>
