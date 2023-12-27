@@ -27,9 +27,10 @@
 		}
 		
 		.btn-filter-status {
-			background-color: rgb(2,88,155);
+			background-color: rgb(255, 255, 255);
 			border-radius: 10px;
-			color: white;
+			color: rgb(2,88,155);
+			font-weight: bold;
 		}
 		.btn-filter-status:hover {
 			color:rgb(182,232,241); /* Thay đổi màu văn bản khi trỏ chuột vào nút */
@@ -80,7 +81,6 @@
 			}
 	
 	    .container.main {
-			border: 2px ;
 	        border-radius: 5px;	  
 	        border-radius: 15px;	
 	        padding: 15px;
@@ -91,7 +91,6 @@
 		.container.main{
 			margin-top: 20px;
 			box-shadow: 0 8px 10px rgb(226, 226, 226);
-			border: solid 2px rgb(226, 226, 226);
 		}
 
 		.page-link {
@@ -130,8 +129,8 @@
 		        </button>
 		        <div class="dropdown-menu" aria-labelledby="statusDropdown">
 		            <a class="dropdown-item" th:href="@{/manageaccounts}">Tất cả</a>
-		            <a class="dropdown-item" th:href="@{/manageaccounts(status=0)}">Ngừng kinh doanh</a>
-		            <a class="dropdown-item" th:href="@{/manageaccounts(status=1)}">Đang kinh doanh</a>
+		            <a class="dropdown-item" th:href="@{/manageaccounts(status=0)}">Ngừng hoạt động</a>
+		            <a class="dropdown-item" th:href="@{/manageaccounts(status=1)}">Đang hoạt động</a>
 		        </div>
 		    </div>
 			<div class="container main-01" style="background-color: white;" >

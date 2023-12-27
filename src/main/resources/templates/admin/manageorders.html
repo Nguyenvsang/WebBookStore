@@ -18,9 +18,10 @@
         	color: rgb(2,88,155);     	
     	}
     	.btn-filter-status {
-			background-color: rgb(2,88,155);
+			background-color: rgb(255, 255, 255);
 			border-radius: 10px;
-			color: white;
+			color: rgb(2,88,155);
+			font-weight: bold;
 		}
 		.btn-filter-status:hover {
 			color:rgb(182,232,241); /* Thay đổi màu văn bản khi trỏ chuột vào nút */
@@ -83,10 +84,14 @@
 	        margin-bottom: 10px;
 		}
 		
+		.badge.badge-wait{
+			color: white;
+			background-color: orange;
+		}
+		
 		.container.main {
 			margin-top: 20px;
 			box-shadow: 0 8px 10px rgb(226, 226, 226);
-			border: solid 2px rgb(226, 226, 226);
 		}
 		
 		.page-link {
@@ -152,7 +157,7 @@
 		                <td class="align-middle text-center" th:text="${#numbers.formatInteger(order.totalPrice, 0, 'POINT' )+ ' đ'}" style="color: orangered;"></td>
 		                <td>
 		                    <span class="badge badge-success" th:if="${order.status == 0}">Chờ xác nhận</span>
-		                    <span class="badge badge-info" th:if="${order.status == 1}">Chờ lấy hàng</span>
+		                    <span class="badge badge-wait" th:if="${order.status == 1}">Chờ lấy hàng</span>
 		                    <span class="badge badge-primary" th:if="${order.status == 2}">Đang giao</span>
 		                    <span class="badge badge-secondary" th:if="${order.status == 3}">Đã giao</span>
 		                    <span th:if="${order.status != 0 && order.status != 1 && order.status != 2 && order.status != 3}">Trạng thái không hợp lệ</span>

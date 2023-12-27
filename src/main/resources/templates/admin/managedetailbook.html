@@ -17,17 +17,13 @@
     	}
     	.frame-01 {
 			background-color: white;
-			border: 1px solid rgb(182,232,241);
     		border-radius: 20px;
     		margin-top: 20px;
 		}
 		.frame-02 {			
 			margin-top: 20px;
 			margin-bottom: 20px;
-			margin-left: 20px;
-			
-			border: 1px solid rgb(255, 255, 255);
-			
+			margin-left: 20px;			
 		}
 		
 		
@@ -48,7 +44,6 @@
 		}
 		.frame-description {
 			background-color: white;
-			border: 1px solid rgb(182,232,241);
     		border-radius: 20px;
     		margin-top: 20px;
 		}
@@ -56,11 +51,22 @@
 			background-color:azure
 		}
 		
-		.card-text {
-			margin-top: 20px;
-			margin-bottom: 20px;
-			margin-left: 20px;
-			margin-right: 20px;
+		.row.one {
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+		
+		.row.two {
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+		.row.third {
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+		.row.four {
+			margin-top: 10px;
+			margin-bottom: 10px;
 		}
 		
 		.frame-description-01 {
@@ -83,12 +89,10 @@
 		
 		.frame-01 {
 			box-shadow: 0 8px 10px rgb(226, 226, 226);
-			border: solid 2px rgb(226, 226, 226);
 		}
 		
 		.frame-description {
 			box-shadow: 0 8px 10px rgb(226, 226, 226);
-			border: solid 2px rgb(226, 226, 226);
 		}
 		
 		.material-symbols-outlined.back {
@@ -107,7 +111,7 @@
     	<div class="container">			
 	        <div class="frame-01">
 				<div class="ml-2" style="justify-content: left; margin: 10px;">
-                    <a th:href="@{/managebooks}" class="btn btn-out">
+                    <a th:href="@{/managebooks}" class="btn btn-out" style="margin-top: 15px;">
 						<span class="material-symbols-outlined back">arrow_back_ios</span>
 					</a>
                 </div>
@@ -128,20 +132,20 @@
 						</div>
 		                <div class="col-md-8">
 		                    <div class="card-body">								
-		                        <h5 class="card-title" th:text="${book.name}"></h5>
+		                        <h5 class="card-title" th:text="${book.name}" style="margin-left: 20px;"></h5>
 		                        <div class="row main" style="margin-right: 250px;">
 									<div class="col" style="margin-left: 20px;" >
 										
 										<div class="row one" style="display: flex; justify-content: center; align-items: center;">
 											<div class="col">
-						                        <p class="card-text" style="display: flex; justify-content: left; align-items: center;">Tác giả:</p>
+						                        <p class="card-text">Tác giả:</p>
 											</div>
-											<div class="col" style="display: flex; justify-content: left; align-items: center;">
+											<div class="col">
 												<span th:each="bookauthor : ${book.bookAuthors}" th:text="${bookauthor.author.name}"></span>
 											</div>
 										</div>
 										
-					                    <div class="row two" style="display: flex; justify-content: center; align-items: center;"> 
+					                    <div class="row two"  style="display: flex; justify-content: left; align-items: center;"> 
 											<div class="col">
 					                        	<p class="card-text" style="display: flex; justify-content: left; align-items: center;">Nhà xuất bản: </p>
 											</div>
@@ -189,18 +193,19 @@
 		            </div>
 		        </div>
 		        <div class="frame-description">	
-					<div class="frame-description-01">		
-			        	<p class="card-text text-description">Mô tả:</p>
-				    	<p class="card-text content" th:text="${book.description}" style="text-align: justify;"></p>
+					<div class="frame-description-01" style="padding: 20px; font-family: Arial">		
+				        <p class="card-text text-description">Mô tả:</p>
+					    <p class="card-text content" th:text="${book.description}" style="text-align: justify;"></p>
 					</div>
-	       		</div>
-	       		<div class="frame-description">	
-				<div class="frame-description-01">
-			       	<div class="col">
-						<p class="card-text" style="color: rgb(2,88,155); font-size: 20px;">Chi tiết:</p>
-				        <pre class="card-text" th:text="${book.detail}" style="font-size: 16px;"></pre>
+		       	</div>
+		       	<div class="frame-description">	
+					<div class="frame-description-01" style="padding: 20px; font-family: Arial; margin: 0px;">
+				       	<div class="col" style="padding: 0px;">
+							<p class="card-text" style="color: rgb(2,88,155); font-size: 20px;">Chi tiết:</p>
+					        <pre class="card-text" th:text="${book.detail}" style="font-size: 16px; font-family: Arial;"></pre>
+						</div>
 					</div>
-				</div>
+		       	</div>
 	       	</div>
 	        </div>
        

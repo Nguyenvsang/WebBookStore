@@ -182,15 +182,18 @@
 		.level-0 {		    
 		    font-family: Arial, sans-serif;
 		    padding-top: 9px;
-		    padding-bottom: 17px;
+		    padding-bottom: 9px;
 		    padding-right: 15px;
 		}
 		.level-0:hover {
 		    color: rgb(2,88,155);
+		    background-color: aliceblue;
+		    border-radius: 10px;
 		}
 		a {
 			color: black;
 			font-family: Arial, sans-serif;
+			font-size: 14px;
 		}
 		
 		a:hover {
@@ -252,7 +255,7 @@
 	    }
 	    .container.main {
 			box-shadow: 0 8px 10px rgb(226, 226, 226);
-			border: solid 2px rgb(226, 226, 226);
+			
 		}
 		
 		.material-symbols-outlined.search{
@@ -302,61 +305,104 @@
 			   				
 				<div class="d-flex justify-content-center" style="margin-bottom: 10px; margin-right: 10px;">
 					<div class="col-left sidebar col-lg-3 col-md-3 col-sm-12 col-xs-12" style="border-right: 1px solid #cecece;" >
-						<div class="row row-content" style="justify-content: center;">
-							<li class="dropdown open" style="border-bottom: 1px solid #cecece;"> 
+						<div class="row row-content" >
+								<a class="nav-link" th:href="@{/viewbooks}" style="margin-left: 10px; font-size: 14px;">TẤT CẢ SÁCH</a>
+							<li class="dropdown open" style="border-bottom: 1px solid #cecece;     border-top: 1px solid #cecece; margin-top: 15px;"> 
+								<div style="padding: 8px;"></div>
 								<h4>DANH MỤC SÁCH <span class="material-symbols-outlined click">drag_click</span></h4>								
 								<span style="color: rgb(2,88,155);"></span>
 								<ul class="no-bullets nav-left">
 									<li class="level-0">
+										<input type="checkbox" id="category1" onclick="location.href='/viewbooks?category=1';">
 										<a href="/viewbooks?category=1">CHÍNH TRỊ - PHÁP LUẬT</a>
 									</li>
 									<li class="level-0">
+										<input type="checkbox" id="category2" onclick="location.href='/viewbooks?category=2';">
 										<a href="/viewbooks?category=2">GIÁO TRÌNH</a>
 									</li>
 									<li class="level-0">
+										<input type="checkbox" id="category3" onclick="location.href='/viewbooks?category=3';">
 										<a href="/viewbooks?category=3">KHOA HỌC CÔNG NGHỆ - KINH TẾ</a>
 									</li>
 									<li class="level-0">
+										<input type="checkbox" id="category4" onclick="location.href='/viewbooks?category=4';">
 										<a href="/viewbooks?category=4">TRUYỆN, TIỂU THUYẾT</a>
 									</li>
 									<li class="level-0">
+										<input type="checkbox" id="category5" onclick="location.href='/viewbooks?category=5';">
 										<a href="/viewbooks?category=5">TÂM LÝ, TÂM LINH, TÔN GIÁO</a>
 									</li>	
 									<li class="level-0">
+										<input type="checkbox" id="category6" onclick="location.href='/viewbooks?category=6';">
 										<a href="/viewbooks?category=6">THIẾU NHI</a>
 									</li>
 									<li class="level-0">
+										<input type="checkbox" id="category7" onclick="location.href='/viewbooks?category=7';">
 										<a href="/viewbooks?category=7">VĂN HỌC NGHỆ THUẬT</a>
 									</li>
 									<li class="level-0">
+										<input type="checkbox" id="category8" onclick="location.href='/viewbooks?category=8';">
 										<a href="/viewbooks?category=8">VĂN HÓA XÃ HỘI - LỊCH SỬ</a>
 									</li>								
 								</ul>
 							</li>
-							<li class="dropdown open" style="border-bottom: 1px solid #cecece; margin-top: 20px;"> 
-								<h4>THEO NXB <span class="material-symbols-outlined click">drag_click</span></h4>								
+							<li class="dropdown open" style="border-bottom: 1px solid #cecece; margin-top: 15px;"> 
+								<h4>THEO NXB<span class="material-symbols-outlined click">drag_click</span></h4>								
 								<span style="color: rgb(2,88,155);"></span>
 								<ul class="no-bullets nav-left">
 									<li class="level-0">
+										<input type="checkbox" id="publisher1" onclick="location.href='/viewbooks?search=NXB+Kim+Đồng';">
+											<label for="publisher1"></label>
 										<a th:href="@{/viewbooks?search=NXB+Kim+Đồng}">NXB KIM ĐỒNG</a>
 									</li>
 									<li class="level-0">
+										<input type="checkbox" id="publisher2" onclick="location.href='/viewbooks?search=NXB+Lao+Động';">
+											<label for="publisher2"></label>
 										<a th:href="@{/viewbooks?search=NXB+Lao+Động}">NXB LAO ĐỘNG</a>
 									</li>
 									<li class="level-0">
+										<input type="checkbox" id="publisher3" onclick="location.href='/viewbooks?search=NXB+Thế+Giới';">
+											<label for="publisher3"></label>
 										<a th:href="@{/viewbooks?search=NXB+Thế+Giới}">NXB THỂ GIỚI</a>
 									</li>
 									<li class="level-0">
+										<input type="checkbox" id="publisher4" onclick="location.href='/viewbooks?search=NXB+Trẻ';">
+											<label for="publisher4"></label>
 										<a th:href="@{/viewbooks?search=NXB+Trẻ}">NXB TRẺ</a>
 									</li>
 									<li class="level-0">
+										<input type="checkbox" id="publisher5" onclick="location.href='/viewbooks?search=NXB+Thanh+Niên';">
+											<label for="publisher5"></label>
+										<a th:href="@{/viewbooks?search=NXB+Thanh+Niên}">NXB THANH NIÊN</a>
+									</li>
+									<li class="level-0">
+										<input type="checkbox" id="publisher6" onclick="location.href='/viewbooks?search=NXB+Hồng+Đức';">
+											<label for="publisher6"></label>
 										<a th:href="@{/viewbooks?search=NXB+Hồng+Đức}">NXB HỒNG ĐỨC</a>
 									</li>	
 									<li class="level-0">
+										<input type="checkbox" id="publisher7" onclick="location.href='/viewbooks?search=NXB+Chính+Trị+Quốc+Gia';">
+											<label for="publisher7"></label>
 										<a th:href="@{/viewbooks?search=NXB+Chính+Trị+Quốc+Gia}">NXB CHÍNH TRỊ QUỐC GIA</a>
-									</li>								
+									</li>	
+									<li class="level-0">
+										<input type="checkbox" id="publisher8" onclick="location.href='/viewbooks?search=NXB+Văn+Họ';">
+											<label for="publisher8"></label>
+										<a th:href="@{/viewbooks?search=NXB+Văn+Họ}">NXB VĂN HỌC</a>
+									</li>
+									<li class="level-0">
+										<input type="checkbox" id="publisher9" onclick="location.href='/viewbooks?search=NXB+Hội+Nhà+Văn';">
+											<label for="publisher9"></label>
+										<a th:href="@{/viewbooks?search=NXB+Hội+Nhà+Văn}">NXB HỘI NHÀ VĂN</a>
+									</li>	
+									<li class="level-0">
+										<input type="checkbox" id="publisher10" onclick="location.href='/viewbooks?search=NXB+Dân+Trí';">
+											<label for="publisher10"></label>
+										<a th:href="@{/viewbooks?search=NXB+Dân+Trí}">NXB DÂN TRÍ</a>
+									</li>							
 								</ul>
-							</li>							
+							</li>
+										
 						</div>
 					</div>
 					
@@ -491,5 +537,7 @@
     <script th:src="@{/js/jquery-3.4.1.slim.min.js}"></script>
     <script th:src="@{/js/popper.min.js}"></script>
     <script th:src="@{/js/bootstrap.min.js}"></script>
+	
+	
 </body>
 </html>
