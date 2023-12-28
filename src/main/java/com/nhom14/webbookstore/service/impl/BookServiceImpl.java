@@ -2,6 +2,7 @@ package com.nhom14.webbookstore.service.impl;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -146,6 +147,20 @@ public class BookServiceImpl implements BookService {
 	    }
 
 	    return result;
+	}
+
+	@Override
+	public List<Book> sortBooksByPriceAscending(List<Book> books) {
+		List<Book> sortedBooks = new ArrayList<>(books);
+	    sortedBooks.sort(Comparator.comparingDouble(Book::getSellPrice));
+	    return sortedBooks;
+	}
+
+	@Override
+	public List<Book> sortBooksByPriceDescending(List<Book> books) {
+		List<Book> sortedBooks = new ArrayList<>(books);
+	    sortedBooks.sort(Comparator.comparingDouble(Book::getSellPrice).reversed());
+	    return sortedBooks;
 	}
 
 }

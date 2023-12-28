@@ -216,7 +216,7 @@
 			    <div th:if="${totalPages > 1}">
 			        <ul class="pagination">
 			            <li th:if="${currentPage > 1}" class="page-item">
-			                <a class="page-link" th:href="@{/managebooks(category=${categoryId}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=${currentPage - 1})}">
+			                <a class="page-link" th:href="@{/managebooks(category=${categoryId}, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=${currentPage - 1})}">
 							<span class="material-symbols-outlined">navigate_before</span></a>
 			            </li>
 			    
@@ -226,13 +226,13 @@
 			                        <span class="page-link" th:text="${pageNumber}"></span>
 			                    </th:block>
 			                    <th:block th:unless="${pageNumber == currentPage}">
-			                        <a class="page-link" th:inline="text" th:href="@{/managebooks(category=${categoryId}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=${pageNumber})}" th:text="${pageNumber}"></a>
+			                        <a class="page-link" th:inline="text" th:href="@{/managebooks(category=${categoryId}, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=${pageNumber})}" th:text="${pageNumber}"></a>
 			                    </th:block>
 			                </li>
 			            </th:block>
 			    
 			            <li th:if="${currentPage < totalPages}" class="page-item">
-			                <a class="page-link" th:href="@{/managebooks(category=${categoryId}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=${currentPage + 1})}">
+			                <a class="page-link" th:href="@{/managebooks(category=${categoryId}, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=${currentPage + 1})}">
 								<span class="material-symbols-outlined">navigate_next</span>
 							</a>
 			            </li>

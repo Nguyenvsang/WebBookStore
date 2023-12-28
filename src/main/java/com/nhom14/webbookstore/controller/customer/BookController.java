@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.util.UriUtils;
 
 import com.nhom14.webbookstore.entity.Book;
 import com.nhom14.webbookstore.entity.Category;
@@ -32,6 +33,7 @@ public class BookController {
                             @RequestParam(value = "page", required = false, defaultValue = "1") Integer currentPage,
                             @RequestParam(value = "pricemin", required = false) Double priceMin,
                             @RequestParam(value = "pricemax", required = false) Double priceMax,
+                            @RequestParam(value = "priceoption", required = false) Integer priceOption,
                             Model model) {
         List<Book> books;
         int totalBooks;
@@ -39,11 +41,21 @@ public class BookController {
         int start;
         int end;
         int totalPages;
+        // Thêm để cho phần tìm kiếm 
+        model.addAttribute("uris", UriUtils.class);
 
         if (categoryId == null) {
             books = bookService.getActiveBooks();
+            if (books.isEmpty()) {
+                model.addAttribute("message", "Hiện không có sách nào được bán, vui lòng quay lại sau");
+                return "customer/viewbooks";
+            }
         } else {
             books = bookService.getActiveBooksByCategory(categoryId);
+            if (books.isEmpty()) {
+                model.addAttribute("message", "Không tìm thấy sách theo danh mục này");
+                return "customer/viewbooks";
+            }
             // Thêm để hiển thị theo catagory cho các trang phía sau
             model.addAttribute("categoryId", categoryId);
         }
@@ -69,6 +81,19 @@ public class BookController {
             	model.addAttribute("pricemax", priceMax);
             }
         }
+        
+        // Sếp sách tăng dần nếu giá trị priceOption là 12, giảm dần nếu giá trị là 21 
+        if (priceOption != null) {
+            if (priceOption == 12) {
+                books = bookService.sortBooksByPriceAscending(books);
+                //Thêm để hiển thị theo khoảng giá cho các trang phía sau
+                model.addAttribute("priceoption", priceOption);
+            } else if (priceOption == 21) {
+                books = bookService.sortBooksByPriceDescending(books);
+                //Thêm để hiển thị theo khoảng giá cho các trang phía sau
+                model.addAttribute("priceoption", priceOption);
+            }
+        }
 
         totalBooks = books.size();
 
@@ -85,6 +110,7 @@ public class BookController {
         model.addAttribute("currentPage", currentPage);
         List<Category> categories = categoryService.getActiveCategories();
         model.addAttribute("categories", categories);
+        
 
         return "customer/viewbooks";
     }

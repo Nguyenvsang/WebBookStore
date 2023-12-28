@@ -79,6 +79,7 @@ public class AdminBookController {
             @RequestParam(value = "page", required = false, defaultValue = "1") Integer currentPage,
             @RequestParam(value = "pricemin", required = false) Double priceMin,
             @RequestParam(value = "pricemax", required = false) Double priceMax,
+            @RequestParam(value = "priceoption", required = false) Integer priceOption,
             Model model,
             HttpSession session) {
 		Account admin = (Account) session.getAttribute("admin");
@@ -99,8 +100,16 @@ public class AdminBookController {
         
         if (categoryId == null) {
             books = bookService.getAllBooks();
+            if (books.isEmpty()) {
+                model.addAttribute("message", "Hiện không có sách nào");
+                return "customer/viewbooks";
+            }
         } else {
             books = bookService.getBooksByCategory(categoryId);
+            if (books.isEmpty()) {
+                model.addAttribute("message", "Không tìm thấy sách theo danh mục này");
+                return "customer/viewbooks";
+            }
             // Thêm để hiển thị theo catagory cho các trang phía sau
             model.addAttribute("categoryId", categoryId);
         }
@@ -124,6 +133,19 @@ public class AdminBookController {
             } else { //Thêm để hiển thị theo khoảng giá cho các trang phía sau 
             	model.addAttribute("pricemin", priceMin);
             	model.addAttribute("pricemax", priceMax);
+            }
+        }
+        
+        // Sếp sách tăng dần nếu giá trị priceOption là 12, giảm dần nếu giá trị là 21 
+        if (priceOption != null) {
+            if (priceOption == 12) {
+                books = bookService.sortBooksByPriceAscending(books);
+                //Thêm để hiển thị theo khoảng giá cho các trang phía sau
+                model.addAttribute("priceoption", priceOption);
+            } else if (priceOption == 21) {
+                books = bookService.sortBooksByPriceDescending(books);
+                //Thêm để hiển thị theo khoảng giá cho các trang phía sau
+                model.addAttribute("priceoption", priceOption);
             }
         }
         

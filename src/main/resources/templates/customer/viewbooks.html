@@ -328,36 +328,36 @@
 								<ul class="no-bullets nav-left" style="padding: 0px 0px 0px 20px;">
 									<h4>DANH MỤC SÁCH <span class="material-symbols-outlined click">drag_click</span></h4>
 									<li class="level-0">
-										<input type="checkbox" id="category1" onclick="location.href='/viewbooks?category=1';">
-										<a href="/viewbooks?category=1">CHÍNH TRỊ - PHÁP LUẬT</a>
+										<input type="checkbox" id="category1">
+										<a th:href="@{/viewbooks(category=1, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">CHÍNH TRỊ - PHÁP LUẬT</a>
 									</li>
 									<li class="level-0">
-										<input type="checkbox" id="category2" onclick="location.href='/viewbooks?category=2';">
-										<a href="/viewbooks?category=2">GIÁO TRÌNH</a>
+										<input type="checkbox" id="category2">
+										<a th:href="@{/viewbooks(category=2, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">GIÁO TRÌNH</a>
 									</li>
 									<li class="level-0">
-										<input type="checkbox" id="category3" onclick="location.href='/viewbooks?category=3';">
-										<a href="/viewbooks?category=3">KHOA HỌC CÔNG NGHỆ - KINH TẾ</a>
+										<input type="checkbox" id="category3">
+										<a th:href="@{/viewbooks(category=3, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">KHOA HỌC CÔNG NGHỆ - KINH TẾ</a>
 									</li>
 									<li class="level-0">
-										<input type="checkbox" id="category4" onclick="location.href='/viewbooks?category=4';">
-										<a href="/viewbooks?category=4">TRUYỆN, TIỂU THUYẾT</a>
+										<input type="checkbox" id="category4">
+										<a th:href="@{/viewbooks(category=4, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">TRUYỆN, TIỂU THUYẾT</a>
 									</li>
 									<li class="level-0">
-										<input type="checkbox" id="category5" onclick="location.href='/viewbooks?category=5';">
-										<a href="/viewbooks?category=5">TÂM LÝ, TÂM LINH, TÔN GIÁO</a>
+										<input type="checkbox" id="category5">
+										<a th:href="@{/viewbooks(category=5, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">TÂM LÝ, TÂM LINH, TÔN GIÁO</a>
 									</li>	
 									<li class="level-0">
-										<input type="checkbox" id="category6" onclick="location.href='/viewbooks?category=6';">
-										<a href="/viewbooks?category=6">THIẾU NHI</a>
+										<input type="checkbox" id="category6">
+										<a th:href="@{/viewbooks(category=6, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">THIẾU NHI</a>
 									</li>
 									<li class="level-0">
-										<input type="checkbox" id="category7" onclick="location.href='/viewbooks?category=7';">
-										<a href="/viewbooks?category=7">VĂN HỌC NGHỆ THUẬT</a>
+										<input type="checkbox" id="category7">
+										<a th:href="@{/viewbooks(category=7, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">VĂN HỌC NGHỆ THUẬT</a>
 									</li>
 									<li class="level-0">
-										<input type="checkbox" id="category8" onclick="location.href='/viewbooks?category=8';">
-										<a href="/viewbooks?category=8">VĂN HÓA XÃ HỘI - LỊCH SỬ</a>
+										<input type="checkbox" id="category8">
+										<a th:href="@{/viewbooks(category=8, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">VĂN HÓA XÃ HỘI - LỊCH SỬ</a>
 									</li>								
 								</ul>
 							</li>
@@ -425,29 +425,46 @@
 								<ul class="no-bullets nav-left" style="padding: 0px 0px 0px 20px;">
 									<h4>KHOẢNG GIÁ <span class="material-symbols-outlined click">drag_click</span></h4>
 									<li class="level-0">
-										<input type="checkbox" id="pricerange1" onclick="location.href='/viewbooks?pricemin=0&pricemax=50000';">
-										<a href="/viewbooks?pricemin=0&pricemax=50000">0 - 50.000</a>
+										<input type="checkbox" id="pricerange1">
+										<a th:href="@{/viewbooks(category=${categoryId}, priceoption=${priceoption}, search=${search}, pricemin=0, pricemax=50000, page=1)}">0 - 50.000</a>
 									</li>
 									<li class="level-0">
-										<input type="checkbox" id="pricerange1" onclick="location.href='/viewbooks?pricemin=50000&pricemax=100000';">
-										<a href="/viewbooks?pricemin=50000&pricemax=100000">50.000 - 100.000</a>
+										<input type="checkbox" id="pricerange1">
+										<a th:href="@{/viewbooks(category=${categoryId}, priceoption=${priceoption}, search=${search}, pricemin=50000, pricemax=100000, page=1)}">50.000 - 100.000</a>
 									</li>
 									<li class="level-0">
-										<input type="checkbox" id="pricerange2" onclick="location.href='/viewbooks?pricemin=100000&pricemax=200000';">
-										<a href="/viewbooks?pricemin=100000&pricemax=200000">100.000 - 200.000</a>
+										<input type="checkbox" id="pricerange2">
+										<a th:href="@{/viewbooks(category=${categoryId}, priceoption=${priceoption}, search=${search}, pricemin=100000, pricemax=200000, page=1)}">100.000 - 200.000</a>
 									</li>
 									<li class="level-0">
-										<input type="checkbox" id="pricerange3" onclick="location.href='/viewbooks?pricemin=200000&pricemax=300000';">
-										<a href="/viewbooks?pricemin=200000&pricemax=300000">200.000 - 300.000</a>
+										<input type="checkbox" id="pricerange3">
+										<a th:href="@{/viewbooks(category=${categoryId}, priceoption=${priceoption}, search=${search}, pricemin=200000, pricemax=300000, page=1)}">200.000 - 300.000</a>
 									</li>		
 									<li class="level-0">
-										<input type="checkbox" id="pricerange3" onclick="location.href='/viewbooks?pricemin=300000&pricemax=500000';">
-										<a href="/viewbooks?pricemin=300000&pricemax=500000">300.000 - 500.000</a>
+										<input type="checkbox" id="pricerange4">
+										<a th:href="@{/viewbooks(category=${categoryId}, priceoption=${priceoption}, search=${search}, pricemin=300000, pricemax=500000, page=1)}">300.000 - 500.000</a>
 									</li>	
 									<li class="level-0">
-										<input type="checkbox" id="pricerange3" onclick="location.href='/viewbooks?pricemin=500000&pricemax=1000000000';">
-										<a href="/viewbooks?pricemin=500000&pricemax=1000000000">500.000 Trở lên</a>
+										<input type="checkbox" id="pricerange5">
+										<a th:href="@{/viewbooks(category=${categoryId}, priceoption=${priceoption}, search=${search}, pricemin=500000, pricemax=10000000, page=1)}">500.000 trở lên</a>
 									</li>				
+								</ul>
+							</li>
+							<li class="dropdown open" style="border-bottom: 1px solid #cecece; width: 280px;"> 
+								<div style="padding: 8px;"></div>
+																
+								<span style="color: rgb(2,88,155);"></span>
+								<ul class="no-bullets nav-left" style="padding: 0px 0px 0px 20px;">
+									<h4>SẮP XẾP THEO<span class="material-symbols-outlined click">drag_click</span></h4>
+									<li class="level-0">
+										<input type="checkbox" id="priceoption1">
+										<a th:href="@{/viewbooks(category=${categoryId}, priceoption=12, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">Giá tăng dần</a>
+									</li>
+									<li class="level-0">
+										<input type="checkbox" id="priceoption2">
+										<a th:href="@{/viewbooks(category=${categoryId}, priceoption=21, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">Giá giảm dần</a>
+									</li>
+												
 								</ul>
 							</li>
 										
@@ -546,7 +563,7 @@
 								        <ul class="pagination">
 											<div class="row">
 									            <li th:if="${currentPage > 1}" class="page-item">
-									                <a class="page-link" th:href="@{/viewbooks(category=${categoryId}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=${currentPage - 1})}">
+									                <a class="page-link" th:href="@{/viewbooks(category=${categoryId}, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=${currentPage - 1})}">
 														<span class="material-symbols-outlined">navigate_before</span>
 													</a>
 									            </li>
@@ -557,13 +574,13 @@
 									                        <span class="page-link" th:text="${pageNumber}"></span>
 									                    </th:block>
 									                    <th:block th:unless="${pageNumber == currentPage}">
-									                        <a class="page-link" th:href="@{/viewbooks(category=${categoryId}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=${pageNumber})}" th:text="${pageNumber}"></a>
+									                        <a class="page-link" th:href="@{/viewbooks(category=${categoryId}, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=${pageNumber})}" th:text="${pageNumber}"></a>
 									                    </th:block>
 									               <!---->
 									            </th:block>
 									
 									            <li th:if="${currentPage < totalPages}" class="page-item">
-									                <a class="page-link" th:href="@{/viewbooks(category=${categoryId}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=${currentPage + 1})}">
+									                <a class="page-link" th:href="@{/viewbooks(category=${categoryId}, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=${currentPage + 1})}">
 														<span class="material-symbols-outlined">navigate_next</span>
 													</a>
 									            </li>

@@ -39,4 +39,10 @@ public interface BookService {
 	// Lọc sách theo khoảng giá 
 	List<Book> filterBooksByPriceRange(List<Book> books, Double priceMin, Double priceMax);
 
+	// Xếp sách theo giá tăng dần
+	List<Book> sortBooksByPriceAscending(List<Book> books);
+
+	// Xếp sách theo giá giảm dần
+	List<Book> sortBooksByPriceDescending(List<Book> books);
+
 }
