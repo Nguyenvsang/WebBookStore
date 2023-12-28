@@ -36,4 +36,7 @@ public interface BookService {
 	// Lấy quyển sách cuối cùng
 	Book getLastBook();
 
+	// Lọc sách theo khoảng giá 
+	List<Book> filterBooksByPriceRange(List<Book> books, Double priceMin, Double priceMax);
+
 }

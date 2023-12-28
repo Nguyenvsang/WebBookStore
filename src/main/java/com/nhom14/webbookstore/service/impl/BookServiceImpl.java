@@ -134,4 +134,18 @@ public class BookServiceImpl implements BookService {
 	public Book getLastBook() {
 		return bookRepository.findFirstByOrderByIdDesc();// trả null nếu không tìm thấy
 	}
+
+	@Override
+	public List<Book> filterBooksByPriceRange(List<Book> books, Double priceMin, Double priceMax) {
+	    List<Book> result = new ArrayList<>();
+
+	    for (Book book : books) {
+	        if (book.getSellPrice() >= priceMin && book.getSellPrice() <= priceMax) {
+	            result.add(book);
+	        }
+	    }
+
+	    return result;
+	}
+
 }

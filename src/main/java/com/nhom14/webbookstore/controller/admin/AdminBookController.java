@@ -77,6 +77,8 @@ public class AdminBookController {
 	public String manageBooks(@RequestParam(value = "category", required = false) Integer categoryId,
             @RequestParam(value = "search", required = false) String searchKeyword,
             @RequestParam(value = "page", required = false, defaultValue = "1") Integer currentPage,
+            @RequestParam(value = "pricemin", required = false) Double priceMin,
+            @RequestParam(value = "pricemax", required = false) Double priceMax,
             Model model,
             HttpSession session) {
 		Account admin = (Account) session.getAttribute("admin");
@@ -105,6 +107,24 @@ public class AdminBookController {
         
         if (searchKeyword != null && !searchKeyword.isEmpty()) {
             books = bookService.searchBooksByKeyword(books, searchKeyword);
+            if (books.isEmpty()) {
+                model.addAttribute("message", "Không tìm thấy sách nào với từ khóa đã nhập");
+                return "admin/managebooks";
+            } else { //Thêm để hiển thị theo từ khóa cho các trang phía sau 
+            	model.addAttribute("search", searchKeyword);
+            }
+        }
+        
+        // Lọc sách theo khoảng giá 
+        if (priceMin != null && priceMax != null) {
+            books = bookService.filterBooksByPriceRange(books, priceMin, priceMax);
+            if (books.isEmpty()) {
+                model.addAttribute("message", "Không tìm thấy sách nào trong khoảng giá đã chọn");
+                return "admin/managebooks";
+            } else { //Thêm để hiển thị theo khoảng giá cho các trang phía sau 
+            	model.addAttribute("pricemin", priceMin);
+            	model.addAttribute("pricemax", priceMax);
+            }
         }
         
         totalBooks = books.size();
