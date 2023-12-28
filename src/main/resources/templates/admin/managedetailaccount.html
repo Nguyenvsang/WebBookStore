@@ -120,6 +120,20 @@
 		            <label for="email"style="color: rgb(2,88,155);">Email:</label>
 		            <output class="form-control" id="email" name="email" th:text="${account.email}" style="border-radius: 10px;"></output>
 		        </div>
+		        <div class="form-group">
+				    <label for="accountType" style="color: rgb(2,88,155);">Loại tài khoản:</label>
+				    <output class="form-control" id="accountType" name="accountType" style="border-radius: 10px;">
+				        <span th:if="${account.accountType} == 0">Admin</span>
+				        <span th:if="${account.accountType} == 1">Khách hàng</span>
+				    </output>
+				</div>
+				<div class="form-group">
+				    <label for="status" style="color: rgb(2,88,155);">Trạng thái:</label>
+				    <output class="form-control" id="status" name="status" style="border-radius: 10px;">
+				        <span th:if="${account.status} == 0">Ngừng hoạt động</span>
+				        <span th:if="${account.status} == 1">Đang hoạt động</span>
+				    </output>
+				</div>
 		        <div class="text-center mb-4">
 		            <a th:href="@{/editaccount(accountId=${account.id})}" class="btn btn-edit-info" >Sửa thông tin</a>
 		            

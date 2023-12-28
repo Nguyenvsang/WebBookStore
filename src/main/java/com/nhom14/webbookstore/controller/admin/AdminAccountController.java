@@ -225,6 +225,7 @@ public class AdminAccountController {
 	        updateAccount.setAddress(accountParam.getAddress());
 	        updateAccount.setPhoneNumber(accountParam.getPhoneNumber());
 	        updateAccount.setEmail(accountParam.getEmail());
+	        updateAccount.setStatus(accountParam.getStatus());
 	        accountService.updateAccount(updateAccount);
 	        
 	        // Nếu trùng với admin thì lưu thông tin tài khoản mới vào session
