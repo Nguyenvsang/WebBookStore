@@ -202,11 +202,19 @@
 		}
 		
 		h4 {
+        	text-align: left;
+        	margin-top: 10px;
+        	margin-bottom: 20px;  
+        	color: rgb(2,88,155);     	
+    	}
+    	
+    	h4.frame {
         	text-align: center;
         	margin-top: 10px;
         	margin-bottom: 20px;  
         	color: rgb(2,88,155);     	
     	}
+    	
     	.navbar-nav {
 			display: frex;
 		}
@@ -315,9 +323,10 @@
 								<a class="nav-link" th:href="@{/viewbooks}" style="margin-left: 10px; font-size: 14px;">TẤT CẢ SÁCH</a>
 							<li class="dropdown open" style="border-bottom: 1px solid #cecece;     border-top: 1px solid #cecece; margin-top: 15px;"> 
 								<div style="padding: 8px;"></div>
-								<h4>DANH MỤC SÁCH <span class="material-symbols-outlined click">drag_click</span></h4>								
+																
 								<span style="color: rgb(2,88,155);"></span>
-								<ul class="no-bullets nav-left">
+								<ul class="no-bullets nav-left" style="padding: 0px 0px 0px 20px;">
+									<h4>DANH MỤC SÁCH <span class="material-symbols-outlined click">drag_click</span></h4>
 									<li class="level-0">
 										<input type="checkbox" id="category1" onclick="location.href='/viewbooks?category=1';">
 										<a href="/viewbooks?category=1">CHÍNH TRỊ - PHÁP LUẬT</a>
@@ -352,10 +361,11 @@
 									</li>								
 								</ul>
 							</li>
-							<li class="dropdown open" style="border-bottom: 1px solid #cecece; margin-top: 15px;"> 
-								<h4>THEO NXB<span class="material-symbols-outlined click">drag_click</span></h4>								
+							<li class="dropdown open" style="border-bottom: 1px solid #cecece; margin-top: 15px; width: 280px;"> 
+																
 								<span style="color: rgb(2,88,155);"></span>
-								<ul class="no-bullets nav-left">
+								<ul class="no-bullets nav-left" style="padding: 0px 0px 0px 20px;">
+									<h4>THEO NXB<span class="material-symbols-outlined click">drag_click</span></h4>
 									<li class="level-0">
 										<input type="checkbox" id="publisher1" onclick="location.href='/viewbooks?search=NXB+Kim+Đồng';">
 											<label for="publisher1"></label>
@@ -408,23 +418,36 @@
 									</li>							
 								</ul>
 							</li>
-							<li class="dropdown open" style="border-bottom: 1px solid #cecece;     border-top: 1px solid #cecece; margin-top: 15px;"> 
+							<li class="dropdown open" style="border-bottom: 1px solid #cecece; width: 280px;"> 
 								<div style="padding: 8px;"></div>
-								<h4>KHOẢNG GIÁ <span class="material-symbols-outlined click">drag_click</span></h4>								
+																
 								<span style="color: rgb(2,88,155);"></span>
-								<ul class="no-bullets nav-left">
+								<ul class="no-bullets nav-left" style="padding: 0px 0px 0px 20px;">
+									<h4>KHOẢNG GIÁ <span class="material-symbols-outlined click">drag_click</span></h4>
+									<li class="level-0">
+										<input type="checkbox" id="pricerange1" onclick="location.href='/viewbooks?pricemin=0&pricemax=50000';">
+										<a href="/viewbooks?pricemin=0&pricemax=50000">0 - 50.000</a>
+									</li>
 									<li class="level-0">
 										<input type="checkbox" id="pricerange1" onclick="location.href='/viewbooks?pricemin=50000&pricemax=100000';">
 										<a href="/viewbooks?pricemin=50000&pricemax=100000">50.000 - 100.000</a>
 									</li>
 									<li class="level-0">
-										<input type="checkbox" id="pricerange2" onclick="location.href='/viewbooks?pricemin=100000&pricemax=150000';">
-										<a href="/viewbooks?pricemin=100000&pricemax=150000">100.000 - 150.000</a>
+										<input type="checkbox" id="pricerange2" onclick="location.href='/viewbooks?pricemin=100000&pricemax=200000';">
+										<a href="/viewbooks?pricemin=100000&pricemax=200000">100.000 - 200.000</a>
 									</li>
 									<li class="level-0">
-										<input type="checkbox" id="pricerange3" onclick="location.href='/viewbooks?pricemin=150000&pricemax=200000';">
-										<a href="/viewbooks?pricemin=150000&pricemax=200000">150.000 - 200.000</a>
-									</li>						
+										<input type="checkbox" id="pricerange3" onclick="location.href='/viewbooks?pricemin=200000&pricemax=300000';">
+										<a href="/viewbooks?pricemin=200000&pricemax=300000">200.000 - 300.000</a>
+									</li>		
+									<li class="level-0">
+										<input type="checkbox" id="pricerange3" onclick="location.href='/viewbooks?pricemin=300000&pricemax=500000';">
+										<a href="/viewbooks?pricemin=300000&pricemax=500000">300.000 - 500.000</a>
+									</li>	
+									<li class="level-0">
+										<input type="checkbox" id="pricerange3" onclick="location.href='/viewbooks?pricemin=500000&pricemax=1000000000';">
+										<a href="/viewbooks?pricemin=500000&pricemax=1000000000">500.000 Trở lên</a>
+									</li>				
 								</ul>
 							</li>
 										
