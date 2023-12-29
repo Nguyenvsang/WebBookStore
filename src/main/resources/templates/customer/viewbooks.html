@@ -120,19 +120,22 @@
 		}
 		
 		.col-image {
-		    padding: 0 10px; /* Điều chỉnh khoảng cách giữa các cột ở đây */
+		    padding: 5px;  /* Điều chỉnh khoảng cách giữa các cột ở đây */
+		    margin-left: 10px;
 		    
 		}
 		
 		.card-image {
-			width: 255px; /* Điều chỉnh chiều rộng ở đây */
-    		height: 300px; /* Điều chỉnh chiều cao ở đây */
+			width: 230px; /* Điều chỉnh chiều rộng ở đây */
+    		height: 260px; /* Điều chỉnh chiều cao ở đây */
     		display: flex;
 		    justify-content: center;
 		    align-items: center;
 			border-radius: 20px;
-			margin-top: 15px;  
-			margin-bottom: 15px;  
+			margin-top: 10px;  
+			margin-bottom: 10px;  
+			margin-left: 10px;
+			margin-right: 10px;
 		}
 		
 		.frame-intro {
@@ -257,6 +260,16 @@
 			box-shadow: 0 3px 5px rgb(226, 226, 226);
 			border: solid 1px rgb(226, 226, 226);
 		}
+		
+		.col-image{
+			border-radius: 20px;
+			margin: 0px;
+		}
+			        
+	    .col-image:hover {
+			box-shadow: 0 3px 5px #F1F1CF;
+		}
+			
 	
 	    .hidden-content {
 	        display: none;
@@ -296,9 +309,64 @@
 			background-color: rgb(182,232,241);	 
 		}
 		
+		
+		.modal {
+		  display: none;
+		  position: fixed;
+		  z-index: 2;
+		  
+		  left: 0;
+		  top: 0;
+		  width: 100%;
+		  height: 100%;
+		  overflow: auto;
+		  background-color: rgb(0,0,0);
+		  background-color: rgba(0,0,0,0.9);
+		}
+		
+		.modal-content {
+		    position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    transform: translate(-50%, -50%);
+		    display: block;
+		    width: auto;
+		    max-width: 800px;
+		}
+		
+		.close {
+		  position: absolute;
+		  top: 15px;
+		  right: 35px;
+		  color: #f1f1f1;
+		  font-size: 40px;
+		  font-weight: bold;
+		  transition: 0.3s;
+		}
+		
+		.close:hover,
+		.close:focus {
+		  color: #bbb;
+		  text-decoration: none;
+		  cursor: pointer;
+		}
+		
+		.card-image {
+		  cursor: pointer;
+		}
+		
+		.row{
+			position: relative;
+  			z-index: 1;
+		}
+		
 	</style>
 </head>
 <body>
+	<div id="myModal" class="modal"> 
+	  <span class="close" id="closeBtn">&times;</span>
+	  <img class="modal-content" id="img01">
+	</div>
 	<div th:replace="~{layout/header :: header}"></div>
 	<div class="main-container col2-left-layout no-margin-top">	
 		
@@ -329,35 +397,35 @@
 									<h4>DANH MỤC SÁCH <span class="material-symbols-outlined click">drag_click</span></h4>
 									<li class="level-0">
 										<input type="checkbox" id="category1">
-										<a th:href="@{/viewbooks(category=1, publisher=${publisher}, nameoption=${nameoption}, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">CHÍNH TRỊ - PHÁP LUẬT</a>
+										<a th:href="@{/viewbooks(category=1, publisher=${publisher}, nameoption=${nameoption}, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">Chính Trị - Pháp Luật</a>
 									</li>
 									<li class="level-0">
 										<input type="checkbox" id="category2">
-										<a th:href="@{/viewbooks(category=2, publisher=${publisher}, nameoption=${nameoption}, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">GIÁO TRÌNH</a>
+										<a th:href="@{/viewbooks(category=2, publisher=${publisher}, nameoption=${nameoption}, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">Giáo Trình</a>
 									</li>
 									<li class="level-0">
 										<input type="checkbox" id="category3">
-										<a th:href="@{/viewbooks(category=3, publisher=${publisher}, nameoption=${nameoption}, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">KHOA HỌC CÔNG NGHỆ - KINH TẾ</a>
+										<a th:href="@{/viewbooks(category=3, publisher=${publisher}, nameoption=${nameoption}, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">Khoa Học Công Nghệ - Kinh Tế</a>
 									</li>
 									<li class="level-0">
 										<input type="checkbox" id="category4">
-										<a th:href="@{/viewbooks(category=4, publisher=${publisher}, nameoption=${nameoption}, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">TRUYỆN, TIỂU THUYẾT</a>
+										<a th:href="@{/viewbooks(category=4, publisher=${publisher}, nameoption=${nameoption}, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">Truyện, Tiểu Thuyết</a>
 									</li>
 									<li class="level-0">
 										<input type="checkbox" id="category5">
-										<a th:href="@{/viewbooks(category=5, publisher=${publisher}, nameoption=${nameoption}, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">TÂM LÝ, TÂM LINH, TÔN GIÁO</a>
+										<a th:href="@{/viewbooks(category=5, publisher=${publisher}, nameoption=${nameoption}, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">Tâm Lý, Tâm Linh, Tôn Giáo</a>
 									</li>	
 									<li class="level-0">
 										<input type="checkbox" id="category6">
-										<a th:href="@{/viewbooks(category=6, publisher=${publisher}, nameoption=${nameoption}, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">THIẾU NHI</a>
+										<a th:href="@{/viewbooks(category=6, publisher=${publisher}, nameoption=${nameoption}, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">Thiếu Nhi</a>
 									</li>
 									<li class="level-0">
 										<input type="checkbox" id="category7">
-										<a th:href="@{/viewbooks(category=7, publisher=${publisher}, nameoption=${nameoption}, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">VĂN HỌC NGHỆ THUẬT</a>
+										<a th:href="@{/viewbooks(category=7, publisher=${publisher}, nameoption=${nameoption}, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">Văn Học Nghệ Thuật</a>
 									</li>
 									<li class="level-0">
 										<input type="checkbox" id="category8">
-										<a th:href="@{/viewbooks(category=8, publisher=${publisher}, nameoption=${nameoption}, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">VĂN HÓA XÃ HỘI - LỊCH SỬ</a>
+										<a th:href="@{/viewbooks(category=8, publisher=${publisher}, nameoption=${nameoption}, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">Văn Hóa Xã Hội - Lịch Sử</a>
 									</li>								
 								</ul>
 							</li>
@@ -365,56 +433,56 @@
 																
 								<span style="color: rgb(2,88,155);"></span>
 								<ul class="no-bullets nav-left" style="padding: 0px 0px 0px 20px;">
-									<h4>THEO NXB<span class="material-symbols-outlined click">drag_click</span></h4>
+									<h4>THEO NXB<span class="material-symbols-outlined click" style="margin-left: 7px;">drag_click</span></h4>
 									<li class="level-0">
 										<input type="checkbox" id="publisher1">
 											<label for="publisher1"></label>
-											<a th:href="@{/viewbooks(category=${categoryId}, publisher=1, nameoption=${nameoption}, priceoption=${priceoption}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">NXB KIM ĐỒNG</a>
+											<a th:href="@{/viewbooks(category=${categoryId}, publisher=1, nameoption=${nameoption}, priceoption=${priceoption}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">NXB Kim Đồng</a>
 									</li>
 									<li class="level-0">
 										<input type="checkbox" id="publisher2">
 											<label for="publisher2"></label>
-											<a th:href="@{/viewbooks(category=${categoryId}, publisher=2, nameoption=${nameoption}, priceoption=${priceoption}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">NXB LAO ĐỘNG</a>
+											<a th:href="@{/viewbooks(category=${categoryId}, publisher=2, nameoption=${nameoption}, priceoption=${priceoption}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">NXB Lao Động</a>
 									</li>
 									<li class="level-0">
 										<input type="checkbox" id="publisher3">
 											<label for="publisher3"></label>
-											<a th:href="@{/viewbooks(category=${categoryId}, publisher=3, nameoption=${nameoption}, priceoption=${priceoption}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">NXB THẾ GIỚI</a>
+											<a th:href="@{/viewbooks(category=${categoryId}, publisher=3, nameoption=${nameoption}, priceoption=${priceoption}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">NXB Thể Giới</a>
 									</li>
 									<li class="level-0">
 										<input type="checkbox" id="publisher4">
 											<label for="publisher4"></label>
-											<a th:href="@{/viewbooks(category=${categoryId}, publisher=4, nameoption=${nameoption}, priceoption=${priceoption}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">NXB TRẺ</a>
+											<a th:href="@{/viewbooks(category=${categoryId}, publisher=4, nameoption=${nameoption}, priceoption=${priceoption}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">NXB Trẻ</a>
 									</li>
 									<li class="level-0">
 										<input type="checkbox" id="publisher5">
 											<label for="publisher5"></label>
-											<a th:href="@{/viewbooks(category=${categoryId}, publisher=5, nameoption=${nameoption}, priceoption=${priceoption}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">NXB THANH NIÊN</a>
+											<a th:href="@{/viewbooks(category=${categoryId}, publisher=5, nameoption=${nameoption}, priceoption=${priceoption}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">NXB Thanh Niên</a>
 									</li>
 									<li class="level-0">
 										<input type="checkbox" id="publisher6">
 											<label for="publisher6"></label>
-											<a th:href="@{/viewbooks(category=${categoryId}, publisher=6, nameoption=${nameoption}, priceoption=${priceoption}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">NXB HỒNG ĐỨC</a>
+											<a th:href="@{/viewbooks(category=${categoryId}, publisher=6, nameoption=${nameoption}, priceoption=${priceoption}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">NXB Hồng Đức</a>
 									</li>	
 									<li class="level-0">
 										<input type="checkbox" id="publisher7">
 											<label for="publisher7"></label>
-											<a th:href="@{/viewbooks(category=${categoryId}, publisher=7, nameoption=${nameoption}, priceoption=${priceoption}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">NXB CHÍNH TRỊ QUỐC GIA</a>
+											<a th:href="@{/viewbooks(category=${categoryId}, publisher=7, nameoption=${nameoption}, priceoption=${priceoption}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">NXB Chính Trị Quốc Gia</a>
 									</li>	
 									<li class="level-0">
 										<input type="checkbox" id="publisher8">
 											<label for="publisher8"></label>
-											<a th:href="@{/viewbooks(category=${categoryId}, publisher=8, nameoption=${nameoption}, priceoption=${priceoption}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">NXB VĂN HỌC</a>
+											<a th:href="@{/viewbooks(category=${categoryId}, publisher=8, nameoption=${nameoption}, priceoption=${priceoption}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">NXB Văn Học</a>
 									</li>
 									<li class="level-0">
 										<input type="checkbox" id="publisher9">
 											<label for="publisher9"></label>
-											<a th:href="@{/viewbooks(category=${categoryId}, publisher=9, nameoption=${nameoption}, priceoption=${priceoption}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">NXB HỘI NHÀ VĂN</a>
+											<a th:href="@{/viewbooks(category=${categoryId}, publisher=9, nameoption=${nameoption}, priceoption=${priceoption}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">NXB Hội Nhà Văn</a>
 									</li>	
 									<li class="level-0">
 										<input type="checkbox" id="publisher10">
 											<label for="publisher10"></label>
-											<a th:href="@{/viewbooks(category=${categoryId}, publisher=10, nameoption=${nameoption}, priceoption=${priceoption}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">NXB DÂN TRÍ</a>
+											<a th:href="@{/viewbooks(category=${categoryId}, publisher=10, nameoption=${nameoption}, priceoption=${priceoption}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">NXB Dân Trí</a>
 									</li>							
 								</ul>
 							</li>
@@ -456,7 +524,7 @@
 								<span style="color: rgb(2,88,155);"></span>
 								<ul class="no-bullets nav-left" style="padding: 0px 0px 0px 20px;">
 									<!-- Nếu đã có priceoption thì phải bỏ nameoption và ngược lại -->
-									<h4>SẮP XẾP THEO<span class="material-symbols-outlined click">drag_click</span></h4>
+									<h4>SẮP XẾP THEO<span class="material-symbols-outlined click" style="margin-left: 7px;">drag_click</span></h4>
 									<li class="level-0">
 										<input type="checkbox" id="priceoption1">
 										<a th:href="@{/viewbooks(category=${categoryId}, publisher=${publisher}, priceoption=12, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">Giá tăng dần</a>
@@ -523,15 +591,15 @@
 							<div class="frame main">
 								
 								<!--Ảnh giới thiệu sản phẩm-->
-								<div class="row row-image-intro" style="border-bottom: 1px solid #cecece; margin-top: 30px; margin-bottom: 30px;" >
+								<div class="row row-image-intro" style="border-bottom: 1px solid #cecece; margin-top: 10px; margin-bottom: 40px; padding-bottom: 30px; padding-top: 10px;" >
 									<div class="col-image">
-										<img class="card-image" src="https://res.cloudinary.com/dylwewmt0/image/upload/v1703262523/PHOTO_LIST/view_books/intro_07.jpg" alt>
+										<img id="myImg1" class="card-image" src="https://res.cloudinary.com/dylwewmt0/image/upload/v1703864343/PHOTO_LIST/view_books/Intro_10.png" alt>
 									</div>
 									<div class="col-image">
-										<img class="card-image" src="https://res.cloudinary.com/dylwewmt0/image/upload/v1703261221/PHOTO_LIST/view_books/intro_08.jpg" alt>
+										<img  id="myImg2" class="card-image" src="https://res.cloudinary.com/dylwewmt0/image/upload/v1703864343/PHOTO_LIST/view_books/Intro_11.png" alt>
 									</div>
 									<div class="col-image">
-										<img class="card-image" src="https://res.cloudinary.com/dylwewmt0/image/upload/v1703261220/PHOTO_LIST/view_books/intro_09.jpg" alt>
+										<img  id="myImg3" class="card-image" src="https://res.cloudinary.com/dylwewmt0/image/upload/v1703864342/PHOTO_LIST/view_books/Intro_12.png" alt>
 									</div>																			
 								</div>
 								
@@ -611,7 +679,35 @@
     <script th:src="@{/js/jquery-3.4.1.slim.min.js}"></script>
     <script th:src="@{/js/popper.min.js}"></script>
     <script th:src="@{/js/bootstrap.min.js}"></script>
+	<script>
+	var modal = document.getElementById("myModal");
+	var modalImg = document.getElementById("img01");
+	var img1 = document.getElementById("myImg1");
+	var img2 = document.getElementById("myImg2");
+	var img3 = document.getElementById("myImg3");
+	var closeBtn = document.getElementById("closeBtn");
 	
+	img1.onclick = function(){
+	  modal.style.display = "block";
+	  modalImg.src = this.src;
+	}
+	
+	img2.onclick = function(){
+	  modal.style.display = "block";
+	  modalImg.src = this.src;
+	}
+	
+	img3.onclick = function(){
+	  modal.style.display = "block";
+	  modalImg.src = this.src;
+	}
+	
+	closeBtn.onclick = function() { 
+	  modal.style.display = "none";
+	}
+	</script>
+
+
 	
 </body>
 </html>

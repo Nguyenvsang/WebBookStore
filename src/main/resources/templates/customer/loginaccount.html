@@ -66,6 +66,14 @@
 		.form-container {
 			box-shadow: 0 8px 10px rgb(226, 226, 226);
 		}
+		
+		.row-01{
+			color: rgb(226, 226, 226);
+		}
+		.row-01:hover {
+			color: rgb(2,88,155);
+		}
+		
 	</style>
 	
 </head>
@@ -89,14 +97,21 @@
 	                    <label for="username" style="color: rgb(2,88,155);">Tên đăng nhập:</label>
 	                    <input type="text" class="form-control" id="username" name="username" required>
 	                </div>
-	                <div class="form-group">
+	                <div class="form-group" style="margin-bottom: 5px;">
 					    <label for="password" style="color: rgb(2,88,155);">Mật khẩu:</label>
 					    <input type="password" class="form-control" id="password" name="password" required>
 					    <input type="checkbox" id="togglePassword" style="margin-top: 20px;"> Hiển thị mật khẩu
-					</div>
+					</div>	
+														
+	                <a class="row-01" th:href="@{/customer/registeraccount}" style="display: flex; justify-content: left; align-items: left; text-decoration: none; margin-bottom: 15px;" >	
+						<span>Đăng ký</span>
+					</a>		                
+	            
+					
 	                <div class="text-center">
 	                    <button type="submit" class="btn btn-login">Đăng nhập</button>
 	                </div>
+	                              
 	            </form>
             </div>
         </div>
