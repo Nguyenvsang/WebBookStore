@@ -54,4 +54,7 @@ public interface BookService {
 	// Lọc sách theo tên NXB 
 	List<Book> filterBooksByPublisher(List<Book> books, String string);
 
+	// Phương thức để lấy sách theo tên sách
+	Book getBookByName(String name);
+
 }

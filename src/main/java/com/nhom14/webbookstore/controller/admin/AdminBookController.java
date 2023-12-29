@@ -242,6 +242,12 @@ public class AdminBookController {
 	        return "redirect:/loginadmin";
 	    }
 	    
+	    // Kiểm tra xem tên sách mới có trùng với tên sách nào trong cơ sở dữ liệu không
+	    if (bookService.getBookByName(bookParam.getName()) != null) {
+	    	redirectAttributes.addAttribute("message", "Tên sách đã tồn tại trong cơ sở dữ liệu.");
+	        return "redirect:/addbook";
+	    }
+	    
 	    Book newBook = new Book();
 	    
 	    //Cập nhật thông tin cho cuốn sách mới

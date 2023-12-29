@@ -193,4 +193,9 @@ public class BookServiceImpl implements BookService {
 	    return filteredBooks;
 	}
 
+	@Override
+	public Book getBookByName(String name) {
+		return bookRepository.findByName(name);
+	}
+
 }
