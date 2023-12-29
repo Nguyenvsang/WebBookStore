@@ -70,16 +70,17 @@ public class AccountController {
             if (existingAccount != null) {
                 // Username already exists
             	redirectAttributes.addAttribute("message", "Tên tài khoản đã tồn tại. Vui lòng chọn tên khác.");
+            	return "redirect:/customer/registeraccount";
             } else {
                 accountService.addAccount(account);
                 redirectAttributes.addAttribute("message", "Đăng ký tài khoản thành công.");
+                return "redirect:/customer/loginaccount";
             }
         } catch (Exception e) {
             e.printStackTrace();
             redirectAttributes.addAttribute("message", "Đã xảy ra lỗi. Vui lòng thử lại sau.");
+            return "redirect:/customer/registeraccount";
         } 
-
-        return "redirect:/customer/registeraccount";
     }
 	
 	@GetMapping("/customer/loginaccount")
