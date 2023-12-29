@@ -34,16 +34,17 @@ public class BookController {
                             @RequestParam(value = "pricemin", required = false) Double priceMin,
                             @RequestParam(value = "pricemax", required = false) Double priceMax,
                             @RequestParam(value = "priceoption", required = false) Integer priceOption,
+                            @RequestParam(value = "nameoption", required = false) Integer nameOption,
+                            @RequestParam(value = "publisher", required = false) Integer publisher,
                             Model model) {
-        List<Book> books;
+		List<Book> books;
+	    
         int totalBooks;
         int recordsPerPage = 12;
         int start;
         int end;
         int totalPages;
-        // Thêm để cho phần tìm kiếm 
-        model.addAttribute("uris", UriUtils.class);
-
+        
         if (categoryId == null) {
             books = bookService.getActiveBooks();
             if (books.isEmpty()) {
@@ -59,7 +60,7 @@ public class BookController {
             // Thêm để hiển thị theo catagory cho các trang phía sau
             model.addAttribute("categoryId", categoryId);
         }
-
+        
         if (searchKeyword != null && !searchKeyword.isEmpty()) {
             books = bookService.searchBooksByKeyword(books, searchKeyword);
             if (books.isEmpty()) {
@@ -67,6 +68,17 @@ public class BookController {
                 return "customer/viewbooks";
             } else { //Thêm để hiển thị theo từ khóa cho các trang phía sau 
             	model.addAttribute("search", searchKeyword);
+            }
+        }
+        
+        // Lọc sách theo tên nhà sản xuất
+        if(publisher != null) {
+        	books = filterBooksByPublisher(books, publisher);
+        	if (books.isEmpty()) {
+                model.addAttribute("message", "Không tìm thấy sách theo nhà xuất bản này");
+                return "customer/viewbooks";
+            } else { //Thêm để hiển thị theo NXB cho các trang phía sau 
+            	model.addAttribute("publisher", publisher);
             }
         }
         
@@ -94,6 +106,20 @@ public class BookController {
                 model.addAttribute("priceoption", priceOption);
             }
         }
+        
+        // Xếp sách theo chữ cái đầu tiên của tên sách tăng dần từ A đến Y nếu nameOption là 12 và ngược lại
+	    if (nameOption != null) {
+	        if (nameOption == 12) {
+	            books = bookService.sortBooksByNameAscending(books);
+	            //Thêm để hiển thị theo khoảng giá cho các trang phía sau
+                model.addAttribute("nameoption", nameOption);
+	        } else if (nameOption == 21) {
+	            books = bookService.sortBooksByNameDescending(books);
+	            //Thêm để hiển thị theo khoảng giá cho các trang phía sau
+                model.addAttribute("nameoption", nameOption);
+	        }
+	    }
+
 
         totalBooks = books.size();
 
@@ -115,6 +141,41 @@ public class BookController {
         return "customer/viewbooks";
     }
 	
+	private List<Book> filterBooksByPublisher(List<Book> books, Integer publisher) {
+		if (publisher == 1) {
+            books = bookService.filterBooksByPublisher(books, "NXB Kim Đồng");
+        }
+		if (publisher == 2) {
+            books = bookService.filterBooksByPublisher(books, "NXB Lao Động");
+        }
+		if (publisher == 3) {
+            books = bookService.filterBooksByPublisher(books, "NXB Thế Giới");
+        }
+		if (publisher == 4) {
+            books = bookService.filterBooksByPublisher(books, "NXB Trẻ");
+        }
+		if (publisher == 5) {
+            books = bookService.filterBooksByPublisher(books, "NXB Thanh Niên");
+        }
+		if (publisher == 6) {
+            books = bookService.filterBooksByPublisher(books, "NXB Hồng Đức");
+        }
+		if (publisher == 7) {
+            books = bookService.filterBooksByPublisher(books, "NXB Chính Trị Quốc Gia");
+        }
+		if (publisher == 8) {
+            books = bookService.filterBooksByPublisher(books, "NXB Văn Học");
+        }
+		if (publisher == 9) {
+            books = bookService.filterBooksByPublisher(books, "NXB Hội Nhà Văn");
+        }
+		if (publisher == 10) {
+            books = bookService.filterBooksByPublisher(books, "NXB Dân Trí");
+        }
+		
+		return books;
+	}
+
 	@GetMapping("/detailbook/{id}")
 	public String viewDetailBook(@PathVariable Integer id, Model model) {
 		// Lấy thông tin về cuốn sách từ id

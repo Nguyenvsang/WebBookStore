@@ -1,10 +1,12 @@
 package com.nhom14.webbookstore.service.impl;
 
+import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.Set;
 
@@ -161,6 +163,34 @@ public class BookServiceImpl implements BookService {
 		List<Book> sortedBooks = new ArrayList<>(books);
 	    sortedBooks.sort(Comparator.comparingDouble(Book::getSellPrice).reversed());
 	    return sortedBooks;
+	}
+
+	@Override
+	public List<Book> sortBooksByNameAscending(List<Book> books) {
+		List<Book> sortedBooks = new ArrayList<>(books);
+	    Collator collator = Collator.getInstance(new Locale("vi", "VN"));
+	    sortedBooks.sort(Comparator.comparing(Book::getName, collator));
+	    return sortedBooks;
+	}
+
+	@Override
+	public List<Book> sortBooksByNameDescending(List<Book> books) {
+		List<Book> sortedBooks = new ArrayList<>(books);
+	    Collator collator = Collator.getInstance(new Locale("vi", "VN"));
+	    sortedBooks.sort(Comparator.comparing(Book::getName, collator).reversed());
+	    return sortedBooks;
+	}
+
+	@Override
+	public List<Book> filterBooksByPublisher(List<Book> books, String string) {
+		List<Book> filteredBooks = new ArrayList<>();
+		String lowercaseKeyword = string.toLowerCase().trim();
+	    for (Book book : books) {
+	        if (containsIgnoreCase(book.getPublisher().trim(), lowercaseKeyword)) {
+	            filteredBooks.add(book);
+	        }
+	    }
+	    return filteredBooks;
 	}
 
 }

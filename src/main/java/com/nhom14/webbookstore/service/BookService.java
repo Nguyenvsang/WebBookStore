@@ -45,4 +45,13 @@ public interface BookService {
 	// Xếp sách theo giá giảm dần
 	List<Book> sortBooksByPriceDescending(List<Book> books);
 
+	// Xếp sách theo chữ cái đầu tiên của tên tăng dần từ A đến Y
+	List<Book> sortBooksByNameAscending(List<Book> books);
+
+	// Xếp sách theo chữ cái đầu tiên của tên giảm dần từ Y đến A
+	List<Book> sortBooksByNameDescending(List<Book> books);
+
+	// Lọc sách theo tên NXB 
+	List<Book> filterBooksByPublisher(List<Book> books, String string);
+
 }
