@@ -100,6 +100,19 @@
 	    .page-link:hover {
 			background-color: rgb(182,232,241);	 
 		}
+		
+		.form-categories{
+			color: orangered;
+			margin-bottom: 30px;
+			margin-top: 40px;
+			text-align: center;
+			justify-content: center;
+			display: flex;
+			border-radius: 10px;
+			font-size: larger;
+		}
+		
+		
     </style>
 </head>
 <body>
@@ -107,9 +120,11 @@
     <div class="container-fluid mb-4">
 		<div class="container main" style="background-color: white;">
 
-	        <h3>QUẢN LÝ DANH MỤC</h3>	  
-	        
-	        <p>Tổng số tất cả các danh mục: <span th:text="${totalAllCategories}"></span></p>     	        
+	        <h3>QUẢN LÝ DANH MỤC</h3>	
+	          
+	        <div class="form-categories">
+	        	<p>Tổng số tất cả các danh mục: <span th:text="${totalAllCategories}"></span></p>     	        
+	        </div>
 	        
 	        <form class="form-inline my-2 my-lg-0" method="GET" th:action="@{/managecategories}">
 	            <input class="form-control mr-sm-2" type="text" name="search" placeholder="Tìm kiếm từ khóa" style="border: 2px solid rgb(182,232,241); border-radius: 10px;">

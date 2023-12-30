@@ -122,6 +122,19 @@
 	    .page-link:hover {
 			background-color: rgb(182,232,241);	 
 		}	
+		
+		.form-books{
+			color: orangered;
+			margin-bottom: 30px;
+			margin-top: 40px;
+			text-align: center;
+			justify-content: center;
+			display: flex;
+			border-radius: 10px;
+			font-size: larger;
+		}
+		
+		
 </style>
 </head>
 <body>
@@ -130,7 +143,9 @@
 		<div class="container main" style="background-color: white;">
 		    <h3>QUẢN LÝ SÁCH</h3>
 		    
-		    <p>Tổng số tất cả các đầu sách: <span th:text="${totalAllBooks}"></span></p>
+		    <div class="form-books">
+		     	<p>Tổng số tất cả các đầu sách: <span th:text="${totalAllBooks}"></span></p>
+		    </div>
 		    		    
 		    
 		    <form class="form-inline my-2 my-lg-0" method="GET" th:action="@{/managebooks}">
