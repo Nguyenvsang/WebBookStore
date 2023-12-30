@@ -112,7 +112,9 @@
 	<div th:replace="~{admin/headeradmin :: header}"></div>
 	<div class="container-fluid mb-4">
 		<div class="container main" style="background-color: white;">
-		    <h3>QUẢN LÝ TÁC GIẢ</h3>		   		    
+		    <h3>QUẢN LÝ TÁC GIẢ</h3>	
+		    
+		    <p>Tổng số tất cả các tác giả: <span th:text="${totalAllAuthors}"></span></p>	   		    
 		    
 		    <form class="form-inline my-2 my-lg-0" method="GET" th:action="@{/manageauthors}">
 		    	<input class="form-control mr-sm-2" type="text" name="search" placeholder="Tìm kiếm từ khóa" style="border: 2px solid rgb(182,232,241); border-radius: 10px;"> 

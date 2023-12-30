@@ -116,6 +116,8 @@
 	<div class="container-fluid mb-4">
 		<div class="container main" style="background-color: white;">
 		    <h3>QUẢN LÝ ĐƠN HÀNG</h3>
+		    
+		    <p>Tổng số tất cả các đơn hàng: <span th:text="${totalAllOrders}"></span></p>
 		
 		    <form class="form-inline my-2 my-lg-0" method="GET" th:action="@{/manageorders}">
 		        <input class="form-control mr-sm-2" type="text" name="search" placeholder="Tìm kiếm từ khóa" style="border: 2px solid rgb(182,232,241); border-radius: 10px;">

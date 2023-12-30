@@ -117,6 +117,8 @@
 		<div class="container main" style="background-color: white;">
 		    <h3>QUẢN LÝ TÀI KHOẢN</h2>
 		    
+		    <p>Tổng số tất cả các tài khoản: <span th:text="${totalAllAccounts}"></span></p>
+		    
 		    <form class="form-inline my-2 my-lg-0" method="GET" th:action="@{/manageaccounts}">
 		        <input class="form-control mr-sm-2" type="text" name="search" placeholder="Tìm kiếm từ khóa" style="border: 2px solid rgb(182,232,241); border-radius: 10px;">
 		        <button class="btn btn-search my-2 my-sm-0" type="submit"><span class="material-symbols-outlined">search</span></button>

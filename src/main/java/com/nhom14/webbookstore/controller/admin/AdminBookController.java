@@ -161,12 +161,16 @@ public class AdminBookController {
         // Tính toán số trang
         totalPages = (int) Math.ceil((double) totalBooks / recordsPerPage);
         
+        // Tổng số tất cả các đầu sách
+        int totalAllBooks = bookService.getAllBooks().size();
+        
         model.addAttribute("books", booksOnPage);
         model.addAttribute("totalBooks", totalBooks);
         model.addAttribute("totalPages", totalPages);
         model.addAttribute("currentPage", currentPage);
         List<Category> categories = categoryService.getAllCategories();
         model.addAttribute("categories", categories);
+        model.addAttribute("totalAllBooks", totalAllBooks);
 
         return "admin/managebooks";
         

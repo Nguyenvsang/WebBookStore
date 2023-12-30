@@ -127,10 +127,14 @@ public class AdminAccountController {
         // Tính toán số trang
         totalPages = (int) Math.ceil((double) totalAccounts / recordsPerPage);
         
+        // Tổng số tất cả các tài khoản
+        int totalAllAccounts = accountService.getAllAccounts().size();
+        
         model.addAttribute("accounts", accountsOnPage);
         model.addAttribute("totalAccounts", totalAccounts);
         model.addAttribute("totalPages", totalPages);
         model.addAttribute("currentPage", currentPage);
+        model.addAttribute("totalAllAccounts", totalAllAccounts);
         
         return "admin/manageaccounts";
 	}

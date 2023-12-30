@@ -80,10 +80,14 @@ public class AdminCategoryController {
         // Tính toán số trang
         totalPages = (int) Math.ceil((double) totalCategories / recordsPerPage);
         
+        // Tổng số tất cả các danh mục
+        int totalAllCategories = categoryService.getAllCategories().size();
+        
         model.addAttribute("categories", categoriesOnPage);
         model.addAttribute("totalCategories", totalCategories);
         model.addAttribute("totalPages", totalPages);
         model.addAttribute("currentPage", currentPage);
+        model.addAttribute("totalAllCategories", totalAllCategories);
         
         return "admin/managecategories";
 	}

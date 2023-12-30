@@ -66,10 +66,14 @@ public class AdminAuthorController {
         // Tính toán số trang
         totalPages = (int) Math.ceil((double) totalAuthors / recordsPerPage);
         
+        // Tổng số tất cả các tác giả
+        int totalAllAuthors = authorService.getAllAuthors().size();
+        
         model.addAttribute("authors", authorsOnPage);
         model.addAttribute("totalAuthors", totalAuthors);
         model.addAttribute("totalPages", totalPages);
         model.addAttribute("currentPage", currentPage);
+        model.addAttribute("totalAllAuthors", totalAllAuthors);
 
         return "admin/manageauthors";
 	}
