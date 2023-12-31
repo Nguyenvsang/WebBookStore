@@ -126,10 +126,14 @@ public class CartController {
 
         // Tính toán tổng số tiền trong giỏ hàng
         double totalAmount = calculateTotalAmount(cartItems);
+        
+        // Tổng số đầu sách trong giỏ hàng
+        int totalAllCartItems = cartItems.size();
 
         // Lưu thông tin giỏ hàng và tổng số tiền vào model attribute
         model.addAttribute("cartItems", cartItems);
         model.addAttribute("totalAmount", totalAmount);
+        model.addAttribute("totalAllCartItems", totalAllCartItems);
 
         // Chuyển hướng đến trang viewcart
         return "customer/viewcart";

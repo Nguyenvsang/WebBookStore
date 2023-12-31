@@ -134,6 +134,17 @@
 			color: rgb(255, 128, 128);
 		}
 		
+		.form-cart{
+			color: orangered;
+			margin-bottom: 30px;
+			margin-top: 40px;
+			text-align: center;
+			justify-content: center;
+			display: flex;
+			border-radius: 10px;
+			font-size: larger;
+		}
+		
 	</style>
 </head>
 <body>
@@ -149,6 +160,12 @@
         <div class="container">
 			<div class="container-body" style="background-color: white;">
 				<h3>GIỎ HÀNG</h3>
+				
+				<div class="form-cart" th:if="${totalAllCartItems != null}">
+				    <p>Hiện có <span th:text="${totalAllCartItems}"></span> món hàng trong giỏ</p>
+				</div>
+
+		    
 		        <table class="table table-striped ">
 		            <thead class="thead-title">
 		                <tr style="color: rgb(2,88,155);;">

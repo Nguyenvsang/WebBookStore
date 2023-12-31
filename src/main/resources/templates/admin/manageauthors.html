@@ -132,7 +132,7 @@
 		<div class="container main" style="background-color: white;">
 		    <h3>QUẢN LÝ TÁC GIẢ</h3>	
 		    
-		    <div class="form-authors">
+		    <div class="form-authors"  th:if="${totalAllAuthors != null}">
 		    	<p style="justify-content: center; text-align: center;">Tổng số tác giả: <span th:text="${totalAllAuthors}"></span></p>	
 		    </div>   		    
 		    

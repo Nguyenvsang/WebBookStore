@@ -129,7 +129,7 @@
 		<div class="container main" style="background-color: white;">
 		    <h3>QUẢN LÝ ĐƠN HÀNG</h3>
 		    
-		    <div class="form-orders">
+		    <div class="form-orders"  th:if="${totalAllOrders != null}">
 		    	<p>Tổng số tất cả các đơn hàng: <span th:text="${totalAllOrders}"></span></p>
 		    </div>
 		
