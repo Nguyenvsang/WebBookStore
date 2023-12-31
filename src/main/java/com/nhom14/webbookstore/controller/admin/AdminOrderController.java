@@ -77,13 +77,13 @@ public class AdminOrderController {
         totalPages = (int) Math.ceil((double) totalOrders / recordsPerPage);
         
         // Tổng số tất cả các đơn hàng
-        int totalAlOrders = orderService.getAllOrders().size();
+        int totalAllOrders = orderService.getAllOrders().size();
         
         model.addAttribute("orders", ordersOnPage);
         model.addAttribute("totalOrders", totalOrders);
         model.addAttribute("totalPages", totalPages);
         model.addAttribute("currentPage", currentPage);
-        model.addAttribute("totalAlOrders", totalAlOrders);
+        model.addAttribute("totalAllOrders", totalAllOrders);
         
         return "admin/manageorders";
 	}
