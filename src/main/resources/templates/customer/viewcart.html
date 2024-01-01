@@ -63,6 +63,8 @@
 		.btn-outline {
 			border-radius: 10px;
 			border: 2px solid rgb(2,88,155);	
+			height: 40px;
+			width: 40px;
 		}
 		.btn-outline:hover {
 			background-color: azure;
@@ -145,6 +147,7 @@
 			font-size: larger;
 		}
 		
+		
 	</style>
 </head>
 <body>
@@ -189,7 +192,8 @@
 		                            <div class="row">
 										<div class="col-decrease">						
 				                            <div class="input-group">
-				                                <button class="btn btn-outline" type="button" th:onclick="'decreaseQuantity(' + ${cartItem.id} + ')'">-</button>
+				                                <button class="btn btn-outline" type="button" th:onclick="'decreaseQuantity(' + ${cartItem.id} + ')'" style="align-items: center; justify-items: center; display: flex;">
+													<span class="material-symbols-outlined" style="font-size: small;">remove</span></button>
 				                            </div>
 										</div>
 										<div class="col">
@@ -197,7 +201,8 @@
 										</div>
 										<div class="col-increase">
 				                            <div class="input-group">
-				                                <button class="btn btn-outline" type="button" th:onclick="'increaseQuantity(' + ${cartItem.id} + ', ' + ${cartItem.book.quantity} + ')'">+</button>
+				                                <button class="btn btn-outline" type="button" th:onclick="'increaseQuantity(' + ${cartItem.id} + ', ' + ${cartItem.book.quantity} + ')'" style="align-items: center; justify-items: center; display: flex;">
+													<span class="material-symbols-outlined" style="font-size: small;">add</span></button>
 				                            </div>
 										</div>
 		                            </div>
@@ -214,8 +219,8 @@
 		            </tbody>
 		        </table>
 		        <div class="text-right" th:if="${totalAmount != null}">
-				    <h4>Tổng số tiền (đ)</h4>
-				    <h4 id="totalpricecart" th:text="${#numbers.formatInteger(totalAmount, 0, 'POINT')}" style="color: orangered"></h4>
+				    <h4>Tổng số tiền</h4>
+				    <h4 id="totalpricecart" th:text="${#numbers.formatInteger(totalAmount, 0, 'POINT') + ' đ'}" style="color: orangered"></h4>
 				    <a th:href="@{/shippinginformation(totalAmount=${totalAmount})}" class="btn btn-purchase">Mua hàng</a>
 				</div>
 			</div>
