@@ -111,11 +111,13 @@
 	        <form th:action="@{/updateaccount}" th:object="${account}" method="post" enctype="multipart/form-data">
 			    <div class="form-group">
 			        <label for="firstName">Tên:</label>
-			        <input type="text" class="form-control" id="firstName" th:field="*{firstName}" required>
+			        <input type="text" class="form-control" id="firstName" th:field="*{firstName}" 
+			        pattern="[A-Za-zÀ-ỹ\s]*" title="Chỉ chấp nhận chữ cái và khoảng trắng" required>
 			    </div>
 			    <div class="form-group">
 			        <label for="lastName">Họ:</label>
-			        <input type="text" class="form-control" id="lastName" th:field="*{lastName}" required>
+			        <input type="text" class="form-control" id="lastName" th:field="*{lastName}" 
+			        pattern="[A-Za-zÀ-ỹ\s]*" title="Chỉ chấp nhận chữ cái và khoảng trắng" required>
 			    </div>
 			    <div class="form-group">
 			        <label for="username">Tên người dùng:</label>
@@ -145,7 +147,8 @@
 			    </div>
 			    <div class="form-group">
 			        <label for="phoneNumber">Số điện thoại:</label>
-			        <input type="tel" class="form-control" id="phoneNumber" th:field="*{phoneNumber}" required>
+			        <input type="tel" class="form-control" id="phoneNumber" th:field="*{phoneNumber}" 
+			        pattern="[0-9]*" title="Chỉ chấp nhận số" required>
 			    </div>
 			    <div class="form-group">
 			        <label for="email">Email:</label>

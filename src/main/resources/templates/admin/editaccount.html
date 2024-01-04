@@ -84,11 +84,13 @@
 				    </div>
 				    <div class="form-group">
 				        <label for="firstName" style="color: rgb(2,88,155);">Tên:</label>
-				        <input type="text" class="form-control" id="firstName" th:field="*{firstName}" required style="border-radius: 10px;">
+				        <input type="text" class="form-control" id="firstName" th:field="*{firstName}" style="border-radius: 10px;" 
+				        pattern="[A-Za-zÀ-ỹ\s]*" title="Chỉ chấp nhận chữ cái và khoảng trắng" required>
 				    </div>
 				    <div class="form-group">
 				        <label for="lastName" style="color: rgb(2,88,155);">Họ:</label>
-				        <input type="text" class="form-control" id="lastName" th:field="*{lastName}" required style="border-radius: 10px;">
+				        <input type="text" class="form-control" id="lastName" th:field="*{lastName}" style="border-radius: 10px;"
+				        pattern="[A-Za-zÀ-ỹ\s]*" title="Chỉ chấp nhận chữ cái và khoảng trắng" required>
 				    </div>
 				    <div class="form-group">
 				        <label for="username" style="color: rgb(2,88,155);">Tên người dùng:</label>
@@ -118,7 +120,8 @@
 				    </div>
 				    <div class="form-group">
 				        <label for="phoneNumber" style="color: rgb(2,88,155);">Số điện thoại:</label>
-				        <input type="tel" class="form-control" id="phoneNumber" th:field="*{phoneNumber}" required style="border-radius: 10px;">
+				        <input type="tel" class="form-control" id="phoneNumber" th:field="*{phoneNumber}" style="border-radius: 10px;"
+				        pattern="[0-9]*" title="Chỉ chấp nhận số" required>
 				    </div>
 				    <div class="form-group">
 				        <label for="email" style="color: rgb(2,88,155);">Email:</label>
