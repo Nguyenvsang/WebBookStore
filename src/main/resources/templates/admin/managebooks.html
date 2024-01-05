@@ -35,6 +35,7 @@
 		border-radius: 10px;
 		color: rgb(0, 128, 255);
 		font-weight: bold;
+		border-color: rgb(0, 128, 255);
 	}
 	.btn-filter-catalog:hover {
 			color:rgb(0, 180, 255); /* Thay đổi màu văn bản khi trỏ chuột vào nút */
@@ -139,6 +140,7 @@
 			border-radius: 10px;
 			color: rgb(0, 128, 255);
 			font-weight: bold;
+			border-color: rgb(0, 128, 255);
 		}
 		.btn-filter-status:hover {
 			color: rgb(0, 180, 255)
@@ -173,28 +175,33 @@
 		    </div>
 		    
 		    <div class="dropdown mb-3 mt-3">
-		        <button class="btn btn-filter-status dropdown-toggle" type="button" id="statusDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		            Lọc theo trạng thái
-		        </button>
-		        <!-- Lọc theo trạng thái thì không kết hợp cho category -->
-		        <div class="dropdown-menu" aria-labelledby="statusDropdown">
-		            <a class="dropdown-item" th:href="@{/managebooks}">Tất cả</a>
-		            <a class="dropdown-item" th:href="@{/managebooks(status=0, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">Ngừng kinh doanh</a>
-		            <a class="dropdown-item" th:href="@{/managebooks(status=1, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">Đang kinh doanh</a>
-		        </div>
+				<div class="row-01" style="display: flex;">
+					<div class="col-01" style="margin-right: 10px; padding-right: 10px">
+				        <button class="btn btn-filter-status dropdown-toggle" type="button" id="statusDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				            Lọc theo trạng thái
+				        </button>
+				        <!-- Lọc theo trạng thái thì không kết hợp cho category -->
+				        <div class="dropdown-menu" aria-labelledby="statusDropdown">
+				            <a class="dropdown-item" th:href="@{/managebooks}">Tất cả</a>
+				            <a class="dropdown-item" th:href="@{/managebooks(status=0, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">Ngừng kinh doanh</a>
+				            <a class="dropdown-item" th:href="@{/managebooks(status=1, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">Đang kinh doanh</a>
+				        </div>
+					</div>
+					<div class="col-02" style="padding-left: 10px;">
+				        <button class="btn btn-filter-catalog dropdown-toggle" type="button" id="categoryDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				            Lọc theo danh mục
+				        </button>
+				        <div class="dropdown-menu" aria-labelledby="categoryDropdown">
+				            <a class="dropdown-item" th:href="@{/managebooks}">Tất cả</a>
+				            <th:block th:each="category : ${categories}">
+				                <a class="dropdown-item" th:href="@{/managebooks(category=${category.id})}" th:text="${category.name}"></a>
+				            </th:block>
+				        </div>
+				    </div>
+				</div>
 		    </div>
 
-		    <div class="dropdown mb-3 mt-3">
-		        <button class="btn btn-filter-catalog dropdown-toggle" type="button" id="categoryDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		            Lọc theo danh mục
-		        </button>
-		        <div class="dropdown-menu" aria-labelledby="categoryDropdown">
-		            <a class="dropdown-item" th:href="@{/managebooks}">Tất cả</a>
-		            <th:block th:each="category : ${categories}">
-		                <a class="dropdown-item" th:href="@{/managebooks(category=${category.id})}" th:text="${category.name}"></a>
-		            </th:block>
-		        </div>
-		    </div>
+		    
 		    
 		    <!-- Phần hiển thị thông báo -->
 			<div th:if="${message}" class="mb-3">

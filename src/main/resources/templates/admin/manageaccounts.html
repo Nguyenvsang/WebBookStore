@@ -31,6 +31,7 @@
 			border-radius: 10px;
 			color: rgb(0, 128, 255);
 			font-weight: bold;
+			border-color: rgb(0, 128, 255);
 		}
 		.btn-filter-status:hover {
 			color:rgb(0, 180, 255); /* Thay đổi màu văn bản khi trỏ chuột vào nút */
@@ -133,13 +134,13 @@
 		    	<p>Tổng số tất cả các tài khoản: <span th:text="${totalAllAccounts}"></span></p>
 		    </div>
 		    
-		    <form class="form-inline my-2 my-lg-0" method="GET" th:action="@{/manageaccounts}">
+		    <form class="form-inline my-2 my-lg-0" method="GET" th:action="@{/manageaccounts}" style="margin-left: 15px;">
 		        <input class="form-control mr-sm-2" type="text" name="search" placeholder="Tìm kiếm từ khóa" style="border: 2px solid rgb(182,232,241); border-radius: 10px;">
 		        <button class="btn btn-search my-2 my-sm-0" type="submit"><span class="material-symbols-outlined">search</span></button>
 		    </form>
 		   
 		    
-		    <div class="dropdown mb-3 mt-3">
+		    <div class="dropdown mb-3 mt-3"  style="margin-left: 15px;">
 		        <button class="btn btn-filter-status dropdown-toggle" type="button" id="statusDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		            Lọc theo trạng thái
 		        </button>
