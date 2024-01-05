@@ -74,7 +74,8 @@ public class AdminBookController {
 	}
 	
 	@GetMapping("/managebooks")
-	public String manageBooks(@RequestParam(value = "category", required = false) Integer categoryId,
+	public String manageBooks(@RequestParam(value = "status", required = false) Integer status,
+			@RequestParam(value = "category", required = false) Integer categoryId,
             @RequestParam(value = "search", required = false) String searchKeyword,
             @RequestParam(value = "page", required = false, defaultValue = "1") Integer currentPage,
             @RequestParam(value = "pricemin", required = false) Double priceMin,
@@ -98,17 +99,27 @@ public class AdminBookController {
         int end;
         int totalPages;
         
-        if (categoryId == null) {
+        if (status == null) {
             books = bookService.getAllBooks();
             if (books.isEmpty()) {
                 model.addAttribute("message", "Hiện không có sách nào");
-                return "customer/viewbooks";
+                return "admin/managebooks";
             }
         } else {
+            books = bookService.getBooksByStatus(status);
+            if (books.isEmpty()) {
+                model.addAttribute("message", "Không tìm thấy sách theo trạng thái này");
+                return "admin/managebooks";
+            }
+            // Thêm để hiển thị theo status cho các trang phía sau
+            model.addAttribute("status", status);
+        }
+        
+        if (categoryId != null) {
             books = bookService.getBooksByCategory(categoryId);
             if (books.isEmpty()) {
                 model.addAttribute("message", "Không tìm thấy sách theo danh mục này");
-                return "customer/viewbooks";
+                return "admin/managebooks";
             }
             // Thêm để hiển thị theo catagory cho các trang phía sau
             model.addAttribute("categoryId", categoryId);

@@ -134,6 +134,16 @@
 			font-size: larger;
 		}
 		
+		.btn-filter-status {
+			background-color: rgb(255, 255, 255);
+			border-radius: 10px;
+			color: rgb(0, 128, 255);
+			font-weight: bold;
+		}
+		.btn-filter-status:hover {
+			color: rgb(0, 180, 255)
+		}
+		
 		
 </style>
 </head>
@@ -160,6 +170,18 @@
 					<a th:href="@{/addbook}" class="nav-link add-book" style="font-family: Arial, sans-serif; padding: 0%; display: flex; align-items: center; justify-content: right;">
 						</span>Thêm sách</a>
 				</div>	
+		    </div>
+		    
+		    <div class="dropdown mb-3 mt-3">
+		        <button class="btn btn-filter-status dropdown-toggle" type="button" id="statusDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		            Lọc theo trạng thái
+		        </button>
+		        <!-- Lọc theo trạng thái thì không kết hợp cho category -->
+		        <div class="dropdown-menu" aria-labelledby="statusDropdown">
+		            <a class="dropdown-item" th:href="@{/managebooks}">Tất cả</a>
+		            <a class="dropdown-item" th:href="@{/managebooks(status=0, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">Ngừng kinh doanh</a>
+		            <a class="dropdown-item" th:href="@{/managebooks(status=1, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=1)}">Đang kinh doanh</a>
+		        </div>
 		    </div>
 
 		    <div class="dropdown mb-3 mt-3">
@@ -233,7 +255,7 @@
 			    <div th:if="${totalPages > 1}">
 			        <ul class="pagination">
 			            <li th:if="${currentPage > 1}" class="page-item">
-			                <a class="page-link" th:href="@{/managebooks(category=${categoryId}, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=${currentPage - 1})}">
+			                <a class="page-link" th:href="@{/managebooks(category=${categoryId}, status=${status}, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=${currentPage - 1})}">
 							<span class="material-symbols-outlined">navigate_before</span></a>
 			            </li>
 			    
@@ -243,13 +265,13 @@
 			                        <span class="page-link" th:text="${pageNumber}"></span>
 			                    </th:block>
 			                    <th:block th:unless="${pageNumber == currentPage}">
-			                        <a class="page-link" th:inline="text" th:href="@{/managebooks(category=${categoryId}, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=${pageNumber})}" th:text="${pageNumber}"></a>
+			                        <a class="page-link" th:inline="text" th:href="@{/managebooks(category=${categoryId}, status=${status}, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=${pageNumber})}" th:text="${pageNumber}"></a>
 			                    </th:block>
 			                </li>
 			            </th:block>
 			    
 			            <li th:if="${currentPage < totalPages}" class="page-item">
-			                <a class="page-link" th:href="@{/managebooks(category=${categoryId}, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=${currentPage + 1})}">
+			                <a class="page-link" th:href="@{/managebooks(category=${categoryId}, status=${status}, priceoption=${priceoption}, search=${search}, pricemin=${pricemin}, pricemax=${pricemax}, page=${currentPage + 1})}">
 								<span class="material-symbols-outlined">navigate_next</span>
 							</a>
 			            </li>

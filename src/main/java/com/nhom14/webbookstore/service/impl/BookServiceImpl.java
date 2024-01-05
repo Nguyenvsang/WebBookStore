@@ -198,4 +198,9 @@ public class BookServiceImpl implements BookService {
 		return bookRepository.findByName(name);
 	}
 
+	@Override
+	public List<Book> getBooksByStatus(int status) {
+		return bookRepository.findByStatus(status);
+	}
+
 }

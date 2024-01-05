@@ -57,4 +57,7 @@ public interface BookService {
 	// Phương thức để lấy sách theo tên sách
 	Book getBookByName(String name);
 
+	// Phương thức để lấy sách theo trạng thái
+	List<Book> getBooksByStatus(int status);
+
 }
