@@ -31,4 +31,10 @@ public interface AccountService {
 
 	// Phương thức để tìm kiếm một tài khoản theo id
 	Account getAccountById(int accountId);
+
+	// Phương thức để tìm tài khoản theo số điện thoại
+	Account findAccountByPhoneNumber(String phoneNumber);
+
+	// Phương thức để tìm tài khoản theo email
+	Account findAccountByEmail(String email);
 }

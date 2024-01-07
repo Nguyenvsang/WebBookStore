@@ -107,4 +107,16 @@ public class AccountServiceImpl implements AccountService {
 	    return account.orElse(null);
 	}
 
+	@Override
+	public Account findAccountByPhoneNumber(String phoneNumber) {
+		Optional<Account> account = accountRepository.findByPhoneNumber(phoneNumber);
+	    return account.orElse(null);
+	}
+
+	@Override
+	public Account findAccountByEmail(String email) {
+		Optional<Account> account = accountRepository.findByEmail(email);
+	    return account.orElse(null);
+	}
+
 }

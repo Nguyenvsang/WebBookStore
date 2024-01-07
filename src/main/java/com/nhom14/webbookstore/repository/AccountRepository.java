@@ -1,6 +1,7 @@
 package com.nhom14.webbookstore.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -12,4 +13,8 @@ public interface AccountRepository extends JpaRepository<Account, Integer> {
 	Account findByUsername(String username);
 
 	List<Account> findByStatus(int status);
+	
+	Optional<Account> findByPhoneNumber(String phoneNumber);
+	
+    Optional<Account> findByEmail(String email);
 }

@@ -51,6 +51,17 @@ public class AccountController {
             @RequestParam("dob") String dob,
             RedirectAttributes redirectAttributes
     ) {
+		// Kiểm tra mật khẩu có phải là mật khẩu mạnh không 
+	    if(!(password.length() >= 8 
+	            && password.matches(".*[A-Z].*") 
+	            && password.matches(".*[a-z].*") 
+	            && password.matches(".*\\d.*") 
+	            && password.matches(".*\\W.*"))) {
+		    	// Hiển thị thông báo khi mật khẩu yếu
+		    	redirectAttributes.addAttribute("message", "Mật khẩu không đủ mạnh! Mật khẩu mới phải có ít nhất 8 ký tự và"
+		    			+ " chứa ít nhất một chữ cái viết hoa, một chữ cái viết thường, một số và một ký tự đặc biệt.");
+		        return "redirect:/customer/registeraccount";
+	    }
         //BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         //String hashedPassword = passwordEncoder.encode(password);
 		// Băm mật khẩu sử dụng bcrypt
@@ -67,9 +78,16 @@ public class AccountController {
 
         try {
             Account existingAccount = accountService.findAccountByUsername(username);
+            if(existingAccount == null) {
+            	existingAccount = accountService.findAccountByPhoneNumber(phoneNumber);
+            }
+            if(existingAccount == null) {
+            	existingAccount = accountService.findAccountByEmail(email);
+            }
+            
             if (existingAccount != null) {
                 // Username already exists
-            	redirectAttributes.addAttribute("message", "Tên tài khoản đã tồn tại. Vui lòng chọn tên khác.");
+            	redirectAttributes.addAttribute("message", "Tên tài khoản, số điện thoại hoặc email đã tồn tại. Vui lòng tạo lại.");
             	return "redirect:/customer/registeraccount";
             } else {
                 accountService.addAccount(account);
